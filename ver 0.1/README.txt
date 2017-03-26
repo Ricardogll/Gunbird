@@ -1,0 +1,1 @@
+Versión 0.1 del juego. Incluye scroll de fondo, personaje manipulable y música.
