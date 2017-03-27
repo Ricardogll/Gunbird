@@ -2,10 +2,11 @@ Ratkid's Gunbird project homepage.
 
 ## Changelist
 
-### Version 0.1
+### Version 0.1 (27/03/2017)
 * First map
 * First map's music
 * Scroll
+* (Bordes)
 * Character (Yuan-nang)
 * Character Movement Keys (Yuan-nang) :
      * ↑ ➲ Move player up
