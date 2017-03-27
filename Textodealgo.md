@@ -1,1 +1,0 @@
-Buenos dias soy un personaje. Editen este fichero equis de.
