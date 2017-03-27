@@ -1,9 +1,9 @@
 Ratkid's Gunbird project homepage.
 
-##Credits##
+## Credits
 
-Github project page: https://github.com/lFreecss/Gunbird
-Github wiki page: https://github.com/lFreecss/Gunbird/wiki
+* **Github project page**: https://github.com/lFreecss/Gunbird
+* **Github wiki page**: https://github.com/lFreecss/Gunbird/wiki
 
 _**Management**: David Valdivia_
 * **Github**: [AwesomeSuitGuy](https://github.com/AwesomeSuitGuy)
