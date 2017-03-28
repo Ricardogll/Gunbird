@@ -4,6 +4,8 @@ Ratkid's Gunbird project homepage.
 ## Installation
 **Unzip the release folder and execute the .exe file**
 
+## Game Controls
+
 ## Changelist
 ### Version 0.1 (27/03/2017)
 * First map
