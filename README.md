@@ -1,14 +1,17 @@
+# Gunbird
 Ratkid's Gunbird project homepage.
 
-## Changelist
+## Installation
+**Unzip the release folder and execute the .exe file**
 
+## Changelist
 ### Version 0.1 (27/03/2017)
 * First map
 * First map's music
 * Scroll
-* (Bordes)
+* Screen Edges
 * Character (Yuan-nang)
-* Character Movement Keys (Yuan-nang) :
+* Character Movement (Yuan-nang) :
      * ↑ ➲ Move player up
      * ↓ ➲ Move player down
      * ← ➲ Move player left
@@ -34,3 +37,5 @@ _**Code**: Adrià Gironès_
 
 _**QA**: Victor Tirado_
 * **Github**: [VictorTirado](https://github.com/VictorTirado)
+
+CITM Terrassa 2016-2017
