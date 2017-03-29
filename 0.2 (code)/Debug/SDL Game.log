@@ -1,0 +1,12 @@
+﻿  ModuleWindow.cpp
+  ModuleTextures.cpp
+  ModuleRender.cpp
+  ModulePlayer.cpp
+  ModuleInput.cpp
+  ModuleBackground.cpp
+  Main.cpp
+  Globals.cpp
+  Application.cpp
+  Generando código...
+  SDL Game.vcxproj -> C:\Users\David\Desktop\0.2\Debug\SDL4 Handout.exe
+  SDL Game.vcxproj -> C:\Users\David\Desktop\0.2\Debug\SDL4 Handout.pdb (Full PDB)
