@@ -18,10 +18,10 @@ Ratkid's Gunbird project homepage.
      * ↓ ➲ Move player down
      * ← ➲ Move player left
      * → ➲ Move player right
-     * ↑ + → ➲ ↗
-     * ↑ + ← ➲ ↖
-     * ↓ + → ➲ ↘
-     * ↓ + ← ➲ ↙
+     * ↑ + → ➲ **↗**
+     * ↑ + ← ➲ **↖**
+     * ↓ + → ➲ **↘**
+     * ↓ + ← ➲ **↙**
      
 ## Credits
 
