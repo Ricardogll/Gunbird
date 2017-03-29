@@ -25,7 +25,7 @@ bool ModuleAudioTitle::Start()
 	else
 	{
 		Mix_Init(MIX_INIT_OGG);
-		Mix_OpenAudio(44000, MIX_DEFAULT_FORMAT, 2, 2048);
+		Mix_OpenAudio(24000, MIX_DEFAULT_FORMAT, 2, 2048);
 		music = Mix_LoadMUS("gunbird-002_Title_Castle.ogg");
 		Mix_PlayMusic(music, -1);
 	}

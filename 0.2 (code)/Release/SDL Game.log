@@ -1,11 +1,24 @@
-﻿  ModuleAudioMine.cpp
+﻿  Application.cpp
+  Globals.cpp
+  Main.cpp
+  ModuleAudioMine.cpp
   ModuleAudioScore.cpp
-  ModuleBackgroundMine.cpp
+  ModuleAudioSea.cpp
+  ModuleAudioTitle.cpp
   ModuleBackgroundSea.cpp
+  ModuleBackgroundMine.cpp
+  ModuleFadeToBlack.cpp
+  ModuleInput.cpp
+  ModulePlayer.cpp
+  ModuleRender.cpp
+  ModuleScoreScreen.cpp
+  ModuleTextures.cpp
+  ModuleTitleScreen.cpp
+  ModuleWindow.cpp
   Generando código
-  8 of 125 functions ( 6.4%) were compiled, the rest were copied from previous compilation.
+  122 of 125 functions (97.6%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    3 functions had inline decision re-evaluated but remain unchanged
+    0 functions had inline decision re-evaluated but remain unchanged
   Generación de código finalizada
-  SDL Game.vcxproj -> D:\Documentos\0.2 (code)\Release\SDL4 Handout.exe
-  SDL Game.vcxproj -> D:\Documentos\0.2 (code)\Release\SDL4 Handout.pdb (Full PDB)
+  SDL Game.vcxproj -> C:\Users\David\Desktop\Gunbird\0.2 (code)\Release\SDL4 Handout.exe
+  SDL Game.vcxproj -> C:\Users\David\Desktop\Gunbird\0.2 (code)\Release\SDL4 Handout.pdb (Full PDB)
