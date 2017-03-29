@@ -3,10 +3,16 @@
 #include "ModuleRender.h"
 #include "ModuleInput.h"
 #include "ModuleTextures.h"
-#include "ModuleBackground.h"
-#include "ModuleBackground2.h"
+#include "ModuleBackgroundSea.h"
+#include "ModuleBackgroundMine.h"
+#include "ModuleScoreScreen.h"
+#include "ModuleTitleScreen.h"
 #include "ModulePlayer.h"
-#include "ModuleAudio.h"
+#include "ModuleAudioTitle.h"
+#include "ModuleAudioSea.h"
+#include "ModuleAudioMine.h"
+#include "ModuleAudioScore.h"
+#include "ModuleFadeToBlack.h"
 
 Application::Application()
 {
@@ -14,10 +20,16 @@ Application::Application()
 	modules[1] = render = new ModuleRender();
 	modules[2] = input = new ModuleInput();
 	modules[3] = textures = new ModuleTextures();
-	modules[4] = background = new ModuleBackground();
-	modules[5] = player = new ModulePlayer();
-	modules[6] = audio = new ModuleAudio();
-	modules[7] = background2 = new ModuleBackground2();
+	modules[4] = titlescreen = new ModuleTitleScreen();
+	modules[5] = background = new ModuleBackgroundSea();
+	modules[6] = background2 = new ModuleBackgroundMine();
+	modules[7] = scorescreen = new ModuleScoreScreen();
+	modules[8] = player = new ModulePlayer();
+	modules[9] = audiotitle = new ModuleAudioTitle();
+	modules[10] = audiosea = new ModuleAudioSea();
+	modules[11] = audiomine = new ModuleAudioMine();
+	modules[12] = audioscore = new ModuleAudioScore();
+	modules[13] = fade = new ModuleFadeToBlack();
 }	
 
 Application::~Application()
@@ -33,7 +45,12 @@ bool Application::Init()
 	// Player will be enabled on the first update of a new scene
 	player->Disable();
 	// Disable the map that you do not start with
+	background->Disable();
 	background2->Disable();
+	scorescreen->Disable();
+	audiosea->Disable();
+	audiomine->Disable();
+	audioscore->Disable();
 
 	for (int i = 0; i < NUM_MODULES && ret == true; ++i)
 		ret = modules[i]->Init();

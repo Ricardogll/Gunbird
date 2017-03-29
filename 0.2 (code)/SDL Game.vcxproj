@@ -74,13 +74,19 @@
     <ClInclude Include="Globals.h" />
     <ClInclude Include="MemLeaks.h" />
     <ClInclude Include="Module.h" />
-    <ClInclude Include="ModuleAudio.h" />
-    <ClInclude Include="ModuleBackground.h" />
-    <ClInclude Include="ModuleBackground2.h" />
+    <ClInclude Include="ModuleAudioMine.h" />
+    <ClInclude Include="ModuleAudioScore.h" />
+    <ClInclude Include="ModuleAudioSea.h" />
+    <ClInclude Include="ModuleAudioTitle.h" />
+    <ClInclude Include="ModuleBackgroundSea.h" />
+    <ClInclude Include="ModuleBackgroundMine.h" />
+    <ClInclude Include="ModuleFadeToBlack.h" />
     <ClInclude Include="ModuleInput.h" />
     <ClInclude Include="ModulePlayer.h" />
     <ClInclude Include="ModuleRender.h" />
+    <ClInclude Include="ModuleScoreScreen.h" />
     <ClInclude Include="ModuleTextures.h" />
+    <ClInclude Include="ModuleTitleScreen.h" />
     <ClInclude Include="ModuleWindow.h" />
     <ClInclude Include="p2Point.h" />
   </ItemGroup>
@@ -88,13 +94,19 @@
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="Globals.cpp" />
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="ModuleAudio.cpp" />
-    <ClCompile Include="ModuleBackground.cpp" />
-    <ClCompile Include="ModuleBackground2.cpp" />
+    <ClCompile Include="ModuleAudioMine.cpp" />
+    <ClCompile Include="ModuleAudioScore.cpp" />
+    <ClCompile Include="ModuleAudioSea.cpp" />
+    <ClCompile Include="ModuleAudioTitle.cpp" />
+    <ClCompile Include="ModuleBackgroundSea.cpp" />
+    <ClCompile Include="ModuleBackgroundMine.cpp" />
+    <ClCompile Include="ModuleFadeToBlack.cpp" />
     <ClCompile Include="ModuleInput.cpp" />
     <ClCompile Include="ModulePlayer.cpp" />
     <ClCompile Include="ModuleRender.cpp" />
+    <ClCompile Include="ModuleScoreScreen.cpp" />
     <ClCompile Include="ModuleTextures.cpp" />
+    <ClCompile Include="ModuleTitleScreen.cpp" />
     <ClCompile Include="ModuleWindow.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

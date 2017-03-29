@@ -3,16 +3,22 @@
 
 #include "Globals.h"
 
-#define NUM_MODULES 8
+#define NUM_MODULES 14
 
 class ModuleWindow;
 class ModuleInput;
 class ModuleTextures;
 class ModuleRender;
-class ModuleBackground;
-class ModuleBackground2;
+class ModuleBackgroundSea;
+class ModuleBackgroundMine;
+class ModuleTitleScreen;
+class ModuleScoreScreen;
 class ModulePlayer;
-class ModuleAudio;
+class ModuleAudioTitle;
+class ModuleAudioSea;
+class ModuleAudioMine;
+class ModuleAudioScore;
+class ModuleFadeToBlack;
 class Module;
 
 class Application
@@ -24,10 +30,16 @@ public:
 	ModuleRender* render;
 	ModuleInput* input;
 	ModuleTextures* textures;
-	ModuleBackground* background;
-	ModuleBackground2* background2;
+	ModuleTitleScreen *titlescreen;
+	ModuleBackgroundSea* background;
+	ModuleBackgroundMine* background2;
+	ModuleScoreScreen *scorescreen;
 	ModulePlayer* player;
-	ModuleAudio* audio;
+	ModuleAudioTitle* audiotitle;
+	ModuleAudioSea* audiosea;
+	ModuleAudioMine* audiomine;
+	ModuleAudioScore* audioscore;
+	ModuleFadeToBlack* fade;
 
 public:
 

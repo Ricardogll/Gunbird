@@ -7,8 +7,8 @@
 
 ModulePlayer::ModulePlayer()
 {
-	position.x = 120; 
-	position.y = 2510; 
+	position.x = 100; 
+	position.y = 2610; 
 
 	// idle animation
 	idle.PushBack({9, 6, 27, 48 }); //1
@@ -97,7 +97,6 @@ update_status ModulePlayer::Update()
 	// Draw everything --------------------------------------
 	SDL_Rect r = current_animation->GetCurrentFrame();
 
-	App->render->Blit(graphics, position.x, position.y - r.h, &r);
 	App->render->Blit(graphics, position.x, position.y - r.h, &r);
 	
 	return UPDATE_CONTINUE;

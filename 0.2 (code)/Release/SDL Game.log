@@ -1,8 +1,11 @@
-﻿  ModuleBackground2.cpp
-  Generating code
-  1 of 86 functions ( 1.2%) were compiled, the rest were copied from previous compilation.
+﻿  ModuleAudioMine.cpp
+  ModuleAudioScore.cpp
+  ModuleBackgroundMine.cpp
+  ModuleBackgroundSea.cpp
+  Generando código
+  8 of 125 functions ( 6.4%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    6 functions had inline decision re-evaluated but remain unchanged
-  Finished generating code
-  SDL Game.vcxproj -> C:\Users\davidvh1\Documents\GitHub\Gunbird\0.2 (code)\Release\SDL4 Handout.exe
-  SDL Game.vcxproj -> C:\Users\davidvh1\Documents\GitHub\Gunbird\0.2 (code)\Release\SDL4 Handout.pdb (Full PDB)
+    3 functions had inline decision re-evaluated but remain unchanged
+  Generación de código finalizada
+  SDL Game.vcxproj -> D:\Documentos\0.2 (code)\Release\SDL4 Handout.exe
+  SDL Game.vcxproj -> D:\Documentos\0.2 (code)\Release\SDL4 Handout.pdb (Full PDB)

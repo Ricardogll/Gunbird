@@ -16,7 +16,7 @@ public:
 	virtual update_status PostUpdate() 	{ return update_status::UPDATE_CONTINUE; }
 	virtual bool CleanUp()				{ return true; }
 
-	bool IsEnabled() const { return enabled; }
+	bool IsEnabled() const				{ return enabled; }
 
 	void Enable()
 	{
@@ -27,8 +27,6 @@ public:
 		}
 	}
 
-
-	// TODO 0: Call CleanUp() for disabling a module
 	void Disable()
 	{
 		if (enabled == true)

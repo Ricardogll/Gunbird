@@ -49,7 +49,7 @@ bool ModuleTextures::CleanUp()
 	return true;
 }
 
-// Load new texture from file path
+// Load new texture from file path 
 SDL_Texture* const ModuleTextures::Load(const char* path)
 {
 	SDL_Texture* texture = NULL;
@@ -76,4 +76,4 @@ SDL_Texture* const ModuleTextures::Load(const char* path)
 	}
 
 	return texture;
-}
+} 
