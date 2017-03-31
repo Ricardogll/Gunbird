@@ -8,6 +8,7 @@
 #include "ModulePlayer.h"
 #include "ModuleFadeToBlack.h"
 
+
 ModuleTitleScreen::ModuleTitleScreen()
 {
 	titlescreen.x = 0;
@@ -48,7 +49,7 @@ bool ModuleTitleScreen::CleanUp()
 {
 	LOG("Destroying SDL audio");
 	Mix_FreeMusic(music);
-
+	App->textures->Unload(graphics);
 	return true;
 }
 
@@ -61,6 +62,22 @@ update_status ModuleTitleScreen::Update()
 
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == 1) {
 		App->fade->FadeToBlack(this, App->background, 1);
+		LOG("Init SDL audio");
+
+		if (SDL_Init(SDL_INIT_AUDIO) < 0)
+		{
+			LOG("SDL_AUDIO could not initialize! SDL_Error:\n");
+			LOG(SDL_GetError());
+		}
+		else
+		{
+			Mix_Init(MIX_INIT_MP3);
+			Mix_OpenAudio(44000, MIX_DEFAULT_FORMAT, 2, 2048);
+			insertcoin = Mix_LoadWAV("assets/InsertCoin.wav");
+			Mix_PlayChannel(-1, insertcoin, 0);
+	
+		}
+		Mix_FreeChunk(insertcoin);
 	}
 
 	return UPDATE_CONTINUE;

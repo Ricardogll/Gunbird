@@ -4,6 +4,7 @@
 #include "ModuleInput.h"
 #include "ModuleRender.h"
 #include "ModulePlayer.h"
+#include "Animation.h"
 
 ModulePlayer::ModulePlayer()
 {
@@ -22,10 +23,16 @@ ModulePlayer::ModulePlayer()
 	idle.speed = 0.08f;
 
 	// left animation
+	left.PushBack({ 18, 417, 24, 47 });
+	left.PushBack({ 73, 418, 24, 47 });
+	left.PushBack({ 122, 419, 24, 47 });
+	left.PushBack({ 170, 420, 24, 46 });
+
 	left.PushBack({ 18, 350, 26, 48 });
 	left.PushBack({ 73, 351, 27, 48 });
 	left.PushBack({ 120, 351, 27, 48 });
-	left.PushBack({ 170, 351, 27, 48 });
+	left.PushBack({ 170, 351, 27, 48 }); 
+	left.loop = false;
 	left.speed = 0.08f;
 
 	// right animation
@@ -33,6 +40,11 @@ ModulePlayer::ModulePlayer()
 	right.PushBack({ 119, 171, 27, 48 });
 	right.PushBack({ 168, 172, 27, 48 });
 	right.PushBack({ 15, 174, 27, 48 });
+	right.loop = false;
+	right.PushBack({ 20, 246, 27, 47 });
+	right.PushBack({ 79, 248, 27, 47 });
+	right.PushBack({ 121, 247, 27, 46 });
+	right.PushBack({ 171, 248, 27, 46 });
 	right.speed = 0.08f;
 
 	shoot.PushBack({ 34,1516,80,130 });

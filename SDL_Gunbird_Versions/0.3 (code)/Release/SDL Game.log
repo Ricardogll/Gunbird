@@ -1,0 +1,11 @@
+﻿  Application.cpp
+  ModulePlayer.cpp
+  ModuleScoreScreen.cpp
+  ModuleTitleScreen.cpp
+  Generando código
+  7 of 107 functions ( 6.5%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    21 functions had inline decision re-evaluated but remain unchanged
+  Generación de código finalizada
+  SDL Game.vcxproj -> C:\Users\David\Desktop\0.3 (code)\Release\Gunbird.exe
+  SDL Game.vcxproj -> C:\Users\David\Desktop\0.3 (code)\Release\Gunbird.pdb (Full PDB)

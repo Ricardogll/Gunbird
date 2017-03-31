@@ -24,6 +24,7 @@ public:
 
 	SDL_Texture* graphics = nullptr;
 	Mix_Music* music = nullptr;
+	Mix_Chunk* insertcoin = nullptr;
 	SDL_Rect titlescreen;
 
 };
