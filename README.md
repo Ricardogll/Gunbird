@@ -37,9 +37,12 @@ If you want more information about the game, check the following link: https://g
 * Welcome screen (screenshot)
 * Second Map
 * Score screen (screenshot)
-* Fade to black    
-## Credits
+* Fade to black
+### 0.3 Version (03/04/2017)
+* Background Animation
+* Particle shoot by the player (with sound)
 
+## Credits
 * **Github project page**: https://github.com/lFreecss/Gunbird
 * **Github wiki page**: https://github.com/lFreecss/Gunbird/wiki
 * **Github project web**: https://lfreecss.github.io/Gunbird/
@@ -59,9 +62,9 @@ _**QA**: Victor Tirado_
 
 **Most of the information and sprites presented in this wiki have been gathered cooperatively with other teams making the same project as us. You can check their wikis down below:**
 
-* Frozensloth Studios: https://github.com/Wilhelman/Gunbird_P01/wiki
-* EdgyPoint: https://github.com/EdgyPoint/Project-1/wiki
-* Watermelon $quad: https://github.com/Dtotoro27/Watermelon-Squad/wiki
-* Coded Dreams: https://github.com/Adria-F/Gunbird-Coded-Dreams/wiki
+* **Frozensloth Studios**: https://github.com/Wilhelman/Gunbird_P01/wiki
+* **EdgyPoint**: https://github.com/EdgyPoint/Project-1/wiki
+* **Watermelon $quad**: https://github.com/Dtotoro27/Watermelon-Squad/wiki
+* **Coded Dreams**: https://github.com/Adria-F/Gunbird-Coded-Dreams/wiki
 
 CITM Terrassa 2016-2017
