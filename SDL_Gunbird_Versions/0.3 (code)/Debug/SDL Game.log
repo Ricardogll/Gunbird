@@ -1,3 +1,4 @@
 ﻿  ModuleTitleScreen.cpp
-  SDL Game.vcxproj -> C:\Users\David\Desktop\0.3 (code)\Debug\Gunbird.exe
-  SDL Game.vcxproj -> C:\Users\David\Desktop\0.3 (code)\Debug\Gunbird.pdb (Full PDB)
+d:\documentos\0.3 (code)\moduletitlescreen.cpp(71): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+  SDL Game.vcxproj -> D:\Documentos\0.3 (code)\Debug\Gunbird.exe
+  SDL Game.vcxproj -> D:\Documentos\0.3 (code)\Debug\Gunbird.pdb (Full PDB)

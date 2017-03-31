@@ -55,6 +55,9 @@ bool ModuleBackgroundMine::CleanUp()
 	App->player->Disable();
 	App->player2->Disable();
 
+	LOG("Unloading mine stage");
+	App->textures->Unload(graphics);
+
 	LOG("Destroying SDL audio");
 	Mix_FreeMusic(music);
 

@@ -54,6 +54,14 @@ bool ModulePlayer2::Start()
 	return ret;
 }
 
+bool ModulePlayer2::CleanUp()
+{
+	LOG("Unloading player 2");
+	App->textures->Unload(graphics);
+
+	return true;
+}
+
 // Update: draw background
 update_status ModulePlayer2::Update()
 {
@@ -61,7 +69,7 @@ update_status ModulePlayer2::Update()
 
 	int speed = 3;
 
-	if (App->input->keyboard[SDL_SCANCODE_D] == 1)
+	if (App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT)
 	{
 		current_animation = &right;
 		position.x += speed;
@@ -69,7 +77,7 @@ update_status ModulePlayer2::Update()
 			position.x = (SCREEN_WIDTH - 32);
 		}
 	}
-	if (App->input->keyboard[SDL_SCANCODE_A] == 1)
+	if (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT)
 	{
 		current_animation = &left;
 		position.x -= speed;
@@ -77,7 +85,7 @@ update_status ModulePlayer2::Update()
 			position.x = 0;
 		}
 	}
-	if (App->input->keyboard[SDL_SCANCODE_W] == 1)
+	if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT)
 	{
 		current_animation = &idle;
 		position.y -= speed;
@@ -85,7 +93,7 @@ update_status ModulePlayer2::Update()
 			position.y = 2370;
 		}
 	}
-	if (App->input->keyboard[SDL_SCANCODE_S] == 1)
+	if (App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT)
 	{
 		current_animation = &idle;
 		position.y += speed;

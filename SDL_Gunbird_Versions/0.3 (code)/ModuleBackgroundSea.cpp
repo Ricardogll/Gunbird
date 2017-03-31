@@ -54,6 +54,9 @@ bool ModuleBackgroundSea::CleanUp()
 	App->player->Disable();
 	App->player2->Disable();
 
+	LOG("Unloading sea stage");
+	App->textures->Unload(graphics);
+
 	LOG("Destroying SDL audio");
 	Mix_FreeMusic(music);
 

@@ -5,8 +5,6 @@
 #include "ModuleRender.h"
 #include "SDL/include/SDL_render.h"
 #include "SDL/include/SDL_timer.h"
-#include "Module.h"
-#include "ModuleInput.h"
 
 ModuleFadeToBlack::ModuleFadeToBlack()
 {
@@ -39,11 +37,8 @@ update_status ModuleFadeToBlack::Update()
 		{
 			if(now >= total_time)
 			{
-				off->CleanUp();
 				off->Disable();
 				on->Enable();
-			
-				// ---
 				total_time += total_time;
 				start_time = SDL_GetTicks();
 				current_step = fade_step::fade_from_black;
@@ -75,9 +70,6 @@ bool ModuleFadeToBlack::FadeToBlack(Module* module_off, Module* module_on, float
 		{
 			current_step = fade_step::fade_to_black;
 			start_time = SDL_GetTicks();
-			if (start_time > total_time) {
-				start_time = total_time;
-			}
 			total_time = (Uint32)(time * 0.5f * 1000.0f);
 			on = module_on;
 			off = module_off;

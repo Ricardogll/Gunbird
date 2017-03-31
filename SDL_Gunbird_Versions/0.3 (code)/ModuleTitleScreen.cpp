@@ -40,6 +40,7 @@ bool ModuleTitleScreen::Start()
 		Mix_OpenAudio(24000, MIX_DEFAULT_FORMAT, 2, 2048);
 		music = Mix_LoadMUS("assets/gunbird-002_Title_Castle.ogg");
 		Mix_PlayMusic(music, -1);
+		insertcoin = Mix_LoadWAV("assets/InsertCoin.wav");
 	}
 
 	return ret;
@@ -49,6 +50,11 @@ bool ModuleTitleScreen::CleanUp()
 {
 	LOG("Destroying SDL audio");
 	Mix_FreeMusic(music);
+	Mix_FreeChunk(insertcoin);
+	Mix_CloseAudio();
+	insertcoin = nullptr;
+
+	LOG("Unloading title screen");
 	App->textures->Unload(graphics);
 	return true;
 }
@@ -60,24 +66,10 @@ update_status ModuleTitleScreen::Update()
 
 	App->render->Blit(graphics, 0, 0, &titlescreen, 0.75f);
 
-	if (App->input->keyboard[SDL_SCANCODE_SPACE] == 1) {
-		App->fade->FadeToBlack(this, App->background, 1);
-		LOG("Init SDL audio");
-
-		if (SDL_Init(SDL_INIT_AUDIO) < 0)
-		{
-			LOG("SDL_AUDIO could not initialize! SDL_Error:\n");
-			LOG(SDL_GetError());
-		}
-		else
-		{
-			Mix_Init(MIX_INIT_MP3);
-			Mix_OpenAudio(44000, MIX_DEFAULT_FORMAT, 2, 2048);
-			insertcoin = Mix_LoadWAV("assets/InsertCoin.wav");
-			Mix_PlayChannel(-1, insertcoin, 0);
-	
-		}
-		Mix_FreeChunk(insertcoin);
+	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN) {
+		Mix_PlayChannel(-1, insertcoin, 0);
+		App->fade->FadeToBlack(this, App->background, 1.8);
+		
 	}
 
 	return UPDATE_CONTINUE;

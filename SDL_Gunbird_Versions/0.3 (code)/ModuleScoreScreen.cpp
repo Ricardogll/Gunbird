@@ -53,6 +53,9 @@ bool ModuleScoreScreen::CleanUp()
 	LOG("Destroying SDL audio");
 	Mix_FreeMusic(music);
 
+	LOG("Unloading score screen");
+	App->textures->Unload(graphics);
+
 	return true;
 }
 
