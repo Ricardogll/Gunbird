@@ -42,6 +42,8 @@ If you want more information about the game, check the following link: https://g
 
 * **Github project page**: https://github.com/lFreecss/Gunbird
 * **Github wiki page**: https://github.com/lFreecss/Gunbird/wiki
+* **Github project web**: https://lfreecss.github.io/Gunbird/
+* **Twitter account page**: https://twitter.com/RatkidStudio
 
 _**Management**: David Valdivia_
 * **Github**: [AwesomeSuitGuy](https://github.com/AwesomeSuitGuy)
@@ -54,5 +56,12 @@ _**Code**: Adrià Gironès_
 
 _**QA**: Victor Tirado_
 * **Github**: [VictorTirado](https://github.com/VictorTirado)
+
+**Most of the information and sprites presented in this wiki have been gathered cooperatively with other teams making the same project as us. You can check their wikis down below:**
+
+* Frozensloth Studios: https://github.com/Wilhelman/Gunbird_P01/wiki
+* EdgyPoint: https://github.com/EdgyPoint/Project-1/wiki
+* Watermelon $quad: https://github.com/Dtotoro27/Watermelon-Squad/wiki
+* Coded Dreams: https://github.com/Adria-F/Gunbird-Coded-Dreams/wiki
 
 CITM Terrassa 2016-2017
