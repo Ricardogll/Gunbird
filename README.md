@@ -13,6 +13,8 @@ If you want more information about the game, check the following link: https://g
 **_Unzip the release folder and execute the .exe file_**
 
 ## Game Controls
+### Player 1
+### Player 2
 
 ## Changelist
 ### 0.1 Version (27/03/2017)
