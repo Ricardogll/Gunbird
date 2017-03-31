@@ -74,6 +74,9 @@
     <ClInclude Include="ModuleAudioScore.h">
       <Filter>Modules</Filter>
     </ClInclude>
+    <ClInclude Include="ModulePlayer2.h">
+      <Filter>Modules</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -125,6 +128,9 @@
       <Filter>Modules</Filter>
     </ClCompile>
     <ClCompile Include="ModuleAudioScore.cpp">
+      <Filter>Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="ModulePlayer2.cpp">
       <Filter>Modules</Filter>
     </ClCompile>
   </ItemGroup>

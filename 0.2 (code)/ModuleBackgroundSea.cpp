@@ -6,6 +6,7 @@
 #include "ModuleBackgroundSea.h"
 #include "ModuleBackgroundMine.h"
 #include "ModulePlayer.h"
+#include "ModulePlayer2.h"
 #include "ModuleFadeToBlack.h"
 #include "ModuleAudioSea.h"
 #include "ModuleAudioMine.h"
@@ -29,6 +30,7 @@ bool ModuleBackgroundSea::Start()
 	bool ret = true;
 	graphics = App->textures->Load("Background Sea.png");
 	App->player->Enable();
+	App->player2->Enable();
 	return ret;
 }
 
@@ -36,6 +38,7 @@ bool ModuleBackgroundSea::CleanUp()
 {
 	LOG("Unloading honda stage");
 	App->player->Disable();
+	App->player2->Disable();
 	return true;
 }
 

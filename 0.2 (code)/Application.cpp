@@ -8,6 +8,7 @@
 #include "ModuleScoreScreen.h"
 #include "ModuleTitleScreen.h"
 #include "ModulePlayer.h"
+#include "ModulePlayer2.h"
 #include "ModuleAudioTitle.h"
 #include "ModuleAudioSea.h"
 #include "ModuleAudioMine.h"
@@ -25,11 +26,12 @@ Application::Application()
 	modules[6] = background2 = new ModuleBackgroundMine();
 	modules[7] = scorescreen = new ModuleScoreScreen();
 	modules[8] = player = new ModulePlayer();
-	modules[9] = audiotitle = new ModuleAudioTitle();
-	modules[10] = audiosea = new ModuleAudioSea();
-	modules[11] = audiomine = new ModuleAudioMine();
-	modules[12] = audioscore = new ModuleAudioScore();
-	modules[13] = fade = new ModuleFadeToBlack();
+	modules[9] = player2 = new ModulePlayer2();
+	modules[10] = audiotitle = new ModuleAudioTitle();
+	modules[11] = audiosea = new ModuleAudioSea();
+	modules[12] = audiomine = new ModuleAudioMine();
+	modules[13] = audioscore = new ModuleAudioScore();
+	modules[14] = fade = new ModuleFadeToBlack();
 }	
 
 Application::~Application()
@@ -44,6 +46,7 @@ bool Application::Init()
 
 	// Player will be enabled on the first update of a new scene
 	player->Disable();
+	player2->Disable();
 	// Disable the map that you do not start with
 	background->Disable();
 	background2->Disable();
