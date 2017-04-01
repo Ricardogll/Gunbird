@@ -11,28 +11,24 @@ ModulePlayer2::ModulePlayer2()
 	position.y = 2610;
 
 	// idle animation
-	idle.PushBack({ 9, 6, 27, 48 }); //1
-	idle.PushBack({ 107, 7, 27, 48 }); //2
-	idle.PushBack({ 61, 96, 27, 48 }); //3
-	idle.PushBack({ 112, 97, 27, 48 }); //4
-	idle.PushBack({ 159, 5, 27, 48 }); //5
-	idle.PushBack({ 53, 6, 27, 48 }); //6
-	idle.PushBack({ 14, 95, 27, 48 }); //7
-	idle.PushBack({ 163, 99, 27, 48 }); //8
+	idle.PushBack({ 2, 65, 28, 33 }); //1
+	idle.PushBack({ 33, 65, 28, 33 }); //2
+	idle.PushBack({ 65, 65, 28, 33 }); //3
+	idle.PushBack({ 96, 65, 28, 33 }); //4
 	idle.speed = 0.08f;
 
 	// left animation
-	left.PushBack({ 18, 350, 26, 48 });
-	left.PushBack({ 73, 351, 27, 48 });
-	left.PushBack({ 120, 351, 27, 48 });
-	left.PushBack({ 170, 351, 27, 48 });
+	left.PushBack({ 2, 35, 28, 33 });
+	left.PushBack({ 36, 35, 28, 33 });
+	left.PushBack({ 65, 35, 28, 33 });
+	left.PushBack({ 96, 35, 28, 33 });
 	left.speed = 0.08f;
 
 	// right animation
-	right.PushBack({ 70, 171, 26, 48 });
-	right.PushBack({ 119, 171, 27, 48 });
-	right.PushBack({ 168, 172, 27, 48 });
-	right.PushBack({ 15, 174, 27, 48 });
+	right.PushBack({ 3, 99, 28, 33 });
+	right.PushBack({ 38, 99, 28, 33 });
+	right.PushBack({ 68, 99, 28, 33 });
+	right.PushBack({ 103, 99, 28, 33 });
 	right.speed = 0.08f;
 
 	shoot.PushBack({ 34,1516,80,130 });
@@ -50,7 +46,7 @@ bool ModulePlayer2::Start()
 {
 	LOG("Loading player textures");
 	bool ret = true;
-	graphics = App->textures->Load("assets/Yuan_Nang.png");
+	graphics = App->textures->Load("assets/Marion.png");
 	return ret;
 }
 
