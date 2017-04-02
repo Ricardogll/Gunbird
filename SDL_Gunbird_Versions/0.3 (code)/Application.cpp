@@ -10,6 +10,7 @@
 #include "ModulePlayer.h"
 #include "ModulePlayer2.h"
 #include "ModuleFadeToBlack.h"
+#include "ModuleParticles.h"
 
 Application::Application()
 {
@@ -21,9 +22,10 @@ Application::Application()
 	modules[5] = background = new ModuleBackgroundSea();
 	modules[6] = background2 = new ModuleBackgroundMine();
 	modules[7] = scorescreen = new ModuleScoreScreen();
-	modules[8] = player = new ModulePlayer();
-	modules[9] = player2 = new ModulePlayer2();
-	modules[10] = fade = new ModuleFadeToBlack();
+	modules[8] = particles = new ModuleParticles();
+	modules[9] = player = new ModulePlayer();
+	modules[10] = player2 = new ModulePlayer2();
+	modules[11] = fade = new ModuleFadeToBlack();
 }
 
 Application::~Application()

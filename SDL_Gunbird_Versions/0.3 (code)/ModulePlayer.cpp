@@ -5,6 +5,7 @@
 #include "ModuleRender.h"
 #include "ModulePlayer.h"
 #include "Animation.h"
+#include "ModuleParticles.h"
 
 ModulePlayer::ModulePlayer()
 {
@@ -113,6 +114,16 @@ update_status ModulePlayer::Update()
 			position.y = (SCREEN_HEIGHT + 2335);
 		}
 	}
+
+	if (App->input->keyboard[SDL_SCANCODE_X] == KEY_STATE::KEY_DOWN)
+	{
+		App->particles->AddParticle(App->particles->laser, position.x + 9, position.y - 30);
+
+	}
+
+	if (App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_REPEAT
+		&& App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT)
+		current_animation = &idle;
 
 	// Draw everything --------------------------------------
 	SDL_Rect r = current_animation->GetCurrentFrame();
