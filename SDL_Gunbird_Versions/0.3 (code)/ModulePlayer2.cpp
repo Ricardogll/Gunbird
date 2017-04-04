@@ -11,24 +11,25 @@ ModulePlayer2::ModulePlayer2()
 	position.y = 2610;
 
 	// idle animation
-	idle.PushBack({ 2, 65, 28, 33 }); //1
-	idle.PushBack({ 33, 65, 28, 33 }); //2
-	idle.PushBack({ 65, 65, 28, 33 }); //3
-	idle.PushBack({ 96, 65, 28, 33 }); //4
+	idle.PushBack({ 5, 64, 21, 32 }); //1
+	idle.PushBack({ 34, 64, 20, 32 }); //2
+	idle.PushBack({ 68, 64, 18, 32 }); //3
+	idle.PushBack({ 100, 64, 20, 32 }); //4
+	
 	idle.speed = 0.08f;
 
 	// left animation
-	left.PushBack({ 2, 35, 28, 33 });
-	left.PushBack({ 36, 35, 28, 33 });
-	left.PushBack({ 65, 35, 28, 33 });
-	left.PushBack({ 96, 35, 28, 33 });
+	left.PushBack({ 5, 96, 23, 32 });
+	left.PushBack({ 37, 96, 23, 32 });
+	left.PushBack({ 68, 96, 23, 32 });
+	left.PushBack({ 101, 96, 23, 32 });
 	left.speed = 0.08f;
 
 	// right animation
-	right.PushBack({ 3, 99, 28, 33 });
-	right.PushBack({ 38, 99, 28, 33 });
-	right.PushBack({ 68, 99, 28, 33 });
-	right.PushBack({ 103, 99, 28, 33 });
+	right.PushBack({ 0, 0, 23, 32 });
+	right.PushBack({ 31, 0, 23, 32 });
+	right.PushBack({ 64, 0, 23, 32 });
+	right.PushBack({ 96, 0, 23, 32 });
 	right.speed = 0.08f;
 
 	shoot.PushBack({ 34,1516,80,130 });
@@ -67,7 +68,7 @@ update_status ModulePlayer2::Update()
 
 	if (App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT)
 	{
-		current_animation = &right;
+		current_animation = &left;
 		position.x += speed;
 		if (position.x > (SCREEN_WIDTH - 32)) {
 			position.x = (SCREEN_WIDTH - 32);
@@ -75,7 +76,7 @@ update_status ModulePlayer2::Update()
 	}
 	if (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT)
 	{
-		current_animation = &left;
+		current_animation = &right;
 		position.x -= speed;
 		if (position.x < 0) {
 			position.x = 0;
