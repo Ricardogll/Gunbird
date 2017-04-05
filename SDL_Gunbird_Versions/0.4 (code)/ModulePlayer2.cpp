@@ -12,11 +12,11 @@ ModulePlayer2::ModulePlayer2()
 	position.y = 2610;
 
 	// idle animation
-	idle.PushBack({ 5, 64, 21, 32 }); //1
-	idle.PushBack({ 34, 64, 20, 32 }); //2
-	idle.PushBack({ 68, 64, 18, 32 }); //3
+	idle.PushBack({ 4, 64, 20, 32 }); //1
+	idle.PushBack({ 36, 64, 20, 32 }); //2
+	idle.PushBack({ 67, 64, 20, 32 }); //3
 	idle.PushBack({ 100, 64, 20, 32 }); //4
-	
+
 	idle.speed = 0.08f;
 
 	// left animation

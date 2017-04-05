@@ -27,7 +27,9 @@ public:
 	Collider* collider = nullptr;
 	Animation idle;
 	Animation right;
+	Animation mright;
 	Animation left;
+	Animation mleft;
 	Animation shoot;
 	iPoint position;
 

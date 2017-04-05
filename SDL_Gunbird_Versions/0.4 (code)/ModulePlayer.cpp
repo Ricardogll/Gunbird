@@ -29,13 +29,16 @@ ModulePlayer::ModulePlayer()
 	left.PushBack({ 73, 418, 24, 47 });
 	left.PushBack({ 122, 419, 24, 47 });
 	left.PushBack({ 170, 420, 24, 46 });
-
-	left.PushBack({ 18, 350, 26, 48 });
-	left.PushBack({ 73, 351, 27, 48 });
-	left.PushBack({ 120, 351, 27, 48 });
-	left.PushBack({ 170, 351, 27, 48 }); 
 	left.loop = false;
 	left.speed = 0.08f;
+
+	// more left animation
+	mleft.PushBack({ 18, 350, 26, 48 });
+	mleft.PushBack({ 73, 351, 27, 48 });
+	mleft.PushBack({ 120, 351, 27, 48 });
+	mleft.PushBack({ 170, 351, 27, 48 });
+	mleft.loop = true;
+	mleft.speed = 0.08f;
 
 	// right animation
 	right.PushBack({ 70, 171, 26, 48 });
@@ -43,12 +46,17 @@ ModulePlayer::ModulePlayer()
 	right.PushBack({ 168, 172, 27, 48 });
 	right.PushBack({ 15, 174, 27, 48 });
 	right.loop = false;
-	right.PushBack({ 20, 246, 27, 47 });
-	right.PushBack({ 79, 248, 27, 47 });
-	right.PushBack({ 121, 247, 27, 46 });
-	right.PushBack({ 171, 248, 27, 46 });
 	right.speed = 0.08f;
 
+	// more right animation
+	mright.PushBack({ 20, 246, 27, 47 });
+	mright.PushBack({ 79, 248, 27, 47 });
+	mright.PushBack({ 121, 247, 27, 46 });
+	mright.PushBack({ 171, 248, 27, 46 });
+	mright.loop = true;
+	mright.speed = 0.08f;
+
+	// Shoot animation
 	shoot.PushBack({ 34,1516,80,130 });
 	shoot.PushBack({ 129,1516,90,130 });
 	shoot.PushBack({ 245,1531,90,130 });
@@ -88,6 +96,7 @@ update_status ModulePlayer::Update()
 	if (App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT)
 	{
 		current_animation = &right;
+		current_animation = &mright;
 		position.x += speed;
 		if (position.x > (SCREEN_WIDTH - 32)) {
 			position.x = (SCREEN_WIDTH - 32);
@@ -96,6 +105,7 @@ update_status ModulePlayer::Update()
 	if (App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_REPEAT)
 	{
 		current_animation = &left;
+		current_animation = &mleft;
 		position.x -= speed;
 		if (position.x < 0) {
 			position.x = 0;
