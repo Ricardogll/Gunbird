@@ -41,6 +41,8 @@ If you want more information about the game, check the following link: https://g
 ### 0.3 Version (03/04/2017)
 * Background Animation
 * Particle shoot by the player (with sound)
+### 0.4 Version (07/04/2017)
+* Colliders for the player and its particles
 
 ## Credits
 * **Github project page**: https://github.com/lFreecss/Gunbird
