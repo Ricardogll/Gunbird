@@ -16,6 +16,7 @@ ModuleBackgroundMine::ModuleBackgroundMine()
 	background2.y = 0;
 	background2.w = 224;
 	background2.h = 2036;
+
 }
 
 ModuleBackgroundMine::~ModuleBackgroundMine()
@@ -31,6 +32,7 @@ bool ModuleBackgroundMine::Start()
 
 	App->player->Enable();
 	App->player2->Enable();
+	App->collision->Enable();
 
 	LOG("Init SDL audio");
 	if (SDL_Init(SDL_INIT_AUDIO) < 0)
@@ -54,6 +56,7 @@ bool ModuleBackgroundMine::CleanUp()
 {
 	App->player->Disable();
 	App->player2->Disable();
+	App->collision->Disable();
 
 	LOG("Unloading mine stage");
 	App->textures->Unload(graphics);
@@ -75,7 +78,7 @@ update_status ModuleBackgroundMine::Update()
 		backscroll = 250;
 	}
 
-	if (App->input->keyboard[SDL_SCANCODE_SPACE] == 1) {
+	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN && App->fade->IsFading() == false) {
 		App->fade->FadeToBlack(this, App->scorescreen, 1);
 	}
 

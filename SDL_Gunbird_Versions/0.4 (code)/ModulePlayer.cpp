@@ -129,9 +129,8 @@ update_status ModulePlayer::Update()
 	}
 
 	if (App->input->keyboard[SDL_SCANCODE_X] == KEY_STATE::KEY_DOWN)
-	{
+	{ 
 		App->particles->AddParticle(App->particles->laser, position.x + 9, position.y - 30, COLLIDER_PLAYER_SHOT);
-
 	}
 
 	if (App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_REPEAT
@@ -146,4 +145,13 @@ update_status ModulePlayer::Update()
 	App->render->Blit(graphics, position.x, position.y - r.h, &r);
 
 	return UPDATE_CONTINUE;
+}
+
+void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
+{
+	if (graphics != nullptr && collider == c1)
+	{
+		//App->particles->AddParticle(App->particles->explosion, position.x, position.y, COLLIDER_NONE);
+		
+	}
 }

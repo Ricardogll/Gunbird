@@ -12,6 +12,15 @@ ModuleParticles::ModuleParticles()
 {
 	for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
 		active[i] = nullptr;
+
+	// Yuan Nang laser
+	laser.anim.PushBack({ 732, 31, 13, 29 });
+	laser.speed.y = -4;
+	laser.life = 1500;
+
+	// Explosion Balloon
+	//explosion_balloon.anim.PushBack({ 11,124,97,88 });;
+	//explosion_balloon.life = 500;
 }
 
 ModuleParticles::~ModuleParticles()
@@ -22,11 +31,10 @@ bool ModuleParticles::Start()
 {
 	LOG("Loading particles");
 	graphics = App->textures->Load("assets/Yuan_Nang.png");
-	lasersound = Mix_LoadWAV("assets/Shoot_YungNang.ogg");
-	// Yuan Nang laser
-	laser.anim.PushBack({ 732, 31, 13, 29 });
-	laser.speed.y = -4; 
-	laser.life = 1500;
+	//graphics2 = App->textures->Load("assets/Balloon.png");
+
+	lasersound = Mix_LoadWAV("assets/gunbird-056_Shoot_YungNang.wav");
+	
 	return true;
 }
 
@@ -73,8 +81,8 @@ update_status ModuleParticles::Update()
 			{
 				p->fx_played = true;
 				Mix_PlayChannel(-1, lasersound, 0);
-				// Play particle fx here
 			}
+			App->render->Blit(graphics2, p->position.x, p->position.y, &(p->anim.GetCurrentFrame()));
 		}
 	}
 
@@ -106,7 +114,7 @@ void ModuleParticles::OnCollision(Collider* c1, Collider* c2)
 		// Always destroy particles that collide
 		if (active[i] != nullptr && active[i]->collider == c1)
 		{
-		//	AddParticle(explosion, active[i]->position.x, active[i]->position.y, COLLIDER_NONE);
+			//	AddParticle(explosion, active[i]->position.x, active[i]->position.y, COLLIDER_NONE);
 			delete active[i];
 			active[i] = nullptr;
 			break;

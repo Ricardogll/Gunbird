@@ -47,12 +47,14 @@ public:
 private:
 
 	SDL_Texture* graphics = nullptr;
+	SDL_Texture* graphics2 = nullptr;
 	Particle* active[MAX_ACTIVE_PARTICLES];
 	//uint last_particle = 0; //LO HEMOS PERDIDO
 
 public:
 
 	Particle laser;
+	Particle explosion_balloon;
 	Mix_Chunk* lasersound = nullptr;
 };
 

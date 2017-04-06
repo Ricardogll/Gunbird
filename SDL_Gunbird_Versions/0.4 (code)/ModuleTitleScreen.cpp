@@ -66,7 +66,7 @@ update_status ModuleTitleScreen::Update()
 
 	App->render->Blit(graphics, 0, 0, &titlescreen, 0.75f);
 
-	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN) {
+	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN && App->fade->IsFading() == false) {
 		Mix_PlayChannel(-1, insertcoin, 0);
 		App->fade->FadeToBlack(this, App->background, 1.8);
 		

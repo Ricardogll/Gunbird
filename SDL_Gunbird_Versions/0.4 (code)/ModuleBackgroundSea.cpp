@@ -7,7 +7,10 @@
 #include "ModuleBackgroundMine.h"
 #include "ModulePlayer.h"
 #include "ModulePlayer2.h"
+#include "ModuleEnemies.h"
 #include "ModuleFadeToBlack.h"
+#include "ModuleParticles.h"
+#include "ModuleCollision.h"
 
 ModuleBackgroundSea::ModuleBackgroundSea()
 {
@@ -15,6 +18,7 @@ ModuleBackgroundSea::ModuleBackgroundSea()
 	background.y = 0;
 	background.w = 224;
 	background.h = 2036;
+
 }
 
 ModuleBackgroundSea::~ModuleBackgroundSea()
@@ -30,6 +34,8 @@ bool ModuleBackgroundSea::Start()
 
 	App->player->Enable();
 	App->player2->Enable();
+	App->enemies->Enable();
+	App->collision->Enable();
 
 	LOG("Init SDL audio");
 	if (SDL_Init(SDL_INIT_AUDIO) < 0)
@@ -53,6 +59,8 @@ bool ModuleBackgroundSea::CleanUp()
 {
 	App->player->Disable();
 	App->player2->Disable();
+	App->enemies->Disable();
+	App->collision->Disable();
 
 	LOG("Unloading sea stage");
 	App->textures->Unload(graphics);
@@ -74,9 +82,19 @@ update_status ModuleBackgroundSea::Update()
 		backscroll = 250;
 	}
 
-	if (App->input->keyboard[SDL_SCANCODE_SPACE] == 1) {
+	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN && App->fade->IsFading() == false) {
 		App->fade->FadeToBlack(this, App->background2, 1);
 	}
 
 	return UPDATE_CONTINUE;
 }
+
+/*void ModuleBackgroundSea::OnCollision(Collider* c1, Collider* c2)
+{
+	if (graphics != nullptr && App->enemies->collider == c1)
+	{
+		delete graphics;
+		graphics = nullptr;
+		//App->particles->AddParticle(App->particles->explosion, position.x, position.y, COLLIDER_NONE);
+	}
+}*/

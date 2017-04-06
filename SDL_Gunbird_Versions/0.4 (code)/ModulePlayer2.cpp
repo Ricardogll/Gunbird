@@ -115,3 +115,11 @@ update_status ModulePlayer2::Update()
 
 	return UPDATE_CONTINUE;
 }
+
+void ModulePlayer2::OnCollision(Collider* c1, Collider* c2)
+{
+	if (graphics != nullptr && collider == c1)
+	{
+		//App->particles->AddParticle(App->particles->explosion, position.x, position.y, COLLIDER_NONE);
+	}
+}

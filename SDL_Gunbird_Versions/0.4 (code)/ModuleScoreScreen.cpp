@@ -66,7 +66,7 @@ update_status ModuleScoreScreen::Update()
 
 	App->render->Blit(graphics, 0, 0, &scorescreen, 0.75f);
 
-	if (App->input->keyboard[SDL_SCANCODE_SPACE] == 1) {
+	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN && App->fade->IsFading() == false) {
 		App->fade->FadeToBlack(this, App->titlescreen, 1);
 	}
 

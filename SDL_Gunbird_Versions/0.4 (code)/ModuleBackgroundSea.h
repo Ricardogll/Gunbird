@@ -20,9 +20,12 @@ public:
 	update_status Update();
 	bool CleanUp();
 
+	//void OnCollision(Collider* c1, Collider* c2);
+
 public:
 
 	SDL_Texture* graphics = nullptr;
+	Animation idle;
 	Mix_Music* music = nullptr;
 	SDL_Rect background;
 	int backscroll = 0;
