@@ -31,7 +31,6 @@ public:
 	Animation mright;
 	Animation left;
 	Animation mleft;
-	Animation shoot;
 	iPoint position;
 
 };

@@ -56,12 +56,6 @@ ModulePlayer::ModulePlayer()
 	mright.loop = true;
 	mright.speed = 0.08f;
 
-	// Shoot animation
-	shoot.PushBack({ 34,1516,80,130 });
-	shoot.PushBack({ 129,1516,90,130 });
-	shoot.PushBack({ 245,1531,90,130 });
-	shoot.PushBack({ 351,1531,400,130 });
-	shoot.speed = 0.005f;
 }
 
 ModulePlayer::~ModulePlayer()
@@ -98,8 +92,8 @@ update_status ModulePlayer::Update()
 		current_animation = &right;
 		current_animation = &mright;
 		position.x += speed;
-		if (position.x > (SCREEN_WIDTH - 32)) {
-			position.x = (SCREEN_WIDTH - 32);
+		if (position.x > (SCREEN_WIDTH - 27)) {
+			position.x = (SCREEN_WIDTH - 27);
 		}
 	}
 	if (App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_REPEAT)
@@ -115,16 +109,16 @@ update_status ModulePlayer::Update()
 	{
 		current_animation = &idle;
 		position.y -= speed;
-		if (position.y < 2370) {
-			position.y = 2370;
+		if (position.y < 2376) {
+			position.y = 2376;
 		}
 	}
 	if (App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_STATE::KEY_REPEAT)
 	{
 		current_animation = &idle;
 		position.y += speed;
-		if (position.y >(SCREEN_HEIGHT + 2335)) {
-			position.y = (SCREEN_HEIGHT + 2335);
+		if (position.y >(SCREEN_HEIGHT + 2330)) {
+			position.y = (SCREEN_HEIGHT + 2330);
 		}
 	}
 

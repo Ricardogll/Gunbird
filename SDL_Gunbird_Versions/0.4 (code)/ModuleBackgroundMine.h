@@ -23,10 +23,11 @@ public:
 public:
 
 	SDL_Texture* graphics = nullptr;
+	SDL_Texture* graphics2 = nullptr;
 	Mix_Music* music = nullptr;
 	SDL_Rect background2;
 	int backscroll = 0;
-
+	int backscroll2 = 0;
 };
 
 #endif

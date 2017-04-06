@@ -29,6 +29,7 @@ bool ModuleBackgroundMine::Start()
 	LOG("Loading background mine assets");
 	bool ret = true;
 	graphics = App->textures->Load("assets/Background Mine.png");
+	graphics2 = App->textures->Load("assets/mine_background2.png");
 
 	App->player->Enable();
 	App->player2->Enable();
@@ -73,11 +74,15 @@ update_status ModuleBackgroundMine::Update()
 	// Draw everything --------------------------------------
 
 	App->render->Blit(graphics, 0, backscroll, &background2, 0.75f);
+	App->render->Blit(graphics2, 0, backscroll2, &background2, 0.75f);
 	backscroll += 2;
+	backscroll2 += 1;
 	if (backscroll == 1750) {
 		backscroll = 250;
 	}
-
+	if (backscroll2 == 1750) {
+		backscroll2 = 250;
+	}
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN && App->fade->IsFading() == false) {
 		App->fade->FadeToBlack(this, App->scorescreen, 1);
 	}

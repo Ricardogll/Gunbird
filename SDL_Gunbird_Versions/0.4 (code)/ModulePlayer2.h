@@ -28,7 +28,6 @@ public:
 	Animation idle;
 	Animation right;
 	Animation left;
-	Animation shoot;
 	iPoint position;
 
 };
