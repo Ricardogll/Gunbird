@@ -39,8 +39,22 @@ If you want more information about the game, check the following link: https://g
 * Score screen (screenshot)
 * Fade to black
 ### 0.3 Version (03/04/2017)
-* Background Animation
-* Particle shoot by the player (with sound)
+* Added Yuan-Nang's laser with sound effect
+* Character Shoot (Yuan-nang) :
+     * X ➲ Shoot
+* Second Character (Marion)
+* Character spritesheet (Marion) [without attack animations]
+* Character Movement (Marion) :
+     * W ➲ Move player up
+     * S ➲ Move player down
+     * A ➲ Move player left
+     * D ➲ Move player right
+     * W + D ➲ **↗**
+     * W + A ➲ **↖**
+     * S + D ➲ **↘**
+     * S + A ➲ **↙**
+* **Bug-Fixing**
+     * Memory Leaks
 ### 0.4 Version (07/04/2017)
 * Colliders for the player and its particles
 
