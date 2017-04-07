@@ -57,7 +57,7 @@ If you want more information about the game, check the following link: https://g
      * Memory Leaks
 ### 0.4 Version (07/04/2017)
 * Add a random enemy
-* Create enemy collisions
+* Create enemy collision
 * Create characters collisions
 * **Bug-Fixing**
      * Frozen Character Animation while press left or right too much time.
