@@ -56,7 +56,11 @@ If you want more information about the game, check the following link: https://g
 * **Bug-Fixing**
      * Memory Leaks
 ### 0.4 Version (07/04/2017)
-* Colliders for the player and its particles
+* Add a random enemy
+* Create enemy collisions
+* Create characters collisions
+* **Bug-Fixing**
+     * Frozen Character Animation while press left or right too much time.
 
 ## Credits
 * **Github project page**: https://github.com/lFreecss/Gunbird
