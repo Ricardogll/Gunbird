@@ -25,7 +25,14 @@ ModuleBackgroundMine::~ModuleBackgroundMine()
 // Load assets
 bool ModuleBackgroundMine::Start()
 {
-	App->render->camera.y = -6985;
+	App->render->camera.y = (-2036 + SCREEN_HEIGHT) * SCREEN_SIZE;
+	App->render->camera.x = 0 * SCREEN_SIZE;
+
+	App->player->position.x = 50;
+	App->player->position.y = 2000;
+	App->player2->position.x = 150;
+	App->player2->position.y = 2000;
+
 	LOG("Loading background mine assets");
 	bool ret = true;
 	graphics = App->textures->Load("assets/Background Mine.png");
@@ -73,7 +80,7 @@ update_status ModuleBackgroundMine::Update()
 {
 	// Draw everything --------------------------------------
 
-	App->render->Blit(graphics, 0, backscroll, &background2, 0.75f);
+	/*App->render->Blit(graphics, 0, backscroll, &background2, 0.75f);
 	App->render->Blit(graphics2, 0, backscroll2, &background2, 0.75f);
 	backscroll += 2;
 	backscroll2 += 1;
@@ -83,6 +90,13 @@ update_status ModuleBackgroundMine::Update()
 	if (backscroll2 == 1750) {
 		backscroll2 = 250;
 	}
+*/
+
+	App->render->camera.y += 0.7 * SCREEN_SIZE;
+
+	App->render->Blit(graphics, 0, 0, NULL); 
+	App->render->Blit(graphics2, 0, 0, NULL);
+
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN && App->fade->IsFading() == false) {
 		App->fade->FadeToBlack(this, App->scorescreen, 1);
 	}

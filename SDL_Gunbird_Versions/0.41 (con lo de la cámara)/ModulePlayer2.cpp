@@ -62,6 +62,11 @@ update_status ModulePlayer2::Update()
 {
 	Animation* current_animation = &idle;
 
+	if ((position.y < (abs(App->render->camera.y) / SCREEN_SIZE) + 48))
+		position.y = (abs(App->render->camera.y) / SCREEN_SIZE) + 48;
+	else
+		position.y -= 0.01 * SCREEN_SIZE;
+
 	int speed = 3;
 
 	if (App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT)
@@ -84,16 +89,16 @@ update_status ModulePlayer2::Update()
 	{
 		current_animation = &idle;
 		position.y -= speed;
-		if (position.y < 2360) {
-			position.y = 2360;
+		if (position.y < (abs(App->render->camera.y) / SCREEN_SIZE) + 60) {
+			position.y = (abs(App->render->camera.y) / SCREEN_SIZE) +60;
 		}
 	}
 	if (App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT)
 	{
 		current_animation = &idle;
 		position.y += speed;
-		if (position.y >(SCREEN_HEIGHT + 2328)) {
-			position.y = (SCREEN_HEIGHT + 2328);
+		if (position.y >((abs(App->render->camera.y) + (SCREEN_HEIGHT*SCREEN_SIZE))) / SCREEN_SIZE) {
+			position.y = (abs(App->render->camera.y) + (SCREEN_HEIGHT*SCREEN_SIZE)) / SCREEN_SIZE;
 		}
 	}
 

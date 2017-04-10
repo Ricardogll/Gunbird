@@ -32,6 +32,8 @@ bool ModuleBackgroundSea::Start()
 
 	App->player->position.x = 50;
 	App->player->position.y = 2000;
+	App->player2->position.x = 150;
+	App->player2->position.y = 2000;
 
 	LOG("Loading background sea assets");
 	bool ret = true;
