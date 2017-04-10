@@ -88,7 +88,7 @@ update_status ModuleBackgroundSea::Update()
 		backscroll = 250;
 	}*/
 
-	App->render->camera.y += 0.01 * SCREEN_SIZE;
+	App->render->camera.y += 0.7 * SCREEN_SIZE;
 
 	App->render->Blit(graphics, 0, 0, NULL);
 
