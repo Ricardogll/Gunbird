@@ -56,7 +56,6 @@ private:
 	//uint last_particle = 0; //LO HEMOS PERDIDO
 
 public:
-
 	Particle laser;
 	Particle explosion_balloon;
 	Mix_Chunk* lasersound = nullptr;

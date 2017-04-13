@@ -6,6 +6,7 @@
 #include "ModuleTextures.h"
 #include "Enemy.h"
 #include "Enemy_Balloon.h"
+#include "Enemy_Turret.h"
 
 #define SPAWN_MARGIN 50
 
@@ -24,6 +25,7 @@ bool ModuleEnemies::Start()
 {
 	// Create a prototype for each enemy available so we can copy them around
 	sprites = App->textures->Load("assets/Balloon.png");
+	sprites2 = App->textures->Load("assets/Red bomb && Castle mortar.png");
 
 	return true;
 }
@@ -129,6 +131,10 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 		case ENEMY_TYPES::BALLOON:
 			enemies[i] = new Enemy_Balloon(info.x, info.y);
 			break;
+		case ENEMY_TYPES::TURRET:
+			enemies[i] = new Enemy_Turret(info.x, info.y);
+			break;
+
 		}
 	}
 }

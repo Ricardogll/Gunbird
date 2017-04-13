@@ -12,7 +12,19 @@ ModuleParticles::ModuleParticles()
 {
 	for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
 		active[i] = nullptr;
-
+	explosion_balloon.anim.PushBack({ 14,123,92,86 });
+	explosion_balloon.anim.PushBack({ 113,120,101,93 });
+	explosion_balloon.anim.PushBack({ 221,115,105,102 });
+	explosion_balloon.anim.PushBack({ 336,116,99,101 });
+	explosion_balloon.anim.PushBack({ 9,228,111,131 });
+	explosion_balloon.anim.PushBack({ 117,226,99,104 });
+	explosion_balloon.anim.PushBack({ 226,225,100,106 });
+	explosion_balloon.anim.PushBack({ 345,232,95,105 });
+	explosion_balloon.anim.PushBack({ 20,370,82,82 });
+	explosion_balloon.anim.PushBack({ 120,350,83,107 });
+	explosion_balloon.anim.PushBack({ 236,367,65,81 });
+	explosion_balloon.anim.PushBack({ 345,386,71,51 });
+	explosion_balloon.anim.speed = 0.2f;
 	// Yuan Nang laser
 	laser.anim.PushBack({ 732, 31, 13, 29 });
 	laser.speed.y = -4;
@@ -31,6 +43,7 @@ bool ModuleParticles::Start()
 {
 	LOG("Loading particles");
 	graphics = App->textures->Load("assets/Yuan_Nang.png");
+
 	//graphics2 = App->textures->Load("assets/Balloon.png");
 
 	lasersound = Mix_LoadWAV("assets/gunbird-056_Shoot_YungNang.wav");
