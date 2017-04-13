@@ -21,11 +21,10 @@ Enemy_Balloon::Enemy_Balloon(int x, int y) : Enemy(x, y)
 
 void Enemy_Balloon::Move()
 {
+	
+	path.PushBack({ 0.0f,-1.0f }, 11500, nullptr);
+
+
 	position = original_pos + path.GetCurrentPosition();
-	path.PushBack({ 0.0f,0.2f }, 11500, nullptr);
-
-
-	//position = original_pos + path.GetCurrentPosition();
-	//position.x -= 4;
 }
 
