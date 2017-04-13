@@ -1,19 +1,27 @@
-﻿  ModuleEnemies.cpp
-c:\users\david\desktop\0.42\moduleparticles.h(45): error C2065: 'COLLIDER_NONE': identificador no declarado
-c:\users\david\desktop\0.42\moduleenemies.cpp(136): error C2601: 'ModuleEnemies::OnCollision': las definiciones de funciones locales no son válidas
-  c:\users\david\desktop\0.42\moduleenemies.cpp(120): note: esta línea contiene un elemento '{' y no se ha encontrado su elemento de cierre
-c:\users\david\desktop\0.42\moduleenemies.cpp(120): fatal error C1075: el elemento llave '{' de la izquierda estaba sin asignar al final del archivo
+﻿  Application.cpp
+  Generating Code...
+  Compiling...
+  ModuleBackgroundMine.cpp
+c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.425\modulebackgroundmine.cpp(95): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
+  ModuleBackgroundCastle.cpp
+c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.425\modulebackgroundcastle.cpp(90): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
+  Generating Code...
+  Skipping... (no relevant changes detected)
+  ModuleWindow.cpp
+  ModuleTitleScreen.cpp
+  ModuleTextures.cpp
+  ModuleScoreScreen.cpp
+  ModuleRender.cpp
+  ModulePlayer2.cpp
+  ModulePlayer.cpp
+  ModuleParticles.cpp
+  ModuleInput.cpp
+  ModuleFadeToBlack.cpp
+  ModuleEnemies.cpp
+  ModuleCollision.cpp
+  ModuleBackgroundSea.cpp
+  Main.cpp
   Enemy_Balloon.cpp
   Enemy.cpp
-c:\users\david\desktop\0.42\enemy.cpp(32): error C2039: 'explosion': no es un miembro de 'ModuleParticles'
-  c:\users\david\desktop\0.42\moduleparticles.h(34): note: vea la declaración de 'ModuleParticles'
-  Generando código...
-  Compilando...
-  Application.cpp
-  Generando código...
-  Compilando...
-  ModuleBackgroundSea.cpp
-c:\users\david\desktop\0.42\modulebackgroundsea.cpp(93): warning C4244: '+=': conversión de 'double' a 'int'; posible pérdida de datos
-  ModuleBackgroundCastle.cpp
-c:\users\david\desktop\0.42\modulebackgroundcastle.cpp(88): warning C4244: '+=': conversión de 'double' a 'int'; posible pérdida de datos
-  Generando código...
+  SDL Game.vcxproj -> C:\Users\Usuario\Documents\GitHub\Gunbird\SDL_Gunbird_Versions\0.425\Debug\Gunbird.exe
+  SDL Game.vcxproj -> C:\Users\Usuario\Documents\GitHub\Gunbird\SDL_Gunbird_Versions\0.425\Debug\Gunbird.pdb (Full PDB)

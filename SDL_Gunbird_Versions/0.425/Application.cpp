@@ -26,10 +26,10 @@ Application::Application()
 	modules[6] = background = new ModuleBackgroundSea();
 	modules[7] = background2 = new ModuleBackgroundMine();
 	modules[8] = scorescreen = new ModuleScoreScreen();
-	modules[9] = particles = new ModuleParticles();
-	modules[10] = player = new ModulePlayer();
-	modules[11] = player2 = new ModulePlayer2();
-	modules[12] = enemies = new ModuleEnemies();
+	modules[9] = enemies = new ModuleEnemies();
+	modules[10] = particles = new ModuleParticles();
+	modules[11] = player = new ModulePlayer();
+	modules[12] = player2 = new ModulePlayer2();
 	modules[13] = collision = new ModuleCollision();
 	modules[14] = fade = new ModuleFadeToBlack();
 }
@@ -47,8 +47,8 @@ bool Application::Init()
 	// Player will be enabled on the first update of a new scene
 	player->Disable();
 	player2->Disable();
-	enemies->Disable();
 	collision->Disable();
+	enemies->Disable();
 	// Disable the map that you do not start with
 	background3->Disable();
 	background->Disable();

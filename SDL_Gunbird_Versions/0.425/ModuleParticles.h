@@ -5,6 +5,10 @@
 #include "Animation.h"
 #include "Globals.h"
 #include "p2Point.h"
+#include "ModuleRender.h"
+#include "ModuleCollision.h"
+#include "ModuleParticles.h"
+
 #include "SDL_mixer\include\SDL_mixer.h"
 #include "SDL/include/SDL.h"
 

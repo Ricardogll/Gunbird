@@ -31,17 +31,17 @@ public:
 	ModuleRender* render;
 	ModuleInput* input;
 	ModuleTextures* textures;
-	ModuleTitleScreen *titlescreen;
+	ModuleTitleScreen* titlescreen;
 	ModuleBackgroundCastle* background3;
-	ModuleBackgroundSea* background;
 	ModuleBackgroundMine* background2;
-	ModuleScoreScreen *scorescreen;
+	ModuleBackgroundSea* background;
+	ModuleScoreScreen* scorescreen;
 	ModulePlayer* player;
 	ModulePlayer2* player2;
-	ModuleEnemies* enemies;
 	ModuleParticles* particles;
 	ModuleCollision* collision;
 	ModuleFadeToBlack* fade;
+	ModuleEnemies* enemies;
 
 public:
 
