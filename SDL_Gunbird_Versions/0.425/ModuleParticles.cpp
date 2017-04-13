@@ -12,21 +12,22 @@ ModuleParticles::ModuleParticles()
 {
 	for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
 		active[i] = nullptr;
-	explosion_balloon.anim.PushBack({ 14,123,92,86 });
-	explosion_balloon.anim.PushBack({ 113,120,101,93 });
-	explosion_balloon.anim.PushBack({ 221,115,105,102 });
+	explosion_balloon.anim.PushBack({ 23,37,92,85 });
+	explosion_balloon.anim.PushBack({ 122,33,101,93 });
+	explosion_balloon.anim.PushBack({ 230,28,105,102 });
 	explosion_balloon.anim.PushBack({ 336,116,99,101 });
-	explosion_balloon.anim.PushBack({ 9,228,111,131 });
-	explosion_balloon.anim.PushBack({ 117,226,99,104 });
-	explosion_balloon.anim.PushBack({ 226,225,100,106 });
-	explosion_balloon.anim.PushBack({ 345,232,95,105 });
-	explosion_balloon.anim.PushBack({ 20,370,82,82 });
-	explosion_balloon.anim.PushBack({ 120,350,83,107 });
-	explosion_balloon.anim.PushBack({ 236,367,65,81 });
-	explosion_balloon.anim.PushBack({ 345,386,71,51 });
+	explosion_balloon.anim.PushBack({ 18,141,111,131 });
+	explosion_balloon.anim.PushBack({ 127,140,99,104 });
+	explosion_balloon.anim.PushBack({ 234,138,100,106 });
+	explosion_balloon.anim.PushBack({ 349,145,98,105 });
+	explosion_balloon.anim.PushBack({ 29,282,82,82 });
+	explosion_balloon.anim.PushBack({ 129,264,83,107 });
+	explosion_balloon.anim.PushBack({ 245,281,65,81 });
+	explosion_balloon.anim.PushBack({ 357,301,71,51 });
+	explosion_balloon.anim.loop = false;
 	explosion_balloon.anim.speed = 0.2f;
 	// Yuan Nang laser
-	laser.anim.PushBack({ 732, 31, 13, 29 });
+	laser.anim.PushBack({ 512, 40, 16, 30 });
 	laser.speed.y = -4;
 	laser.life = 1500;
 
@@ -42,7 +43,7 @@ ModuleParticles::~ModuleParticles()
 bool ModuleParticles::Start()
 {
 	LOG("Loading particles");
-	graphics = App->textures->Load("assets/Yuan_Nang.png");
+	graphics = App->textures->Load("assets/particles.png");
 
 	//graphics2 = App->textures->Load("assets/Balloon.png");
 

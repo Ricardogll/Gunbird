@@ -4,10 +4,10 @@
 
 Enemy_Turret::Enemy_Turret(int x, int y) : Enemy(x, y)
 {
-	fly.PushBack({ 0,0,32,32 });
-	fly.PushBack({ 0,0,32,32 });
-	fly.PushBack({ 0,0,32,32 });
-	fly.PushBack({ 0,0,32,32 });
+	fly.PushBack({ 20,8,32,32 });
+	fly.PushBack({ 54,8,32,32 });
+	fly.PushBack({ 88,8,32,32 });
+	fly.PushBack({ 122,8,32,32 });
 	fly.speed = 0.2f;
 
 	animation = &fly;
@@ -20,8 +20,4 @@ Enemy_Turret::Enemy_Turret(int x, int y) : Enemy(x, y)
 
 void Enemy_Turret::Move()
 {
-	path.PushBack({ 0.0f,-1.0f }, 11500, nullptr);
-
-
-	position = original_pos + path.GetCurrentPosition();
 }

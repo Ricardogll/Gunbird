@@ -45,7 +45,7 @@ bool ModuleBackgroundCastle::Start()
 	App->collision->Enable();
 
 	App->enemies->AddEnemy(ENEMY_TYPES::BALLOON, 114,1400);
-	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 140, 1500);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 166, 1237);
 
 	LOG("Init SDL audio");
 	if (SDL_Init(SDL_INIT_AUDIO) < 0)

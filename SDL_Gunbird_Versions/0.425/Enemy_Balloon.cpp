@@ -4,11 +4,11 @@
 
 Enemy_Balloon::Enemy_Balloon(int x, int y) : Enemy(x, y)
 {
-	fly.PushBack({ 11,6,43,53 });
-	fly.PushBack({ 64,6,42,53});
-	fly.PushBack({ 116,6,42,53 });
-	fly.PushBack({ 168,6,43,53 });
-	fly.PushBack({ 219,6,42,53 });
+	fly.PushBack({ 212,6,43,53 });
+	fly.PushBack({ 265,6,42,53});
+	fly.PushBack({ 317,6,42,53 });
+	fly.PushBack({ 369,6,43,53 });
+	fly.PushBack({ 420,6,42,53 });
 	fly.speed = 0.2f;
 
 	animation = &fly;
