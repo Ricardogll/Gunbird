@@ -33,6 +33,9 @@ public:
 	Animation mleft;
 	iPoint position;
 	bool movement = false;
+	int levelPlayer1;
+	bool shot;
+	uint time = 0;
 
 };
 

@@ -64,9 +64,12 @@ ModulePlayer::~ModulePlayer()
 // Load assets
 bool ModulePlayer::Start()
 {
+	levelPlayer1 = 0;
+
 	LOG("Loading player textures");
 	bool ret = true;
 	graphics = App->textures->Load("assets/Yuan_Nang.png");
+
 	collider = App->collision->AddCollider({ position.x, position.y, 27, -48 }, COLLIDER_PLAYER, this);
 	return ret;
 }
@@ -131,9 +134,32 @@ update_status ModulePlayer::Update()
 		}
 	}
 
-	if (App->input->keyboard[SDL_SCANCODE_X] == KEY_STATE::KEY_DOWN)
+	if (App->input->keyboard[SDL_SCANCODE_X] == KEY_STATE::KEY_DOWN || (0 < time))
 	{ 
-		App->particles->AddParticle(App->particles->laser, position.x + 9, position.y - 30, COLLIDER_PLAYER_SHOT);
+		if (levelPlayer1 == 0) {
+			if (time == 0) 
+			{
+				App->particles->AddParticle(App->particles->laser, position.x + 9, position.y - 30, COLLIDER_PLAYER_SHOT);
+				shot = false;
+			}
+			if (time == 3)
+			{
+				App->particles->AddParticle(App->particles->laser, position.x + 9, position.y - 30, COLLIDER_PLAYER_SHOT);
+			}
+			if (time == 6) 
+			{
+				App->particles->AddParticle(App->particles->laser, position.x + 9, position.y - 30, COLLIDER_PLAYER_SHOT);
+			}
+			if (time == 9)
+			{
+				App->particles->AddParticle(App->particles->laser, position.x + 9, position.y - 30, COLLIDER_PLAYER_SHOT);
+				time = 0;
+				shot = true;
+			} 
+			if (shot == false)
+				time++;
+		}
+		
 	}
 
 	if (App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_REPEAT

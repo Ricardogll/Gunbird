@@ -84,11 +84,11 @@ update_status ModuleBackgroundCastle::Update()
 {
 	//ENEMIES
 	if (App->render->camera.y == (-1355 * SCREEN_SIZE)) {
-		App->enemies->AddEnemy(ENEMY_TYPES::BALLOON, 95, 1255);
+		App->enemies->AddEnemy(ENEMY_TYPES::BALLOON, BALLOON_CASTLE, 95, 1255);
 	}
 
 	if (App->render->camera.y == (-1355 * SCREEN_SIZE)) {
-		App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 162, 1241);
+		App->enemies->AddEnemy(ENEMY_TYPES::TURRET, NO_MOVE, 162, 1241);
 	}
 
 	//App->enemies->AddEnemy(ENEMY_TYPES::MISSILE, 12, 1241);

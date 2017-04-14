@@ -10,9 +10,10 @@ private:
 	iPoint original_pos;
 
 public:
-
 	Enemy_Turret(int x, int y);
 	void Move();
+	void OnCollision(Collider* collider);
+	uint getHitPoints();
 };
 
 

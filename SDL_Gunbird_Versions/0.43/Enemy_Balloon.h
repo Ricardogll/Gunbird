@@ -9,11 +9,12 @@ class Enemy_Balloon : public Enemy
 private:
 	Animation fly;
 	iPoint original_pos;
-	bool going_up = true;
 
 public:
 	Enemy_Balloon(int x, int y);
 	void Move();
+	void OnCollision(Collider* collider);
+	uint getHitPoints();
 };
 
 

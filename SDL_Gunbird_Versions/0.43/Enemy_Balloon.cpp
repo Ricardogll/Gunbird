@@ -14,6 +14,8 @@ Enemy_Balloon::Enemy_Balloon(int x, int y) : Enemy(x, y)
 
 	lastTime = 0;
 
+	hitPoints = 25;
+
 	animation = &fly;
 
 	collider = App->collision->AddCollider({ 0, 0, 43, 53 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
@@ -28,18 +30,18 @@ void Enemy_Balloon::Move()
 
 	currentTime = SDL_GetTicks();
 
-	if (currentTime > (lastTime + 3000)) {
+	if (currentTime > (lastTime + 70)) {
 		animation = &fly;
 		lastTime = 0;
 	}
 
+}
 
+void Enemy_Balloon::OnCollision(Collider* collider) {
+	hitPoints -= 1;
+}
 
-	//path.PushBack({ 0.0f,7.0f }, 100, nullptr);
-	//path.PushBack({ 0.0f,1.0f }, 1150, nullptr);
-	//path.PushBack({ 0.0f, 1.0f }, 5, nullptr);
-
-
-
+uint Enemy_Balloon::getHitPoints() {
+	return hitPoints;
 }
 

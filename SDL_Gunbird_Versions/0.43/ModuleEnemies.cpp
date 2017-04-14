@@ -15,6 +15,14 @@ ModuleEnemies::ModuleEnemies()
 {
 	for (uint i = 0; i < MAX_ENEMIES; ++i)
 		enemies[i] = nullptr;
+
+	//Path Balloon Castle
+	balloonCastle.PushBack({ 0.0f, 1.5f }, 50); 
+	balloonCastle.PushBack({ 0.0f, 0.0f }, 100); 
+	balloonCastle.PushBack({ 0.0f, -1.5f }, 150); 
+	balloonCastle.PushBack({ 0.0f, 0.0f }, 100); 
+	balloonCastle.PushBack({ 0.0f, 1.5f }, 142);
+	balloonCastle.loop = false;
 }
 
 // Destructor
@@ -100,7 +108,7 @@ bool ModuleEnemies::CleanUp()
 	return true;
 }
 
-bool ModuleEnemies::AddEnemy(ENEMY_TYPES type, int x, int y)
+bool ModuleEnemies::AddEnemy(ENEMY_TYPES type, ENEMY_MOVE move, int x, int y)
 {
 	bool ret = false;
 
@@ -109,6 +117,7 @@ bool ModuleEnemies::AddEnemy(ENEMY_TYPES type, int x, int y)
 		if (queue[i].type == ENEMY_TYPES::NO_TYPE)
 		{
 			queue[i].type = type;
+			queue[i].move = move;
 			queue[i].x = x;
 			queue[i].y = y;
 			ret = true;
@@ -131,6 +140,12 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 		{
 		case ENEMY_TYPES::BALLOON:
 			enemies[i] = new Enemy_Balloon(info.x, info.y);
+			switch (info.move)
+			{
+			case ENEMY_MOVE::BALLOON_CASTLE:
+				enemies[i]->path = balloonCastle;
+				break;
+			}
 			break;
 		case ENEMY_TYPES::TURRET:
 			enemies[i] = new Enemy_Turret(info.x, info.y);
@@ -150,9 +165,12 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 		if (enemies[i] != nullptr && enemies[i]->GetCollider() == c1)
 		{
 			enemies[i]->OnCollision(c2);
-			delete enemies[i];
-			enemies[i] = nullptr;
-			break;
+			if (enemies[i]->getHitPoints() == 0) {
+				App->particles->AddParticle(App->particles->explosion_balloon, (c1->rect.x - ((c1->rect.w)) / 2), (c1->rect.y - ((c1->rect.h)) / 2));
+				delete enemies[i];
+				enemies[i] = nullptr;
+				break;
+			}
 		}
 	}
 }
