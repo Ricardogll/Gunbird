@@ -32,6 +32,7 @@ public:
 	Animation left;
 	Animation mleft;
 	iPoint position;
+	bool movement = false;
 
 };
 

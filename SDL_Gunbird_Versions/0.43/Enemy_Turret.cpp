@@ -20,4 +20,5 @@ Enemy_Turret::Enemy_Turret(int x, int y) : Enemy(x, y)
 
 void Enemy_Turret::Move()
 {
+	position = original_pos + path.GetCurrentPosition();
 }

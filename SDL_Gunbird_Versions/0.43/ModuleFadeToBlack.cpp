@@ -51,7 +51,6 @@ update_status ModuleFadeToBlack::Update()
 
 			if(now >= total_time)
 				current_step = fade_step::none;
-	
 		} break;
 	}
 

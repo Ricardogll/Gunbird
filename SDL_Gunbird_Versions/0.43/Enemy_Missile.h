@@ -7,7 +7,6 @@ class Enemy_Missile : public Enemy
 {
 private:
 	Animation fly;
-	Path path;
 	iPoint original_pos;
 
 public:

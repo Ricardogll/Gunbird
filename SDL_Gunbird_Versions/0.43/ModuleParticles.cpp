@@ -12,6 +12,8 @@ ModuleParticles::ModuleParticles()
 {
 	for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
 		active[i] = nullptr;
+
+	//Explosion
 	explosion_balloon.anim.PushBack({ 23,37,92,85 });
 	explosion_balloon.anim.PushBack({ 122,33,101,93 });
 	explosion_balloon.anim.PushBack({ 230,28,105,102 });
@@ -26,14 +28,11 @@ ModuleParticles::ModuleParticles()
 	explosion_balloon.anim.PushBack({ 357,301,71,51 });
 	explosion_balloon.anim.loop = false;
 	explosion_balloon.anim.speed = 0.2f;
+
 	// Yuan Nang laser
 	laser.anim.PushBack({ 512, 40, 16, 30 });
 	laser.speed.y = -4;
 	laser.life = 1500;
-
-	// Explosion Balloon
-	//explosion_balloon.anim.PushBack({ 11,124,97,88 });;
-	//explosion_balloon.life = 500;
 }
 
 ModuleParticles::~ModuleParticles()
@@ -44,8 +43,6 @@ bool ModuleParticles::Start()
 {
 	LOG("Loading particles");
 	graphics = App->textures->Load("assets/particles.png");
-
-	//graphics2 = App->textures->Load("assets/Balloon.png");
 
 	lasersound = Mix_LoadWAV("assets/gunbird-056_Shoot_YungNang.wav");
 	
@@ -96,7 +93,6 @@ update_status ModuleParticles::Update()
 				p->fx_played = true;
 				Mix_PlayChannel(-1, lasersound, 0);
 			}
-			App->render->Blit(graphics2, p->position.x, p->position.y, &(p->anim.GetCurrentFrame()));
 		}
 	}
 
@@ -153,7 +149,7 @@ Particle::Particle(const Particle& p) :
 Particle::~Particle()
 {
 	if (collider != nullptr)
-		App->collision->EraseCollider(collider);
+		collider->to_delete = true;
 }
 
 bool Particle::Update()

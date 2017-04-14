@@ -5,6 +5,7 @@
 #include "Animation.h"
 #include "Path.h"
 
+struct Path;
 struct SDL_Texture;
 struct Collider;
 
@@ -13,10 +14,14 @@ class Enemy
 protected:
 	Animation* animation = nullptr;
 	Collider* collider = nullptr;
-	Path* path = nullptr;
+	//Path* path = nullptr;
+	uint lives;
+	uint currentTime;
+	uint lastTime;
 
 public:
 	iPoint position;
+	Path path;
 
 public:
 	Enemy(int x, int y);

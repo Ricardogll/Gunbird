@@ -11,13 +11,14 @@
 #include "ModuleFadeToBlack.h"
 #include "ModuleParticles.h"
 #include "ModuleCollision.h"
+#include "SDL\include\SDL_timer.h"
 
 ModuleBackgroundCastle::ModuleBackgroundCastle()
 {
 	background.x = 0;
 	background.y = 0;
 	background.w = 228;
-	background.h = 16845;
+	background.h = 1685;
 
 }
 
@@ -44,11 +45,6 @@ bool ModuleBackgroundCastle::Start()
 	App->enemies->Enable();
 	App->collision->Enable();
 
-	//ENEMIES
-	App->enemies->AddEnemy(ENEMY_TYPES::BALLOON, 114,1400);
-	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 162, 1241);
-	App->enemies->AddEnemy(ENEMY_TYPES::MISSILE, 12, 1241);
-
 	LOG("Init SDL audio");
 	if (SDL_Init(SDL_INIT_AUDIO) < 0)
 	{
@@ -63,7 +59,6 @@ bool ModuleBackgroundCastle::Start()
 		music = Mix_LoadMUS("assets/gunbird-002_Title_Castle.ogg");
 		Mix_PlayMusic(music, -1);
 	}
-
 
 	return ret;
 }
@@ -87,16 +82,35 @@ bool ModuleBackgroundCastle::CleanUp()
 // Update: draw background
 update_status ModuleBackgroundCastle::Update()
 {
+	//ENEMIES
+	if (App->render->camera.y == (-1355 * SCREEN_SIZE)) {
+		App->enemies->AddEnemy(ENEMY_TYPES::BALLOON, 95, 1255);
+	}
+
+	if (App->render->camera.y == (-1355 * SCREEN_SIZE)) {
+		App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 162, 1241);
+	}
+
+	//App->enemies->AddEnemy(ENEMY_TYPES::MISSILE, 12, 1241);
+
+
 	// Draw everything --------------------------------------
-
-
-	App->render->camera.y += 0.7 * SCREEN_SIZE;
+	if (App->render->camera.y == -20 * SCREEN_SIZE) {
+		App->render->camera.y = -20 * SCREEN_SIZE;
+		App->player->movement = true;
+		App->player2->movement = true;
+	}
+	else {
+		App->render->camera.y += 1 * SCREEN_SIZE;
+	}
 
 	App->render->Blit(graphics, 0, 0, NULL);
 
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN && App->fade->IsFading() == false) {
 		App->fade->FadeToBlack(this, App->background2, 1);
 	}
+
+	SDL_Delay(40);
 
 	return UPDATE_CONTINUE;
 }

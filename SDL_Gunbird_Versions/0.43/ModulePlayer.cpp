@@ -85,12 +85,16 @@ update_status ModulePlayer::Update()
 {
 	Animation* current_animation = &idle;
 
+	int speed = 8;
+
 	if ((position.y < (abs(App->render->camera.y) / SCREEN_SIZE) + 48))
 		position.y = (abs(App->render->camera.y) / SCREEN_SIZE) + 48;
-	else 
-		position.y -= 0.01 * SCREEN_SIZE;
 
-	int speed = 3;
+	else {
+		if (movement == false) {
+			position.y -= 1;
+		}
+	}
 
 	if (App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT)
 	{

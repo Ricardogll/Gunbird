@@ -20,7 +20,7 @@ Enemy_Missile::Enemy_Missile(int x, int y) : Enemy(x, y)
 
 void Enemy_Missile::Move()
 {
-	position.y += 2;
+	position.y += 1;
 
 
 	//position = original_pos + path.GetCurrentPosition();

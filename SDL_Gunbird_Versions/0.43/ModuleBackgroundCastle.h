@@ -28,7 +28,6 @@ public:
 	Animation idle;
 	Mix_Music* music = nullptr;
 	SDL_Rect background;
-	int backscroll = 0;
 
 };
 
