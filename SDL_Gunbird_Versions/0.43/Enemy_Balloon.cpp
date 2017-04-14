@@ -10,7 +10,7 @@ Enemy_Balloon::Enemy_Balloon(int x, int y) : Enemy(x, y)
 	fly.PushBack({ 317,6,42,53 });
 	fly.PushBack({ 369,6,43,53 });
 	fly.PushBack({ 420,6,42,53 });
-	fly.speed = 0.2f;
+	fly.speed = 0.25f;
 
 	lastTime = 0;
 

@@ -8,7 +8,7 @@ Enemy_Missile::Enemy_Missile(int x, int y) : Enemy(x, y)
 	fly.PushBack({ 50,82,28,32 });
 	fly.PushBack({ 84,82,28,32 });
 	fly.PushBack({ 89,82,28,32 });
-	fly.speed = 0.2f;
+	fly.speed = 0.25f;
 
 	animation = &fly;
 

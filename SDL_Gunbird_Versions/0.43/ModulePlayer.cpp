@@ -22,7 +22,7 @@ ModulePlayer::ModulePlayer()
 	idle.PushBack({ 53, 6, 27, 48 }); //6
 	idle.PushBack({ 14, 95, 27, 48 }); //7
 	idle.PushBack({ 163, 99, 27, 48 }); //8
-	idle.speed = 0.08f;
+	idle.speed = 0.25f;
 
 	// left animation
 	left.PushBack({ 18, 417, 24, 47 });
@@ -30,7 +30,7 @@ ModulePlayer::ModulePlayer()
 	left.PushBack({ 122, 419, 24, 47 });
 	left.PushBack({ 170, 420, 24, 46 });
 	left.loop = false;
-	left.speed = 0.08f;
+	left.speed = 0.25f;
 
 	// more left animation
 	mleft.PushBack({ 18, 350, 26, 48 });
@@ -38,7 +38,7 @@ ModulePlayer::ModulePlayer()
 	mleft.PushBack({ 120, 351, 27, 48 });
 	mleft.PushBack({ 170, 351, 27, 48 });
 	mleft.loop = true;
-	mleft.speed = 0.08f;
+	mleft.speed = 0.25f;
 
 	// right animation
 	right.PushBack({ 70, 171, 26, 48 });
@@ -46,7 +46,7 @@ ModulePlayer::ModulePlayer()
 	right.PushBack({ 168, 172, 27, 48 });
 	right.PushBack({ 15, 174, 27, 48 });
 	right.loop = false;
-	right.speed = 0.08f;
+	right.speed = 0.25f;
 
 	// more right animation
 	mright.PushBack({ 20, 246, 27, 47 });
@@ -54,7 +54,7 @@ ModulePlayer::ModulePlayer()
 	mright.PushBack({ 121, 247, 27, 46 });
 	mright.PushBack({ 171, 248, 27, 46 });
 	mright.loop = true;
-	mright.speed = 0.08f;
+	mright.speed = 0.25f;
 
 }
 

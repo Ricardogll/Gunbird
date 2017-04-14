@@ -8,7 +8,7 @@ Enemy_Turret::Enemy_Turret(int x, int y) : Enemy(x, y)
 	fly.PushBack({ 54,8,32,32 });
 	fly.PushBack({ 88,8,32,32 });
 	fly.PushBack({ 122,8,32,32 });
-	fly.speed = 0.2f;
+	fly.speed = 0.25f;
 
 	animation = &fly;
 
