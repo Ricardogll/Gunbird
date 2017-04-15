@@ -1,7 +1,49 @@
-﻿  ModuleParticles.cpp
+﻿  PowerUp.cpp
+c:\users\david\desktop\gunbird\sdl_gunbird_versions\0.44\enemy.h(8): warning C4099: 'Path': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+  c:\users\david\desktop\gunbird\sdl_gunbird_versions\0.44\path.h(15): note: vea la declaración de 'Path'
+  ModuleWindow.cpp
+  ModuleTitleScreen.cpp
+c:\users\david\desktop\gunbird\sdl_gunbird_versions\0.44\moduletitlescreen.cpp(71): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+  ModuleTextures.cpp
+  ModuleScoreScreen.cpp
+  ModuleRender.cpp
+  ModulePlayer2.cpp
+  ModulePlayer.cpp
+  ModuleParticles.cpp
+  ModuleInput.cpp
+  ModuleFadeToBlack.cpp
   ModuleEnemies.cpp
-c:\users\david\desktop\0.44\enemy.h(8): warning C4099: 'Path': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
-  c:\users\david\desktop\0.44\path.h(15): note: vea la declaración de 'Path'
+c:\users\david\desktop\gunbird\sdl_gunbird_versions\0.44\enemy.h(8): warning C4099: 'Path': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+  c:\users\david\desktop\gunbird\sdl_gunbird_versions\0.44\path.h(15): note: vea la declaración de 'Path'
+  ModuleCollision.cpp
+  ModuleBackgroundSea.cpp
+c:\users\david\desktop\gunbird\sdl_gunbird_versions\0.44\enemy.h(8): warning C4099: 'Path': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+  c:\users\david\desktop\gunbird\sdl_gunbird_versions\0.44\path.h(15): note: vea la declaración de 'Path'
+c:\users\david\desktop\gunbird\sdl_gunbird_versions\0.44\modulebackgroundsea.cpp(93): warning C4244: '+=': conversión de 'double' a 'int'; posible pérdida de datos
+  ModuleBackgroundMine.cpp
+c:\users\david\desktop\gunbird\sdl_gunbird_versions\0.44\modulebackgroundmine.cpp(95): warning C4244: '+=': conversión de 'double' a 'int'; posible pérdida de datos
+  ModuleBackgroundCastle.cpp
+c:\users\david\desktop\gunbird\sdl_gunbird_versions\0.44\enemy.h(8): warning C4099: 'Path': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+  c:\users\david\desktop\gunbird\sdl_gunbird_versions\0.44\path.h(15): note: vea la declaración de 'Path'
+  Main.cpp
+  Globals.cpp
+  Enemy_Turret.cpp
+c:\users\david\desktop\gunbird\sdl_gunbird_versions\0.44\enemy.h(8): warning C4099: 'Path': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+  c:\users\david\desktop\gunbird\sdl_gunbird_versions\0.44\path.h(15): note: vea la declaración de 'Path'
+  Enemy_Missile.cpp
+c:\users\david\desktop\gunbird\sdl_gunbird_versions\0.44\enemy.h(8): warning C4099: 'Path': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+  c:\users\david\desktop\gunbird\sdl_gunbird_versions\0.44\path.h(15): note: vea la declaración de 'Path'
   Generando código...
-  SDL Game.vcxproj -> C:\Users\David\Desktop\0.44\Debug\Gunbird.exe
-  SDL Game.vcxproj -> C:\Users\David\Desktop\0.44\Debug\Gunbird.pdb (Full PDB)
+  Compilando...
+  Enemy_Balloon.cpp
+c:\users\david\desktop\gunbird\sdl_gunbird_versions\0.44\enemy.h(8): warning C4099: 'Path': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+  c:\users\david\desktop\gunbird\sdl_gunbird_versions\0.44\path.h(15): note: vea la declaración de 'Path'
+  Enemy.cpp
+c:\users\david\desktop\gunbird\sdl_gunbird_versions\0.44\enemy.h(8): warning C4099: 'Path': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+  c:\users\david\desktop\gunbird\sdl_gunbird_versions\0.44\path.h(15): note: vea la declaración de 'Path'
+  Application.cpp
+c:\users\david\desktop\gunbird\sdl_gunbird_versions\0.44\enemy.h(8): warning C4099: 'Path': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+  c:\users\david\desktop\gunbird\sdl_gunbird_versions\0.44\path.h(15): note: vea la declaración de 'Path'
+  Generando código...
+  SDL Game.vcxproj -> C:\Users\David\Desktop\Gunbird\SDL_Gunbird_Versions\0.44\Debug\Gunbird.exe
+  SDL Game.vcxproj -> C:\Users\David\Desktop\Gunbird\SDL_Gunbird_Versions\0.44\Debug\Gunbird.pdb (Full PDB)
