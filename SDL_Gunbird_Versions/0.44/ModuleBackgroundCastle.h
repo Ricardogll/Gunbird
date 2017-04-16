@@ -28,6 +28,7 @@ public:
 	Animation idle;
 	Mix_Music* music = nullptr;
 	SDL_Rect background;
+	bool gate = true;
 
 };
 

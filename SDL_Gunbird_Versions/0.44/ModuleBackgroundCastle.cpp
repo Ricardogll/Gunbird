@@ -34,7 +34,9 @@ bool ModuleBackgroundCastle::Start()
 
 	App->player->position.x = App->render->camera.x + 50;
 	App->player->position.y = abs(App->render->camera.y / SCREEN_SIZE) + 270;
-
+	
+	if (App->player->activatePlayer2 == true) {
+	}
 	LOG("Loading background castle assets");
 	bool ret = true;
 	graphics = App->textures->Load("assets/backgrounds/Background castle.png");
@@ -83,9 +85,12 @@ bool ModuleBackgroundCastle::CleanUp()
 update_status ModuleBackgroundCastle::Update()
 {
 	if (App->player->activatePlayer2 == true) {
+		if (gate == true) {
+			App->player2->position.x = App->render->camera.x + 150;
+			App->player2->position.y = abs(App->render->camera.y / SCREEN_SIZE) + 270;
+			gate = false;
+		}
 		App->player2->Enable();
-		App->player2->position.x = App->render->camera.x + 150;
-		App->player2->position.y = abs(App->render->camera.y / SCREEN_SIZE) + 270;
 	}
 
 	//ENEMIES
