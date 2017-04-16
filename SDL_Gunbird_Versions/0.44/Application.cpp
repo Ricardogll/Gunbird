@@ -14,6 +14,7 @@
 #include "ModuleFadeToBlack.h"
 #include "ModuleCollision.h"
 #include "ModuleParticles.h"
+#include "ModuleUI.h"
 
 Application::Application()
 {
@@ -26,12 +27,13 @@ Application::Application()
 	modules[6] = background = new ModuleBackgroundSea();
 	modules[7] = background2 = new ModuleBackgroundMine();
 	modules[8] = scorescreen = new ModuleScoreScreen();
-	modules[9] = enemies = new ModuleEnemies();
-	modules[10] = particles = new ModuleParticles();
+	modules[9] = particles = new ModuleParticles();
+	modules[10] = enemies = new ModuleEnemies();
 	modules[11] = player = new ModulePlayer();
 	modules[12] = player2 = new ModulePlayer2();
 	modules[13] = collision = new ModuleCollision();
-	modules[14] = fade = new ModuleFadeToBlack();
+	modules[14] = ui = new ModuleUI();
+	modules[15] = fade = new ModuleFadeToBlack();
 }
 
 Application::~Application()
@@ -54,6 +56,7 @@ bool Application::Init()
 	background->Disable();
 	background2->Disable();
 	scorescreen->Disable();
+	ui->Disable();
 
 	for (int i = 0; i < NUM_MODULES && ret == true; ++i)
 		ret = modules[i]->Init();

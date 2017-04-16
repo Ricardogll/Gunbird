@@ -7,6 +7,10 @@
 #include "p2Point.h"
 #include "ModuleCollision.h"
 
+//ESTO BORRARLO DESPUES
+#include "SDL_mixer\include\SDL_mixer.h"
+#include "SDL/include/SDL.h"
+
 struct SDL_Texture;
 struct Collider;
 
@@ -34,8 +38,19 @@ public:
 	iPoint position;
 	bool movement = false;
 	int levelPlayer1;
+	int livePlayer1;
+	int bombPlayer1;
+
+	bool activatePlayer2 = false;
+
+	int coins;
+
+	//ESTO BORRARLO DESPUES
+	Mix_Chunk* insertcoin = nullptr;
+
+private:
 	bool shot;
-	uint time = 0;
+	int time = 0;
 
 };
 

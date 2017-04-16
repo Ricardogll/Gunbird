@@ -2,6 +2,8 @@
 #define __PATH_H__
 
 #include "p2Point.h"
+
+struct Animation;
 #define MAX_STEPS 25
 
 struct Step

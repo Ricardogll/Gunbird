@@ -41,6 +41,10 @@ ModulePlayer2::~ModulePlayer2()
 // Load assets
 bool ModulePlayer2::Start()
 {
+	levelPlayer2 = 0;
+	livePlayer2 = 1;
+	bombPlayer2 = 2;
+
 	LOG("Loading player textures");
 	bool ret = true;
 	graphics = App->textures->Load("assets/characters/Marion.png");

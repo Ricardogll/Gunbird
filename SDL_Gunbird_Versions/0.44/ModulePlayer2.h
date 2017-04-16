@@ -30,7 +30,13 @@ public:
 	Animation left;
 	iPoint position;
 	bool movement = false;
+	int levelPlayer2;
+	int livePlayer2;
+	int bombPlayer2;
 
+private:
+	bool shot;
+	int time = 0;
 };
 
 #endif

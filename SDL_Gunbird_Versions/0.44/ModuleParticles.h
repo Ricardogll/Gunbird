@@ -7,7 +7,6 @@
 #include "p2Point.h"
 #include "ModuleRender.h"
 #include "ModuleCollision.h"
-#include "ModuleParticles.h"
 
 #include "SDL_mixer\include\SDL_mixer.h"
 #include "SDL/include/SDL.h"
@@ -55,9 +54,29 @@ private:
 	Particle* active[MAX_ACTIVE_PARTICLES];
 	//uint last_particle = 0;
 
+	bool up;
+	bool left;
+
 public:
-	Particle laser;
+	Particle laser_yang_v0_0;
+	Particle laser_yang_v0_1;
+	Particle laser_yang_v0_2;
+
+	Particle laser_yang_v1_0;
+	Particle laser_yang_v1_1;
+	Particle laser_yang_v1_2;
+
+	Particle laser_yang_v2_0;
+	Particle laser_yang_v2_1;
+	Particle laser_yang_v2_2;
+
+	Particle laser_yang_v3_0;
+	Particle laser_yang_v3_1;
+
+	Particle yang_sword;
+
 	Particle explosion_balloon;
+	Particle power_up;
 	Mix_Chunk* lasersound = nullptr;
 };
 

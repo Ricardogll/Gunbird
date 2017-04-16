@@ -8,9 +8,10 @@
 #include "Enemy_Balloon.h"
 #include "Enemy_Turret.h"
 #include "Enemy_Missile.h"
+
 #include "PowerUp.h"
 
-#define SPAWN_MARGIN 50
+#define SPAWN_MARGIN 250 //50
 
 ModuleEnemies::ModuleEnemies()
 {
@@ -141,28 +142,33 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 		{
 		case ENEMY_TYPES::BALLOON:
 			enemies[i] = new Enemy_Balloon(info.x, info.y);
+			enemies[i]->type = ENEMY_TYPES::BALLOON;
 			switch (info.move)
 			{
 			case ENEMY_MOVE::BALLOON_CASTLE:
 				enemies[i]->path = balloonCastle;
 				break;
+			default:
+				break;
 			}
 			break;
 		case ENEMY_TYPES::TURRET:
 			enemies[i] = new Enemy_Turret(info.x, info.y);
+			enemies[i]->type = ENEMY_TYPES::TURRET;
 			break;
 		case ENEMY_TYPES::MISSILE:
 			enemies[i] = new Enemy_Missile(info.x, info.y);
+			enemies[i]->type = ENEMY_TYPES::MISSILE;
 			break;
 		case ENEMY_TYPES::POWERUP:
 			enemies[i] = new PowerUp(info.x, info.y);
-			switch (info.move)
+			enemies[i]->type = ENEMY_TYPES::POWERUP;
+			/*switch (info.move)
 			{
 			case ENEMY_MOVE::POWERUP_MOV:
 				enemies[i]->path = powerUp_Path;
 				break;
-			}
-			enemies[i]->type = ENEMY_TYPES::POWERUP;
+			}*/
 			break;
 
 		}
@@ -176,15 +182,17 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 		if (enemies[i] != nullptr && enemies[i]->GetCollider() == c1)
 		{
 			enemies[i]->OnCollision(c2);
-			if (enemies[i]->getHitPoints() == 0) {
-				App->particles->AddParticle(App->particles->explosion_balloon, (c1->rect.x - ((c1->rect.w)) / 2), (c1->rect.y - ((c1->rect.h)) / 2));
-				//Spawn Power Up when an enemy dies
-				this->AddEnemy(ENEMY_TYPES::POWERUP, ENEMY_MOVE::NO_MOVE, c1->rect.x, c1->rect.y);
-				delete enemies[i];
-				enemies[i] = nullptr;
-				break;
+			if (enemies[i]->type == ENEMY_TYPES::BALLOON) {
+				if (enemies[i]->getHitPoints() == 0) {
+					App->particles->AddParticle(App->particles->explosion_balloon, (c1->rect.x - ((c1->rect.w)) / 2), (c1->rect.y - ((c1->rect.h)) / 2));
+					//Spawn Power Up when an enemy dies
+					//this->AddEnemy(ENEMY_TYPES::POWERUP, ENEMY_MOVE::NO_MOVE, c1->rect.x, c1->rect.y);
+					App->particles->AddParticle(App->particles->power_up, (c1->rect.x - ((c1->rect.w)) / 2), (c1->rect.y - ((c1->rect.h)) / 2), COLLIDER_POWER_UP);
+					delete enemies[i];
+					enemies[i] = nullptr;
+					break;
+				}	
 			}
-			
 			//Erase Power Up when the player grabs it
 			else if (enemies[i]->type == ENEMY_TYPES::POWERUP && c2->type == COLLIDER_TYPE::COLLIDER_PLAYER) {
 				delete enemies[i];

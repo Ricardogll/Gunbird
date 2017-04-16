@@ -8,7 +8,7 @@
 #include "PowerUp.h"
 #include "Path.h"
 
-#define MAX_ENEMIES 100
+#define MAX_ENEMIES 50
 
 enum ENEMY_TYPES
 {
@@ -16,6 +16,7 @@ enum ENEMY_TYPES
 	BALLOON,
 	TURRET,
 	MISSILE,
+
 	POWERUP
 };
 
@@ -23,7 +24,7 @@ enum ENEMY_MOVE
 {
 	NO_MOVE,
 	BALLOON_CASTLE,
-	POWERUP_MOV
+	//POWERUP_MOV
 };
 
 class Enemy;
@@ -59,7 +60,7 @@ private:
 
 	//Paths
 	Path balloonCastle;
-	Path powerUp_Path;
+	//Path powerUp_Path;
 
 	EnemyInfo queue[MAX_ENEMIES];
 	Enemy* enemies[MAX_ENEMIES];

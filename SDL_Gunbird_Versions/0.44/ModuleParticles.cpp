@@ -30,9 +30,98 @@ ModuleParticles::ModuleParticles()
 	explosion_balloon.anim.speed = 0.5f;
 
 	// Yuan Nang laser
-	laser.anim.PushBack({ 512, 40, 16, 30 });
-	laser.speed.y = -20;
-	laser.life = 1500;
+	laser_yang_v0_0.anim.PushBack({ 511, 40, 17, 30 });
+	laser_yang_v0_0.speed.y = -20;
+	laser_yang_v0_0.life = 1500;
+	laser_yang_v0_1.anim.PushBack({ 560, 39, 17, 30 });
+	laser_yang_v0_1.speed.y = -20;
+	laser_yang_v0_1.life = 1500;
+	laser_yang_v0_2.anim.PushBack({ 604, 39, 17, 30 });
+	laser_yang_v0_2.speed.y = -20;
+	laser_yang_v0_2.life = 1500;
+
+	laser_yang_v1_0.anim.PushBack({ 512, 83, 17, 42 });
+	laser_yang_v1_0.speed.y = -20;
+	laser_yang_v1_0.life = 1500;
+	laser_yang_v1_1.anim.PushBack({ 561, 81, 17, 42 });
+	laser_yang_v1_1.speed.y = -20;
+	laser_yang_v1_1.life = 1500;
+	laser_yang_v1_2.anim.PushBack({ 602, 80, 17, 42 });
+	laser_yang_v1_2.speed.y = -20;
+	laser_yang_v1_2.life = 1500;
+
+	laser_yang_v2_0.anim.PushBack({ 510, 139, 23, 38 });
+	laser_yang_v2_0.speed.y = -20;
+	laser_yang_v2_0.life = 1500;
+	laser_yang_v2_1.anim.PushBack({ 557, 139, 23, 38 });
+	laser_yang_v2_1.speed.y = -20;
+	laser_yang_v2_1.life = 1500;
+	laser_yang_v2_2.anim.PushBack({ 600, 138, 23, 38 });
+	laser_yang_v2_2.speed.y = -20;
+	laser_yang_v2_2.life = 1500;
+
+	laser_yang_v3_0.anim.PushBack({ 513, 188, 45, 38 });
+	laser_yang_v3_0.speed.y = -20;
+	laser_yang_v3_0.life = 1500;
+	laser_yang_v3_1.anim.PushBack({ 584, 186, 45, 38 });
+	laser_yang_v3_1.speed.y = -20;
+	laser_yang_v3_1.life = 1500;
+
+	yang_sword.anim.PushBack({ 513, 233, 13, 32 });
+	yang_sword.anim.PushBack({ 537, 233, 13, 32 });
+	yang_sword.anim.PushBack({ 565, 233, 13, 32 });
+	yang_sword.anim.PushBack({ 592, 233, 13, 32 });
+	yang_sword.anim.PushBack({ 618, 233, 13, 32 });
+	yang_sword.speed.y = -15;
+	yang_sword.life = 1500;
+
+
+	//Power Up SI NO VA PUES SE BORRA
+	power_up.anim.PushBack({ 685, 147, 22, 13 });
+	power_up.anim.PushBack({ 710, 147, 22, 13 });
+	power_up.anim.PushBack({ 735, 147, 22, 13 });
+	power_up.anim.PushBack({ 760, 147, 22, 13 });
+	power_up.anim.PushBack({ 785, 147, 22, 13 });
+	power_up.anim.PushBack({ 685, 163, 22, 13 });
+	power_up.anim.PushBack({ 710, 163, 22, 13 });
+	power_up.anim.PushBack({ 735, 163, 22, 13 });
+	power_up.anim.PushBack({ 760, 163, 22, 13 });
+	power_up.anim.PushBack({ 785, 163, 22, 13 });
+	power_up.anim.PushBack({ 685, 180, 22, 13 });
+	power_up.anim.PushBack({ 710, 180, 22, 13 });
+	power_up.anim.PushBack({ 735, 180, 22, 13 });
+	power_up.anim.PushBack({ 760, 180, 22, 13 });
+	power_up.anim.PushBack({ 785, 180, 22, 13 });
+	power_up.anim.PushBack({ 685, 199, 22, 13 });
+	power_up.anim.PushBack({ 710, 199, 22, 13 });
+	power_up.anim.PushBack({ 735, 199, 22, 13 });
+	power_up.anim.PushBack({ 760, 199, 22, 13 });
+	power_up.anim.speed = 0.8f;
+	power_up.life = 150000;
+
+	//Move up and right
+	if (up == true)
+		power_up.speed.y += 1;
+	else
+		power_up.speed.y -= 1;
+
+	if (left == true)
+		power_up.speed.x += 1;
+	else
+		power_up.speed.x -= 1;
+
+	//When it hits the borders turn arround
+	if (power_up.position.x < 0)
+		left = false;
+
+	if (power_up.position.x > SCREEN_WIDTH - 22)
+		left = true;
+
+	if (power_up.position.y < 0)
+		up = false;
+
+	if (power_up.position.y > SCREEN_HEIGHT - 13)
+		up = true;
 }
 
 ModuleParticles::~ModuleParticles()
@@ -43,8 +132,10 @@ bool ModuleParticles::Start()
 {
 	LOG("Loading particles");
 	graphics = App->textures->Load("assets/particles/particles.png");
-	if(laser.life != NULL)
+	if(laser_yang_v0_0.life != NULL)
 	lasersound = Mix_LoadWAV("assets/audio/sound/gunbird-056_Shoot_YungNang.wav");
+	up = true;
+	left = true;
 	
 	return true;
 }

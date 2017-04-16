@@ -28,10 +28,9 @@ PowerUp::PowerUp(int x, int y) : Enemy(x, y)
 	anim.PushBack({ 36, 1001, 22, 13 });
 	anim.PushBack({ 61, 1001, 22, 13 });
 	anim.PushBack({ 86, 1001, 22, 13 });
-	
-	animation = &anim;
 	anim.speed = 0.4f;
 
+	animation = &anim;
 
 	position.x = x;
 	position.y = y;
