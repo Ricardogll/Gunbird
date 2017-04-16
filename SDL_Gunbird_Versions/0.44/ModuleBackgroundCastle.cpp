@@ -21,6 +21,8 @@ ModuleBackgroundCastle::ModuleBackgroundCastle()
 	background.w = 228;
 	background.h = 1685;
 
+	
+
 }
 
 ModuleBackgroundCastle::~ModuleBackgroundCastle()
@@ -101,8 +103,34 @@ update_status ModuleBackgroundCastle::Update()
 	if (App->render->camera.y == (-1355 * SCREEN_SIZE)) {
 		App->enemies->AddEnemy(ENEMY_TYPES::TURRET, NO_MOVE, 162, 1241);
 	}
-
-	//App->enemies->AddEnemy(ENEMY_TYPES::MISSILE, 12, 1241);
+	//BUILDING
+	if (App->render->camera.y == (-1355 * SCREEN_SIZE)) {
+		App->enemies->AddEnemy(ENEMY_TYPES::BUILDING, BUILDING_CASTLE, 147, 1059);
+	}
+	if (App->render->camera.y == (-1355 * SCREEN_SIZE)) {
+		App->enemies->AddEnemy(ENEMY_TYPES::BUILDING2, BUILDING_CASTLE, 78, 799);
+	}
+	if (App->render->camera.y == (-1355 * SCREEN_SIZE)) {
+		App->enemies->AddEnemy(ENEMY_TYPES::FLAG, BUILDING_CASTLE, 177, 1049);
+	}
+	if (App->render->camera.y == (-1355 * SCREEN_SIZE)) {
+		App->enemies->AddEnemy(ENEMY_TYPES::FLAG, BUILDING_CASTLE, 110, 785);
+	}
+	//MISILE
+	if (App->render->camera.y == (-1355 * SCREEN_SIZE)) {
+		App->enemies->AddEnemy(ENEMY_TYPES::MISSILE, BUILDING_CASTLE, -10, 1130);
+	}
+	if (App->render->camera.y == (-1355 * SCREEN_SIZE)) {
+		App->enemies->AddEnemy(ENEMY_TYPES::MISSILE, BUILDING_CASTLE, -40, 1100);
+	}
+	if (App->render->camera.y == (-1355 * SCREEN_SIZE)) {
+		App->enemies->AddEnemy(ENEMY_TYPES::MISSILE, BUILDING_CASTLE, -70, 1070);
+	}
+	if (App->render->camera.y == (-1355 * SCREEN_SIZE)) {
+		App->enemies->AddEnemy(ENEMY_TYPES::MISSILE, BUILDING_CASTLE, -80, 1040);
+	}
+	
+	//App->enemies->AddEnemy(ENEMY_TYPES::MISSILE, NO_MOVE , 12, 1241);
 
 
 	// Draw everything --------------------------------------
@@ -116,7 +144,7 @@ update_status ModuleBackgroundCastle::Update()
 	}
 
 	App->render->Blit(graphics, 0, 0, NULL);
-
+	
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN && App->fade->IsFading() == false) {
 		App->fade->FadeToBlack(this, App->background2, 1);
 	}

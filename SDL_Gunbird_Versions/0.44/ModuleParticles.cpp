@@ -75,7 +75,6 @@ ModuleParticles::ModuleParticles()
 	yang_sword.speed.y = -15;
 	yang_sword.life = 1500;
 
-
 	//Power Up SI NO VA PUES SE BORRA
 	power_up.anim.PushBack({ 685, 147, 22, 13 });
 	power_up.anim.PushBack({ 710, 147, 22, 13 });

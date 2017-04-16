@@ -74,6 +74,7 @@ public:
 	Particle laser_yang_v3_1;
 
 	Particle yang_sword;
+	Animation flag;
 
 	Particle explosion_balloon;
 	Particle power_up;

@@ -5,6 +5,8 @@
 #include "Enemy_Balloon.h"
 #include "Enemy_Turret.h"
 #include "Enemy_Missile.h"
+#include "Enemy_building.h"
+#include "Enemy_building2.h"
 #include "PowerUp.h"
 #include "Path.h"
 
@@ -16,6 +18,9 @@ enum ENEMY_TYPES
 	BALLOON,
 	TURRET,
 	MISSILE,
+	BUILDING,
+	BUILDING2,
+	FLAG,
 
 	POWERUP
 };
@@ -24,6 +29,7 @@ enum ENEMY_MOVE
 {
 	NO_MOVE,
 	BALLOON_CASTLE,
+	BUILDING_CASTLE
 	//POWERUP_MOV
 };
 
