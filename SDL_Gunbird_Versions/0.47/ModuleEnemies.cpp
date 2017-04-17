@@ -209,7 +209,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 		if (enemies[i] != nullptr && enemies[i]->GetCollider() == c1)
 		{
 			enemies[i]->OnCollision(c2);
-			if (enemies[i]->type == ENEMY_TYPES::BALLOON) {
+			if (enemies[i]/*->type == ENEMY_TYPES::BALLOON*/) { //THIS IS NOW GENERAL FOR ALL ENEMIES UNCOMMENT FOR BEING ONLY BALLOON ENEMY
 				if (enemies[i]->getHitPoints() == 0) {
 					App->particles->AddParticle(App->particles->explosion_balloon, (c1->rect.x - ((c1->rect.w)) / 2), (c1->rect.y - ((c1->rect.h)) / 2));
 					//Spawn Power Up when an enemy dies

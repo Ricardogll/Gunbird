@@ -132,20 +132,21 @@ bool ModuleParticles::Start()
 {
 	LOG("Loading particles");
 	graphics = App->textures->Load("assets/particles/particles.png");
-	
+
 	laser_nang_v0_0.fx = App->audio->LoadWAV("assets/audio/sound/gunbird-056_Shoot_YungNang.wav");
 	laser_nang_v0_1.fx = App->audio->LoadWAV("assets/audio/sound/gunbird-056_Shoot_YungNang.wav");
 	laser_nang_v0_2.fx = App->audio->LoadWAV("assets/audio/sound/gunbird-056_Shoot_YungNang.wav");
 
-	laser_nang_v1_0.fx = App->audio->LoadWAV("assets/audio/sound/gunbird-056_Shoot_YungNang.wav");
-	laser_nang_v1_1.fx = App->audio->LoadWAV("assets/audio/sound/gunbird-056_Shoot_YungNang.wav");
-	laser_nang_v1_2.fx = App->audio->LoadWAV("assets/audio/sound/gunbird-056_Shoot_YungNang.wav");
+	laser_nang_v1_0.fx = 1;
+	laser_nang_v1_1.fx = 1;
+	laser_nang_v1_2.fx = 1;
 
-	laser_nang_v2_0.fx = App->audio->LoadWAV("assets/audio/sound/gunbird-056_Shoot_YungNang.wav");
-	laser_nang_v2_1.fx = App->audio->LoadWAV("assets/audio/sound/gunbird-056_Shoot_YungNang.wav");
-
-	laser_nang_v3_0.fx = App->audio->LoadWAV("assets/audio/sound/gunbird-056_Shoot_YungNang.wav");
-	laser_nang_v3_1.fx = App->audio->LoadWAV("assets/audio/sound/gunbird-056_Shoot_YungNang.wav");
+	laser_nang_v2_0.fx = 1;
+	laser_nang_v2_1.fx = 1;
+	laser_nang_v2_2.fx = 1;
+	
+	laser_nang_v3_0.fx = 1;
+	laser_nang_v3_1.fx = 1;
 	
 	up = true;
 	left = true;
@@ -167,6 +168,7 @@ bool ModuleParticles::CleanUp()
 	App->audio->UnloadWAV(laser_nang_v1_2.fx);
 	App->audio->UnloadWAV(laser_nang_v2_0.fx);
 	App->audio->UnloadWAV(laser_nang_v2_1.fx);
+	App->audio->UnloadWAV(laser_nang_v2_2.fx);
 	App->audio->UnloadWAV(laser_nang_v3_0.fx);
 	App->audio->UnloadWAV(laser_nang_v3_1.fx);
 

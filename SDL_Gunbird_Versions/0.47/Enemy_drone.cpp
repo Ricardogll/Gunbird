@@ -40,6 +40,7 @@ void Enemy_Drone::Move()
 }
 
 void Enemy_Drone::OnCollision(Collider* collider) {
+	if (collider->type == COLLIDER_TYPE::COLLIDER_PLAYER_SHOT)
 	hitPoints -= 1;
 }
 

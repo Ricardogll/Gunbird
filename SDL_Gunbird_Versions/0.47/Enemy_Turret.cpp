@@ -26,6 +26,7 @@ void Enemy_Turret::Move()
 }
 
 void Enemy_Turret::OnCollision(Collider* collider) {
+	if (collider->type == COLLIDER_TYPE::COLLIDER_PLAYER_SHOT)
 	hitPoints -= 1;
 }
 

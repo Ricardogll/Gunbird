@@ -17,6 +17,12 @@ Enemy_Building2::Enemy_Building2(int x, int y) : Enemy(x, y)
 	original_pos.y = y;
 	original_pos.x = x;
 }
+
+void Enemy_Building2::OnCollision(Collider* collider) {
+	if (collider->type == COLLIDER_TYPE::COLLIDER_PLAYER_SHOT)
+		hitPoints -= 1;
+}
+
 uint Enemy_Building2::getHitPoints() {
 	return hitPoints;
 }

@@ -10,9 +10,10 @@ private:
 	iPoint original_pos;
 
 public:
-
 	Enemy_Missile(int x, int y);
 	void Move();
+	void OnCollision(Collider* collider);
+	uint getHitPoints();
 };
 
 
