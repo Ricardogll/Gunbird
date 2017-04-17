@@ -127,6 +127,28 @@ update_status ModuleBackgroundCastle::Update()
 	if (App->render->camera.y == (-1355 * SCREEN_SIZE)) {
 		App->enemies->AddEnemy(ENEMY_TYPES::MISSILE, BUILDING_CASTLE, -80, 1040);
 	}
+	//VASE
+	if (App->render->camera.y == (-1355 * SCREEN_SIZE)) {
+		App->enemies->AddEnemy(ENEMY_TYPES::VASE, NO_MOVE, 10, 690);
+	}
+	if (App->render->camera.y == (-1355 * SCREEN_SIZE)) {
+		App->enemies->AddEnemy(ENEMY_TYPES::VASE, NO_MOVE, 185, 690);
+	}if (App->render->camera.y == (-1355 * SCREEN_SIZE)) {
+		App->enemies->AddEnemy(ENEMY_TYPES::VASE, NO_MOVE, 10, 475);
+	}
+	if (App->render->camera.y == (-1355 * SCREEN_SIZE)) {
+		App->enemies->AddEnemy(ENEMY_TYPES::VASE, NO_MOVE, 185, 475);
+	}
+	//DRONE
+	/*if (App->render->camera.y == (-1355 * SCREEN_SIZE)) {
+		App->enemies->AddEnemy(ENEMY_TYPES::DRONE, BUILDING_CASTLE, 42, 1042);
+	}
+	if (App->render->camera.y == (-1355 * SCREEN_SIZE)) {
+		App->enemies->AddEnemy(ENEMY_TYPES::DRONE, BUILDING_CASTLE, 55, 1080);
+	}
+	if (App->render->camera.y == (-1355 * SCREEN_SIZE)) {
+		App->enemies->AddEnemy(ENEMY_TYPES::DRONE, BUILDING_CASTLE, 75, 1042);
+	}*/
 	
 	//App->enemies->AddEnemy(ENEMY_TYPES::MISSILE, NO_MOVE , 12, 1241);
 
