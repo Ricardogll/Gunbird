@@ -19,7 +19,6 @@ Enemy_Flag::Enemy_Flag(int x, int y) : Enemy(x, y)
 
 	animation = &fly;
 
-	collider = App->collision->AddCollider({ 0, 0, 64, 21 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
 
 	original_pos.y = y;
 	original_pos.x = x;

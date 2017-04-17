@@ -28,8 +28,8 @@ Character_Valnus::Character_Valnus(int x, int y) : Character(x, y)
 	mleft.speed = 0.2f;
 
 	// right animation
-	right.PushBack({ 218, 519, 26, 30 });
-	right.PushBack({ 256, 519, 26, 30 });
+	right.PushBack({ 218, 481, 26, 30 });
+	right.PushBack({ 256, 481, 26, 30 });
 	right.loop = false;
 	right.speed = 0.2f;
 
