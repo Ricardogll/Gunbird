@@ -49,7 +49,6 @@ private:
 	SDL_Texture* graphics = nullptr;
 	SDL_Texture* graphics2 = nullptr;
 	SDL_Texture* graphics3 = nullptr;
-	Animation door;
 	Particle* active[MAX_ACTIVE_PARTICLES];
 	//uint last_particle = 0;
 
@@ -72,9 +71,7 @@ public:
 	Particle laser_nang_v3_0;
 	Particle laser_nang_v3_1;
 
-	Particle nang_sword;
-	
-	
+	Particle nang_sword;	
 
 	Particle explosion_balloon;
 	Particle power_up;

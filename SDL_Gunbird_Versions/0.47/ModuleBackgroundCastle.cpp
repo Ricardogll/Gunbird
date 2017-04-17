@@ -23,6 +23,19 @@ ModuleBackgroundCastle::ModuleBackgroundCastle()
 	background.w = 228;
 	background.h = 1685;
 
+	//DOOR
+	door.PushBack({ 293,33,121,35 });
+	door.PushBack({ 418,33,116,46 });
+	door.PushBack({ 543,33,119,53 });
+	door.PushBack({ 293,97,115,72 });
+	door.PushBack({ 418,97,112,83 });
+	door.PushBack({ 293,222,110,106 });
+	door.PushBack({ 293,342,121,100 });
+	door.PushBack({ 418,342,110,103 });
+	door.PushBack({ 543,342,110,106 });
+	door.loop = false;
+	door.speed = 0.4f;
+
 }
 
 ModuleBackgroundCastle::~ModuleBackgroundCastle()
@@ -39,6 +52,7 @@ bool ModuleBackgroundCastle::Start()
 	gate = true;
 
 	graphics = App->textures->Load("assets/backgrounds/Background castle.png");
+	animation_door = App->textures->Load("assets/particles/animations.png");
 
 	App->ui->Enable();
 	App->player->Enable();
@@ -168,7 +182,11 @@ update_status ModuleBackgroundCastle::Update()
 	}
 
 	App->render->Blit(graphics, 0, 0, NULL);
-	
+
+	if (App->render->camera.y >= -1000 * SCREEN_SIZE) {
+		App->render->Blit(animation_door, 66, 960, &(door.GetCurrentFrame()));
+	}
+
 	
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN && App->fade->IsFading() == false) {
 		App->fade->FadeToBlack(this, App->background2, 1);

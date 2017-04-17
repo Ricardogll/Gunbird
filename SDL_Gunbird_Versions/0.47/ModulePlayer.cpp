@@ -77,7 +77,6 @@ update_status ModulePlayer::Update()
 			coins++;
 		App->audio->PlayWAV(insertcoin_fx);
 	}
-	
 
 	return UPDATE_CONTINUE;
 }

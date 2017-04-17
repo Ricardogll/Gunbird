@@ -21,7 +21,9 @@ public:
 public:
 
 	SDL_Texture* graphics = nullptr;
+	SDL_Texture* animation_door = nullptr;
 	Animation idle;
+	Animation door;
 	SDL_Rect background;
 	bool gate;
 

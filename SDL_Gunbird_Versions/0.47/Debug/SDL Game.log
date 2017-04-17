@@ -1,7 +1,3 @@
-﻿  ModulePlayer.cpp
-c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.47\path.h(6): warning C4099: 'Animation': type name first seen using 'class' now seen using 'struct'
-  c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.47\animation.h(47): note: see declaration of 'Animation'
-  ModuleParticles.cpp
-  Generating Code...
-  SDL Game.vcxproj -> C:\Users\Usuario\Documents\GitHub\Gunbird\SDL_Gunbird_Versions\0.47\Debug\Gunbird.exe
-  SDL Game.vcxproj -> C:\Users\Usuario\Documents\GitHub\Gunbird\SDL_Gunbird_Versions\0.47\Debug\Gunbird.pdb (Full PDB)
+﻿  LINK : no se encontró D:\Github\Gunbird\SDL_Gunbird_Versions\0.47\Debug\Gunbird.exe o no lo generó el último vínculo incremental; ejecutando vínculo completo
+  SDL Game.vcxproj -> D:\Github\Gunbird\SDL_Gunbird_Versions\0.47\Debug\Gunbird.exe
+  SDL Game.vcxproj -> D:\Github\Gunbird\SDL_Gunbird_Versions\0.47\Debug\Gunbird.pdb (Full PDB)
