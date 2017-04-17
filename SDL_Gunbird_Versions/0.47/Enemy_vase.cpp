@@ -19,6 +19,7 @@ Enemy_Vase::Enemy_Vase(int x, int y) : Enemy(x, y)
 	original_pos.x = x;
 }
 void Enemy_Vase::OnCollision(Collider* collider) {
+	if (collider->type == COLLIDER_TYPE::COLLIDER_PLAYER_SHOT)
 	hitPoints -= 1;
 }
 

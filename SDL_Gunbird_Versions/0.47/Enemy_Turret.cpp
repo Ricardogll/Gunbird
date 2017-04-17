@@ -10,7 +10,7 @@ Enemy_Turret::Enemy_Turret(int x, int y) : Enemy(x, y)
 	fly.PushBack({ 122,8,32,32 });
 	fly.speed = 0.25f;
 
-	hitPoints = 4;
+	hitPoints = 25;
 
 	animation = &fly;
 
@@ -26,6 +26,7 @@ void Enemy_Turret::Move()
 }
 
 void Enemy_Turret::OnCollision(Collider* collider) {
+	if (collider->type == COLLIDER_TYPE::COLLIDER_PLAYER_SHOT)
 	hitPoints -= 1;
 }
 

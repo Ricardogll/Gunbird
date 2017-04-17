@@ -14,6 +14,8 @@ Enemy_Missile::Enemy_Missile(int x, int y) : Enemy(x, y)
 	fly.PushBack({ 104,82,16,32 });
 	fly.speed = 0.25f;
 
+	hitPoints = 1;
+
 	animation = &fly;
 
 	collider = App->collision->AddCollider({ 0, 0, 18, 32 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
@@ -31,3 +33,11 @@ void Enemy_Missile::Move()
 	//position = original_pos + path.GetCurrentPosition();
 }
 
+void Enemy_Missile::OnCollision(Collider* collider) {
+	if (collider->type == COLLIDER_TYPE::COLLIDER_PLAYER_SHOT)
+		hitPoints -= 1;
+}
+
+uint Enemy_Missile::getHitPoints() {
+	return hitPoints;
+}

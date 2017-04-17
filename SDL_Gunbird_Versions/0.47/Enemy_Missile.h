@@ -13,6 +13,8 @@ public:
 
 	Enemy_Missile(int x, int y);
 	void Move();
+	void OnCollision(Collider* collider);
+	uint getHitPoints();
 };
 
 

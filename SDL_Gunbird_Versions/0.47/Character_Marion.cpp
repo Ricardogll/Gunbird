@@ -13,7 +13,7 @@ Character_Marion::Character_Marion(int x, int y) : Character(x, y)
 	// idle animation
 	idle.PushBack({ 216, 71, 20, 32 }); //1
 	idle.PushBack({ 248, 71, 20, 32 }); //2
-	idle.PushBack({ 280, 71, 20, 32 }); //3
+	idle.PushBack({ 279, 71, 20, 32 }); //3
 	idle.PushBack({ 312, 71, 20, 32 }); //4
 
 	idle.speed = 0.25f;

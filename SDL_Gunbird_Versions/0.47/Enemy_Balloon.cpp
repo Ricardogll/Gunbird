@@ -38,6 +38,7 @@ void Enemy_Balloon::Move()
 }
 
 void Enemy_Balloon::OnCollision(Collider* collider) {
+	if (collider->type == COLLIDER_TYPE::COLLIDER_PLAYER_SHOT)
 	hitPoints -= 1;
 }
 

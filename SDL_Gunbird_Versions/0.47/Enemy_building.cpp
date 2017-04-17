@@ -20,6 +20,7 @@ Enemy_Building::Enemy_Building(int x, int y) : Enemy(x, y)
 }
 
 void Enemy_Building::OnCollision(Collider* collider) {
+	if (collider->type == COLLIDER_TYPE::COLLIDER_PLAYER_SHOT)
 	hitPoints -= 1;
 }
 

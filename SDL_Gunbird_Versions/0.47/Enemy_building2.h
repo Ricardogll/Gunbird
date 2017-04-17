@@ -11,7 +11,7 @@ private:
 
 public:
 	Enemy_Building2(int x, int y);
-	
+	void OnCollision(Collider* collider);
 	uint getHitPoints();
 };
 
