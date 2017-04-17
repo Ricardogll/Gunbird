@@ -1,19 +1,111 @@
-﻿  ModuleParticles.cpp
-  Character_YuanNang.cpp
-d:\documentos\0.44\path.h(6): warning C4099: 'Animation': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
-  d:\documentos\0.44\animation.h(47): note: vea la declaración de 'Animation'
-  Generando código...
-  Omitiendo... (no se detectaron cambios relevantes)
+﻿  PowerUp.cpp
+c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.441\path.h(6): warning C4099: 'Animation': type name first seen using 'class' now seen using 'struct'
+  c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.441\animation.h(47): note: see declaration of 'Animation'
+c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.441\enemy.h(8): warning C4099: 'Path': type name first seen using 'class' now seen using 'struct'
+  c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.441\path.h(17): note: see declaration of 'Path'
+  ModuleWindow.cpp
+  ModuleUI.cpp
+c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.441\path.h(6): warning C4099: 'Animation': type name first seen using 'class' now seen using 'struct'
+  c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.441\animation.h(47): note: see declaration of 'Animation'
+  ModuleTitleScreen.cpp
+c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.441\moduletitlescreen.cpp(55): warning C4305: 'argument': truncation from 'double' to 'float'
+  ModuleTextures.cpp
+  ModuleScoreScreen.cpp
+  ModuleRender.cpp
   ModulePlayer.cpp
+c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.441\path.h(6): warning C4099: 'Animation': type name first seen using 'class' now seen using 'struct'
+  c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.441\animation.h(47): note: see declaration of 'Animation'
+  ModuleParticles.cpp
+  ModuleInput.cpp
+  ModuleFadeToBlack.cpp
   ModuleEnemies.cpp
+c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.441\path.h(6): warning C4099: 'Animation': type name first seen using 'class' now seen using 'struct'
+  c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.441\animation.h(47): note: see declaration of 'Animation'
+c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.441\enemy.h(8): warning C4099: 'Path': type name first seen using 'class' now seen using 'struct'
+  c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.441\path.h(17): note: see declaration of 'Path'
+  ModuleCollision.cpp
+  ModuleCharacterSelection.cpp
+c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.441\path.h(6): warning C4099: 'Animation': type name first seen using 'class' now seen using 'struct'
+  c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.441\animation.h(47): note: see declaration of 'Animation'
+c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.441\modulecharacterselection.cpp(150): warning C4305: 'argument': truncation from 'double' to 'float'
   ModuleBackgroundSea.cpp
+c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.441\path.h(6): warning C4099: 'Animation': type name first seen using 'class' now seen using 'struct'
+  c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.441\animation.h(47): note: see declaration of 'Animation'
+c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.441\enemy.h(8): warning C4099: 'Path': type name first seen using 'class' now seen using 'struct'
+  c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.441\path.h(17): note: see declaration of 'Path'
+c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.441\modulebackgroundsea.cpp(79): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
+  ModuleBackgroundMine.cpp
+c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.441\path.h(6): warning C4099: 'Animation': type name first seen using 'class' now seen using 'struct'
+  c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.441\animation.h(47): note: see declaration of 'Animation'
+c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.441\modulebackgroundmine.cpp(85): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
   ModuleBackgroundCastle.cpp
+c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.441\path.h(6): warning C4099: 'Animation': type name first seen using 'class' now seen using 'struct'
+  c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.441\animation.h(47): note: see declaration of 'Animation'
+c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.441\enemy.h(8): warning C4099: 'Path': type name first seen using 'class' now seen using 'struct'
+  c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.441\path.h(17): note: see declaration of 'Path'
+  ModuleAudio.cpp
+  Main.cpp
+  Globals.cpp
+  Generating Code...
+  Compiling...
+  Enemy_Turret.cpp
+c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.441\path.h(6): warning C4099: 'Animation': type name first seen using 'class' now seen using 'struct'
+  c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.441\animation.h(47): note: see declaration of 'Animation'
+c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.441\enemy.h(8): warning C4099: 'Path': type name first seen using 'class' now seen using 'struct'
+  c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.441\path.h(17): note: see declaration of 'Path'
+  Enemy_Missile.cpp
+c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.441\path.h(6): warning C4099: 'Animation': type name first seen using 'class' now seen using 'struct'
+  c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.441\animation.h(47): note: see declaration of 'Animation'
+c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.441\enemy.h(8): warning C4099: 'Path': type name first seen using 'class' now seen using 'struct'
+  c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.441\path.h(17): note: see declaration of 'Path'
+  Enemy_flag.cpp
+c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.441\path.h(6): warning C4099: 'Animation': type name first seen using 'class' now seen using 'struct'
+  c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.441\animation.h(47): note: see declaration of 'Animation'
+c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.441\enemy.h(8): warning C4099: 'Path': type name first seen using 'class' now seen using 'struct'
+  c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.441\path.h(17): note: see declaration of 'Path'
+  Enemy_building2.cpp
+c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.441\path.h(6): warning C4099: 'Animation': type name first seen using 'class' now seen using 'struct'
+  c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.441\animation.h(47): note: see declaration of 'Animation'
+c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.441\enemy.h(8): warning C4099: 'Path': type name first seen using 'class' now seen using 'struct'
+  c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.441\path.h(17): note: see declaration of 'Path'
+  Enemy_building.cpp
+c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.441\path.h(6): warning C4099: 'Animation': type name first seen using 'class' now seen using 'struct'
+  c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.441\animation.h(47): note: see declaration of 'Animation'
+c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.441\enemy.h(8): warning C4099: 'Path': type name first seen using 'class' now seen using 'struct'
+  c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.441\path.h(17): note: see declaration of 'Path'
+  Enemy_Balloon.cpp
+c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.441\path.h(6): warning C4099: 'Animation': type name first seen using 'class' now seen using 'struct'
+  c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.441\animation.h(47): note: see declaration of 'Animation'
+c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.441\enemy.h(8): warning C4099: 'Path': type name first seen using 'class' now seen using 'struct'
+  c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.441\path.h(17): note: see declaration of 'Path'
   Enemy.cpp
+c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.441\path.h(6): warning C4099: 'Animation': type name first seen using 'class' now seen using 'struct'
+  c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.441\animation.h(47): note: see declaration of 'Animation'
+c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.441\enemy.h(8): warning C4099: 'Path': type name first seen using 'class' now seen using 'struct'
+  c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.441\path.h(17): note: see declaration of 'Path'
+  Character_YuanNang.cpp
+c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.441\path.h(6): warning C4099: 'Animation': type name first seen using 'class' now seen using 'struct'
+  c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.441\animation.h(47): note: see declaration of 'Animation'
   Character_Valnus.cpp
+c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.441\path.h(6): warning C4099: 'Animation': type name first seen using 'class' now seen using 'struct'
+  c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.441\animation.h(47): note: see declaration of 'Animation'
   Character_Tetsu.cpp
+c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.441\path.h(6): warning C4099: 'Animation': type name first seen using 'class' now seen using 'struct'
+  c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.441\animation.h(47): note: see declaration of 'Animation'
   Character_Marion.cpp
+c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.441\path.h(6): warning C4099: 'Animation': type name first seen using 'class' now seen using 'struct'
+  c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.441\animation.h(47): note: see declaration of 'Animation'
   Character_Ash.cpp
+c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.441\path.h(6): warning C4099: 'Animation': type name first seen using 'class' now seen using 'struct'
+  c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.441\animation.h(47): note: see declaration of 'Animation'
   Character.cpp
+c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.441\path.h(6): warning C4099: 'Animation': type name first seen using 'class' now seen using 'struct'
+  c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.441\animation.h(47): note: see declaration of 'Animation'
   Application.cpp
-  SDL Game.vcxproj -> D:\Documentos\0.44\Debug\Gunbird.exe
-  SDL Game.vcxproj -> D:\Documentos\0.44\Debug\Gunbird.pdb (Full PDB)
+c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.441\path.h(6): warning C4099: 'Animation': type name first seen using 'class' now seen using 'struct'
+  c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.441\animation.h(47): note: see declaration of 'Animation'
+c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.441\enemy.h(8): warning C4099: 'Path': type name first seen using 'class' now seen using 'struct'
+  c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.441\path.h(17): note: see declaration of 'Path'
+  Generating Code...
+  SDL Game.vcxproj -> C:\Users\Usuario\Documents\GitHub\Gunbird\SDL_Gunbird_Versions\0.441\Debug\Gunbird.exe
+  SDL Game.vcxproj -> C:\Users\Usuario\Documents\GitHub\Gunbird\SDL_Gunbird_Versions\0.441\Debug\Gunbird.pdb (Full PDB)
