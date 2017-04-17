@@ -1,0 +1,19 @@
+﻿  ModuleParticles.cpp
+  Character_YuanNang.cpp
+d:\documentos\0.44\path.h(6): warning C4099: 'Animation': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+  d:\documentos\0.44\animation.h(47): note: vea la declaración de 'Animation'
+  Generando código...
+  Omitiendo... (no se detectaron cambios relevantes)
+  ModulePlayer.cpp
+  ModuleEnemies.cpp
+  ModuleBackgroundSea.cpp
+  ModuleBackgroundCastle.cpp
+  Enemy.cpp
+  Character_Valnus.cpp
+  Character_Tetsu.cpp
+  Character_Marion.cpp
+  Character_Ash.cpp
+  Character.cpp
+  Application.cpp
+  SDL Game.vcxproj -> D:\Documentos\0.44\Debug\Gunbird.exe
+  SDL Game.vcxproj -> D:\Documentos\0.44\Debug\Gunbird.pdb (Full PDB)
