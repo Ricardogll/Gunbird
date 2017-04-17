@@ -29,6 +29,24 @@ ModuleParticles::ModuleParticles()
 	explosion_balloon.anim.PushBack({ 357,301,71,51 });
 	explosion_balloon.anim.loop = false;
 	explosion_balloon.anim.speed = 0.5f;
+	
+
+
+	//DOOR
+	
+	door.PushBack({ 293,33,121,35 });
+	door.PushBack({ 418,33,116,46 });
+	door.PushBack({ 543,33,119,53 });
+	door.PushBack({ 293,97,115,72 });
+	door.PushBack({ 418,97,112,83 });
+	door.PushBack({ 293,222,110,106});
+	door.PushBack({ 293,33,121,35 });
+	/*door.PushBack({ 418,342,110,103 });
+	door.PushBack({ 543,342,110,106 });*/
+	door.loop = false;
+	door.speed = 0.09f;
+	
+	
 
 	// Yuan Nang laser
 	laser_nang_v0_0.anim.PushBack({ 511, 40, 17, 30 });
@@ -125,14 +143,16 @@ ModuleParticles::ModuleParticles()
 }
 
 ModuleParticles::~ModuleParticles()
-{}
+{
+}
 
 // Load assets
 bool ModuleParticles::Start()
 {
 	LOG("Loading particles");
 	graphics = App->textures->Load("assets/particles/particles.png");
-	
+	graphics3 = App->textures->Load("assets/particles/animations.png");
+
 	laser_nang_v0_0.fx = App->audio->LoadWAV("assets/audio/sound/gunbird-056_Shoot_YungNang.wav");
 	laser_nang_v0_1.fx = App->audio->LoadWAV("assets/audio/sound/gunbird-056_Shoot_YungNang.wav");
 	laser_nang_v0_2.fx = App->audio->LoadWAV("assets/audio/sound/gunbird-056_Shoot_YungNang.wav");
@@ -185,6 +205,11 @@ bool ModuleParticles::CleanUp()
 // Update: draw background
 update_status ModuleParticles::Update()
 {
+	if (App->render->camera.y >= -950 * SCREEN_SIZE) {
+		App->render->Blit(graphics3, 67, 960, &(door.GetCurrentFrame()));
+	}
+		
+	
 	for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
 	{
 		Particle* p = active[i];

@@ -169,6 +169,7 @@ update_status ModuleBackgroundCastle::Update()
 
 	App->render->Blit(graphics, 0, 0, NULL);
 	
+	
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN && App->fade->IsFading() == false) {
 		App->fade->FadeToBlack(this, App->background2, 1);
 	}
