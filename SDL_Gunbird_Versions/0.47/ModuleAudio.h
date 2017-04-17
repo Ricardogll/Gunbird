@@ -25,7 +25,7 @@ public:
 private:
 
 	Mix_Music* music = nullptr;
-	Mix_Chunk* fx[50];
+	Mix_Chunk* fx[200];
 	uint last_fx = 1;
 };
 

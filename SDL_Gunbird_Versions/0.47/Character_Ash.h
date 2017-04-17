@@ -7,8 +7,11 @@ class Character_Ash : public Character
 {
 private:
 	Animation idle;
-	Animation right;
 	Animation left;
+	Animation mleft;
+	Animation right;
+	Animation mright;
+	Animation death;
 
 	iPoint original_pos;
 

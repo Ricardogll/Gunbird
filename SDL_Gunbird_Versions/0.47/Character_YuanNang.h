@@ -11,6 +11,7 @@ private:
 	Animation mright;
 	Animation left;
 	Animation mleft;
+	Animation death;
 
 	iPoint original_pos;
 

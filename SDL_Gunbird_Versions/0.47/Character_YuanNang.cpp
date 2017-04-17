@@ -53,6 +53,9 @@ Character_YuanNang::Character_YuanNang(int x, int y) : Character(x, y)
 	mright.loop = true;
 	mright.speed = 0.25f;
 
+	// death sprite
+	death.PushBack({ 23, 965, 30, 30 });
+
 	collider = App->collision->AddCollider({ position.x, position.y, 27, 48 }, COLLIDER_PLAYER, (Module*)App->player);
 
 	animation = &idle;

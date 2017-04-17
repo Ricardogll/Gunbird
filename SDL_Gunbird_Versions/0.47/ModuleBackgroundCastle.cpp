@@ -87,6 +87,7 @@ bool ModuleBackgroundCastle::CleanUp()
 
 	LOG("Unloading castle stage");
 	App->textures->Unload(graphics);
+	App->textures->Unload(animation_door);
 
 	LOG("Destroying SDL audio");
 	App->audio->StopMusic();

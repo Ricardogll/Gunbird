@@ -19,20 +19,37 @@ Character_Marion::Character_Marion(int x, int y) : Character(x, y)
 	idle.speed = 0.25f;
 
 	// left animation
-	right.PushBack({ 216, 104, 23, 32 });
-	right.PushBack({ 249, 104, 23, 32 });
-	right.PushBack({ 280, 104, 23, 32 });
-	right.PushBack({ 313, 104, 23, 32 });
-	right.speed = 0.25f;
-
-	// right animation
-	left.PushBack({ 212, 7, 23, 32 });
-	left.PushBack({ 244, 7, 23, 32 });
-	left.PushBack({ 277, 7, 23, 32 });
-	left.PushBack({ 308, 7, 23, 32 });
+	left.PushBack({ 214, 39, 21, 32 });
+	left.PushBack({ 246, 39, 21, 32 });
+	left.PushBack({ 277, 39, 21, 32 });
+	left.PushBack({ 310, 39, 21, 32 });
 	left.speed = 0.25f;
 
-	collider = App->collision->AddCollider({ position.x, position.y, 23, 32 }, COLLIDER_PLAYER, (Module*)App->player);
+	// more left animation
+	mleft.PushBack({ 212, 7, 23, 32 });
+	mleft.PushBack({ 244, 7, 23, 32 });
+	mleft.PushBack({ 276, 7, 23, 32 });
+	mleft.PushBack({ 308, 7, 23, 32 });
+	mleft.speed = 0.25f;
+
+	//right animation
+	right.PushBack({ 217, 135, 21, 32 });
+	right.PushBack({ 249, 135, 21, 32 });
+	right.PushBack({ 280, 135, 21, 32 });
+	right.PushBack({ 313, 135, 21, 32 });
+	right.speed = 0.25f;
+
+	//more right animation
+	mright.PushBack({ 217, 103, 23, 32 });
+	mright.PushBack({ 249, 103, 23, 32 });
+	mright.PushBack({ 280, 103, 23, 32 });
+	mright.PushBack({ 313, 103, 23, 32 });
+	mright.speed = 0.25f;
+
+	//death sprite
+	death.PushBack({ 215, 180, 32, 28 });
+
+	collider = App->collision->AddCollider({ position.x, position.y, 20, 32 }, COLLIDER_PLAYER, (Module*)App->player);
 
 	animation = &idle;
 
@@ -57,8 +74,8 @@ void Character_Marion::Move()
 	{
 		animation = &right;
 		position.x += speed;
-		if (position.x > (SCREEN_WIDTH - 23)) {
-			position.x = (SCREEN_WIDTH - 23);
+		if (position.x > (SCREEN_WIDTH - 20)) {
+			position.x = (SCREEN_WIDTH - 20);
 		}
 	}
 	if (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT)
@@ -73,16 +90,16 @@ void Character_Marion::Move()
 	{
 		animation = &idle;
 		position.y -= speed;
-		if (position.y < (abs(App->render->camera.y) / SCREEN_SIZE) + 32) {
-			position.y = (abs(App->render->camera.y) / SCREEN_SIZE) + 32;
+		if (position.y < (abs(App->render->camera.y) / SCREEN_SIZE)) {
+			position.y = (abs(App->render->camera.y) / SCREEN_SIZE) ;
 		}
 	}
 	if (App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT)
 	{
 		animation = &idle;
 		position.y += speed;
-		if (position.y >((abs(App->render->camera.y) + (SCREEN_HEIGHT*SCREEN_SIZE))) / SCREEN_SIZE - 50) {
-			position.y = (abs(App->render->camera.y) + (SCREEN_HEIGHT*SCREEN_SIZE)) / SCREEN_SIZE - 50;
+		if (position.y >((abs(App->render->camera.y) + (SCREEN_HEIGHT*SCREEN_SIZE))) / SCREEN_SIZE - 32) {
+			position.y = (abs(App->render->camera.y) + (SCREEN_HEIGHT*SCREEN_SIZE)) / SCREEN_SIZE - 32;
 		}
 	}
 	

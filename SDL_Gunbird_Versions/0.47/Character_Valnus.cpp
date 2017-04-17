@@ -11,28 +11,38 @@ Character_Valnus::Character_Valnus(int x, int y) : Character(x, y)
 	position.y = y;
 
 	// idle animation
-	idle.PushBack({ 216, 71, 20, 32 }); //1
-	idle.PushBack({ 248, 71, 20, 32 }); //2
-	idle.PushBack({ 280, 71, 20, 32 }); //3
-	idle.PushBack({ 312, 71, 20, 32 }); //4
-
-	idle.speed = 0.25f;
+	idle.PushBack({ 218, 443, 31, 30 }); //1
+	idle.PushBack({ 256, 443, 31, 30 }); //2
+	idle.speed = 0.2f;
 
 	// left animation
-	right.PushBack({ 216, 104, 23, 32 });
-	right.PushBack({ 249, 104, 23, 32 });
-	right.PushBack({ 280, 104, 23, 32 });
-	right.PushBack({ 313, 104, 23, 32 });
-	right.speed = 0.25f;
+	left.PushBack({ 218, 519, 26, 30 });
+	left.PushBack({ 256, 519, 26, 30 });
+	left.loop = false;
+	left.speed = 0.2f;
+
+	// more left animation
+	mleft.PushBack({ 294, 519, 21, 30 });
+	mleft.PushBack({ 332, 519, 21, 30 });
+	mleft.loop = true;
+	mleft.speed = 0.2f;
 
 	// right animation
-	left.PushBack({ 212, 7, 23, 32 });
-	left.PushBack({ 244, 7, 23, 32 });
-	left.PushBack({ 277, 7, 23, 32 });
-	left.PushBack({ 308, 7, 23, 32 });
-	left.speed = 0.25f;
+	right.PushBack({ 218, 519, 26, 30 });
+	right.PushBack({ 256, 519, 26, 30 });
+	right.loop = false;
+	right.speed = 0.2f;
 
-	collider = App->collision->AddCollider({ position.x, position.y, 23, 32 }, COLLIDER_PLAYER, (Module*)App->player);
+	// more right animation
+	mright.PushBack({ 294, 481, 21, 30 });
+	mright.PushBack({ 332, 481, 21, 30 });
+	mright.loop = true;
+	mright.speed = 0.2f;
+
+	// death sprite
+	death.PushBack({ 294, 443, 32, 37 });
+
+	collider = App->collision->AddCollider({ position.x, position.y, 31, 30 }, COLLIDER_PLAYER, (Module*)App->player);
 
 	animation = &idle;
 
@@ -57,8 +67,8 @@ void Character_Valnus::Move()
 	{
 		animation = &right;
 		position.x += speed;
-		if (position.x > (SCREEN_WIDTH - 23)) {
-			position.x = (SCREEN_WIDTH - 23);
+		if (position.x > (SCREEN_WIDTH - 31)) {
+			position.x = (SCREEN_WIDTH - 31);
 		}
 	}
 	if (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT)
@@ -73,8 +83,8 @@ void Character_Valnus::Move()
 	{
 		animation = &idle;
 		position.y -= speed;
-		if (position.y < (abs(App->render->camera.y) / SCREEN_SIZE) + 32) {
-			position.y = (abs(App->render->camera.y) / SCREEN_SIZE) + 32;
+		if (position.y < (abs(App->render->camera.y) / SCREEN_SIZE) + 30) {
+			position.y = (abs(App->render->camera.y) / SCREEN_SIZE) + 30;
 		}
 	}
 	if (App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT)
