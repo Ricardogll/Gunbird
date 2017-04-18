@@ -28,6 +28,9 @@ public:
 	SDL_Rect iconP2;
 	SDL_Rect liveYuanNang;
 	SDL_Rect liveMarion;
+	SDL_Rect liveAsh;
+	SDL_Rect liveValnus;
+	SDL_Rect liveTetsu;
 	SDL_Rect bombPlayer;
 	SDL_Rect credit;
 

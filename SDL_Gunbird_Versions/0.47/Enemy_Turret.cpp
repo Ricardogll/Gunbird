@@ -1,6 +1,7 @@
 #include "Application.h"
 #include "Enemy_Turret.h"
 #include "ModuleCollision.h"
+#include "ModuleParticles.h"
 
 Enemy_Turret::Enemy_Turret(int x, int y) : Enemy(x, y)
 {
@@ -23,6 +24,32 @@ Enemy_Turret::Enemy_Turret(int x, int y) : Enemy(x, y)
 void Enemy_Turret::Move()
 {
 	position = original_pos;
+
+	if (time == 90)
+	{
+		App->particles->AddParticle(App->particles->shot_enemy, position.x + 6, position.y + 6, -3, -3, COLLIDER_ENEMY_SHOT);
+		App->particles->AddParticle(App->particles->shot_enemy, position.x + 6, position.y + 20, -3, 3, COLLIDER_ENEMY_SHOT); 
+		App->particles->AddParticle(App->particles->shot_enemy, position.x + 20, position.y + 20, 3, 3, COLLIDER_ENEMY_SHOT);
+		App->particles->AddParticle(App->particles->shot_enemy, position.x + 20, position.y + 6, 3, -3, COLLIDER_ENEMY_SHOT);
+	}
+	if (time == 120)
+	{
+		App->particles->AddParticle(App->particles->shot_enemy, position.x + 6, position.y + 6, -3, -3, COLLIDER_ENEMY_SHOT);
+		App->particles->AddParticle(App->particles->shot_enemy, position.x + 6, position.y + 20, -3, 3, COLLIDER_ENEMY_SHOT);
+		App->particles->AddParticle(App->particles->shot_enemy, position.x + 20, position.y + 20, 3, 3, COLLIDER_ENEMY_SHOT);
+		App->particles->AddParticle(App->particles->shot_enemy, position.x + 20, position.y + 6, 3, -3, COLLIDER_ENEMY_SHOT);
+	}
+	if (time == 150)
+	{
+		App->particles->AddParticle(App->particles->shot_enemy, position.x + 6, position.y + 6, -3, -3, COLLIDER_ENEMY_SHOT);
+		App->particles->AddParticle(App->particles->shot_enemy, position.x + 6, position.y + 20, -3, 3, COLLIDER_ENEMY_SHOT);
+		App->particles->AddParticle(App->particles->shot_enemy, position.x + 20, position.y + 20, 3, 3, COLLIDER_ENEMY_SHOT);
+		App->particles->AddParticle(App->particles->shot_enemy, position.x + 20, position.y + 6, 3, -3, COLLIDER_ENEMY_SHOT);
+		time = 0;
+	}
+	time++;
+
+
 }
 
 void Enemy_Turret::OnCollision(Collider* collider) {

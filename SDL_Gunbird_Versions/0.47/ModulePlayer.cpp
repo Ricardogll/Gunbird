@@ -38,6 +38,24 @@ bool ModulePlayer::Start()
 
 	insertcoin_fx = App->audio->LoadWAV("assets/audio/sound/InsertCoin.wav");
 
+	marion_powerup = App->audio->LoadWAV("assets/audio/sound/gunbird-024_Marion_PowerUp.wav");
+	yuan_nang_powerup = App->audio->LoadWAV("assets/audio/sound/gunbird-025_YungNang_PowerUp.wav");
+	tetsu_powerup = App->audio->LoadWAV("assets/audio/sound/gunbird-027_Tetsu_PowerUp.wav");
+	ash_powerup = App->audio->LoadWAV("assets/audio/sound/gunbird-028_Ash_PowerUp.wav");
+	valnus_powerup = App->audio->LoadWAV("assets/audio/sound/gunbird-026_Valnus_PowerUp.wav");
+
+	marion_powerup_limit = App->audio->LoadWAV("assets/audio/sound/gunbird-029_Marion_LimitPowerUp.wav");
+	yuan_nang_powerup_limit = App->audio->LoadWAV("assets/audio/sound/gunbird-030_YungNang_LimitPowerUp.wav");
+	tetsu_powerup_limit = App->audio->LoadWAV("assets/audio/sound/gunbird-032_Tetsu_LimitPowerUp.wav");
+	ash_powerup_limit = App->audio->LoadWAV("assets/audio/sound/gunbird-033_Ash_LimitPowerUp.wav");
+	valnus_powerup_limit = App->audio->LoadWAV("assets/audio/sound/gunbird-031_Valnus_LimitPowerUp.wav");
+
+	marion_dead = App->audio->LoadWAV("assets/audio/sound/gunbird-039_Marion_Dead.wav");
+	yuan_nang_dead = App->audio->LoadWAV("assets/audio/sound/gunbird-040_YungNang_Dead.wav");
+	tetsu_dead = App->audio->LoadWAV("assets/audio/sound/gunbird-042_Tetsu_Dead.wav");
+	ash_dead = App->audio->LoadWAV("assets/audio/sound/gunbird-043_Ash_Dead.wav");
+	valnus_dead = App->audio->LoadWAV("assets/audio/sound/gunbird-041_Valnus_Dead.wav");
+
 	return ret;
 }
 
@@ -54,8 +72,12 @@ update_status ModulePlayer::Update()
 		}
 	}
 
-	for (uint i = 0; i < MAX_CHARACTERS; ++i) 
-		if (characters[i] != nullptr) characters[i]->Move(); 		
+	//for (uint i = 0; i < MAX_CHARACTERS; ++i) 
+	//	if (characters[i] != nullptr) characters[i]->Move(); 		
+	if (characters[0] != nullptr)
+		characters[0]->Move();
+	if (characters[1] != nullptr)
+		characters[1]->Move2();
 
 	for (uint i = 0; i < MAX_CHARACTERS; ++i)
 		if (characters[i] != nullptr) characters[i]->Laser();
@@ -73,9 +95,10 @@ update_status ModulePlayer::Update()
 
 	//COIN
 	if (App->input->keyboard[SDL_SCANCODE_C] == KEY_STATE::KEY_DOWN) {
-		if (coins < 9)
-			coins++;
 		App->audio->PlayWAV(insertcoin_fx);
+		if (coins < 9) {
+			coins++;
+		}
 	}
 
 	return UPDATE_CONTINUE;
@@ -88,6 +111,21 @@ bool ModulePlayer::CleanUp()
 	App->textures->Unload(graphics);
 
 	App->audio->UnloadWAV(insertcoin_fx);
+	App->audio->UnloadWAV(marion_powerup);
+	App->audio->UnloadWAV(yuan_nang_powerup);
+	App->audio->UnloadWAV(valnus_powerup);
+	App->audio->UnloadWAV(tetsu_powerup);
+	App->audio->UnloadWAV(ash_powerup);
+	App->audio->UnloadWAV(marion_powerup_limit);
+	App->audio->UnloadWAV(yuan_nang_powerup_limit);
+	App->audio->UnloadWAV(valnus_powerup_limit);
+	App->audio->UnloadWAV(tetsu_powerup_limit);
+	App->audio->UnloadWAV(ash_powerup_limit);
+	App->audio->UnloadWAV(marion_dead);
+	App->audio->UnloadWAV(yuan_nang_dead);
+	App->audio->UnloadWAV(valnus_dead);
+	App->audio->UnloadWAV(tetsu_dead);
+	App->audio->UnloadWAV(ash_dead);
 
 	for (uint i = 0; i < MAX_CHARACTERS; ++i)
 	{
@@ -163,6 +201,46 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 			{
 				if (characters[i]->level < 3)
 					characters[i]->level++;
+
+				if (characters[i]->type == CHARACTER_TYPES::YUAN_NANG && characters[i]->level < 3)
+					App->audio->PlayWAV(yuan_nang_powerup);
+				if (characters[i]->type == CHARACTER_TYPES::MARION && characters[i]->level < 3)
+					App->audio->PlayWAV(marion_powerup);
+				if (characters[i]->type == CHARACTER_TYPES::TETSU && characters[i]->level < 3)
+					App->audio->PlayWAV(tetsu_powerup);
+				if (characters[i]->type == CHARACTER_TYPES::ASH && characters[i]->level < 3)
+					App->audio->PlayWAV(ash_powerup);
+				if (characters[i]->type == CHARACTER_TYPES::VALNUS && characters[i]->level < 3)
+					App->audio->PlayWAV(valnus_powerup);
+
+				if (characters[i]->type == CHARACTER_TYPES::YUAN_NANG && characters[i]->level == 3)
+					App->audio->PlayWAV(yuan_nang_powerup_limit);
+				if (characters[i]->type == CHARACTER_TYPES::MARION && characters[i]->level == 3)
+				App->audio->PlayWAV(marion_powerup_limit);
+				if (characters[i]->type == CHARACTER_TYPES::TETSU && characters[i]->level == 3)
+				App->audio->PlayWAV(tetsu_powerup_limit);
+				if (characters[i]->type == CHARACTER_TYPES::ASH && characters[i]->level == 3)
+				App->audio->PlayWAV(ash_powerup_limit);
+				if (characters[i]->type == CHARACTER_TYPES::VALNUS && characters[i]->level == 3)
+				App->audio->PlayWAV(valnus_powerup_limit);
+			}
+
+			characters[i]->OnCollision(c2);
+			if (c2->type == COLLIDER_ENEMY_SHOT)
+			{
+				if (characters[i]->live > 0)
+					characters[i]->live--;
+
+				if (characters[i]->type == CHARACTER_TYPES::YUAN_NANG)
+					App->audio->PlayWAV(yuan_nang_dead);
+				if (characters[i]->type == CHARACTER_TYPES::MARION)
+					App->audio->PlayWAV(marion_dead);
+				if (characters[i]->type == CHARACTER_TYPES::TETSU)
+					App->audio->PlayWAV(tetsu_dead);
+				if (characters[i]->type == CHARACTER_TYPES::ASH)
+					App->audio->PlayWAV(ash_dead);
+				if (characters[i]->type == CHARACTER_TYPES::VALNUS)
+					App->audio->PlayWAV(valnus_dead);
 			}
 		}
 	}

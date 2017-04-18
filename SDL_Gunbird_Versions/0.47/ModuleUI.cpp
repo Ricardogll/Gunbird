@@ -18,25 +18,40 @@ ModuleUI::ModuleUI()
 	liveYuanNang.w = 15;
 	liveYuanNang.h = 12;
 
-	iconP1.x = 12;
-	iconP1.y = 38;
-	iconP1.w = 15;
-	iconP1.h = 12;
-
 	liveMarion.x = 37;
 	liveMarion.y = 238;
 	liveMarion.w = 15;
 	liveMarion.h = 13;
 
-	bombPlayer.x = 3;
-	bombPlayer.y = 239;
-	bombPlayer.w = 12;
-	bombPlayer.h = 15;
+	liveAsh.x = 53;
+	liveAsh.y = 239;
+	liveAsh.w = 11;
+	liveAsh.h = 13;
+
+	liveValnus.x = 67;
+	liveValnus.y = 240;
+	liveValnus.w = 15;
+	liveValnus.h = 12;
+
+	liveTetsu.x = 85;
+	liveTetsu.y = 242;
+	liveTetsu.w = 15;
+	liveTetsu.h = 9;
+
+	iconP1.x = 12;
+	iconP1.y = 38;
+	iconP1.w = 15;
+	iconP1.h = 12;
 
 	iconP2.x = 33;
 	iconP2.y = 38;
 	iconP2.w = 16;
-	iconP2.h = 12;
+	iconP2.h = 12; 
+
+	bombPlayer.x = 3;
+	bombPlayer.y = 239;
+	bombPlayer.w = 12;
+	bombPlayer.h = 15;
 
 	credit.x = 167;
 	credit.y = 20;
@@ -177,22 +192,53 @@ void ModuleUI::liveCharacter(uint player)
 	}
 
 	if (App->player->characters[player]->type == YUAN_NANG) {
-		if (App->player->characters[player]->live >= 0) {
+		if (App->player->characters[player]->live >= 1) {
 			(App->render->Blit(graphics, 5 + cont, abs(App->render->camera.y / SCREEN_SIZE) + 20, &liveYuanNang, 1.0f));
 		}
 
-		if (App->player->characters[player]->live >= 1) {
+		if (App->player->characters[player]->live >= 2) {
 			(App->render->Blit(graphics, 20 + cont, abs(App->render->camera.y / SCREEN_SIZE) + 20, &liveYuanNang, 1.0f));
 		}
 	}
 
 	if (App->player->characters[player]->type == MARION) {
-		if (App->player->characters[player]->live >= 0) {
+		if (App->player->characters[player]->live >= 1) {
 			(App->render->Blit(graphics, 5 + cont, abs(App->render->camera.y / SCREEN_SIZE) + 20, &liveMarion, 1.0f));
 		}
 
-		if (App->player->characters[player]->live >= 1) {
+		if (App->player->characters[player]->live >= 2) {
 			(App->render->Blit(graphics, 20 + cont, abs(App->render->camera.y / SCREEN_SIZE) + 20, &liveMarion, 1.0f));
 		}
 	}
+
+	if (App->player->characters[player]->type == ASH) {
+		if (App->player->characters[player]->live >= 1) {
+			(App->render->Blit(graphics, 5 + cont, abs(App->render->camera.y / SCREEN_SIZE) + 20, &liveAsh, 1.0f));
+		}
+
+		if (App->player->characters[player]->live >= 2) {
+			(App->render->Blit(graphics, 20 + cont, abs(App->render->camera.y / SCREEN_SIZE) + 20, &liveAsh, 1.0f));
+		}
+	}
+
+	if (App->player->characters[player]->type == TETSU) {
+		if (App->player->characters[player]->live >= 1) {
+			(App->render->Blit(graphics, 5 + cont, abs(App->render->camera.y / SCREEN_SIZE) + 20, &liveTetsu, 1.0f));
+		}
+
+		if (App->player->characters[player]->live >= 2) {
+			(App->render->Blit(graphics, 22 + cont, abs(App->render->camera.y / SCREEN_SIZE) + 20, &liveTetsu, 1.0f));
+		}
+	}
+
+	if (App->player->characters[player]->type == VALNUS) {
+		if (App->player->characters[player]->live >= 1) {
+			(App->render->Blit(graphics, 5 + cont, abs(App->render->camera.y / SCREEN_SIZE) + 20, &liveValnus, 1.0f));
+		}
+
+		if (App->player->characters[player]->live >= 2) {
+			(App->render->Blit(graphics, 22 + cont, abs(App->render->camera.y / SCREEN_SIZE) + 20, &liveValnus, 1.0f));
+		}
+	}
+
 }

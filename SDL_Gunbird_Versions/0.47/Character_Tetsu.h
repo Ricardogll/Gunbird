@@ -15,6 +15,7 @@ private:
 public:
 	Character_Tetsu(int x, int y);
 	void Move();
+	void Move2();
 	void Laser();
 	void OnCollision(Collider* collider);
 

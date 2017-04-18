@@ -211,10 +211,10 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 			enemies[i]->OnCollision(c2);
 			if (enemies[i]/*->type == ENEMY_TYPES::BALLOON*/ ) {
 				if (enemies[i]->getHitPoints() == 0) {
-					App->particles->AddParticle(App->particles->explosion_balloon, (c1->rect.x - ((c1->rect.w)) / 2), (c1->rect.y - ((c1->rect.h)) / 2));
+					App->particles->AddParticle(App->particles->explosion_balloon, (c1->rect.x - ((c1->rect.w)) / 2), (c1->rect.y - ((c1->rect.h)) / 2), NULL, NULL);
 					//Spawn Power Up when an enemy dies
 					//this->AddEnemy(ENEMY_TYPES::POWERUP, ENEMY_MOVE::NO_MOVE, c1->rect.x, c1->rect.y);
-					App->particles->AddParticle(App->particles->power_up, (c1->rect.x - ((c1->rect.w)) / 2), (c1->rect.y - ((c1->rect.h)) / 2), COLLIDER_POWER_UP);
+					App->particles->AddParticle(App->particles->power_up, (c1->rect.x - ((c1->rect.w)) / 2), (c1->rect.y - ((c1->rect.h)) / 2), NULL, NULL, COLLIDER_POWER_UP);
 					delete enemies[i];
 					enemies[i] = nullptr;
 					break;

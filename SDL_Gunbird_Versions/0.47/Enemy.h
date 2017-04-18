@@ -17,6 +17,8 @@ protected:
 	uint hitPoints;
 	uint currentTime;
 	uint lastTime;
+	int time = 0;
+	bool shot;
 
 public:
 	iPoint position;

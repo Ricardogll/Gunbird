@@ -134,26 +134,99 @@ void Character_YuanNang::Move()
 
 }
 
+//IF PLAYER 2
+void Character_YuanNang::Move2()
+{
+	animation = &idle;
+
+	int speed = 8;
+
+	if ((position.y < (abs(App->render->camera.y) / SCREEN_SIZE)))
+		position.y = (abs(App->render->camera.y) / SCREEN_SIZE);
+
+	else {
+		if (movement == false) {
+			position.y -= 1;
+		}
+	}
+
+	if (App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT)
+	{
+		animation = &right;
+		animation = &mright;
+		position.x += speed;
+		if (position.x > (SCREEN_WIDTH - 27)) {
+			position.x = (SCREEN_WIDTH - 27);
+		}
+	}
+	if (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT)
+	{
+		animation = &left;
+		animation = &mleft;
+		position.x -= speed;
+		if (position.x < 0) {
+			position.x = 0;
+		}
+	}
+	if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT)
+	{
+		animation = &idle;
+		position.y -= speed;
+		if (position.y < (abs(App->render->camera.y) / SCREEN_SIZE)) {
+			position.y = (abs(App->render->camera.y) / SCREEN_SIZE);
+		}
+	}
+	if (App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT)
+	{
+		animation = &idle;
+		position.y += speed;
+		if (position.y >((abs(App->render->camera.y) + (SCREEN_HEIGHT*SCREEN_SIZE))) / SCREEN_SIZE - 48) {
+			position.y = (abs(App->render->camera.y) + (SCREEN_HEIGHT*SCREEN_SIZE)) / SCREEN_SIZE - 48;
+		}
+	}
+
+	if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT
+		&& App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT)
+		animation = &mright;
+
+	if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT
+		&& App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT)
+		animation = &mleft;
+
+	if (App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT
+		&& App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT)
+		animation = &mright;
+
+	if (App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT
+		&& App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT)
+		animation = &mleft;
+
+	if (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT
+		&& App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT)
+		animation = &idle;
+
+}
+
 void Character_YuanNang::Laser() {
 	if (App->input->keyboard[SDL_SCANCODE_X] == KEY_STATE::KEY_DOWN || (0 < time))
 	{
 		if (level == 0) {
 			if (time == 0)
 			{
-				App->particles->AddParticle(App->particles->laser_nang_v0_0, position.x + 8, position.y, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_nang_v0_0, position.x + 8, position.y, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
 				shot = false;
 			}
 			if (time == 3)
 			{
-				App->particles->AddParticle(App->particles->laser_nang_v0_1, position.x + 8, position.y, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_nang_v0_1, position.x + 8, position.y, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
 			}
 			if (time == 6)
 			{
-				App->particles->AddParticle(App->particles->laser_nang_v0_2, position.x + 8, position.y, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_nang_v0_2, position.x + 8, position.y, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
 			}
 			if (time == 9)
 			{
-				App->particles->AddParticle(App->particles->laser_nang_v0_0, position.x + 8, position.y, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_nang_v0_0, position.x + 8, position.y, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
 				time = 0;
 				shot = true;
 			}
@@ -164,20 +237,20 @@ void Character_YuanNang::Laser() {
 		if (level == 1) {
 			if (time == 0)
 			{
-				App->particles->AddParticle(App->particles->laser_nang_v1_0, position.x + 8, position.y, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_nang_v1_0, position.x + 8, position.y, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
 				shot = false;
 			}
 			if (time == 3)
 			{
-				App->particles->AddParticle(App->particles->laser_nang_v1_1, position.x + 8, position.y, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_nang_v1_1, position.x + 8, position.y, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
 			}
 			if (time == 6)
 			{
-				App->particles->AddParticle(App->particles->laser_nang_v1_2, position.x + 8, position.y, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_nang_v1_2, position.x + 8, position.y, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
 			}
 			if (time == 9)
 			{
-				App->particles->AddParticle(App->particles->laser_nang_v1_0, position.x + 8, position.y, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_nang_v1_0, position.x + 8, position.y, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
 				time = 0;
 				shot = true;
 			}
@@ -188,22 +261,22 @@ void Character_YuanNang::Laser() {
 		if (level == 2) {
 			if (time == 0)
 			{
-				App->particles->AddParticle(App->particles->laser_nang_v2_0, position.x + 5, position.y, COLLIDER_PLAYER_SHOT);
-				App->particles->AddParticle(App->particles->nang_sword, position.x - 20, position.y, COLLIDER_PLAYER_SHOT);
-				App->particles->AddParticle(App->particles->nang_sword, position.x + 40, position.y, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_nang_v2_0, position.x + 5, position.y, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->nang_sword, position.x - 20, position.y, 0, SPEED_SWORD_YUAN_NANG, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->nang_sword, position.x + 40, position.y, 0, SPEED_SWORD_YUAN_NANG, COLLIDER_PLAYER_SHOT);
 				shot = false;
 			}
 			if (time == 3)
 			{
-				App->particles->AddParticle(App->particles->laser_nang_v2_1, position.x + 5, position.y, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_nang_v2_1, position.x + 5, position.y, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
 			}
 			if (time == 6)
 			{
-				App->particles->AddParticle(App->particles->laser_nang_v2_2, position.x + 5, position.y, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_nang_v2_2, position.x + 5, position.y, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
 			}
 			if (time == 9)
 			{
-				App->particles->AddParticle(App->particles->laser_nang_v2_0, position.x + 5, position.y, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_nang_v2_0, position.x + 5, position.y, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
 				time = 0;
 				shot = true;
 			}
@@ -214,20 +287,20 @@ void Character_YuanNang::Laser() {
 		if (level == 3) {
 			if (time == 0)
 			{
-				App->particles->AddParticle(App->particles->laser_nang_v3_0, position.x - 7, position.y - 15, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_nang_v3_0, position.x - 7, position.y - 15, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
 				shot = false; //FALTA PONER LAS ESPADAS
 			}
 			if (time == 3)
 			{
-				App->particles->AddParticle(App->particles->laser_nang_v3_1, position.x - 7, position.y - 15, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_nang_v3_1, position.x - 7, position.y - 15, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
 			}
 			if (time == 6)
 			{
-				App->particles->AddParticle(App->particles->laser_nang_v3_0, position.x - 7, position.y - 15, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_nang_v3_0, position.x - 7, position.y - 15, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
 			}
 			if (time == 9)
 			{
-				App->particles->AddParticle(App->particles->laser_nang_v3_1, position.x - 7, position.y - 15, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_nang_v3_1, position.x - 7, position.y - 15, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
 				time = 0;
 				shot = true;
 			}

@@ -18,6 +18,7 @@ private:
 public:
 	Character_Valnus(int x, int y);
 	void Move();
+	void Move2();
 	void Laser();
 	void OnCollision(Collider* collider);
 

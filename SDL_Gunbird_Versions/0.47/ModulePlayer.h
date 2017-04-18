@@ -46,7 +46,26 @@ public:
 
 	bool activatePlayer2;
 	int coins;
+
 	uint insertcoin_fx;
+
+	uint marion_powerup;
+	uint yuan_nang_powerup;
+	uint ash_powerup;
+	uint valnus_powerup;
+	uint tetsu_powerup;
+
+	uint marion_powerup_limit;
+	uint yuan_nang_powerup_limit;
+	uint ash_powerup_limit;
+	uint valnus_powerup_limit;
+	uint tetsu_powerup_limit;
+
+	uint marion_dead;
+	uint yuan_nang_dead;
+	uint ash_dead;
+	uint valnus_dead;
+	uint tetsu_dead;
 
 private:
 

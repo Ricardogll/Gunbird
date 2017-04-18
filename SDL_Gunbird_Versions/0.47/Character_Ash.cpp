@@ -61,6 +61,79 @@ void Character_Ash::Move()
 		}
 	}
 
+	if (App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT)
+	{
+		animation = &right;
+		animation = &mright;
+		position.x += speed;
+		if (position.x > (SCREEN_WIDTH - 19)) {
+			position.x = (SCREEN_WIDTH - 19);
+		}
+	}
+	if (App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_REPEAT)
+	{
+		animation = &left;
+		animation = &mleft;
+		position.x -= speed;
+		if (position.x < 0) {
+			position.x = 0;
+		}
+	}
+	if (App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_REPEAT)
+	{
+		animation = &idle;
+		position.y -= speed;
+		if (position.y < (abs(App->render->camera.y) / SCREEN_SIZE)) {
+			position.y = (abs(App->render->camera.y) / SCREEN_SIZE);
+		}
+	}
+	if (App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_STATE::KEY_REPEAT)
+	{
+		animation = &idle;
+		position.y += speed;
+		if (position.y >((abs(App->render->camera.y) + (SCREEN_HEIGHT*SCREEN_SIZE))) / SCREEN_SIZE - 32) {
+			position.y = (abs(App->render->camera.y) + (SCREEN_HEIGHT*SCREEN_SIZE)) / SCREEN_SIZE - 32;
+		}
+	}
+
+	if (App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_REPEAT
+		&& App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT)
+		animation = &right;
+
+	if (App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_REPEAT
+		&& App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_REPEAT)
+		animation = &left;
+
+	if (App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_STATE::KEY_REPEAT
+		&& App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT)
+		animation = &right;
+
+	if (App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_STATE::KEY_REPEAT
+		&& App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_REPEAT)
+		animation = &left;
+
+
+	if (App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_REPEAT
+		&& App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT)
+		animation = &idle;
+}
+
+//IF PLAYER 2
+void Character_Ash::Move2()
+{
+	animation = &idle;
+
+	int speed = 8;
+
+	if ((position.y < (abs(App->render->camera.y) / SCREEN_SIZE)))
+		position.y = (abs(App->render->camera.y) / SCREEN_SIZE);
+
+	else {
+		if (movement == false) {
+			position.y -= 1;
+		}
+	}
+
 	if (App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT)
 	{
 		animation = &right;

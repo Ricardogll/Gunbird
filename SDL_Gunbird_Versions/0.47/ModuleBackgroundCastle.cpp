@@ -15,6 +15,7 @@
 #include "ModuleUI.h"
 #include "SDL\include\SDL_timer.h"
 
+#include "ModuleScoreScreen.h"
 
 ModuleBackgroundCastle::ModuleBackgroundCastle()
 {
@@ -58,6 +59,7 @@ bool ModuleBackgroundCastle::Start()
 	App->player->Enable();
 	App->collision->Enable();
 	App->enemies->Enable();
+	App->particles->Enable();
 
 	if (App->characterselection->selection == YUAN_NANG)
 	App->player->AddCharacter(CHARACTER_TYPES::YUAN_NANG, App->render->camera.x + 50, abs(App->render->camera.y / SCREEN_SIZE) + 240, 0);
@@ -84,6 +86,9 @@ bool ModuleBackgroundCastle::CleanUp()
 	App->ui->Disable();
 	App->enemies->Disable();
 	App->collision->Disable();
+	App->particles->Disable();
+
+	App->player->Disable();
 
 	LOG("Unloading castle stage");
 	App->textures->Unload(graphics);
@@ -100,7 +105,6 @@ update_status ModuleBackgroundCastle::Update()
 {
 	if (App->player->activatePlayer2 == true) {
 		if (gate == true) {
-			LOG("HOLAAAAAA");
 			App->player->AddCharacter(CHARACTER_TYPES::MARION, App->render->camera.x + 150, abs(App->render->camera.y / SCREEN_SIZE) + 240, 1);
 			App->ui->activatePlayer2_ui = true;
 			gate = false;
@@ -190,7 +194,7 @@ update_status ModuleBackgroundCastle::Update()
 
 	
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN && App->fade->IsFading() == false) {
-		App->fade->FadeToBlack(this, App->background2, 1);
+		App->fade->FadeToBlack(this, App->scorescreen, 1);
 	}
 
 	SDL_Delay(40);

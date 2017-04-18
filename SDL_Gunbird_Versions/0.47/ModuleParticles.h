@@ -9,6 +9,8 @@
 #include "ModuleCollision.h"
 
 #define MAX_ACTIVE_PARTICLES 100
+#define SPEED_LASER_PLAYER -20
+#define SPEED_SWORD_YUAN_NANG -15
 
 struct SDL_Texture;
 struct Collider;
@@ -42,7 +44,7 @@ public:
 	bool CleanUp();
 	void OnCollision(Collider* c1, Collider* c2);
 
-	void AddParticle(const Particle& particle, int x, int y, COLLIDER_TYPE collider_type = COLLIDER_NONE, Uint32 delay = 0);
+	void AddParticle(const Particle& particle, int x, int y, int speed_x, int speed_y, COLLIDER_TYPE collider_type = COLLIDER_NONE, Uint32 delay = 0);
 
 private:
 
@@ -72,6 +74,8 @@ public:
 	Particle laser_nang_v3_1;
 
 	Particle nang_sword;	
+
+	Particle shot_enemy;
 
 	Particle explosion_balloon;
 	Particle power_up;

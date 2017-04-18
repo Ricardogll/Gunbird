@@ -20,7 +20,7 @@ public:
 	iPoint position;
 	int type;
 	int level = 0;
-	int live = 1;
+	int live = 2;
 	int bombs = 2;
 	bool movement = false;
 
@@ -31,6 +31,7 @@ public:
 	const Collider* GetCollider() const;
 
 	virtual void Move() {};
+	virtual void Move2() {};
 	virtual void Laser() {};
 	virtual void Draw(SDL_Texture* sprites);
 	virtual void OnCollision(Collider* collider);

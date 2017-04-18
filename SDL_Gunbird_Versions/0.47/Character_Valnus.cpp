@@ -63,17 +63,91 @@ void Character_Valnus::Move()
 		}
 	}
 
+	if (App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT)
+	{
+		animation = &right;
+		animation = &mright;
+		position.x += speed;
+		if (position.x > (SCREEN_WIDTH - 30)) {
+			position.x = (SCREEN_WIDTH - 30);
+		}
+	}
+	if (App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_REPEAT)
+	{
+		animation = &left;
+		animation = &mleft;
+		position.x -= speed;
+		if (position.x < 0) {
+			position.x = 0;
+		}
+	}
+	if (App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_REPEAT)
+	{
+		animation = &idle;
+		position.y -= speed;
+		if (position.y < (abs(App->render->camera.y) / SCREEN_SIZE)) {
+			position.y = (abs(App->render->camera.y) / SCREEN_SIZE);
+		}
+	}
+	if (App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_STATE::KEY_REPEAT)
+	{
+		animation = &idle;
+		position.y += speed;
+		if (position.y >((abs(App->render->camera.y) + (SCREEN_HEIGHT*SCREEN_SIZE))) / SCREEN_SIZE - 31) {
+			position.y = (abs(App->render->camera.y) + (SCREEN_HEIGHT*SCREEN_SIZE)) / SCREEN_SIZE - 31;
+		}
+	}
+
+	if (App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_REPEAT
+		&& App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT)
+		animation = &right;
+
+	if (App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_REPEAT
+		&& App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_REPEAT)
+		animation = &left;
+
+	if (App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_STATE::KEY_REPEAT
+		&& App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT)
+		animation = &right;
+
+	if (App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_STATE::KEY_REPEAT
+		&& App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_REPEAT)
+		animation = &left;
+
+
+	if (App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_REPEAT
+		&& App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT)
+		animation = &idle;
+}
+
+void Character_Valnus::Move2()
+{
+	animation = &idle;
+
+	int speed = 8;
+
+	if ((position.y < (abs(App->render->camera.y) / SCREEN_SIZE)))
+		position.y = (abs(App->render->camera.y) / SCREEN_SIZE);
+
+	else {
+		if (movement == false) {
+			position.y -= 1;
+		}
+	}
+
 	if (App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT)
 	{
 		animation = &right;
+		animation = &mright;
 		position.x += speed;
-		if (position.x > (SCREEN_WIDTH - 31)) {
-			position.x = (SCREEN_WIDTH - 31);
+		if (position.x > (SCREEN_WIDTH - 30)) {
+			position.x = (SCREEN_WIDTH - 30);
 		}
 	}
 	if (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT)
 	{
 		animation = &left;
+		animation = &mleft;
 		position.x -= speed;
 		if (position.x < 0) {
 			position.x = 0;
@@ -83,16 +157,16 @@ void Character_Valnus::Move()
 	{
 		animation = &idle;
 		position.y -= speed;
-		if (position.y < (abs(App->render->camera.y) / SCREEN_SIZE) + 30) {
-			position.y = (abs(App->render->camera.y) / SCREEN_SIZE) + 30;
+		if (position.y < (abs(App->render->camera.y) / SCREEN_SIZE)) {
+			position.y = (abs(App->render->camera.y) / SCREEN_SIZE);
 		}
 	}
 	if (App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT)
 	{
 		animation = &idle;
 		position.y += speed;
-		if (position.y >((abs(App->render->camera.y) + (SCREEN_HEIGHT*SCREEN_SIZE))) / SCREEN_SIZE) {
-			position.y = (abs(App->render->camera.y) + (SCREEN_HEIGHT*SCREEN_SIZE)) / SCREEN_SIZE;
+		if (position.y >((abs(App->render->camera.y) + (SCREEN_HEIGHT*SCREEN_SIZE))) / SCREEN_SIZE - 31) {
+			position.y = (abs(App->render->camera.y) + (SCREEN_HEIGHT*SCREEN_SIZE)) / SCREEN_SIZE - 31;
 		}
 	}
 
@@ -116,7 +190,6 @@ void Character_Valnus::Move()
 	if (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT
 		&& App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT)
 		animation = &idle;
-
 }
 
 void Character_Valnus::Laser() {

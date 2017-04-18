@@ -30,8 +30,8 @@ Application::Application()
 	modules[8] = background = new ModuleBackgroundSea();
 	modules[9] = background2 = new ModuleBackgroundMine();
 	modules[10] = scorescreen = new ModuleScoreScreen();
-	modules[11] = particles = new ModuleParticles();
-	modules[12] = enemies = new ModuleEnemies();
+	modules[11] = enemies = new ModuleEnemies();
+	modules[12] = particles = new ModuleParticles();
 	modules[13] = player = new ModulePlayer();
 	modules[14] = collision = new ModuleCollision();
 	modules[15] = ui = new ModuleUI();
@@ -58,6 +58,7 @@ bool Application::Init()
 	background->Disable();
 	background2->Disable();
 	scorescreen->Disable();
+	particles->Disable();
 	ui->Disable();
 
 	for (int i = 0; i < NUM_MODULES && ret == true; ++i)

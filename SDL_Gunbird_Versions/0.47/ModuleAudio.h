@@ -26,7 +26,8 @@ private:
 
 	Mix_Music* music = nullptr;
 	Mix_Chunk* fx[200];
+	uint ret = 0;
 	uint last_fx = 1;
-};
+}; 
 
-#endif // __ModuleAudio_H__
+#endif // __ModuleAudio_H__ 

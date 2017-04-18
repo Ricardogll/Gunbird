@@ -1,5 +1,5 @@
-#ifndef __CHARACTER_YUNGYANG_H__
-#define __CHARACTER_YUNGYANG_H__
+#ifndef __CHARACTER_YUANNANG_H__
+#define __CHARACTER_YUANNANG_H__
 
 #include "Character.h"
 
@@ -18,6 +18,7 @@ private:
 public:
 	Character_YuanNang(int x, int y);
 	void Move();
+	void Move2();
 	void Laser();
 	void OnCollision(Collider* collider);
 	

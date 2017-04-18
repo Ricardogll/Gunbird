@@ -14,6 +14,29 @@ ModuleParticles::ModuleParticles()
 	for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
 		active[i] = nullptr;
 
+	//Shot Enemy
+	shot_enemy.anim.PushBack({ 692, 230, 6, 6 });
+	shot_enemy.anim.PushBack({ 708, 230, 6, 6 });
+	shot_enemy.anim.PushBack({ 724, 230, 6, 6 });
+	shot_enemy.anim.PushBack({ 740, 230, 6, 6 });
+	shot_enemy.anim.PushBack({ 756, 230, 6, 6 });
+	shot_enemy.anim.PushBack({ 772, 230, 6, 6 });
+	shot_enemy.anim.PushBack({ 788, 230, 6, 6 });
+	shot_enemy.anim.PushBack({ 804, 230, 6, 6 });
+	shot_enemy.anim.PushBack({ 820, 230, 6, 6 });
+	shot_enemy.anim.PushBack({ 836, 230, 6, 6 });
+	shot_enemy.anim.PushBack({ 852, 230, 6, 6 });
+	shot_enemy.anim.PushBack({ 868, 230, 6, 6 });
+	shot_enemy.anim.PushBack({ 884, 230, 6, 6 });
+	shot_enemy.anim.PushBack({ 692, 246, 6, 6 });
+	shot_enemy.anim.PushBack({ 708, 246, 6, 6 });
+	shot_enemy.anim.PushBack({ 724, 246, 6, 6 });
+	shot_enemy.anim.PushBack({ 740, 246, 6, 6 });
+	shot_enemy.anim.PushBack({ 756, 246, 6, 6 });
+	shot_enemy.anim.speed = 0.5f;
+	shot_enemy.life = 2200;
+	
+
 	//Explosion
 	explosion_balloon.anim.PushBack({ 23,37,92,85 });
 	explosion_balloon.anim.PushBack({ 122,33,101,93 });
@@ -32,40 +55,29 @@ ModuleParticles::ModuleParticles()
 
 	// Yuan Nang laser
 	laser_nang_v0_0.anim.PushBack({ 511, 40, 17, 30 });
-	laser_nang_v0_0.speed.y = -20;
 	laser_nang_v0_0.life = 1500;
 	laser_nang_v0_1.anim.PushBack({ 560, 39, 17, 30 });
-	laser_nang_v0_1.speed.y = -20;
 	laser_nang_v0_1.life = 1500;
 	laser_nang_v0_2.anim.PushBack({ 604, 39, 17, 30 });
-	laser_nang_v0_2.speed.y = -20;
 	laser_nang_v0_2.life = 1500;
 
 	laser_nang_v1_0.anim.PushBack({ 512, 83, 17, 42 });
-	laser_nang_v1_0.speed.y = -20;
 	laser_nang_v1_0.life = 1500;
 	laser_nang_v1_1.anim.PushBack({ 561, 81, 17, 42 });
-	laser_nang_v1_1.speed.y = -20;
 	laser_nang_v1_1.life = 1500;
 	laser_nang_v1_2.anim.PushBack({ 602, 80, 17, 42 });
-	laser_nang_v1_2.speed.y = -20;
 	laser_nang_v1_2.life = 1500;
 
 	laser_nang_v2_0.anim.PushBack({ 510, 139, 23, 38 });
-	laser_nang_v2_0.speed.y = -20;
 	laser_nang_v2_0.life = 1500;
 	laser_nang_v2_1.anim.PushBack({ 557, 139, 23, 38 });
-	laser_nang_v2_1.speed.y = -20;
 	laser_nang_v2_1.life = 1500;
 	laser_nang_v2_2.anim.PushBack({ 600, 138, 23, 38 });
-	laser_nang_v2_2.speed.y = -20;
 	laser_nang_v2_2.life = 1500;
 
 	laser_nang_v3_0.anim.PushBack({ 513, 188, 45, 38 });
-	laser_nang_v3_0.speed.y = -20;
 	laser_nang_v3_0.life = 1500;
 	laser_nang_v3_1.anim.PushBack({ 584, 186, 45, 38 });
-	laser_nang_v3_1.speed.y = -20;
 	laser_nang_v3_1.life = 1500;
 
 	nang_sword.anim.PushBack({ 513, 233, 13, 32 });
@@ -73,7 +85,6 @@ ModuleParticles::ModuleParticles()
 	nang_sword.anim.PushBack({ 565, 233, 13, 32 });
 	nang_sword.anim.PushBack({ 592, 233, 13, 32 });
 	nang_sword.anim.PushBack({ 618, 233, 13, 32 });
-	nang_sword.speed.y = -15;
 	nang_sword.life = 1500;
 
 	//Power Up SI NO VA PUES SE BORRA
@@ -212,7 +223,7 @@ update_status ModuleParticles::Update()
 	return UPDATE_CONTINUE;
 }
 
-void ModuleParticles::AddParticle(const Particle& particle, int x, int y, COLLIDER_TYPE collider_type, Uint32 delay)
+void ModuleParticles::AddParticle(const Particle& particle, int x, int y, int speed_x, int speed_y, COLLIDER_TYPE collider_type, Uint32 delay)
 {
 	for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
 	{
@@ -222,6 +233,8 @@ void ModuleParticles::AddParticle(const Particle& particle, int x, int y, COLLID
 			p->born = SDL_GetTicks() + delay;
 			p->position.x = x;
 			p->position.y = y;
+			p->speed.x = speed_x;
+			p->speed.y = speed_y;
 			if (collider_type != COLLIDER_NONE)
 				p->collider = App->collision->AddCollider(p->anim.GetCurrentFrame(), collider_type, this);
 			active[i] = p;

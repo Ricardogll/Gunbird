@@ -142,12 +142,12 @@ bool ModuleCharacterSelection::Start()
 
 	App->audio->PlayMusic("assets/audio/music/gunbird-001_Character_Select.ogg");
 	
-	selection_yuan_nang_fx = App->audio->LoadWAV("assets/audio/sound/gunbird-020_YungNang_Selection");
+	selection_yuan_nang_fx = App->audio->LoadWAV("assets/audio/sound/gunbird-020_YungNang_Selection.wav");
 	selection_ash_fx = App->audio->LoadWAV("assets/audio/sound/gunbird-023_Ash_Selection.wav");
-	selection_tetsu_fx = App->audio->LoadWAV("assets/audio/sound/gunbird-022_Tetsu_Selection");
-	selection_valnus_fx = App->audio->LoadWAV("assets/audio/sound/gunbird-021_Valnus_Selection");
-	selection_marion_fx = App->audio->LoadWAV("assets/audio/sound/gunbird-019_Marion_Selection");
-	change_selection_fx = App->audio->LoadWAV("assets/audio/sound/gunbird-019_Marion_Selection");
+	selection_tetsu_fx = App->audio->LoadWAV("assets/audio/sound/gunbird-022_Tetsu_Selection.wav");
+	selection_valnus_fx = App->audio->LoadWAV("assets/audio/sound/gunbird-021_Valnus_Selection.wav");
+	selection_marion_fx = App->audio->LoadWAV("assets/audio/sound/gunbird-019_Marion_Selection.wav");
+	change_selection_fx = App->audio->LoadWAV("assets/audio/sound/gunbird-050_Change_Character.wav");
 
 	return ret;
 }
@@ -155,13 +155,13 @@ bool ModuleCharacterSelection::Start()
 bool ModuleCharacterSelection::CleanUp()
 {
 	LOG("Destroying SDL audio");
-	App->audio->StopMusic(); /*
+	App->audio->StopMusic(); 
 	App->audio->UnloadWAV(selection_yuan_nang_fx);
 	App->audio->UnloadWAV(selection_ash_fx);
 	App->audio->UnloadWAV(selection_tetsu_fx);
 	App->audio->UnloadWAV(selection_valnus_fx);
 	App->audio->UnloadWAV(selection_marion_fx);
-	App->audio->UnloadWAV(change_selection_fx);*/
+	App->audio->UnloadWAV(change_selection_fx);
 	
 	LOG("Unloading title screen");
 	App->textures->Unload(graphics);
