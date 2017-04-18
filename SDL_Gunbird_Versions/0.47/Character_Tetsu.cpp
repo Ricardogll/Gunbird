@@ -11,10 +11,30 @@ Character_Tetsu::Character_Tetsu(int x, int y) : Character(x, y)
 	position.y = y;
 
 	// idle animation
-	idle.PushBack({ 216, 71, 20, 32 }); //1
-	idle.PushBack({ 248, 71, 20, 32 }); //2
-	idle.PushBack({ 280, 71, 20, 32 }); //3
-	idle.PushBack({ 312, 71, 20, 32 }); //4
+	idle.PushBack({ 574, 0, 26, 37 }); //1
+	idle.PushBack({ 614, 0, 26, 37 }); //2
+	idle.PushBack({ 652, 0, 30, 37 }); //3
+	idle.PushBack({ 694, 0, 26, 37 }); //4
+	idle.PushBack({ 732, 0, 30, 37 }); //5
+	idle.PushBack({ 574, 47, 26, 37 }); //6
+	idle.PushBack({ 612, 47, 30, 37 }); //7
+	idle.PushBack({ 654, 47, 26, 37 }); //8
+	idle.PushBack({ 694, 47, 26, 37 }); //9
+	idle.PushBack({ 734, 47, 26, 37 }); //10
+	idle.PushBack({ 572, 94, 30, 37 }); //11
+	idle.PushBack({ 614, 94, 30, 37 }); //12
+	idle.PushBack({ 652, 94, 30, 37 }); //13
+	idle.PushBack({ 692, 94, 26, 37 }); //14
+	idle.PushBack({ 732, 94, 30, 37 }); //15
+	idle.PushBack({ 574, 141, 26, 37 }); //16
+	idle.PushBack({ 614, 141, 26, 37 }); //17
+	idle.PushBack({ 654, 141, 26, 37 }); //18
+	idle.PushBack({ 692, 141, 30, 37 }); //19
+	idle.PushBack({ 734, 141, 26, 37 }); //20
+	idle.PushBack({ 572, 188, 30, 37 }); //21
+	idle.PushBack({ 614, 188, 26, 37 }); //22
+	idle.PushBack({ 652, 188, 30, 37 }); //23
+	idle.PushBack({ 694, 188, 26, 37 }); //24
 
 	idle.speed = 0.25f;
 

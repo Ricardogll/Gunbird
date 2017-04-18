@@ -95,6 +95,36 @@ ModuleCharacterSelection::ModuleCharacterSelection()
 	sprite_valnus.speed = 0.25f;
 
 	sprite_tetsu.PushBack({ 1137, 19, 121, 111 }); //1
+	sprite_tetsu.PushBack({ 1285, 18, 120, 112 }); //2
+	sprite_tetsu.PushBack({ 1432, 18, 120, 112 }); //3
+	sprite_tetsu.PushBack({ 1595, 18, 119, 111 }); //4
+	sprite_tetsu.PushBack({ 1744, 18, 119, 112 }); //5
+	sprite_tetsu.PushBack({ 1894, 18, 117, 111 }); //6
+	sprite_tetsu.PushBack({ 1137, 195, 125, 111 }); //7
+	sprite_tetsu.PushBack({ 1285, 196, 125, 111 }); //8
+	sprite_tetsu.PushBack({ 1432, 194, 125, 112 }); //9
+	sprite_tetsu.PushBack({ 1596, 195, 125, 112 }); //10
+	sprite_tetsu.PushBack({ 1744, 195, 124, 112 }); //11
+	sprite_tetsu.PushBack({ 1891, 195, 122, 112 }); //12
+	sprite_tetsu.PushBack({ 1137, 379, 122, 111 }); //13
+	sprite_tetsu.PushBack({ 1285, 379, 122, 111 }); //14
+	sprite_tetsu.PushBack({ 1432, 379, 128, 111 }); //15
+	sprite_tetsu.PushBack({ 1596, 379, 128, 111 }); //16
+	sprite_tetsu.PushBack({ 1744, 378, 127, 112 }); //17
+	sprite_tetsu.PushBack({ 1891, 377, 128, 112 }); //18
+	sprite_tetsu.PushBack({ 1131, 530, 127, 112 }); //19
+	sprite_tetsu.PushBack({ 1285, 529, 127, 112 }); //20
+	sprite_tetsu.PushBack({ 1432, 530, 125, 111 }); //21
+	sprite_tetsu.PushBack({ 1596, 531, 125, 111 }); //22
+	sprite_tetsu.PushBack({ 1744, 531, 123, 111 }); //23
+	sprite_tetsu.PushBack({ 1897, 531, 122, 111 }); //24
+	sprite_tetsu.PushBack({ 1131, 678, 122, 112 }); //25
+	sprite_tetsu.PushBack({ 1285, 678, 123, 112 }); //26
+	sprite_tetsu.PushBack({ 1432, 678, 122, 112 }); //27
+	sprite_tetsu.PushBack({ 1593, 678, 122, 114 }); //28
+	sprite_tetsu.PushBack({ 1744, 676, 122, 112 }); //29
+	sprite_tetsu.PushBack({ 1897, 676, 122, 112 }); //30
+		
 	sprite_tetsu.speed = 0.25f;
 
 	//CHARACTERS
@@ -121,6 +151,33 @@ ModuleCharacterSelection::ModuleCharacterSelection()
 	ash.PushBack({ 217, 223, 19, 32 }); //1
 	ash.PushBack({ 246, 223, 19, 32 }); //2
 	ash.speed = 0.2f;
+	
+	tetsu.PushBack({ 574, 0, 26, 37 }); //1
+	tetsu.PushBack({ 614, 0, 26, 37 }); //2
+	tetsu.PushBack({ 654, 0, 30, 37 }); //3
+	tetsu.PushBack({ 694, 0, 26, 37 }); //4
+	tetsu.PushBack({ 732 , 0, 30, 37 }); //5
+	tetsu.PushBack({ 574, 47, 26, 37 }); //6
+	tetsu.PushBack({ 614, 47, 30, 37 }); //7
+	tetsu.PushBack({ 654, 47, 26, 37 }); //8
+	tetsu.PushBack({ 694, 47, 26, 37 }); //9
+	tetsu.PushBack({ 734, 47, 26, 37 }); //10
+	tetsu.PushBack({ 572, 94, 30, 37 }); //11
+	tetsu.PushBack({ 614, 94, 30, 37 }); //12
+	tetsu.PushBack({ 652, 94, 30, 37 }); //13
+	tetsu.PushBack({ 692, 94, 26, 37 }); //14
+	tetsu.PushBack({ 732, 94, 30, 37 }); //15
+	tetsu.PushBack({ 574, 141, 26, 37 }); //16
+	tetsu.PushBack({ 614, 141, 26, 37 }); //17
+	tetsu.PushBack({ 654, 141, 26, 37 }); //18
+	tetsu.PushBack({ 692, 141, 30, 37 }); //19
+	tetsu.PushBack({ 734, 141, 26, 37 }); //20
+	tetsu.PushBack({ 572, 188, 30, 37 }); //21
+	tetsu.PushBack({ 614, 188, 26, 37 }); //22
+	tetsu.PushBack({ 652, 188, 30, 37 }); //23
+	tetsu.PushBack({ 694, 188, 26, 37 }); //24
+
+	tetsu.speed = 0.25f;
 }   
 
 ModuleCharacterSelection::~ModuleCharacterSelection()
@@ -179,6 +236,7 @@ update_status ModuleCharacterSelection::Update()
 	App->render->Blit(graphics_character, 23, 260, &(ash.GetCurrentFrame()));
 	App->render->Blit(graphics_character, 62, 260, &(marion.GetCurrentFrame()));
 	App->render->Blit(graphics_character, 97, 262, &(valnus.GetCurrentFrame()));
+	App->render->Blit(graphics_character, 172, 262, &(tetsu.GetCurrentFrame()));
 	App->render->Blit(graphics, pos1p_x, pos1p_y, &player1, 0.75f);
 	App->render->Blit(graphics, scroll, 144, &screen_sky, 0.75f);
 
