@@ -206,7 +206,137 @@ void Character_Marion::Move2()
 }
 
 void Character_Marion::Laser() {
+	if (App->input->keyboard[SDL_SCANCODE_X] == KEY_STATE::KEY_DOWN || (0 < time))
+	{
+		if (level == 0) {
+			if (time == 0)
+			{
+				App->particles->AddParticle(App->particles->laser_marion_0, position.x + 7, position.y, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+				shot = false;
+			}
+			if (time == 5)
+			{
+				App->particles->AddParticle(App->particles->laser_marion_1, position.x + 7, position.y, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+			}
+			if (time == 10)
+			{
+				App->particles->AddParticle(App->particles->laser_marion_2, position.x + 7, position.y, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+			}
+			if (time == 15)
+			{
+				App->particles->AddParticle(App->particles->laser_marion_0, position.x + 7, position.y, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+				time = 0;
+				shot = true;
+			}
+			if (shot == false)
+				time++;
+		}
+		
+		if (level == 1) {
+			if (time == 0)
+			{
+				App->particles->AddParticle(App->particles->laser_marion_2, position.x, position.y, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_marion_2, position.x + 10, position.y, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+				shot = false;
+			}
+			if (time == 5)
+			{
+				App->particles->AddParticle(App->particles->laser_marion_0, position.x, position.y, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_marion_0, position.x + 7, position.y, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+			}
+			if (time == 10)
+			{
+				App->particles->AddParticle(App->particles->laser_marion_1, position.x, position.y, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_marion_1, position.x + 9, position.y, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+			}
+			if (time == 15)
+			{
+				App->particles->AddParticle(App->particles->laser_marion_2, position.x, position.y, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_marion_2, position.x + 10, position.y, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+				time = 0;
+				shot = true;
+			}
+			if (shot == false)
+				time++;
+		}
+		
+		if (level == 2) {
+			if (time == 0)
+			{
+				App->particles->AddParticle(App->particles->laser_marion_left_0, position.x + 3, position.y, -2, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_marion_0, position.x + 7, position.y, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_marion_right_0, position.x + 11, position.y, 2, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+				shot = false;
+			}
+			if (time == 5)
+			{
+				App->particles->AddParticle(App->particles->laser_marion_left_1, position.x + 3, position.y, -2, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_marion_1, position.x + 7, position.y, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_marion_right_1, position.x + 11, position.y, 2, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+			}
+			if (time == 10)
+			{
+				App->particles->AddParticle(App->particles->laser_marion_left_2, position.x + 3, position.y, -2, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_marion_2, position.x + 7, position.y, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_marion_right_2, position.x + 11, position.y, 2, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+			}
+			if (time == 15)
+			{
+				App->particles->AddParticle(App->particles->laser_marion_left_0, position.x + 3, position.y, -2, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_marion_0, position.x + 7, position.y, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_marion_right_0, position.x + 11, position.y, 2, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+				time = 0;
+				shot = true;
+			}
+			if (shot == false)
+				time++;
+		}
+		//NEXT TO DO
+		if (level == 3) {
+			if (time == 0)
+			{
+				App->particles->AddParticle(App->particles->laser_marion_left_0, position.x - 7, position.y, -2, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_marion_left_0, position.x - 1, position.y, -2, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_marion_0, position.x, position.y, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_marion_0, position.x + 7, position.y, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_marion_right_0, position.x + 8, position.y, 2, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_marion_right_0, position.x + 14, position.y, 2, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+				shot = false;
+			}
+			if (time == 5)
+			{
+				App->particles->AddParticle(App->particles->laser_marion_left_1, position.x - 10, position.y, -2, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_marion_left_1, position.x - 1, position.y, -2, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_marion_1, position.x, position.y, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_marion_1, position.x + 9, position.y, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_marion_right_1, position.x + 10, position.y, 2, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_marion_right_1, position.x + 18, position.y, 2, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+			}
+			if (time == 10)
+			{
+				App->particles->AddParticle(App->particles->laser_marion_left_2, position.x - 10, position.y, -2, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_marion_left_2, position.x - 1, position.y, -2, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_marion_2, position.x, position.y, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_marion_2, position.x + 10, position.y, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_marion_right_1, position.x + 11, position.y, 2, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_marion_right_1, position.x + 19, position.y, 2, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+			}
+			if (time == 15)
+			{
+				App->particles->AddParticle(App->particles->laser_marion_left_0, position.x - 7, position.y, -2, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_marion_left_0, position.x - 1, position.y, -2, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_marion_0, position.x, position.y, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_marion_0, position.x + 7, position.y, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_marion_right_0, position.x + 8, position.y, 2, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_marion_right_0, position.x + 14, position.y, 2, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+				time = 0;
+				shot = true;
+			}
+			if (shot == false)
+				time++;
+		}
 
+	}
 }
 
 void Character_Marion::OnCollision(Collider* collider) {

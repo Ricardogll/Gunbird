@@ -75,6 +75,18 @@ public:
 
 	Particle nang_sword;	
 
+	Particle laser_marion_0;
+	Particle laser_marion_1;
+	Particle laser_marion_2;
+
+	Particle laser_marion_left_0;
+	Particle laser_marion_left_1;
+	Particle laser_marion_left_2;
+
+	Particle laser_marion_right_0;
+	Particle laser_marion_right_1;
+	Particle laser_marion_right_2;
+
 	Particle shot_enemy;
 
 	Particle explosion_balloon;

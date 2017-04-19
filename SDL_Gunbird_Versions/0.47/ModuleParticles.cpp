@@ -87,6 +87,28 @@ ModuleParticles::ModuleParticles()
 	nang_sword.anim.PushBack({ 618, 233, 13, 32 });
 	nang_sword.life = 1500;
 
+	//Marion laser
+	laser_marion_0.anim.PushBack({ 684, 74, 7, 29 });
+	laser_marion_0.life = 1500;
+	laser_marion_1.anim.PushBack({ 684, 104, 7, 29 });
+	laser_marion_1.life = 1500;
+	laser_marion_2.anim.PushBack({ 684, 44, 7, 29 });
+	laser_marion_2.life = 1500;
+
+	laser_marion_left_0.anim.PushBack({ 698, 44, 6, 29 });
+	laser_marion_left_0.life = 1500;
+	laser_marion_left_1.anim.PushBack({ 699, 75, 6, 29 });
+	laser_marion_left_1.life = 1500;
+	laser_marion_left_2.anim.PushBack({ 700, 104, 5, 29 });
+	laser_marion_left_2.life = 1500;
+
+	laser_marion_right_0.anim.PushBack({ 709, 44, 6, 29 });
+	laser_marion_right_0.life = 1500;
+	laser_marion_right_1.anim.PushBack({ 709, 75, 6, 29 });
+	laser_marion_right_1.life = 1500;
+	laser_marion_right_2.anim.PushBack({ 709, 104, 5, 29 });
+	laser_marion_right_2.life = 1500;
+
 	//Power Up SI NO VA PUES SE BORRA
 	power_up.anim.PushBack({ 685, 147, 22, 13 });
 	power_up.anim.PushBack({ 710, 147, 22, 13 });
@@ -145,6 +167,7 @@ bool ModuleParticles::Start()
 	LOG("Loading particles");
 	graphics = App->textures->Load("assets/particles/particles.png");
 
+	//Laser Yuan Nang audio
 	laser_nang_v0_0.fx = App->audio->LoadWAV("assets/audio/sound/gunbird-056_Shoot_YungNang.wav");
 	laser_nang_v0_1.fx = App->audio->LoadWAV("assets/audio/sound/gunbird-056_Shoot_YungNang.wav");
 	laser_nang_v0_2.fx = App->audio->LoadWAV("assets/audio/sound/gunbird-056_Shoot_YungNang.wav");
@@ -159,6 +182,18 @@ bool ModuleParticles::Start()
 	laser_nang_v3_0.fx = App->audio->LoadWAV("assets/audio/sound/gunbird-056_Shoot_YungNang.wav");
 	laser_nang_v3_1.fx = App->audio->LoadWAV("assets/audio/sound/gunbird-056_Shoot_YungNang.wav");
 	
+	//Laser Marion audio
+	laser_marion_0.fx = App->audio->LoadWAV("assets/audio/sound/gunbird-055_Shoot_Marion.wav");
+	laser_marion_1.fx = App->audio->LoadWAV("assets/audio/sound/gunbird-055_Shoot_Marion.wav");
+	laser_marion_2.fx = App->audio->LoadWAV("assets/audio/sound/gunbird-055_Shoot_Marion.wav");
+
+	laser_marion_left_0.fx = App->audio->LoadWAV("assets/audio/sound/gunbird-055_Shoot_Marion.wav");
+	laser_marion_left_1.fx = App->audio->LoadWAV("assets/audio/sound/gunbird-055_Shoot_Marion.wav");
+	laser_marion_left_2.fx = App->audio->LoadWAV("assets/audio/sound/gunbird-055_Shoot_Marion.wav");
+
+	laser_marion_right_0.fx = App->audio->LoadWAV("assets/audio/sound/gunbird-055_Shoot_Marion.wav");
+	laser_marion_right_1.fx = App->audio->LoadWAV("assets/audio/sound/gunbird-055_Shoot_Marion.wav");
+	laser_marion_right_2.fx = App->audio->LoadWAV("assets/audio/sound/gunbird-055_Shoot_Marion.wav");
 	up = true;
 	left = true;
 	
@@ -181,6 +216,15 @@ bool ModuleParticles::CleanUp()
 	App->audio->UnloadWAV(laser_nang_v2_1.fx);
 	App->audio->UnloadWAV(laser_nang_v3_0.fx);
 	App->audio->UnloadWAV(laser_nang_v3_1.fx);
+	App->audio->UnloadWAV(laser_marion_0.fx);
+	App->audio->UnloadWAV(laser_marion_1.fx);
+	App->audio->UnloadWAV(laser_marion_2.fx);
+	App->audio->UnloadWAV(laser_marion_left_0.fx);
+	App->audio->UnloadWAV(laser_marion_left_1.fx);
+	App->audio->UnloadWAV(laser_marion_left_2.fx);
+	App->audio->UnloadWAV(laser_marion_right_0.fx);
+	App->audio->UnloadWAV(laser_marion_right_1.fx);
+	App->audio->UnloadWAV(laser_marion_right_2.fx);
 
 	for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
 	{
