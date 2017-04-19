@@ -9,8 +9,8 @@
 #include "ModuleCollision.h"
 
 #define MAX_ACTIVE_PARTICLES 100
-#define SPEED_LASER_PLAYER -20
-#define SPEED_SWORD_YUAN_NANG -15
+#define SPEED_LASER_PLAYER -10
+#define SPEED_SWORD_YUAN_NANG -5
 
 struct SDL_Texture;
 struct Collider;

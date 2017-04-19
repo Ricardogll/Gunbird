@@ -22,13 +22,13 @@ public:
 
 	SDL_Texture* graphics = nullptr;
 	SDL_Texture* animation_door = nullptr;
-	SDL_Texture* animation_floor = nullptr;
 	Animation idle;
 	Animation door;
 	Animation door2;
-	Animation floor;
+	Animation floor;;
 	SDL_Rect background;
 	bool gate;
+	float scroll;
 
 };
 

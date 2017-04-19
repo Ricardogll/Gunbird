@@ -59,14 +59,18 @@ void Character_Marion::Move()
 {
 	animation = &idle;
 
-	int speed = 8;
+	int speed = SPEED_CHARACTER;
 
 	if ((position.y < (abs(App->render->camera.y) / SCREEN_SIZE)))
 		position.y = (abs(App->render->camera.y) / SCREEN_SIZE);
 
 	else {
 		if (movement == false) {
-			position.y -= 1;
+			scroll += 0.5;
+			if (scroll == 1.5) {
+				position.y -= 1;
+				scroll = 0;
+			}
 		}
 	}
 
@@ -130,14 +134,18 @@ void Character_Marion::Move2()
 {
 	animation = &idle;
 
-	int speed = 8;
+	int speed = SPEED_CHARACTER;
 
 	if ((position.y < (abs(App->render->camera.y) / SCREEN_SIZE)))
 		position.y = (abs(App->render->camera.y) / SCREEN_SIZE);
 
 	else {
 		if (movement == false) {
-			position.y -= 1;
+			scroll += 0.5;
+			if (scroll == 1.5) {
+				position.y -= 1;
+				scroll = 0;
+			}
 		}
 	}
 

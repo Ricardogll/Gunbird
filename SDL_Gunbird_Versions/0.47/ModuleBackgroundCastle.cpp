@@ -55,10 +55,10 @@ bool ModuleBackgroundCastle::Start()
 	LOG("Loading background castle assets");
 	bool ret = true;
 	gate = true;
+	scroll = 0;
 
 	graphics = App->textures->Load("assets/backgrounds/Background castle.png");
 	animation_door = App->textures->Load("assets/particles/animations.png");
-	animation_floor= App->textures->Load("assets/particles/animations.png");
 
 	App->ui->Enable();
 	App->player->Enable();
@@ -102,6 +102,41 @@ bool ModuleBackgroundCastle::Start()
 		App->ui->activatePlayer2_ui = true;
 	}
 
+	//ENEMIES
+	App->enemies->AddEnemy(ENEMY_TYPES::BALLOON, BALLOON_CASTLE, 95, 1255);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, NO_MOVE, 162, 1241);
+
+	//BUILDING
+	App->enemies->AddEnemy(ENEMY_TYPES::BUILDING, BUILDING_CASTLE, 147, 1059);
+	App->enemies->AddEnemy(ENEMY_TYPES::BUILDING2, BUILDING_CASTLE, 78, 799);
+	App->enemies->AddEnemy(ENEMY_TYPES::FLAG, BUILDING_CASTLE, 177, 1049);
+	App->enemies->AddEnemy(ENEMY_TYPES::FLAG, BUILDING_CASTLE, 110, 785);
+
+	//MISILE
+	App->enemies->AddEnemy(ENEMY_TYPES::MISSILE, BUILDING_CASTLE, -10, 1130);
+	App->enemies->AddEnemy(ENEMY_TYPES::MISSILE, BUILDING_CASTLE, -40, 1100);
+	App->enemies->AddEnemy(ENEMY_TYPES::MISSILE, BUILDING_CASTLE, -70, 1070);
+	App->enemies->AddEnemy(ENEMY_TYPES::MISSILE, BUILDING_CASTLE, -80, 1040);
+
+	//VASE
+	App->enemies->AddEnemy(ENEMY_TYPES::VASE, NO_MOVE, 10, 690);
+	App->enemies->AddEnemy(ENEMY_TYPES::VASE, NO_MOVE, 185, 690);
+	App->enemies->AddEnemy(ENEMY_TYPES::VASE, NO_MOVE, 10, 475);
+	App->enemies->AddEnemy(ENEMY_TYPES::VASE, NO_MOVE, 185, 475);
+
+	//DRONE
+	/*if (App->render->camera.y == (-1355 * SCREEN_SIZE)) {
+	App->enemies->AddEnemy(ENEMY_TYPES::DRONE, BUILDING_CASTLE, 42, 1042);
+	}
+	if (App->render->camera.y == (-1355 * SCREEN_SIZE)) {
+	App->enemies->AddEnemy(ENEMY_TYPES::DRONE, BUILDING_CASTLE, 55, 1080);
+	}
+	if (App->render->camera.y == (-1355 * SCREEN_SIZE)) {
+	App->enemies->AddEnemy(ENEMY_TYPES::DRONE, BUILDING_CASTLE, 75, 1042);
+	}*/
+
+	//App->enemies->AddEnemy(ENEMY_TYPES::MISSILE, NO_MOVE , 12, 1241);
+
 	App->audio->PlayMusic("assets/audio/music/gunbird-002_Title_Castle.ogg");
 
 	return ret;
@@ -119,7 +154,6 @@ bool ModuleBackgroundCastle::CleanUp()
 	LOG("Unloading castle stage");
 	App->textures->Unload(graphics);
 	App->textures->Unload(animation_door);
-	App->textures->Unload(animation_floor);
 
 	LOG("Destroying SDL audio");
 	App->audio->StopMusic();
@@ -140,66 +174,6 @@ update_status ModuleBackgroundCastle::Update()
 		App->player->activatePlayer2 = false;
 	}
 
-	//ENEMIES
-	if (App->render->camera.y == (-1355 * SCREEN_SIZE)) {
-		App->enemies->AddEnemy(ENEMY_TYPES::BALLOON, BALLOON_CASTLE, 95, 1255);
-	}
-
-	if (App->render->camera.y == (-1355 * SCREEN_SIZE)) {
-		App->enemies->AddEnemy(ENEMY_TYPES::TURRET, NO_MOVE, 162, 1241);
-	}
-	//BUILDING
-	if (App->render->camera.y == (-1355 * SCREEN_SIZE)) {
-		App->enemies->AddEnemy(ENEMY_TYPES::BUILDING, BUILDING_CASTLE, 147, 1059);
-	}
-	if (App->render->camera.y == (-1355 * SCREEN_SIZE)) {
-		App->enemies->AddEnemy(ENEMY_TYPES::BUILDING2, BUILDING_CASTLE, 78, 799);
-	}
-	if (App->render->camera.y == (-1355 * SCREEN_SIZE)) {
-		App->enemies->AddEnemy(ENEMY_TYPES::FLAG, BUILDING_CASTLE, 177, 1049);
-	}
-	if (App->render->camera.y == (-1355 * SCREEN_SIZE)) {
-		App->enemies->AddEnemy(ENEMY_TYPES::FLAG, BUILDING_CASTLE, 110, 785);
-	}
-	//MISILE
-	if (App->render->camera.y == (-1355 * SCREEN_SIZE)) {
-		App->enemies->AddEnemy(ENEMY_TYPES::MISSILE, BUILDING_CASTLE, -10, 1130);
-	}
-	if (App->render->camera.y == (-1355 * SCREEN_SIZE)) {
-		App->enemies->AddEnemy(ENEMY_TYPES::MISSILE, BUILDING_CASTLE, -40, 1100);
-	}
-	if (App->render->camera.y == (-1355 * SCREEN_SIZE)) {
-		App->enemies->AddEnemy(ENEMY_TYPES::MISSILE, BUILDING_CASTLE, -70, 1070);
-	}
-	if (App->render->camera.y == (-1355 * SCREEN_SIZE)) {
-		App->enemies->AddEnemy(ENEMY_TYPES::MISSILE, BUILDING_CASTLE, -80, 1040);
-	}
-	//VASE
-	if (App->render->camera.y == (-1355 * SCREEN_SIZE)) {
-		App->enemies->AddEnemy(ENEMY_TYPES::VASE, NO_MOVE, 10, 690);
-	}
-	if (App->render->camera.y == (-1355 * SCREEN_SIZE)) {
-		App->enemies->AddEnemy(ENEMY_TYPES::VASE, NO_MOVE, 185, 690);
-	}if (App->render->camera.y == (-1355 * SCREEN_SIZE)) {
-		App->enemies->AddEnemy(ENEMY_TYPES::VASE, NO_MOVE, 10, 475);
-	}
-	if (App->render->camera.y == (-1355 * SCREEN_SIZE)) {
-		App->enemies->AddEnemy(ENEMY_TYPES::VASE, NO_MOVE, 185, 475);
-	}
-	//DRONE
-	/*if (App->render->camera.y == (-1355 * SCREEN_SIZE)) {
-		App->enemies->AddEnemy(ENEMY_TYPES::DRONE, BUILDING_CASTLE, 42, 1042);
-	}
-	if (App->render->camera.y == (-1355 * SCREEN_SIZE)) {
-		App->enemies->AddEnemy(ENEMY_TYPES::DRONE, BUILDING_CASTLE, 55, 1080);
-	}
-	if (App->render->camera.y == (-1355 * SCREEN_SIZE)) {
-		App->enemies->AddEnemy(ENEMY_TYPES::DRONE, BUILDING_CASTLE, 75, 1042);
-	}*/
-	
-	//App->enemies->AddEnemy(ENEMY_TYPES::MISSILE, NO_MOVE , 12, 1241);
-
-
 	// Draw everything --------------------------------------
 	if (App->render->camera.y == -20 * SCREEN_SIZE) {
 		App->render->camera.y = -20 * SCREEN_SIZE;
@@ -210,28 +184,30 @@ update_status ModuleBackgroundCastle::Update()
 				App->player->characters[0]->movement = true;
 		}
 	}
+
 	else {
-		App->render->camera.y += 1 * SCREEN_SIZE;
+		scroll += 0.5;
+		if (scroll == 1.5) {
+			App->render->camera.y += 1 * SCREEN_SIZE;
+			scroll = 0;
+		}
 	}
 
 	App->render->Blit(graphics, 0, 0, NULL);
 
 	if (App->render->camera.y >= -1000 * SCREEN_SIZE) {
-		App->render->Blit(animation_floor,87, 966, &(floor.GetCurrentFrame()));
+		App->render->Blit(animation_door, 87, 966, &(floor.GetCurrentFrame()));
 		App->render->Blit(animation_door, 66, 955, &(door.GetCurrentFrame()));
-		
+
 	}
 	if (App->render->camera.y >= -970 * SCREEN_SIZE) {
 		App->render->Blit(animation_door, 67, 907, &(door2.GetCurrentFrame()));
 	}
-	
 
 	
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN && App->fade->IsFading() == false) {
 		App->fade->FadeToBlack(this, App->scorescreen, 1);
 	}
-
-	SDL_Delay(40);
 
 	return UPDATE_CONTINUE;
 }

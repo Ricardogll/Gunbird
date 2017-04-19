@@ -34,7 +34,7 @@ ModuleParticles::ModuleParticles()
 	shot_enemy.anim.PushBack({ 740, 246, 6, 6 });
 	shot_enemy.anim.PushBack({ 756, 246, 6, 6 });
 	shot_enemy.anim.speed = 0.5f;
-	shot_enemy.life = 2200;
+	shot_enemy.life = 10000;
 	
 
 	//Explosion

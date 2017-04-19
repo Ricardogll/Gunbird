@@ -27,7 +27,7 @@ Character_YuanNang::Character_YuanNang(int x, int y) : Character(x, y)
 	left.PushBack({ 122, 419, 24, 47 });
 	left.PushBack({ 170, 420, 24, 46 });
 	left.loop = false;
-	left.speed = 0.25f;
+	left.speed = 0.05f;
 
 	// more left animation
 	mleft.PushBack({ 18, 350, 26, 48 });
@@ -35,7 +35,7 @@ Character_YuanNang::Character_YuanNang(int x, int y) : Character(x, y)
 	mleft.PushBack({ 120, 351, 27, 48 });
 	mleft.PushBack({ 170, 351, 27, 48 });
 	mleft.loop = true;
-	mleft.speed = 0.25f;
+	mleft.speed = 0.05f;
 
 	// right animation
 	right.PushBack({ 70, 171, 26, 48 });
@@ -66,14 +66,18 @@ void Character_YuanNang::Move()
 {
 	animation = &idle;
 
-	int speed = 8;
+	int speed = SPEED_CHARACTER;
 
 	if ((position.y < (abs(App->render->camera.y) / SCREEN_SIZE)))
 		position.y = (abs(App->render->camera.y) / SCREEN_SIZE);
 
 	else {
 		if (movement == false) {
-			position.y -= 1;
+			scroll += 0.5;
+			if (scroll == 1.5) {
+				position.y -= 1;
+				scroll = 0;
+			}
 		}
 	}
 
@@ -139,14 +143,18 @@ void Character_YuanNang::Move2()
 {
 	animation = &idle;
 
-	int speed = 8;
+	int speed = SPEED_CHARACTER;
 
 	if ((position.y < (abs(App->render->camera.y) / SCREEN_SIZE)))
 		position.y = (abs(App->render->camera.y) / SCREEN_SIZE);
 
 	else {
 		if (movement == false) {
-			position.y -= 1;
+			scroll += 0.5;
+			if (scroll == 1.5) {
+				position.y -= 1;
+				scroll = 0;
+			}
 		}
 	}
 
@@ -216,15 +224,15 @@ void Character_YuanNang::Laser() {
 				App->particles->AddParticle(App->particles->laser_nang_v0_0, position.x + 8, position.y, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
 				shot = false;
 			}
-			if (time == 3)
+			if (time == 5)
 			{
 				App->particles->AddParticle(App->particles->laser_nang_v0_1, position.x + 8, position.y, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
 			}
-			if (time == 6)
+			if (time == 10)
 			{
 				App->particles->AddParticle(App->particles->laser_nang_v0_2, position.x + 8, position.y, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
 			}
-			if (time == 9)
+			if (time == 15)
 			{
 				App->particles->AddParticle(App->particles->laser_nang_v0_0, position.x + 8, position.y, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
 				time = 0;
@@ -240,15 +248,15 @@ void Character_YuanNang::Laser() {
 				App->particles->AddParticle(App->particles->laser_nang_v1_0, position.x + 8, position.y, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
 				shot = false;
 			}
-			if (time == 3)
+			if (time == 5)
 			{
 				App->particles->AddParticle(App->particles->laser_nang_v1_1, position.x + 8, position.y, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
 			}
-			if (time == 6)
+			if (time == 10)
 			{
 				App->particles->AddParticle(App->particles->laser_nang_v1_2, position.x + 8, position.y, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
 			}
-			if (time == 9)
+			if (time == 15)
 			{
 				App->particles->AddParticle(App->particles->laser_nang_v1_0, position.x + 8, position.y, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
 				time = 0;
@@ -266,15 +274,15 @@ void Character_YuanNang::Laser() {
 				App->particles->AddParticle(App->particles->nang_sword, position.x + 40, position.y, 0, SPEED_SWORD_YUAN_NANG, COLLIDER_PLAYER_SHOT);
 				shot = false;
 			}
-			if (time == 3)
+			if (time == 5)
 			{
 				App->particles->AddParticle(App->particles->laser_nang_v2_1, position.x + 5, position.y, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
 			}
-			if (time == 6)
+			if (time == 10)
 			{
 				App->particles->AddParticle(App->particles->laser_nang_v2_2, position.x + 5, position.y, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
 			}
-			if (time == 9)
+			if (time == 15)
 			{
 				App->particles->AddParticle(App->particles->laser_nang_v2_0, position.x + 5, position.y, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
 				time = 0;
@@ -290,15 +298,15 @@ void Character_YuanNang::Laser() {
 				App->particles->AddParticle(App->particles->laser_nang_v3_0, position.x - 7, position.y - 15, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
 				shot = false; //FALTA PONER LAS ESPADAS
 			}
-			if (time == 3)
+			if (time == 5)
 			{
 				App->particles->AddParticle(App->particles->laser_nang_v3_1, position.x - 7, position.y - 15, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
 			}
-			if (time == 6)
+			if (time == 10)
 			{
 				App->particles->AddParticle(App->particles->laser_nang_v3_0, position.x - 7, position.y - 15, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
 			}
-			if (time == 9)
+			if (time == 15)
 			{
 				App->particles->AddParticle(App->particles->laser_nang_v3_1, position.x - 7, position.y - 15, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
 				time = 0;

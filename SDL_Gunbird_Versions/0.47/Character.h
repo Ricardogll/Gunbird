@@ -8,6 +8,8 @@
 struct SDL_Texture;
 struct Collider;
 
+#define SPEED_CHARACTER 2
+
 class Character
 {
 protected:
@@ -15,6 +17,7 @@ protected:
 	Collider* collider = nullptr;
 	bool shot;
 	int time = 0;
+	float scroll = 0;
 
 public:
 	iPoint position;

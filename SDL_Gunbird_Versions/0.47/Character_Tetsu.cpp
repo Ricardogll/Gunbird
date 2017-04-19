@@ -153,7 +153,7 @@ Character_Tetsu::Character_Tetsu(int x, int y) : Character(x, y)
 	mright.loop = true;
 	mright.speed = 0.25f;
 
-	collider = App->collision->AddCollider({ position.x, position.y, 23, 32 }, COLLIDER_PLAYER, (Module*)App->player);
+	collider = App->collision->AddCollider({ position.x, position.y, 30, 37 }, COLLIDER_PLAYER, (Module*)App->player);
 
 	animation = &idle;
 
@@ -163,14 +163,18 @@ void Character_Tetsu::Move()
 {
 	animation = &idle;
 
-	int speed = 8;
+	int speed = SPEED_CHARACTER;
 
 	if ((position.y < (abs(App->render->camera.y) / SCREEN_SIZE)))
 		position.y = (abs(App->render->camera.y) / SCREEN_SIZE);
 
 	else {
 		if (movement == false) {
-			position.y -= 1;
+			scroll += 0.5;
+			if (scroll == 1.5) {
+				position.y -= 1;
+				scroll = 0;
+			}
 		}
 	}
 
@@ -179,8 +183,8 @@ void Character_Tetsu::Move()
 		animation = &right;
 		animation = &mright;
 		position.x += speed;
-		if (position.x > (SCREEN_WIDTH - 23)) {
-			position.x = (SCREEN_WIDTH - 23);
+		if (position.x > (SCREEN_WIDTH - 30)) {
+			position.x = (SCREEN_WIDTH - 30);
 		}
 	}
 	if (App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_REPEAT)
@@ -196,8 +200,8 @@ void Character_Tetsu::Move()
 	{
 		animation = &idle;
 		position.y -= speed;
-		if (position.y < (abs(App->render->camera.y) / SCREEN_SIZE) + 32) {
-			position.y = (abs(App->render->camera.y) / SCREEN_SIZE) + 32;
+		if (position.y < (abs(App->render->camera.y) / SCREEN_SIZE) + 37) {
+			position.y = (abs(App->render->camera.y) / SCREEN_SIZE) + 37;
 		}
 	}
 	if (App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_STATE::KEY_REPEAT)
@@ -236,14 +240,18 @@ void Character_Tetsu::Move2()
 {
 	animation = &idle;
 
-	int speed = 8;
+	int speed = SPEED_CHARACTER;
 
 	if ((position.y < (abs(App->render->camera.y) / SCREEN_SIZE)))
 		position.y = (abs(App->render->camera.y) / SCREEN_SIZE);
 
 	else {
 		if (movement == false) {
-			position.y -= 1;
+			scroll += 0.5;
+			if (scroll == 1.5) {
+				position.y -= 1;
+				scroll = 0;
+			}
 		}
 	}
 
