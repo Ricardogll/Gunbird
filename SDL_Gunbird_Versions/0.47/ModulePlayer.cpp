@@ -5,6 +5,7 @@
 #include "ModulePlayer.h"
 #include "ModuleParticles.h"
 #include "ModuleTextures.h"
+#include "ModuleUI.h"
 #include "Character.h"
 #include "Character_YuanNang.h"
 #include "Character_Marion.h"
@@ -25,7 +26,6 @@ ModulePlayer::~ModulePlayer()
 
 bool ModulePlayer::Start()
 {
-	coins = 2;
 	bool ret = true;
 	activatePlayer2 = false;
 
@@ -86,15 +86,17 @@ update_status ModulePlayer::Update()
 		if (characters[i] != nullptr) characters[i]->Draw(graphics);
 
 	//Activate Player 2
-	if (App->input->keyboard[SDL_SCANCODE_Z] == KEY_STATE::KEY_DOWN)
-		if (coins > 0) {
-			activatePlayer2 = true;
-			if (coins != 0)
-				coins--;
-		}
+	if (App->ui->titlescreen_ui != true) {
+		if (App->input->keyboard[SDL_SCANCODE_BACKSPACE] == KEY_STATE::KEY_DOWN)
+			if (coins > 0) {
+				activatePlayer2 = true;
+				if (coins != 0)
+					coins--;
+			}
+	}
 
 	//COIN
-	if (App->input->keyboard[SDL_SCANCODE_C] == KEY_STATE::KEY_DOWN) {
+	if (App->input->keyboard[SDL_SCANCODE_RETURN] == KEY_STATE::KEY_DOWN) {
 		App->audio->PlayWAV(insertcoin_fx);
 		if (coins < 9) {
 			coins++;

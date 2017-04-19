@@ -35,6 +35,9 @@ public:
 	SDL_Rect credit;
 
 	Animation start;
+	Animation start_selection;
+	Animation insert_coins;
+	Animation insert_coins_selection;
 	Animation credit_number1;
 	Animation credit_number2;
 	Animation credit_number3;
@@ -48,10 +51,13 @@ public:
 	Animation* current_animation_credit = &credit_number1;
 
 	bool activatePlayer2_ui;
+	bool characterselection_ui;
+	bool titlescreen_ui;
 
 private:
 	uint cont;
 	uint time = 0;
+	int titlecredit_x;
 
 };
 

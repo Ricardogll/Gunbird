@@ -7,6 +7,8 @@
 #include "ModuleCharacterSelection.h"
 #include "ModuleTitleScreen.h"
 #include "ModuleFadeToBlack.h"
+#include "ModulePlayer.h"
+#include "ModuleUI.h"
 
 
 ModuleTitleScreen::ModuleTitleScreen() 
@@ -27,6 +29,11 @@ bool ModuleTitleScreen::Start()
 	bool ret = true;
 	graphics = App->textures->Load("assets/screens/Title.png");
 
+	App->ui->Enable();
+	App->player->Enable();
+	App->ui->titlescreen_ui = true;
+	App->player->coins = 1;
+
 	App->audio->PlayMusic("assets/audio/music/gunbird-002_Title_Castle.ogg");
 	insertcoin = App->audio->LoadWAV("assets/audio/sound/InsertCoin.wav");
 
@@ -39,8 +46,13 @@ bool ModuleTitleScreen::CleanUp()
 	App->audio->StopMusic();
 	App->audio->UnloadWAV(insertcoin);
 
+	App->ui->titlescreen_ui = false;
+	App->player->coins--;
+
 	LOG("Unloading title screen");
 	App->textures->Unload(graphics);
+	App->ui->Disable();
+	App->player->Disable();
 	return true;
 }
 

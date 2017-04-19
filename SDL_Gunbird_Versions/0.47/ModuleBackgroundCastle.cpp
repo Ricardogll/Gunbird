@@ -61,6 +61,7 @@ bool ModuleBackgroundCastle::Start()
 	App->enemies->Enable();
 	App->particles->Enable();
 
+	////LOAD PLAYER 1 OF CHARACTER SELECTION
 	if (App->characterselection->selection == YUAN_NANG)
 	App->player->AddCharacter(CHARACTER_TYPES::YUAN_NANG, App->render->camera.x + 50, abs(App->render->camera.y / SCREEN_SIZE) + 240, 0);
 
@@ -75,6 +76,26 @@ bool ModuleBackgroundCastle::Start()
 
 	if (App->characterselection->selection == TETSU)
 		App->player->AddCharacter(CHARACTER_TYPES::TETSU, App->render->camera.x + 50, abs(App->render->camera.y / SCREEN_SIZE) + 240, 0);
+
+	//LOAD PLAYER 2 OF CHARACTER SELECTION
+	if (App->characterselection->loadP2 == true) {
+		if (App->characterselection->selection_P2 == YUAN_NANG)
+			App->player->AddCharacter(CHARACTER_TYPES::YUAN_NANG, App->render->camera.x + 150, abs(App->render->camera.y / SCREEN_SIZE) + 240, 1);
+
+		if (App->characterselection->selection_P2 == MARION)
+			App->player->AddCharacter(CHARACTER_TYPES::MARION, App->render->camera.x + 150, abs(App->render->camera.y / SCREEN_SIZE) + 240, 1);
+
+		if (App->characterselection->selection_P2 == ASH)
+			App->player->AddCharacter(CHARACTER_TYPES::ASH, App->render->camera.x + 150, abs(App->render->camera.y / SCREEN_SIZE) + 240, 1);
+
+		if (App->characterselection->selection_P2 == VALNUS)
+			App->player->AddCharacter(CHARACTER_TYPES::VALNUS, App->render->camera.x + 150, abs(App->render->camera.y / SCREEN_SIZE) + 240, 1);
+
+		if (App->characterselection->selection_P2 == TETSU)
+			App->player->AddCharacter(CHARACTER_TYPES::TETSU, App->render->camera.x + 150, abs(App->render->camera.y / SCREEN_SIZE) + 240, 1);
+
+		App->ui->activatePlayer2_ui = true;
+	}
 
 	App->audio->PlayMusic("assets/audio/music/gunbird-002_Title_Castle.ogg");
 
@@ -103,7 +124,8 @@ bool ModuleBackgroundCastle::CleanUp()
 // Update: draw background
 update_status ModuleBackgroundCastle::Update()
 {
-	if (App->player->activatePlayer2 == true) {
+	//CREATE NEW PLAYER 2
+	if (App->player->activatePlayer2 == true && App->characterselection->loadP2 == false) {
 		if (gate == true) {
 			App->player->AddCharacter(CHARACTER_TYPES::MARION, App->render->camera.x + 150, abs(App->render->camera.y / SCREEN_SIZE) + 240, 1);
 			App->ui->activatePlayer2_ui = true;

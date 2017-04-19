@@ -5,6 +5,7 @@
 #include "ModuleAudio.h"
 #include "ModuleInput.h"
 #include "ModulePlayer.h"
+#include "ModuleUI.h"
 #include "ModuleCharacterSelection.h"
 #include "ModuleBackgroundCastle.h"
 #include "ModuleFadeToBlack.h"
@@ -32,6 +33,11 @@ ModuleCharacterSelection::ModuleCharacterSelection()
 	player1.w = 32;
 	player1.h = 52;
 
+	player2.x = 321;
+	player2.y = 12;
+	player2.w = 32;
+	player2.h = 52;
+
 	//PORTRAITS
 	portrait_yuan_nang.x = 18;
 	portrait_yuan_nang.y = 659;
@@ -57,6 +63,37 @@ ModuleCharacterSelection::ModuleCharacterSelection()
 	portrait_tetsu.y = 763;
 	portrait_tetsu.w = 96;
 	portrait_tetsu.h = 96;
+
+	//NAMES
+	name_yuan_nang.x = 130;
+	name_yuan_nang.y = 673;
+	name_yuan_nang.w = 49;
+	name_yuan_nang.h = 43;
+
+	name_yuan_nang_2P.x = 264;
+	name_yuan_nang_2P.y = 82;
+	name_yuan_nang_2P.w = 83;
+	name_yuan_nang_2P.h = 21;
+
+	name_marion.x = 131;
+	name_marion.y = 466;
+	name_marion.w = 54;
+	name_marion.h = 21;
+
+	name_ash.x = 130;
+	name_ash.y = 364;
+	name_ash.w = 27;
+	name_ash.h = 21;
+
+	name_valnus.x = 131;
+	name_valnus.y = 570;
+	name_valnus.w = 53;
+	name_valnus.h = 22;
+
+	name_tetsu.x = 130;
+	name_tetsu.y = 779;
+	name_tetsu.w = 44;
+	name_tetsu.h = 20;
 
 	//ANIMATIONS SPRITES
 	sprite_yuan_nang.PushBack({ 233, 384 ,135, 124 }); //1
@@ -124,7 +161,6 @@ ModuleCharacterSelection::ModuleCharacterSelection()
 	sprite_tetsu.PushBack({ 1593, 678, 122, 114 }); //28
 	sprite_tetsu.PushBack({ 1744, 676, 122, 112 }); //29
 	sprite_tetsu.PushBack({ 1897, 676, 122, 112 }); //30
-		
 	sprite_tetsu.speed = 0.25f;
 
 	//CHARACTERS
@@ -151,7 +187,7 @@ ModuleCharacterSelection::ModuleCharacterSelection()
 	ash.PushBack({ 217, 223, 19, 32 }); //1
 	ash.PushBack({ 246, 223, 19, 32 }); //2
 	ash.speed = 0.2f;
-	
+
 	tetsu.PushBack({ 574, 0, 26, 37 }); //1
 	tetsu.PushBack({ 614, 0, 26, 37 }); //2
 	tetsu.PushBack({ 654, 0, 30, 37 }); //3
@@ -176,8 +212,7 @@ ModuleCharacterSelection::ModuleCharacterSelection()
 	tetsu.PushBack({ 614, 188, 26, 37 }); //22
 	tetsu.PushBack({ 652, 188, 30, 37 }); //23
 	tetsu.PushBack({ 694, 188, 26, 37 }); //24
-
-	tetsu.speed = 0.25f;
+	tetsu.speed = 0.2f;
 }   
 
 ModuleCharacterSelection::~ModuleCharacterSelection()
@@ -188,11 +223,16 @@ bool ModuleCharacterSelection::Start()
 {
 	LOG("Loading title screen assets");
 	bool ret = true;
+	gate_selection = true;
+	gate_selection_P2 = true;
+	gate = false;
+	loadP2 = false;
 	scroll = 0;
 	pos1p_x = 56;
-	pos1p_y = 248;
 
 	App->player->Enable();
+	App->ui->Enable();
+	App->ui->characterselection_ui = true;;
 
 	graphics = App->textures->Load("assets/UI/character_selection.png");
 	graphics_character = App->textures->Load("assets/characters/Characters.png");
@@ -223,6 +263,10 @@ bool ModuleCharacterSelection::CleanUp()
 	LOG("Unloading title screen");
 	App->textures->Unload(graphics);
 	App->textures->Unload(graphics_character);
+	App->ui->Disable();
+
+	App->ui->characterselection_ui = false;
+
 	return true;
 }
 
@@ -236,82 +280,446 @@ update_status ModuleCharacterSelection::Update()
 	App->render->Blit(graphics_character, 23, 260, &(ash.GetCurrentFrame()));
 	App->render->Blit(graphics_character, 62, 260, &(marion.GetCurrentFrame()));
 	App->render->Blit(graphics_character, 97, 262, &(valnus.GetCurrentFrame()));
-	App->render->Blit(graphics_character, 172, 262, &(tetsu.GetCurrentFrame()));
-	App->render->Blit(graphics, pos1p_x, pos1p_y, &player1, 0.75f);
+	App->render->Blit(graphics_character, 179, 260, &(tetsu.GetCurrentFrame()));
 	App->render->Blit(graphics, scroll, 144, &screen_sky, 0.75f);
+	App->render->Blit(graphics, pos1p_x, 248, &player1, 0.75f);
 
-
+	//SKY SCROLL
 	if (scroll == -192)
 		scroll = 0;
 	else
 		scroll--;
 
-	if (App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_DOWN)
-	{
-		pos1p_x -= 40;
-		App->audio->PlayWAV(change_selection_fx);
-		if (pos1p_x == -24)
-			pos1p_x = 176;
-	}
+	//Portraits 1 PLAYER
+	if (App->player->activatePlayer2 == false) {
+		if (pos1p_x == 16) {
+			App->render->Blit(graphics, 12, 32, &portrait_ash, 0.75f);
+			App->render->Blit(graphics, 51, 165, &name_ash, 0.75f);
+			App->render->Blit(graphics, 96, 129, &(sprite_ash.GetCurrentFrame()));
+			selection = ASH;
+		}
 
-	if (App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_DOWN)
-	{
-		pos1p_x += 40;
-		App->audio->PlayWAV(change_selection_fx);
-		if (pos1p_x == 216)
-			pos1p_x = 16;
-	}
+		if (pos1p_x == 56) {
+			App->render->Blit(graphics, 12, 32, &portrait_marion, 0.75f);
+			App->render->Blit(graphics, 21, 166, &name_marion, 0.75f);
+			App->render->Blit(graphics, 80, 134, &(sprite_marion.GetCurrentFrame()));
+			selection = MARION;
+		}
 
-	//Portraits
-	if (pos1p_x == 16) {
-		App->render->Blit(graphics, 12, 32, &portrait_ash, 0.75f);
-		App->render->Blit(graphics, 96, 129, &(sprite_ash.GetCurrentFrame()));
-		selection = ASH;
-	}
+		if (pos1p_x == 96) {
+			App->render->Blit(graphics, 12, 32, &portrait_valnus, 0.75f);
+			App->render->Blit(graphics, 22, 166, &name_valnus, 0.75f);
+			App->render->Blit(graphics, 94, 120, &(sprite_valnus.GetCurrentFrame()));
+			selection = VALNUS;
+		}
 
-	if (pos1p_x == 56) {
-		App->render->Blit(graphics, 12, 32, &portrait_marion, 0.75f);
-		App->render->Blit(graphics, 80, 134, &(sprite_marion.GetCurrentFrame()));
-		selection = MARION;
-	}
+		if (pos1p_x == 136) {
+			App->render->Blit(graphics, 12, 32, &portrait_yuan_nang, 0.75f);
+			App->render->Blit(graphics, 8, 168, &name_yuan_nang, 0.75f);
+			App->render->Blit(graphics, 72, 115, &(sprite_yuan_nang.GetCurrentFrame()));
+			selection = YUAN_NANG;
+		}
 
-	if (pos1p_x == 96) {
-		App->render->Blit(graphics, 12, 32, &portrait_valnus, 0.75f);
-		App->render->Blit(graphics, 94, 120, &(sprite_valnus.GetCurrentFrame()));
-		selection = VALNUS;
-	}
+		if (pos1p_x == 176) {
+			App->render->Blit(graphics, 12, 32, &portrait_tetsu, 0.75f);
+			App->render->Blit(graphics, 46, 166, &name_tetsu, 0.75f);
+			App->render->Blit(graphics, 96, 131, &(sprite_tetsu.GetCurrentFrame()));
+			selection = TETSU;
+		}
 
-	if (pos1p_x == 136) {
-		App->render->Blit(graphics, 12, 32, &portrait_yuan_nang, 0.75f);
-		App->render->Blit(graphics, 72, 115, &(sprite_yuan_nang.GetCurrentFrame()));
-		selection = YUAN_NANG;
-	}
-
-	if (pos1p_x == 176) {
-		App->render->Blit(graphics, 12, 32, &portrait_tetsu, 0.75f);
-		App->render->Blit(graphics, 96, 131, &(sprite_tetsu.GetCurrentFrame()));
-		selection = TETSU;
 	}
 	
+	//PLAYER 1 CHOOSE
+	if (gate_selection == true)
+	{
+		if (App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_DOWN)
+		{
+			pos1p_x -= 40;
+			App->audio->PlayWAV(change_selection_fx);
+			if (pos1p_x == -24)
+				pos1p_x = 176;
 
+			if (pos1p_x == pos2p_x) {
+				if (pos2p_x != 16)
+					pos1p_x -= 40;
+
+				if (pos2p_x == 16)
+					pos1p_x == 176;
+			}
+			if (pos2p_x == 16 && pos1p_x == 16)
+				pos1p_x = 176;
+		}
+
+		if (App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_DOWN)
+		{
+			pos1p_x += 40;
+			App->audio->PlayWAV(change_selection_fx);
+			if (pos1p_x == 216)
+				pos1p_x = 16;
+
+			if (pos1p_x == pos2p_x) {
+				if (pos2p_x != 176)
+					pos1p_x += 40;
+
+				if (pos2p_x == 176)
+					pos1p_x == 16;
+			}
+			if (pos2p_x == 176 && pos1p_x == 176)
+				pos1p_x = 16;
+		}
+	}
+
+	//PLAYER 2 CHOOSE
+	if (App->player->activatePlayer2 == true) {
+		if (gate_selection_P2 == true) {
+			if (gate == false) {
+				if (pos1p_x != 176) {
+					pos2p_x = pos1p_x + 40;
+				}
+				if (pos1p_x == 176) {
+					pos2p_x = 16;
+				}
+				gate = true;
+			}
+
+			if (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_DOWN)
+			{
+				pos2p_x -= 40;
+				App->audio->PlayWAV(change_selection_fx);
+				if (pos2p_x == -24)
+					pos2p_x = 176;
+
+				if (pos2p_x == pos1p_x) {
+					if (pos1p_x != 16)
+						pos2p_x -= 40;
+
+					if (pos1p_x == 16)
+						pos2p_x == 176;
+				}
+				if (pos1p_x == 16 && pos2p_x == 16)
+					pos2p_x = 176;
+			}
+
+			if (App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_DOWN)
+			{
+				pos2p_x += 40;
+				App->audio->PlayWAV(change_selection_fx);
+				if (pos2p_x == 216)
+					pos2p_x = 16;
+
+				if (pos2p_x == pos1p_x) {
+					if (pos1p_x != 176)
+						pos2p_x += 40;
+
+					if (pos1p_x == 176)
+						pos2p_x == 16;
+				}
+				if (pos1p_x == 176 && pos2p_x == 176)
+					pos2p_x = 16;
+			}
+		}
+
+		Portraits2P();
+
+		if (App->input->keyboard[SDL_SCANCODE_LCTRL]) {
+			if (gate_selection_P2 == true) {
+				if (selection_P2 == VALNUS)
+					App->audio->PlayWAV(selection_valnus_fx);
+
+				if (selection_P2 == TETSU)
+					App->audio->PlayWAV(selection_tetsu_fx);
+
+				if (selection_P2 == MARION)
+					App->audio->PlayWAV(selection_marion_fx);
+
+				if (selection_P2 == YUAN_NANG)
+					App->audio->PlayWAV(selection_yuan_nang_fx);
+
+				if (selection_P2 == ASH)
+					App->audio->PlayWAV(selection_ash_fx);
+			}
+			gate_selection_P2 = false;
+			loadP2 = true;
+
+			if (gate_selection == false)
+				App->fade->FadeToBlack(this, App->background3, 1.8);
+		}
+		
+		App->render->Blit(graphics, pos2p_x, 248, &player2, 0.75f);
+		
+	}
+
+	//CHOOSE PLAYER 1
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN && App->fade->IsFading() == false) {
-		if (selection == VALNUS)
-			App->audio->PlayWAV(selection_valnus_fx);
+		if (gate_selection == true) {
+			if (selection == VALNUS)
+				App->audio->PlayWAV(selection_valnus_fx);
 
-		if (selection == TETSU)
-			App->audio->PlayWAV(selection_tetsu_fx);
+			if (selection == TETSU)
+				App->audio->PlayWAV(selection_tetsu_fx);
 
-		if (selection == MARION)
-			App->audio->PlayWAV(selection_marion_fx);
+			if (selection == MARION)
+				App->audio->PlayWAV(selection_marion_fx);
 
-		if (selection == YUAN_NANG)
-			App->audio->PlayWAV(selection_yuan_nang_fx);
+			if (selection == YUAN_NANG)
+				App->audio->PlayWAV(selection_yuan_nang_fx);
 
-		if (selection == ASH)
-			App->audio->PlayWAV(selection_ash_fx);
+			if (selection == ASH)
+				App->audio->PlayWAV(selection_ash_fx);
+		}
+		gate_selection = false;
 
+		if (App->player->activatePlayer2 == false)
 		App->fade->FadeToBlack(this, App->background3, 1.8);
+
+		if (App->player->activatePlayer2 == true && gate_selection_P2 == false)
+			App->fade->FadeToBlack(this, App->background3, 1.8);
+
+
 	}
 
 	return UPDATE_CONTINUE;
+}
+
+void ModuleCharacterSelection::Portraits2P() {
+	if (pos2p_x == 56 && pos1p_x == 16) { //ASH & MARION
+		App->render->Blit(graphics, 12, 32, &portrait_ash, 0.75f);
+		App->render->Blit(graphics, 47, 5, &name_ash, 0.75f);
+		App->render->Blit(graphics, 12, 129, &(sprite_ash.GetCurrentFrame()));
+
+		App->render->Blit(graphics, 116, 32, &portrait_marion, 0.75f);
+		App->render->Blit(graphics, 138, 5, &name_marion, 0.75f);
+		App->render->Blit(graphics, 112, 133, &(sprite_marion.GetCurrentFrame()));
+		selection = ASH;
+		selection_P2 = MARION;
+	}
+
+	if (pos2p_x == 96 && pos1p_x == 16) { //ASH & VALNUS 
+		App->render->Blit(graphics, 12, 32, &portrait_ash, 0.75f);
+		App->render->Blit(graphics, 47, 5, &name_ash, 0.75f);
+		App->render->Blit(graphics, 12, 129, &(sprite_ash.GetCurrentFrame()));
+
+		App->render->Blit(graphics, 116, 32, &portrait_valnus, 0.75f);
+		App->render->Blit(graphics, 138, 5, &name_valnus, 0.75f);
+		App->render->Blit(graphics, 114, 115, &(sprite_valnus.GetCurrentFrame()));
+		selection = ASH;
+		selection_P2 = VALNUS;
+	}
+
+	if (pos2p_x == 136 && pos1p_x == 16) { //ASH & YUAN NANG
+		App->render->Blit(graphics, 12, 32, &portrait_ash, 0.75f);
+		App->render->Blit(graphics, 47, 5, &name_ash, 0.75f);
+		App->render->Blit(graphics, 12, 129, &(sprite_ash.GetCurrentFrame()));
+
+		App->render->Blit(graphics, 116, 32, &portrait_yuan_nang, 0.75f);
+		App->render->Blit(graphics, 123, 5, &name_yuan_nang_2P, 0.75f);
+		App->render->Blit(graphics, 104, 118, &(sprite_yuan_nang.GetCurrentFrame()));
+		selection = ASH;
+		selection_P2 = YUAN_NANG;
+	}
+
+	if (pos2p_x == 176 && pos1p_x == 16) { //ASH & TETSU
+		App->render->Blit(graphics, 12, 32, &portrait_ash, 0.75f);
+		App->render->Blit(graphics, 47, 5, &name_ash, 0.75f);
+		App->render->Blit(graphics, 12, 129, &(sprite_ash.GetCurrentFrame()));
+
+		App->render->Blit(graphics, 116, 32, &portrait_tetsu, 0.75f);
+		App->render->Blit(graphics, 143, 6, &name_tetsu, 0.75f);
+		App->render->Blit(graphics, 117, 128, &(sprite_tetsu.GetCurrentFrame()));
+		selection = ASH;
+		selection_P2 = TETSU;
+	}
+
+	if (pos2p_x == 16 && pos1p_x == 56) { //MARION & ASH
+		App->render->Blit(graphics, 12, 32, &portrait_marion, 0.75f);
+		App->render->Blit(graphics, 34, 5, &name_marion, 0.75f);
+		App->render->Blit(graphics, 0, 134, &(sprite_marion.GetCurrentFrame()));
+
+		App->render->Blit(graphics, 116, 32, &portrait_ash, 0.75f);
+		App->render->Blit(graphics, 151, 5, &name_ash, 0.75f);
+		App->render->Blit(graphics, 124, 129, &(sprite_ash.GetCurrentFrame()));
+		selection = MARION;
+		selection_P2 = ASH;
+	}
+
+	if (pos2p_x == 96 && pos1p_x == 56) { //MARION & VALNUS
+		App->render->Blit(graphics, 12, 32, &portrait_marion, 0.75f);
+		App->render->Blit(graphics, 34, 5, &name_marion, 0.75f);
+		App->render->Blit(graphics, 0, 134, &(sprite_marion.GetCurrentFrame()));
+
+		App->render->Blit(graphics, 116, 32, &portrait_valnus, 0.75f);
+		App->render->Blit(graphics, 138, 5, &name_valnus, 0.75f);
+		App->render->Blit(graphics, 114, 115, &(sprite_valnus.GetCurrentFrame()));
+		selection = MARION;
+		selection_P2 = VALNUS;
+	}
+
+	if (pos2p_x == 136 && pos1p_x == 56) { //MARION & YUAN NANG
+		App->render->Blit(graphics, 12, 32, &portrait_marion, 0.75f);
+		App->render->Blit(graphics, 34, 5, &name_marion, 0.75f);
+		App->render->Blit(graphics, 0, 134, &(sprite_marion.GetCurrentFrame()));
+
+		App->render->Blit(graphics, 116, 32, &portrait_yuan_nang, 0.75f);
+		App->render->Blit(graphics, 123, 5, &name_yuan_nang_2P, 0.75f);
+		App->render->Blit(graphics, 104, 118, &(sprite_yuan_nang.GetCurrentFrame()));
+		selection = MARION;
+		selection_P2 = YUAN_NANG;
+	}
+
+	if (pos2p_x == 176 && pos1p_x == 56) { //MARION & TETSU
+		App->render->Blit(graphics, 12, 32, &portrait_marion, 0.75f);
+		App->render->Blit(graphics, 34, 5, &name_marion, 0.75f);
+		App->render->Blit(graphics, 0, 134, &(sprite_marion.GetCurrentFrame()));
+
+		App->render->Blit(graphics, 116, 32, &portrait_tetsu, 0.75f);
+		App->render->Blit(graphics, 143, 6, &name_tetsu, 0.75f);
+		App->render->Blit(graphics, 117, 128, &(sprite_tetsu.GetCurrentFrame()));
+		selection = MARION;
+		selection_P2 = TETSU;
+	}
+
+	if (pos2p_x == 16 && pos1p_x == 96) { //VALNUS & ASH
+		App->render->Blit(graphics, 12, 32, &portrait_valnus, 0.75f);
+		App->render->Blit(graphics, 34, 5, &name_valnus, 0.75f);
+		App->render->Blit(graphics, 2, 115, &(sprite_valnus.GetCurrentFrame()));
+
+		App->render->Blit(graphics, 116, 32, &portrait_ash, 0.75f);
+		App->render->Blit(graphics, 151, 5, &name_ash, 0.75f);
+		App->render->Blit(graphics, 124, 129, &(sprite_ash.GetCurrentFrame()));
+		selection = VALNUS;
+		selection_P2 = ASH;
+	}
+
+	if (pos2p_x == 56 && pos1p_x == 96) { //VALNUS & MARION
+		App->render->Blit(graphics, 12, 32, &portrait_valnus, 0.75f);
+		App->render->Blit(graphics, 34, 5, &name_valnus, 0.75f);
+		App->render->Blit(graphics, 2, 115, &(sprite_valnus.GetCurrentFrame()));
+
+		App->render->Blit(graphics, 116, 32, &portrait_marion, 0.75f);
+		App->render->Blit(graphics, 138, 5, &name_marion, 0.75f);
+		App->render->Blit(graphics, 112, 133, &(sprite_marion.GetCurrentFrame()));
+		selection = VALNUS;
+		selection_P2 = MARION;
+	}
+
+	if (pos2p_x == 136 && pos1p_x == 96) { //VALNUS & YUAN NANG
+		App->render->Blit(graphics, 12, 32, &portrait_valnus, 0.75f);
+		App->render->Blit(graphics, 34, 5, &name_valnus, 0.75f);
+		App->render->Blit(graphics, 2, 115, &(sprite_valnus.GetCurrentFrame()));
+
+		App->render->Blit(graphics, 116, 32, &portrait_yuan_nang, 0.75f);
+		App->render->Blit(graphics, 123, 5, &name_yuan_nang_2P, 0.75f);
+		App->render->Blit(graphics, 104, 118, &(sprite_yuan_nang.GetCurrentFrame()));
+		selection = VALNUS;
+		selection_P2 = YUAN_NANG;
+	}
+
+	if (pos2p_x == 176 && pos1p_x == 96) { //VALNUS & TETSU
+		App->render->Blit(graphics, 12, 32, &portrait_valnus, 0.75f);
+		App->render->Blit(graphics, 34, 5, &name_valnus, 0.75f);
+		App->render->Blit(graphics, 2, 115, &(sprite_valnus.GetCurrentFrame()));
+
+		App->render->Blit(graphics, 116, 32, &portrait_tetsu, 0.75f);
+		App->render->Blit(graphics, 143, 6, &name_tetsu, 0.75f);
+		App->render->Blit(graphics, 117, 128, &(sprite_tetsu.GetCurrentFrame()));
+		selection = VALNUS;
+		selection_P2 = TETSU;
+	}
+
+
+	if (pos2p_x == 16 && pos1p_x == 136) { //YUAN NANG & ASH
+		App->render->Blit(graphics, 12, 32, &portrait_yuan_nang, 0.75f);
+		App->render->Blit(graphics, 19, 6, &name_yuan_nang_2P, 0.75f);
+		App->render->Blit(graphics, 0, 117, &(sprite_yuan_nang.GetCurrentFrame()));
+
+		App->render->Blit(graphics, 116, 32, &portrait_ash, 0.75f);
+		App->render->Blit(graphics, 151, 5, &name_ash, 0.75f);
+		App->render->Blit(graphics, 124, 129, &(sprite_ash.GetCurrentFrame()));
+		selection = YUAN_NANG;
+		selection_P2 = ASH;
+	}
+
+	if (pos2p_x == 56 && pos1p_x == 136) { //YUAN NANG & MARION
+		App->render->Blit(graphics, 12, 32, &portrait_yuan_nang, 0.75f);
+		App->render->Blit(graphics, 19, 6, &name_yuan_nang_2P, 0.75f);
+		App->render->Blit(graphics, 0, 117, &(sprite_yuan_nang.GetCurrentFrame()));
+
+		App->render->Blit(graphics, 116, 32, &portrait_marion, 0.75f);
+		App->render->Blit(graphics, 138, 5, &name_marion, 0.75f);
+		App->render->Blit(graphics, 112, 133, &(sprite_marion.GetCurrentFrame()));
+		selection = YUAN_NANG;
+		selection_P2 = MARION;
+	}
+
+	if (pos2p_x == 96 && pos1p_x == 136) { //YUAN NANG & VALNUS
+		App->render->Blit(graphics, 12, 32, &portrait_yuan_nang, 0.75f);
+		App->render->Blit(graphics, 19, 6, &name_yuan_nang_2P, 0.75f);
+		App->render->Blit(graphics, 0, 117, &(sprite_yuan_nang.GetCurrentFrame()));
+
+		App->render->Blit(graphics, 116, 32, &portrait_valnus, 0.75f);
+		App->render->Blit(graphics, 138, 5, &name_valnus, 0.75f);
+		App->render->Blit(graphics, 114, 115, &(sprite_valnus.GetCurrentFrame()));
+		selection = YUAN_NANG;
+		selection_P2 = VALNUS;
+	}
+
+	if (pos2p_x == 176 && pos1p_x == 136) { //YUAN NANG & TETSU
+		App->render->Blit(graphics, 12, 32, &portrait_yuan_nang, 0.75f);
+		App->render->Blit(graphics, 19, 6, &name_yuan_nang_2P, 0.75f);
+		App->render->Blit(graphics, 0, 117, &(sprite_yuan_nang.GetCurrentFrame()));
+
+		App->render->Blit(graphics, 116, 32, &portrait_tetsu, 0.75f);
+		App->render->Blit(graphics, 143, 6, &name_tetsu, 0.75f);
+		App->render->Blit(graphics, 117, 128, &(sprite_tetsu.GetCurrentFrame()));
+		selection = YUAN_NANG;
+		selection_P2 = TETSU;
+	}
+
+	if (pos2p_x == 16 && pos1p_x == 176) { //TETSU & ASH
+		App->render->Blit(graphics, 12, 32, &portrait_tetsu, 0.75f);
+		App->render->Blit(graphics, 39, 6, &name_tetsu, 0.75f);
+		App->render->Blit(graphics, 8, 128, &(sprite_tetsu.GetCurrentFrame()));
+
+		App->render->Blit(graphics, 116, 32, &portrait_ash, 0.75f);
+		App->render->Blit(graphics, 151, 5, &name_ash, 0.75f);
+		App->render->Blit(graphics, 124, 129, &(sprite_ash.GetCurrentFrame()));
+		selection = TETSU;
+		selection_P2 = ASH;
+	}
+
+	if (pos2p_x == 56 && pos1p_x == 176) { //TETSU & MARION
+		App->render->Blit(graphics, 12, 32, &portrait_tetsu, 0.75f);
+		App->render->Blit(graphics, 39, 6, &name_tetsu, 0.75f);
+		App->render->Blit(graphics, 8, 128, &(sprite_tetsu.GetCurrentFrame()));
+
+		App->render->Blit(graphics, 116, 32, &portrait_marion, 0.75f);
+		App->render->Blit(graphics, 138, 5, &name_marion, 0.75f);
+		App->render->Blit(graphics, 112, 133, &(sprite_marion.GetCurrentFrame()));
+		selection = TETSU;
+		selection_P2 = MARION;
+	}
+
+	if (pos2p_x == 96 && pos1p_x == 176) { //TETSU & VALNUS
+		App->render->Blit(graphics, 12, 32, &portrait_tetsu, 0.75f);
+		App->render->Blit(graphics, 39, 6, &name_tetsu, 0.75f);
+		App->render->Blit(graphics, 8, 128, &(sprite_tetsu.GetCurrentFrame()));
+
+		App->render->Blit(graphics, 116, 32, &portrait_valnus, 0.75f);
+		App->render->Blit(graphics, 138, 5, &name_valnus, 0.75f);
+		App->render->Blit(graphics, 114, 115, &(sprite_valnus.GetCurrentFrame()));
+		selection = TETSU;
+		selection_P2 = VALNUS;
+	}
+
+	if (pos2p_x == 136 && pos1p_x == 176) { //TETSU & YUAN NANG 
+		App->render->Blit(graphics, 12, 32, &portrait_tetsu, 0.75f);
+		App->render->Blit(graphics, 39, 6, &name_tetsu, 0.75f);
+		App->render->Blit(graphics, 8, 128, &(sprite_tetsu.GetCurrentFrame()));
+
+		App->render->Blit(graphics, 116, 32, &portrait_yuan_nang, 0.75f);
+		App->render->Blit(graphics, 123, 5, &name_yuan_nang_2P, 0.75f);
+		App->render->Blit(graphics, 104, 118, &(sprite_yuan_nang.GetCurrentFrame()));
+		selection = TETSU;
+		selection_P2 = YUAN_NANG;
+	}
 }
