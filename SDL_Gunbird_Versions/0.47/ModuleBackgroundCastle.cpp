@@ -30,12 +30,16 @@ ModuleBackgroundCastle::ModuleBackgroundCastle()
 	door.PushBack({ 543,33,119,53 });
 	door.PushBack({ 293,97,115,72 });
 	door.PushBack({ 418,97,112,83 });
-	door.PushBack({ 293,222,110,106 });
-	door.PushBack({ 293,342,121,100 });
-	door.PushBack({ 418,342,110,103 });
-	door.PushBack({ 543,342,110,106 });
+	door.PushBack({ 286,222,110,106 });
+	door.PushBack({ 286,342,121,100 });
+	door.PushBack({ 411,342,110,103 });
+	door.PushBack({ 536,342,110,106 });
+	door2.PushBack({ 727,297,110,162 });
 	door.loop = false;
 	door.speed = 0.4f;
+
+	floor.PushBack({ 749,185,57,13 });
+	floor.loop = false;
 
 }
 
@@ -54,6 +58,7 @@ bool ModuleBackgroundCastle::Start()
 
 	graphics = App->textures->Load("assets/backgrounds/Background castle.png");
 	animation_door = App->textures->Load("assets/particles/animations.png");
+	animation_floor= App->textures->Load("assets/particles/animations.png");
 
 	App->ui->Enable();
 	App->player->Enable();
@@ -114,6 +119,7 @@ bool ModuleBackgroundCastle::CleanUp()
 	LOG("Unloading castle stage");
 	App->textures->Unload(graphics);
 	App->textures->Unload(animation_door);
+	App->textures->Unload(animation_floor);
 
 	LOG("Destroying SDL audio");
 	App->audio->StopMusic();
@@ -211,8 +217,14 @@ update_status ModuleBackgroundCastle::Update()
 	App->render->Blit(graphics, 0, 0, NULL);
 
 	if (App->render->camera.y >= -1000 * SCREEN_SIZE) {
-		App->render->Blit(animation_door, 66, 960, &(door.GetCurrentFrame()));
+		App->render->Blit(animation_floor,87, 966, &(floor.GetCurrentFrame()));
+		App->render->Blit(animation_door, 66, 955, &(door.GetCurrentFrame()));
+		
 	}
+	if (App->render->camera.y >= -970 * SCREEN_SIZE) {
+		App->render->Blit(animation_door, 67, 907, &(door2.GetCurrentFrame()));
+	}
+	
 
 	
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN && App->fade->IsFading() == false) {

@@ -1,2 +1,12 @@
-﻿  SDL Game.vcxproj -> C:\Users\davidvh1\Documents\GitHub\Gunbird\SDL_Gunbird_Versions\0.47\Release\Gunbird.exe
-  SDL Game.vcxproj -> C:\Users\davidvh1\Documents\GitHub\Gunbird\SDL_Gunbird_Versions\0.47\Release\Gunbird.pdb (Full PDB)
+﻿  ModuleBackgroundCastle.cpp
+c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.47\Path.h(6): warning C4099: 'Animation': type name first seen using 'class' now seen using 'struct'
+  c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.47\Animation.h(47): note: see declaration of 'Animation'
+c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.47\Enemy.h(8): warning C4099: 'Path': type name first seen using 'class' now seen using 'struct'
+  c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.47\Path.h(17): note: see declaration of 'Path'
+  Generating code
+  1 of 309 functions ( 0.3%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  SDL Game.vcxproj -> C:\Users\Usuario\Documents\GitHub\Gunbird\SDL_Gunbird_Versions\0.47\Release\Gunbird.exe
+  SDL Game.vcxproj -> C:\Users\Usuario\Documents\GitHub\Gunbird\SDL_Gunbird_Versions\0.47\Release\Gunbird.pdb (Full PDB)
