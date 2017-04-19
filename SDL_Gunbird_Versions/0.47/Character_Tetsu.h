@@ -8,7 +8,9 @@ class Character_Tetsu : public Character
 private:
 	Animation idle;
 	Animation right;
+	Animation mright;
 	Animation left;
+	Animation mleft;
 
 	iPoint original_pos;
 
