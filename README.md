@@ -61,6 +61,34 @@ If you want more information about the game, check the following link: https://g
 * Create characters collisions
 * **Bug-Fixing**
      * Frozen Character Animation while press left or right too much time.
+     
+### 0.47 Version (19/04/2017)
+* Implement castle BG
+* Implement enemy modules
+* Implement explosion particles
+* Order png images
+* Enemies collison
+* Reajust animation speeds
+* Implement power up
+* PowerUp animations
+* Collision PowerUp and up Level
+* Organize Assets
+* Add all lasers Yuan Nang + audio
+* Lasers with level Yuan Nang
+* Implement Module of the 5 Characters 
+* Player 2 Disable/Enable with coins 
+* Module Audio
+* Making/fixing animations for characters
+* Create Particle Enemy
+* Shot of Turret Castle
+* Implement Voice of all characters: Dead, selected and power up 
+* Collision Player - Shot Enemy (Lose a life when enemy hits you)
+* **All UI except Score**
+* **Bug-Fixing**
+     * Fixed Bugs
+     * Fixed OGG archives
+     * Fixed Speed of Particles
+     * Fixed Module Audio
 
 ## Credits
 * **Github project page**: https://github.com/lFreecss/Gunbird
