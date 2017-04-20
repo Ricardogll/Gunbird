@@ -1,16 +1,7 @@
-﻿  ModuleCharacterSelection.cpp
-c:\users\davidvh1\documents\github\gunbird\sdl_gunbird_versions\0.47\path.h(6): warning C4099: 'Animation': type name first seen using 'class' now seen using 'struct'
-  c:\users\davidvh1\documents\github\gunbird\sdl_gunbird_versions\0.47\animation.h(47): note: see declaration of 'Animation'
-c:\users\davidvh1\documents\github\gunbird\sdl_gunbird_versions\0.47\modulecharacterselection.cpp(350): warning C4553: '==': operator has no effect; did you intend '='?
-c:\users\davidvh1\documents\github\gunbird\sdl_gunbird_versions\0.47\modulecharacterselection.cpp(368): warning C4553: '==': operator has no effect; did you intend '='?
-c:\users\davidvh1\documents\github\gunbird\sdl_gunbird_versions\0.47\modulecharacterselection.cpp(400): warning C4553: '==': operator has no effect; did you intend '='?
-c:\users\davidvh1\documents\github\gunbird\sdl_gunbird_versions\0.47\modulecharacterselection.cpp(418): warning C4553: '==': operator has no effect; did you intend '='?
-c:\users\davidvh1\documents\github\gunbird\sdl_gunbird_versions\0.47\modulecharacterselection.cpp(448): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\davidvh1\documents\github\gunbird\sdl_gunbird_versions\0.47\modulecharacterselection.cpp(476): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\davidvh1\documents\github\gunbird\sdl_gunbird_versions\0.47\modulecharacterselection.cpp(479): warning C4305: 'argument': truncation from 'double' to 'float'
-  Character_Tetsu.cpp
-c:\users\davidvh1\documents\github\gunbird\sdl_gunbird_versions\0.47\path.h(6): warning C4099: 'Animation': type name first seen using 'class' now seen using 'struct'
-  c:\users\davidvh1\documents\github\gunbird\sdl_gunbird_versions\0.47\animation.h(47): note: see declaration of 'Animation'
-  Generating Code...
-  SDL Game.vcxproj -> C:\Users\davidvh1\Documents\GitHub\Gunbird\SDL_Gunbird_Versions\0.47\Debug\Gunbird.exe
-  SDL Game.vcxproj -> C:\Users\davidvh1\Documents\GitHub\Gunbird\SDL_Gunbird_Versions\0.47\Debug\Gunbird.pdb (Full PDB)
+﻿  ModuleBackgroundCastle.cpp
+c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.47\path.h(6): warning C4099: 'Animation': type name first seen using 'class' now seen using 'struct'
+  c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.47\animation.h(47): note: see declaration of 'Animation'
+c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.47\enemy.h(8): warning C4099: 'Path': type name first seen using 'class' now seen using 'struct'
+  c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.47\path.h(17): note: see declaration of 'Path'
+  SDL Game.vcxproj -> C:\Users\Usuario\Documents\GitHub\Gunbird\SDL_Gunbird_Versions\0.47\Debug\Gunbird.exe
+  SDL Game.vcxproj -> C:\Users\Usuario\Documents\GitHub\Gunbird\SDL_Gunbird_Versions\0.47\Debug\Gunbird.pdb (Full PDB)

@@ -38,6 +38,21 @@ ModuleBackgroundCastle::ModuleBackgroundCastle()
 	door.loop = false;
 	door.speed = 0.4f;
 
+	soldier.PushBack({ 52,39,15,24 });
+	soldier.PushBack({ 72,40,15,24 });
+	soldier.PushBack({ 91,39,15,24 });
+	soldier.PushBack({ 111,40,15,24 });
+	soldier.speed = 0.15f;
+
+	soldier2.PushBack({ 52,67,12,25 });
+	soldier2.PushBack({ 85,68,12,25 });
+	soldier2.PushBack({ 68,67,12,25 });
+	soldier2.PushBack({ 101,68,25,25 });
+	soldier2.speed = 0.05f;
+
+	building.PushBack({ 32,182,62,52 });
+
+
 	floor.PushBack({ 749,185,57,13 });
 	floor.loop = false;
 
@@ -59,6 +74,8 @@ bool ModuleBackgroundCastle::Start()
 
 	graphics = App->textures->Load("assets/backgrounds/Background castle.png");
 	animation_door = App->textures->Load("assets/particles/animations.png");
+	animation_soldier= App->textures->Load("assets/particles/animations.png");
+	animation_building= App->textures->Load("assets/particles/animations.png");
 
 	App->ui->Enable();
 	App->player->Enable();
@@ -201,6 +218,9 @@ update_status ModuleBackgroundCastle::Update()
 
 	App->render->Blit(graphics, 0, 0, NULL);
 
+	//BUILDING
+	//App->render->Blit(animation_building, 147, 1091, &(building.GetCurrentFrame()));
+	//BRIDGE
 	if (App->render->camera.y >= -1000 * SCREEN_SIZE) {
 		App->render->Blit(animation_door, 87, 966, &(floor.GetCurrentFrame()));
 		App->render->Blit(animation_door, 66, 955, &(door.GetCurrentFrame()));
@@ -208,6 +228,28 @@ update_status ModuleBackgroundCastle::Update()
 	}
 	if (App->render->camera.y >= -970 * SCREEN_SIZE) {
 		App->render->Blit(animation_door, 67, 907, &(door2.GetCurrentFrame()));
+	}
+	//SOLDIER
+	if (App->render->camera.y <= -1140 * SCREEN_SIZE) {
+		App->render->Blit(animation_soldier, 79, abs(App->render->camera.y / SCREEN_SIZE - 150) , &(soldier.GetCurrentFrame()));
+	}
+	if (App->render->camera.y <= -1170 * SCREEN_SIZE) {
+		App->render->Blit(animation_soldier, 107, abs(App->render->camera.y / SCREEN_SIZE - 120), &(soldier.GetCurrentFrame()));
+	}
+	if (App->render->camera.y >= -1270 * SCREEN_SIZE) {
+		App->render->Blit(animation_soldier, abs(App->render->camera.x / SCREEN_SIZE-130 ), 1237, &(soldier2.GetCurrentFrame()));
+	}
+	if (App->render->camera.y >= -1270 * SCREEN_SIZE) {
+		App->render->Blit(animation_soldier, abs(App->render->camera.x / SCREEN_SIZE - 115), 1237, &(soldier2.GetCurrentFrame()));
+	}
+	if (App->render->camera.y >= -1270 * SCREEN_SIZE) {
+		App->render->Blit(animation_soldier, abs(App->render->camera.x / SCREEN_SIZE - 100), 1237, &(soldier2.GetCurrentFrame()));
+	}
+	if (App->render->camera.y <= -1140 * SCREEN_SIZE) {
+		App->render->Blit(animation_soldier, abs(App->render->camera.y / SCREEN_HEIGHT - 90), 1537, &(soldier2.GetCurrentFrame()));
+	}
+	if (App->render->camera.y <= -1170 * SCREEN_SIZE) {
+		App->render->Blit(animation_soldier, abs(App->render->camera.x / SCREEN_SIZE - 75), 1530, &(soldier2.GetCurrentFrame()));
 	}
 
 	
