@@ -87,6 +87,8 @@ public:
 	Particle laser_marion_right_1;
 	Particle laser_marion_right_2;
 
+	Particle laser_ash;
+
 	Particle shot_enemy;
 
 	Particle explosion_balloon;
