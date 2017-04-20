@@ -30,6 +30,7 @@ ModuleEnemies::ModuleEnemies()
 	balloonCastle.PushBack({ 0.0f, 0.0f }, 100); 
 	balloonCastle.PushBack({ 0.0f, 1.5f }, 142);
 	balloonCastle.loop = false;
+
 }
 
 // Destructor
@@ -213,8 +214,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 				if (enemies[i]->getHitPoints() == 0) {
 					App->particles->AddParticle(App->particles->explosion_balloon, (c1->rect.x - ((c1->rect.w)) / 2), (c1->rect.y - ((c1->rect.h)) / 2), NULL, NULL);
 					//Spawn Power Up when an enemy dies
-					//this->AddEnemy(ENEMY_TYPES::POWERUP, ENEMY_MOVE::NO_MOVE, c1->rect.x, c1->rect.y);
-					App->particles->AddParticle(App->particles->power_up, (c1->rect.x - ((c1->rect.w)) / 2), (c1->rect.y - ((c1->rect.h)) / 2), NULL, NULL, COLLIDER_POWER_UP);
+					this->AddEnemy(ENEMY_TYPES::POWERUP, ENEMY_MOVE::NO_MOVE, c1->rect.x, c1->rect.y);
 					delete enemies[i];
 					enemies[i] = nullptr;
 					break;

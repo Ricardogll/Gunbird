@@ -34,7 +34,6 @@ public:
 	const Collider* GetCollider() const;
 
 	virtual void Move() {};
-	virtual void Move2() {};
 	virtual void Laser() {};
 	virtual void Draw(SDL_Texture* sprites);
 	virtual void OnCollision(Collider* collider);

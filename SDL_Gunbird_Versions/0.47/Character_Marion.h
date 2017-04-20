@@ -20,6 +20,7 @@ public:
 	void Move();
 	void Move2();
 	void Laser();
+	void Laser2();
 	void OnCollision(Collider* collider);
 
 };

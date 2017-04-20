@@ -131,30 +131,6 @@ ModuleParticles::ModuleParticles()
 	power_up.anim.PushBack({ 760, 199, 22, 13 });
 	power_up.anim.speed = 0.8f;
 	power_up.life = 150000;
-
-	//Move up and right
-	if (up == true)
-		power_up.speed.y += 1;
-	else
-		power_up.speed.y -= 1;
-
-	if (left == true)
-		power_up.speed.x += 1;
-	else
-		power_up.speed.x -= 1;
-
-	//When it hits the borders turn arround
-	if (power_up.position.x < 0)
-		left = false;
-
-	if (power_up.position.x > SCREEN_WIDTH - 22)
-		left = true;
-
-	if (power_up.position.y < 0)
-		up = false;
-
-	if (power_up.position.y > SCREEN_HEIGHT - 13)
-		up = true;
 }
 
 ModuleParticles::~ModuleParticles()

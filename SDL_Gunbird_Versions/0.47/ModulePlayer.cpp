@@ -71,13 +71,9 @@ update_status ModulePlayer::Update()
 			LOG("Spawning character at %d", queue[i].x * SCREEN_SIZE);
 		}
 	}
-
-	//for (uint i = 0; i < MAX_CHARACTERS; ++i) 
-	//	if (characters[i] != nullptr) characters[i]->Move(); 		
-	if (characters[0] != nullptr)
-		characters[0]->Move();
-	if (characters[1] != nullptr)
-		characters[1]->Move2();
+		
+	for (uint i = 0; i < MAX_CHARACTERS; ++i)
+		if (characters[i] != nullptr) characters[i]->Move();
 
 	for (uint i = 0; i < MAX_CHARACTERS; ++i)
 		if (characters[i] != nullptr) characters[i]->Laser();

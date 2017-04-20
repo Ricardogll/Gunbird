@@ -4,6 +4,7 @@
 #include "ModuleRender.h"
 #include "ModuleInput.h"
 #include "ModuleParticles.h"
+#include "ModulePlayer.h"
 
 Character_YuanNang::Character_YuanNang(int x, int y) : Character(x, y)
 {
@@ -81,7 +82,8 @@ void Character_YuanNang::Move()
 		}
 	}
 
-	if (App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT)
+	if ((App->player->characters[0]->type == YUAN_NANG && App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT) ||
+		(App->player->characters[1] != nullptr && App->player->characters[1]->type == YUAN_NANG && App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT))
 	{
 		animation = &right;
 		animation = &mright;
@@ -90,7 +92,9 @@ void Character_YuanNang::Move()
 			position.x = (SCREEN_WIDTH - 27);
 		}
 	}
-	if (App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_REPEAT)
+
+	if ((App->player->characters[0]->type == YUAN_NANG && App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_REPEAT) ||
+		(App->player->characters[1] != nullptr && App->player->characters[1]->type == YUAN_NANG && App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT))
 	{
 		animation = &left;
 		animation = &mleft;
@@ -99,7 +103,9 @@ void Character_YuanNang::Move()
 			position.x = 0;
 		}
 	}
-	if (App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_REPEAT)
+
+	if ((App->player->characters[0]->type == YUAN_NANG && App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_REPEAT) ||
+		(App->player->characters[1] != nullptr && App->player->characters[1]->type == YUAN_NANG && App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT))
 	{
 		animation = &idle;
 		position.y -= speed;
@@ -107,7 +113,9 @@ void Character_YuanNang::Move()
 			position.y = (abs(App->render->camera.y) / SCREEN_SIZE);
 		}
 	}
-	if (App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_STATE::KEY_REPEAT)
+
+	if ((App->player->characters[0]->type == YUAN_NANG && App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_STATE::KEY_REPEAT) ||
+		(App->player->characters[1] != nullptr && App->player->characters[1]->type == YUAN_NANG && App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT))
 	{
 		animation = &idle;
 		position.y += speed;
@@ -116,107 +124,31 @@ void Character_YuanNang::Move()
 		}
 	}
 
-	if (App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_REPEAT
-		&& App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT)
+	if ((App->player->characters[0]->type == YUAN_NANG && App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT) ||
+		(App->player->characters[1] != nullptr && App->player->characters[1]->type == YUAN_NANG && App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT))
 		animation = &mright;
 
-	if (App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_REPEAT
-		&& App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_REPEAT)
+	if ((App->player->characters[0]->type == YUAN_NANG && App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_REPEAT) ||
+		(App->player->characters[1] != nullptr && App->player->characters[1]->type == YUAN_NANG && App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT))
 		animation = &mleft;
 
-	if (App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_STATE::KEY_REPEAT
-		&& App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT)
+	if ((App->player->characters[0]->type == YUAN_NANG && App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT) ||
+		(App->player->characters[1] != nullptr && App->player->characters[1]->type == YUAN_NANG && App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT))
 		animation = &mright;
 
-	if (App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_STATE::KEY_REPEAT
-		&& App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_REPEAT)
+	if ((App->player->characters[0]->type == YUAN_NANG && App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_REPEAT) ||
+		(App->player->characters[1] != nullptr && App->player->characters[1]->type == YUAN_NANG && App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT))
 		animation = &mleft;
 
-	if (App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_REPEAT
-		&& App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT)
-		animation = &idle;
-
-}
-
-//IF PLAYER 2
-void Character_YuanNang::Move2()
-{
-	animation = &idle;
-
-	int speed = SPEED_CHARACTER;
-
-	if ((position.y < (abs(App->render->camera.y) / SCREEN_SIZE)))
-		position.y = (abs(App->render->camera.y) / SCREEN_SIZE);
-
-	else {
-		if (movement == false) {
-			scroll += 0.5;
-			if (scroll == 1.5) {
-				position.y -= 1;
-				scroll = 0;
-			}
-		}
-	}
-
-	if (App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT)
-	{
-		animation = &right;
-		animation = &mright;
-		position.x += speed;
-		if (position.x > (SCREEN_WIDTH - 27)) {
-			position.x = (SCREEN_WIDTH - 27);
-		}
-	}
-	if (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT)
-	{
-		animation = &left;
-		animation = &mleft;
-		position.x -= speed;
-		if (position.x < 0) {
-			position.x = 0;
-		}
-	}
-	if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT)
-	{
-		animation = &idle;
-		position.y -= speed;
-		if (position.y < (abs(App->render->camera.y) / SCREEN_SIZE)) {
-			position.y = (abs(App->render->camera.y) / SCREEN_SIZE);
-		}
-	}
-	if (App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT)
-	{
-		animation = &idle;
-		position.y += speed;
-		if (position.y >((abs(App->render->camera.y) + (SCREEN_HEIGHT*SCREEN_SIZE))) / SCREEN_SIZE - 48) {
-			position.y = (abs(App->render->camera.y) + (SCREEN_HEIGHT*SCREEN_SIZE)) / SCREEN_SIZE - 48;
-		}
-	}
-
-	if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT
-		&& App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT)
-		animation = &mright;
-
-	if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT
-		&& App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT)
-		animation = &mleft;
-
-	if (App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT
-		&& App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT)
-		animation = &mright;
-
-	if (App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT
-		&& App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT)
-		animation = &mleft;
-
-	if (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT
-		&& App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT)
+	if ((App->player->characters[0]->type == YUAN_NANG && App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT) ||
+		(App->player->characters[1] != nullptr && App->player->characters[1]->type == YUAN_NANG && App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT))
 		animation = &idle;
 
 }
 
 void Character_YuanNang::Laser() {
-	if (App->input->keyboard[SDL_SCANCODE_X] == KEY_STATE::KEY_DOWN || (0 < time))
+	if ((App->player->characters[0]->type == YUAN_NANG && App->input->keyboard[SDL_SCANCODE_X] == KEY_STATE::KEY_DOWN || (0 < time)) || 
+		(App->player->characters[1] != nullptr && App->player->characters[1]->type == YUAN_NANG && App->input->keyboard[SDL_SCANCODE_LCTRL] == KEY_STATE::KEY_DOWN || (0 < time)))
 	{
 		if (level == 0) {
 			if (time == 0)

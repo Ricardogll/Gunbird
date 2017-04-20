@@ -229,6 +229,9 @@ bool ModuleCharacterSelection::Start()
 	loadP2 = false;
 	scroll = 0;
 	pos1p_x = 56;
+	selection = 0;
+	selection_P2 = 0;
+	pos2p_x = 0;
 
 	App->player->Enable();
 	App->ui->Enable();

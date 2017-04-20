@@ -1,6 +1,7 @@
 #include "Application.h"
 #include "PowerUp.h"
 #include "ModuleCollision.h"
+#include "ModuleRender.h"
 #include "Path.h"
 
 PowerUp::PowerUp(int x, int y) : Enemy(x, y)
@@ -55,15 +56,15 @@ void PowerUp::Move()
 		position.x += 1;
 
 	//When it hits the borders turn arround
-	if (position.x < 0)
+	if (position.x < App->render->camera.x)
 		left = false;
 
 	if (position.x > SCREEN_WIDTH - 22)
 		left = true;
 
-	if (position.y < 0)
+	if (position.y < abs(App->render->camera.y) / SCREEN_SIZE)
 		up = false;
 
-	if (position.y > SCREEN_HEIGHT - 13)
+	if (position.y > ((abs(App->render->camera.y) + (SCREEN_HEIGHT*SCREEN_SIZE))) / SCREEN_SIZE - 13)
 		up = true;
 }

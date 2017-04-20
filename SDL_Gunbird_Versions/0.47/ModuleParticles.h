@@ -8,7 +8,7 @@
 #include "ModuleRender.h"
 #include "ModuleCollision.h"
 
-#define MAX_ACTIVE_PARTICLES 100
+#define MAX_ACTIVE_PARTICLES 200
 #define SPEED_LASER_PLAYER -10
 #define SPEED_SWORD_YUAN_NANG -5
 

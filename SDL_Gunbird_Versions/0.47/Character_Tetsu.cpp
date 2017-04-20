@@ -4,6 +4,7 @@
 #include "ModuleRender.h"
 #include "ModuleInput.h"
 #include "ModuleParticles.h"
+#include "ModulePlayer.h"
 
 Character_Tetsu::Character_Tetsu(int x, int y) : Character(x, y)
 {
@@ -178,7 +179,8 @@ void Character_Tetsu::Move()
 		}
 	}
 
-	if (App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT)
+	if ((App->player->characters[0]->type == TETSU && App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT) ||
+		(App->player->characters[1] != nullptr && App->player->characters[1]->type == TETSU && App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT))
 	{
 		animation = &right;
 		animation = &mright;
@@ -187,7 +189,9 @@ void Character_Tetsu::Move()
 			position.x = (SCREEN_WIDTH - 30);
 		}
 	}
-	if (App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_REPEAT)
+
+	if ((App->player->characters[0]->type == TETSU && App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_REPEAT) ||
+		(App->player->characters[1] != nullptr && App->player->characters[1]->type == TETSU && App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT))
 	{
 		animation = &left;
 		animation = &mleft;
@@ -196,7 +200,9 @@ void Character_Tetsu::Move()
 			position.x = 0;
 		}
 	}
-	if (App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_REPEAT)
+
+	if ((App->player->characters[0]->type == TETSU && App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_REPEAT) ||
+		(App->player->characters[1] != nullptr && App->player->characters[1]->type == TETSU && App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT))
 	{
 		animation = &idle;
 		position.y -= speed;
@@ -204,7 +210,9 @@ void Character_Tetsu::Move()
 			position.y = (abs(App->render->camera.y) / SCREEN_SIZE) + 37;
 		}
 	}
-	if (App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_STATE::KEY_REPEAT)
+
+	if ((App->player->characters[0]->type == TETSU && App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_STATE::KEY_REPEAT) ||
+		(App->player->characters[1] != nullptr && App->player->characters[1]->type == TETSU && App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT))
 	{
 		animation = &idle;
 		position.y += speed;
@@ -213,103 +221,26 @@ void Character_Tetsu::Move()
 		}
 	}
 
-	if (App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_REPEAT
-		&& App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT)
+	if ((App->player->characters[0]->type == TETSU && App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT) ||
+		(App->player->characters[1] != nullptr && App->player->characters[1]->type == TETSU && App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT))
 		animation = &mright;
 
-	if (App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_REPEAT
-		&& App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_REPEAT)
+	if ((App->player->characters[0]->type == TETSU && App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_REPEAT) ||
+		(App->player->characters[1] != nullptr && App->player->characters[1]->type == TETSU && App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT))
 		animation = &mleft;
 
-	if (App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_STATE::KEY_REPEAT
-		&& App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT)
+	if ((App->player->characters[0]->type == TETSU && App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT) ||
+		(App->player->characters[1] != nullptr && App->player->characters[1]->type == TETSU && App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT))
 		animation = &mright;
 
-	if (App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_STATE::KEY_REPEAT
-		&& App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_REPEAT)
+	if ((App->player->characters[0]->type == TETSU && App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_REPEAT) ||
+		(App->player->characters[1] != nullptr && App->player->characters[1]->type == TETSU && App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT))
 		animation = &mleft;
 
-
-	if (App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_REPEAT
-		&& App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT)
+	if ((App->player->characters[0]->type == TETSU && App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT) ||
+		(App->player->characters[1] != nullptr && App->player->characters[1]->type == TETSU && App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT))
 		animation = &idle;
 
-}
-
-void Character_Tetsu::Move2()
-{
-	animation = &idle;
-
-	int speed = SPEED_CHARACTER;
-
-	if ((position.y < (abs(App->render->camera.y) / SCREEN_SIZE)))
-		position.y = (abs(App->render->camera.y) / SCREEN_SIZE);
-
-	else {
-		if (movement == false) {
-			scroll += 0.5;
-			if (scroll == 1.5) {
-				position.y -= 1;
-				scroll = 0;
-			}
-		}
-	}
-
-	if (App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT)
-	{
-		animation = &right;
-		animation = &mright;
-		position.x += speed;
-		if (position.x > (SCREEN_WIDTH - 23)) {
-			position.x = (SCREEN_WIDTH - 23);
-		}
-	}
-	if (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT)
-	{
-		animation = &left;
-		animation = &mleft;
-		position.x -= speed;
-		if (position.x < 0) {
-			position.x = 0;
-		}
-	}
-	if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT)
-	{
-		animation = &idle;
-		position.y -= speed;
-		if (position.y < (abs(App->render->camera.y) / SCREEN_SIZE) + 32) {
-			position.y = (abs(App->render->camera.y) / SCREEN_SIZE) + 32;
-		}
-	}
-	if (App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT)
-	{
-		animation = &idle;
-		position.y += speed;
-		if (position.y >((abs(App->render->camera.y) + (SCREEN_HEIGHT*SCREEN_SIZE))) / SCREEN_SIZE) {
-			position.y = (abs(App->render->camera.y) + (SCREEN_HEIGHT*SCREEN_SIZE)) / SCREEN_SIZE;
-		}
-	}
-
-	if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT
-		&& App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT)
-		animation = &mright;
-
-	if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT
-		&& App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT)
-		animation = &mleft;
-
-	if (App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT
-		&& App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT)
-		animation = &mright;
-
-	if (App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT
-		&& App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT)
-		animation = &mleft;
-
-
-	if (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT
-		&& App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT)
-		animation = &idle;
 }
 
 void Character_Tetsu::Laser() {
