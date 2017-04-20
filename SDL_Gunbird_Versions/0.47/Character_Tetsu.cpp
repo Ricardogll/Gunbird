@@ -12,47 +12,47 @@ Character_Tetsu::Character_Tetsu(int x, int y) : Character(x, y)
 	position.y = y;
 
 	// idle animation
-	idle.PushBack({ 574, 0, 26, 37 }); //1
-	idle.PushBack({ 614, 0, 26, 37 }); //2
+	idle.PushBack({ 572, 0, 30, 37 }); //1
+	idle.PushBack({ 612, 0, 30, 37 }); //2
 	idle.PushBack({ 652, 0, 30, 37 }); //3
-	idle.PushBack({ 694, 0, 26, 37 }); //4
+	idle.PushBack({ 692, 0, 30, 37 }); //4
 	idle.PushBack({ 732, 0, 30, 37 }); //5
-	idle.PushBack({ 574, 47, 26, 37 }); //6
+	idle.PushBack({ 572, 47, 30, 37 }); //6
 	idle.PushBack({ 612, 47, 30, 37 }); //7
-	idle.PushBack({ 654, 47, 26, 37 }); //8
-	idle.PushBack({ 694, 47, 26, 37 }); //9
-	idle.PushBack({ 734, 47, 26, 37 }); //10
+	idle.PushBack({ 652, 47, 30, 37 }); //8
+	idle.PushBack({ 692, 47, 30, 37 }); //9
+	idle.PushBack({ 732, 47, 30, 37 }); //10
 	idle.PushBack({ 572, 94, 30, 37 }); //11
-	idle.PushBack({ 614, 94, 30, 37 }); //12
+	idle.PushBack({ 612, 94, 30, 37 }); //12
 	idle.PushBack({ 652, 94, 30, 37 }); //13
-	idle.PushBack({ 692, 94, 26, 37 }); //14
+	idle.PushBack({ 690, 94, 30, 37 }); //14
 	idle.PushBack({ 732, 94, 30, 37 }); //15
-	idle.PushBack({ 574, 141, 26, 37 }); //16
-	idle.PushBack({ 614, 141, 26, 37 }); //17
-	idle.PushBack({ 654, 141, 26, 37 }); //18
+	idle.PushBack({ 572, 141, 30, 37 }); //16
+	idle.PushBack({ 612, 141, 30, 37 }); //17
+	idle.PushBack({ 652, 141, 30, 37 }); //18
 	idle.PushBack({ 692, 141, 30, 37 }); //19
-	idle.PushBack({ 734, 141, 26, 37 }); //20
+	idle.PushBack({ 732, 141, 30, 37 }); //20
 	idle.PushBack({ 572, 188, 30, 37 }); //21
-	idle.PushBack({ 614, 188, 26, 37 }); //22
+	idle.PushBack({ 612, 188, 30, 37 }); //22
 	idle.PushBack({ 652, 188, 30, 37 }); //23
-	idle.PushBack({ 694, 188, 26, 37 }); //24
+	idle.PushBack({ 692, 188, 30, 37 }); //24
 	idle.speed = 0.25f;
 
 	// left animation
-	left.PushBack({ 561, 280, 30, 37 }); //1
-	left.PushBack({ 601, 280, 30, 37 }); //2
-	left.PushBack({ 643, 280, 30, 37 }); //3
-	left.PushBack({ 682, 280, 30, 37 }); //4
-	left.PushBack({ 724, 280, 30, 37 }); //5
-	left.PushBack({ 561, 326, 30, 37 }); //6
-	left.PushBack({ 601, 326, 30, 37 }); //7
-	left.PushBack({ 643, 326, 30, 37 }); //8
+	left.PushBack({ 563, 282, 30, 37 }); //1
+	left.PushBack({ 603, 282, 30, 37 }); //2
+	left.PushBack({ 643, 282, 30, 37 }); //3
+	left.PushBack({ 683, 282, 30, 37 }); //4
+	left.PushBack({ 723, 282, 30, 37 }); //5
+	left.PushBack({ 563, 329, 30, 37 }); //6
+	left.PushBack({ 603, 329, 30, 37 }); //7
+	left.PushBack({ 643, 329, 30, 37 }); //8
 	left.loop = false;
 	left.speed = 0.25f;
 
 	//more left animation
-	mleft.PushBack({ 682, 326, 30, 37 }); //9
-	mleft.PushBack({ 724, 326, 30, 37 }); //10
+	mleft.PushBack({ 683, 329, 30, 37 }); //9 ?
+	mleft.PushBack({ 723, 329, 30, 37 }); //10 X (last fixed)
 	mleft.PushBack({ 561, 374, 30, 37 }); //11
 	mleft.PushBack({ 601, 374, 30, 37 }); //12
 	mleft.PushBack({ 643, 374, 30, 37 }); //13
@@ -95,6 +95,64 @@ Character_Tetsu::Character_Tetsu(int x, int y) : Character(x, y)
 	mleft.PushBack({ 724, 702, 30, 37 }); //50
 	mleft.loop = true;
 	mleft.speed = 0.25f;
+
+	/*// left animation
+	left.PushBack({ 561, 280, 30, 37 }); //1
+	left.PushBack({ 601, 280, 30, 37 }); //2
+	left.PushBack({ 643, 280, 30, 37 }); //3
+	left.PushBack({ 682, 280, 30, 37 }); //4
+	left.PushBack({ 724, 280, 30, 37 }); //5
+	left.PushBack({ 561, 326, 30, 37 }); //6
+	left.PushBack({ 601, 326, 30, 37 }); //7
+	left.PushBack({ 643, 326, 30, 37 }); //8
+	left.loop = false;
+	left.speed = 0.25f;
+
+	//more left animation
+	mleft.PushBack({ 682, 326, 30, 37 }); //9
+	mleft.PushBack({ 724, 326, 30, 37 }); //10
+	mleft.PushBack({ 561, 374, 30, 37 }); //11
+	mleft.PushBack({ 601, 374, 30, 37 }); //12
+	mleft.PushBack({ 643, 374, 30, 37 }); //13
+	mleft.PushBack({ 682, 374, 30, 37 }); //14
+	mleft.PushBack({ 724, 374, 30, 37 }); //15
+	mleft.PushBack({ 561, 421, 30, 37 }); //16
+	mleft.PushBack({ 601, 421, 30, 37 }); //17
+	mleft.PushBack({ 643, 421, 30, 37 }); //18
+	mleft.PushBack({ 682, 421, 30, 37 }); //19
+	mleft.PushBack({ 724, 421, 30, 37 }); //20
+	mleft.PushBack({ 561, 469, 30, 37 }); //21
+	mleft.PushBack({ 601, 469, 30, 37 }); //22
+	mleft.PushBack({ 643, 469, 30, 37 }); //23
+	mleft.PushBack({ 682, 469, 30, 37 }); //24
+	mleft.PushBack({ 724, 469, 30, 37 }); //25
+	mleft.PushBack({ 561, 515, 30, 37 }); //26
+	mleft.PushBack({ 601, 515, 30, 37 }); //27
+	mleft.PushBack({ 643, 515, 30, 37 }); //28
+	mleft.PushBack({ 682, 515, 30, 37 }); //29
+	mleft.PushBack({ 724, 515, 30, 37 }); //30
+	mleft.PushBack({ 561, 557, 30, 37 }); //31
+	mleft.PushBack({ 601, 557, 30, 37 }); //32
+	mleft.PushBack({ 643, 557, 30, 37 }); //33
+	mleft.PushBack({ 682, 557, 30, 37 }); //34
+	mleft.PushBack({ 724, 557, 30, 37 }); //35
+	mleft.PushBack({ 561, 608, 30, 37 }); //36
+	mleft.PushBack({ 601, 608, 30, 37 }); //37
+	mleft.PushBack({ 643, 608, 30, 37 }); //38
+	mleft.PushBack({ 682, 608, 30, 37 }); //39
+	mleft.PushBack({ 724, 608, 30, 37 }); //40
+	mleft.PushBack({ 561, 654, 30, 37 }); //41
+	mleft.PushBack({ 601, 654, 30, 37 }); //42
+	mleft.PushBack({ 643, 654, 30, 37 }); //43
+	mleft.PushBack({ 682, 654, 30, 37 }); //44
+	mleft.PushBack({ 724, 654, 30, 37 }); //45
+	mleft.PushBack({ 561, 702, 30, 37 }); //46
+	mleft.PushBack({ 601, 702, 30, 37 }); //47
+	mleft.PushBack({ 643, 702, 30, 37 }); //48
+	mleft.PushBack({ 682, 702, 30, 37 }); //49
+	mleft.PushBack({ 724, 702, 30, 37 }); //50
+	mleft.loop = true;
+	mleft.speed = 0.25f;*/
 
 	// right animation
 	right.PushBack({ 803, 284, 30, 37 }); //1
