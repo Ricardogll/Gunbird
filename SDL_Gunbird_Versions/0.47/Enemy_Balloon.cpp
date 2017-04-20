@@ -5,18 +5,18 @@
 
 Enemy_Balloon::Enemy_Balloon(int x, int y) : Enemy(x, y)
 {
-	fly.PushBack({ 212,6,43,53 });
-	fly.PushBack({ 265,6,42,53 });
-	fly.PushBack({ 317,6,42,53 });
-	fly.PushBack({ 369,6,43,53 });
-	fly.PushBack({ 420,6,42,53 });
-	fly.speed = 0.25f;
+	balloon.PushBack({ 212,6,43,53 });
+	balloon.PushBack({ 265,6,42,53 });
+	balloon.PushBack({ 317,6,42,53 });
+	balloon.PushBack({ 369,6,43,53 });
+	balloon.PushBack({ 420,6,42,53 });
+	balloon.speed = 0.25f;
 
 	lastTime = 0;
 
 	hitPoints = 25;
 
-	animation = &fly;
+	animation = &balloon;
 
 	collider = App->collision->AddCollider({ 0, 0, 43, 53 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
 
@@ -31,7 +31,7 @@ void Enemy_Balloon::Move()
 	currentTime = SDL_GetTicks();
 
 	if (currentTime > (lastTime + 70)) {
-		animation = &fly;
+		animation = &balloon;
 		lastTime = 0;
 	}
 

@@ -9,7 +9,6 @@
 #include "Enemy_Turret.h"
 #include "Enemy_building.h"
 #include "Enemy_building2.h"
-#include "Enemy_flag.h"
 #include "Enemy_vase.h"
 #include "Enemy_drone.h"
 #include "Enemy_Missile.h"
@@ -31,6 +30,18 @@ ModuleEnemies::ModuleEnemies()
 	balloonCastle.PushBack({ 0.0f, 1.5f }, 142);
 	balloonCastle.loop = false;
 
+	//FLAG
+	flag.PushBack({ 745,539,64,21 });
+	flag.PushBack({ 821,541,64,21 });
+	flag.PushBack({ 745,565,64,21 });
+	flag.PushBack({ 821,570,64,21 });
+	flag.PushBack({ 745,590,64,21 });
+	flag.PushBack({ 821,597,64,21 });
+	flag.PushBack({ 745,615,64,21 });
+	flag.speed = 0.08f;
+
+	
+
 }
 
 // Destructor
@@ -42,7 +53,7 @@ bool ModuleEnemies::Start()
 {
 	// Create a prototype for each enemy available so we can copy them around
 	sprites = App->textures->Load("assets/enemies/enemies.png");
-	
+	building_destroyed == false;
 
 	return true;
 }
@@ -74,6 +85,13 @@ update_status ModuleEnemies::Update()
 
 	for (uint i = 0; i < MAX_ENEMIES; ++i)
 		if (enemies[i] != nullptr) enemies[i]->Draw(sprites);
+
+	if (building_destroyed == false)
+		App->render->Blit(sprites, 177, 1049, &(flag.GetCurrentFrame()));
+
+	if (building2_destroyed == false)
+		App->render->Blit(sprites, 110, 785, &(flag.GetCurrentFrame()));
+
 
 	return UPDATE_CONTINUE;
 }
@@ -169,12 +187,6 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 		case ENEMY_TYPES::POWERUP:
 			enemies[i] = new PowerUp(info.x, info.y);
 			enemies[i]->type = ENEMY_TYPES::POWERUP;
-			/*switch (info.move)
-			{
-			case ENEMY_MOVE::POWERUP_MOV:
-				enemies[i]->path = powerUp_Path;
-				break;
-			}*/
 			break;
 		case ENEMY_TYPES::BUILDING:
 			enemies[i] = new Enemy_Building(info.x, info.y);
@@ -183,10 +195,6 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 			case ENEMY_TYPES::BUILDING2:
 				enemies[i] = new Enemy_Building2(info.x, info.y);
 				enemies[i]->type = ENEMY_TYPES::BUILDING2;
-				break;
-			case ENEMY_TYPES::FLAG:
-				enemies[i] = new Enemy_Flag(info.x, info.y);
-				enemies[i]->type = ENEMY_TYPES::FLAG;
 				break;
 			case ENEMY_TYPES::VASE:
 				enemies[i] = new Enemy_Vase(info.x, info.y);
@@ -210,7 +218,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 		if (enemies[i] != nullptr && enemies[i]->GetCollider() == c1)
 		{
 			enemies[i]->OnCollision(c2);
-			if (enemies[i]/*->type == ENEMY_TYPES::BALLOON*/ ) {
+			if (enemies[i]->type == ENEMY_TYPES::BALLOON ) {
 				if (enemies[i]->getHitPoints() == 0) {
 					App->particles->AddParticle(App->particles->explosion_balloon, (c1->rect.x - ((c1->rect.w)) / 2), (c1->rect.y - ((c1->rect.h)) / 2), NULL, NULL);
 					//Spawn Power Up when an enemy dies
@@ -219,6 +227,50 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 					enemies[i] = nullptr;
 					break;
 				}	
+			}
+			if (enemies[i]->type == ENEMY_TYPES::TURRET) {
+				if (enemies[i]->getHitPoints() == 0) {
+					App->particles->AddParticle(App->particles->explosion_balloon, (c1->rect.x - ((c1->rect.w)) / 2), (c1->rect.y - ((c1->rect.h)) / 2), NULL, NULL);
+					delete enemies[i];
+					enemies[i] = nullptr;
+					break;
+				}
+			}
+			if (enemies[i]->type == ENEMY_TYPES::MISSILE) {
+				if (enemies[i]->getHitPoints() == 0) {
+					App->particles->AddParticle(App->particles->explosion_balloon, (c1->rect.x - ((c1->rect.w)) / 2), (c1->rect.y - ((c1->rect.h)) / 2), NULL, NULL);
+					delete enemies[i];
+					enemies[i] = nullptr;
+					break;
+				}
+			}
+			if (enemies[i]->type == ENEMY_TYPES::BUILDING) {
+				if (enemies[i]->getHitPoints() == 0) {
+					building_destroyed = true;
+					App->particles->AddParticle(App->particles->explosion_balloon, (c1->rect.x - ((c1->rect.w)) / 2), (c1->rect.y - ((c1->rect.h)) / 2), NULL, NULL);
+					delete enemies[i];
+					enemies[i] = nullptr;
+					break;
+				}
+			}
+			if (enemies[i]->type == ENEMY_TYPES::BUILDING2) {
+				if (enemies[i]->getHitPoints() == 0) {
+					building2_destroyed = true;
+					App->particles->AddParticle(App->particles->explosion_balloon, (c1->rect.x - ((c1->rect.w)) / 2), (c1->rect.y - ((c1->rect.h)) / 2), NULL, NULL);
+					delete enemies[i];
+					enemies[i] = nullptr;
+					break;
+				}
+			}
+			if (enemies[i]->type == ENEMY_TYPES::VASE){
+				if (enemies[i]->getHitPoints() == 0) {
+					App->particles->AddParticle(App->particles->explosion_balloon, (c1->rect.x - ((c1->rect.w)) / 2), (c1->rect.y - ((c1->rect.h)) / 2), NULL, NULL);
+					//Spawn Power Up when an enemy dies
+					this->AddEnemy(ENEMY_TYPES::POWERUP, ENEMY_MOVE::NO_MOVE, c1->rect.x, c1->rect.y);
+					delete enemies[i];
+					enemies[i] = nullptr;
+					break;
+				}
 			}
 			//Erase Power Up when the player grabs it
 			else if (enemies[i]->type == ENEMY_TYPES::POWERUP && c2->type == COLLIDER_TYPE::COLLIDER_PLAYER) {

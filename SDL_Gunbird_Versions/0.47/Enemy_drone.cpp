@@ -5,20 +5,20 @@
 
 Enemy_Drone::Enemy_Drone(int x, int y) : Enemy(x, y)
 {
-	fly.PushBack({ 224,148,28,29 });
-	fly.PushBack({ 272,144,26,35 });
-	fly.PushBack({ 320,147,26,33 });
-	fly.PushBack({ 375,151,30,28 });
-	fly.PushBack({ 266,204,32,26 });
-	fly.PushBack({ 321,197,26,34 });
-	fly.PushBack({ 377,197,26,35 });
-	fly.speed = 0.25f;
+	drone.PushBack({ 224,148,28,29 });
+	drone.PushBack({ 272,144,26,35 });
+	drone.PushBack({ 320,147,26,33 });
+	drone.PushBack({ 375,151,30,28 });
+	drone.PushBack({ 266,204,32,26 });
+	drone.PushBack({ 321,197,26,34 });
+	drone.PushBack({ 377,197,26,35 });
+	drone.speed = 0.25f;
 
 	lastTime = 0;
 
 	hitPoints = 25;
 
-	animation = &fly;
+	animation = &drone;
 
 	collider = App->collision->AddCollider({ 0, 0, 30, 35 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
 
@@ -33,7 +33,7 @@ void Enemy_Drone::Move()
 	currentTime = SDL_GetTicks();
 
 	if (currentTime > (lastTime + 70)) {
-		animation = &fly;
+		animation = &drone;
 		lastTime = 0;
 	}
 

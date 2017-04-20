@@ -5,12 +5,12 @@
 
 Enemy_Building2::Enemy_Building2(int x, int y) : Enemy(x, y)
 {
-	fly.PushBack({ 801,444,72,83 });
+	building.PushBack({ 801,444,72,83 });
 	lastTime = 0;
 
 	hitPoints = 25;
 
-	animation = &fly;
+	animation = &building;
 
 	collider = App->collision->AddCollider({ 0, 0, 72, 83 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
 

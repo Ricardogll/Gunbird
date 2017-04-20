@@ -7,7 +7,7 @@
 class Enemy_Vase : public Enemy
 {
 private:
-	Animation fly;
+	Animation vase;
 	iPoint original_pos;
 
 public:

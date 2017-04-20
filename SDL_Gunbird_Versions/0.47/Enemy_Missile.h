@@ -6,15 +6,15 @@
 class Enemy_Missile : public Enemy
 {
 private:
-	Animation fly;
+	Animation missile;
 	iPoint original_pos;
 
 public:
-
 	Enemy_Missile(int x, int y);
 	void Move();
 	void OnCollision(Collider* collider);
 	uint getHitPoints();
+	bool move_missile;
 };
 
 

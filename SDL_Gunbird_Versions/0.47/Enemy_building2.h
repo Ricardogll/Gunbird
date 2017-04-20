@@ -6,7 +6,7 @@
 class Enemy_Building2 : public Enemy
 {
 private:
-	Animation fly;
+	Animation building;
 	iPoint original_pos;
 
 public:

@@ -5,13 +5,13 @@
 
 Enemy_Vase::Enemy_Vase(int x, int y) : Enemy(x, y)
 {
-	fly.PushBack({ 23,163,32,49 });
+	vase.PushBack({ 23,163,32,49 });
 
 	lastTime = 0;
 
 	hitPoints = 10;
 
-	animation = &fly;
+	animation = &vase;
 
 	collider = App->collision->AddCollider({ 0, 0, 32, 49 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
 

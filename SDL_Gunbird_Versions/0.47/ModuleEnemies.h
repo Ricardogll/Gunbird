@@ -20,7 +20,6 @@ enum ENEMY_TYPES
 	MISSILE,
 	BUILDING,
 	BUILDING2,
-	FLAG,
 	VASE,
 	DRONE,
 
@@ -32,7 +31,6 @@ enum ENEMY_MOVE
 	NO_MOVE,
 	BALLOON_CASTLE,
 	BUILDING_CASTLE
-	//POWERUP_MOV
 };
 
 class Enemy;
@@ -60,6 +58,10 @@ public:
 
 	bool AddEnemy(ENEMY_TYPES type, ENEMY_MOVE move, int x, int y);
 
+public:
+	bool building_destroyed = false;
+	bool building2_destroyed = false;
+
 private:
 
 	void SpawnEnemy(const EnemyInfo& info);
@@ -68,7 +70,8 @@ private:
 
 	//Paths
 	Path balloonCastle;
-	//Path powerUp_Path;
+
+	Animation flag;
 
 	EnemyInfo queue[MAX_ENEMIES];
 	Enemy* enemies[MAX_ENEMIES];

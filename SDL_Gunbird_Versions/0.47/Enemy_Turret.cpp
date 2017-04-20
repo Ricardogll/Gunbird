@@ -5,15 +5,15 @@
 
 Enemy_Turret::Enemy_Turret(int x, int y) : Enemy(x, y)
 {
-	fly.PushBack({ 20,8,32,32 });
-	fly.PushBack({ 54,8,32,32 });
-	fly.PushBack({ 88,8,32,32 });
-	fly.PushBack({ 122,8,32,32 });
-	fly.speed = 0.25f;
+	turret.PushBack({ 20,8,32,32 });
+	turret.PushBack({ 54,8,32,32 });
+	turret.PushBack({ 88,8,32,32 });
+	turret.PushBack({ 122,8,32,32 });
+	turret.speed = 0.25f;
 
 	hitPoints = 25;
 
-	animation = &fly;
+	animation = &turret;
 
 	collider = App->collision->AddCollider({ 0, 0, 32, 32 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
 

@@ -25,7 +25,7 @@ public:
 	Animation idle;
 	Animation door;
 	Animation door2;
-	Animation floor;;
+	Animation floor;
 	SDL_Rect background;
 	bool gate;
 	float scroll;

@@ -6,7 +6,7 @@
 class Enemy_Turret	: public Enemy
 {
 private:
-	Animation fly;
+	Animation turret;
 	iPoint original_pos;
 
 public:

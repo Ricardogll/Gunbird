@@ -109,14 +109,13 @@ bool ModuleBackgroundCastle::Start()
 	//BUILDING
 	App->enemies->AddEnemy(ENEMY_TYPES::BUILDING, BUILDING_CASTLE, 147, 1059);
 	App->enemies->AddEnemy(ENEMY_TYPES::BUILDING2, BUILDING_CASTLE, 78, 799);
-	App->enemies->AddEnemy(ENEMY_TYPES::FLAG, BUILDING_CASTLE, 177, 1049);
-	App->enemies->AddEnemy(ENEMY_TYPES::FLAG, BUILDING_CASTLE, 110, 785);
+
 
 	//MISILE
-	App->enemies->AddEnemy(ENEMY_TYPES::MISSILE, BUILDING_CASTLE, -10, 1130);
-	App->enemies->AddEnemy(ENEMY_TYPES::MISSILE, BUILDING_CASTLE, -40, 1100);
-	App->enemies->AddEnemy(ENEMY_TYPES::MISSILE, BUILDING_CASTLE, -70, 1070);
-	App->enemies->AddEnemy(ENEMY_TYPES::MISSILE, BUILDING_CASTLE, -80, 1040);
+	App->enemies->AddEnemy(ENEMY_TYPES::MISSILE, BUILDING_CASTLE, 90, 1230);
+	App->enemies->AddEnemy(ENEMY_TYPES::MISSILE, BUILDING_CASTLE, 60, 1200);
+	App->enemies->AddEnemy(ENEMY_TYPES::MISSILE, BUILDING_CASTLE, 30, 1170);
+	App->enemies->AddEnemy(ENEMY_TYPES::MISSILE, BUILDING_CASTLE, 10, 1140);
 
 	//VASE
 	App->enemies->AddEnemy(ENEMY_TYPES::VASE, NO_MOVE, 10, 690);
@@ -193,6 +192,13 @@ update_status ModuleBackgroundCastle::Update()
 		}
 	}
 
+	/*for (uint i = 0; i < MAX_ENEMIES; ++i) {
+		if (App->enemies->enemies[i]->type == BUILDING) {
+			App->render->Blit(animation_flag, 177, 1049, &(flag.GetCurrentFrame()));
+		}
+
+	}*/
+
 	App->render->Blit(graphics, 0, 0, NULL);
 
 	if (App->render->camera.y >= -1000 * SCREEN_SIZE) {
@@ -208,6 +214,9 @@ update_status ModuleBackgroundCastle::Update()
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN && App->fade->IsFading() == false) {
 		App->fade->FadeToBlack(this, App->scorescreen, 1);
 	}
+
+	
+
 
 	return UPDATE_CONTINUE;
 }

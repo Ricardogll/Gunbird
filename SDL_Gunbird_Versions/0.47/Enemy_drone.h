@@ -7,7 +7,7 @@
 class Enemy_Drone : public Enemy
 {
 private:
-	Animation fly;
+	Animation drone;
 	iPoint original_pos;
 
 public:
