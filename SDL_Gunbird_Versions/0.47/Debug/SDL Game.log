@@ -1,32 +1,7 @@
-﻿  Character_YuanNang.cpp
-c:\users\adrià gironès\desktop\0.47\path.h(6): warning C4099: 'Animation': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
-  c:\users\adrià gironès\desktop\0.47\animation.h(47): note: vea la declaración de 'Animation'
-  Character_Valnus.cpp
-c:\users\adrià gironès\desktop\0.47\path.h(6): warning C4099: 'Animation': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
-  c:\users\adrià gironès\desktop\0.47\animation.h(47): note: vea la declaración de 'Animation'
-  Character_Tetsu.cpp
-c:\users\adrià gironès\desktop\0.47\path.h(6): warning C4099: 'Animation': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
-  c:\users\adrià gironès\desktop\0.47\animation.h(47): note: vea la declaración de 'Animation'
-  Character_Marion.cpp
-c:\users\adrià gironès\desktop\0.47\path.h(6): warning C4099: 'Animation': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
-  c:\users\adrià gironès\desktop\0.47\animation.h(47): note: vea la declaración de 'Animation'
-  Character_Ash.cpp
-c:\users\adrià gironès\desktop\0.47\path.h(6): warning C4099: 'Animation': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
-  c:\users\adrià gironès\desktop\0.47\animation.h(47): note: vea la declaración de 'Animation'
-  Generando código...
-  Compilando...
-  ModulePlayer.cpp
-c:\users\adrià gironès\desktop\0.47\path.h(6): warning C4099: 'Animation': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
-  c:\users\adrià gironès\desktop\0.47\animation.h(47): note: vea la declaración de 'Animation'
-  Generando código...
-  Omitiendo... (no se detectaron cambios relevantes)
-  ModuleUI.cpp
-  ModuleTitleScreen.cpp
-  ModuleCharacterSelection.cpp
-  ModuleBackgroundSea.cpp
-  ModuleBackgroundMine.cpp
-  ModuleBackgroundCastle.cpp
-  Character.cpp
-  Application.cpp
-  SDL Game.vcxproj -> C:\Users\Adrià Gironès\Desktop\0.47\Debug\Gunbird.exe
-  SDL Game.vcxproj -> C:\Users\Adrià Gironès\Desktop\0.47\Debug\Gunbird.pdb (Full PDB)
+﻿  ModuleBackgroundCastle.cpp
+c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.47\path.h(6): warning C4099: 'Animation': type name first seen using 'class' now seen using 'struct'
+  c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.47\animation.h(47): note: see declaration of 'Animation'
+c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.47\enemy.h(8): warning C4099: 'Path': type name first seen using 'class' now seen using 'struct'
+  c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.47\path.h(17): note: see declaration of 'Path'
+  SDL Game.vcxproj -> C:\Users\Usuario\Documents\GitHub\Gunbird\SDL_Gunbird_Versions\0.47\Debug\Gunbird.exe
+  SDL Game.vcxproj -> C:\Users\Usuario\Documents\GitHub\Gunbird\SDL_Gunbird_Versions\0.47\Debug\Gunbird.pdb (Full PDB)

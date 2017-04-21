@@ -5,13 +5,13 @@
 
 Enemy_Drone::Enemy_Drone(int x, int y) : Enemy(x, y)
 {
-	drone.PushBack({ 224,148,28,29 });
-	drone.PushBack({ 272,144,26,35 });
-	drone.PushBack({ 320,147,26,33 });
-	drone.PushBack({ 375,151,30,28 });
-	drone.PushBack({ 266,204,32,26 });
-	drone.PushBack({ 321,197,26,34 });
-	drone.PushBack({ 377,197,26,35 });
+	drone.PushBack({ 272,144,32,35 });
+	drone.PushBack({ 320,147,32,35 });
+	drone.PushBack({ 375,151,32,35 });
+	drone.PushBack({ 266,204,32,35 });
+	drone.PushBack({ 224,148,32,35 });
+	drone.PushBack({ 321,197,32,35 });
+	drone.PushBack({ 377,197,32,35 });
 	drone.speed = 0.25f;
 
 	lastTime = 0;
@@ -41,7 +41,7 @@ void Enemy_Drone::Move()
 
 void Enemy_Drone::OnCollision(Collider* collider) {
 	if (collider->type == COLLIDER_TYPE::COLLIDER_PLAYER_SHOT)
-	hitPoints -= 1;
+		hitPoints -= 1;
 }
 
 uint Enemy_Drone::getHitPoints() {

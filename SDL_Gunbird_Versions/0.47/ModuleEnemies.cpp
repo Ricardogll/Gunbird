@@ -40,6 +40,10 @@ ModuleEnemies::ModuleEnemies()
 	flag.PushBack({ 745,615,64,21 });
 	flag.speed = 0.08f;
 
+	drone.PushBack({ 0.0f, 1.5f }, 100);
+	drone.PushBack({ 0.0f, 0.0f }, 150);
+	drone.PushBack({ 1.5f, 1.5f }, 150);
+
 	
 
 }
@@ -169,6 +173,7 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 			enemies[i]->type = ENEMY_TYPES::BALLOON;
 			switch (info.move)
 			{
+				
 			case ENEMY_MOVE::BALLOON_CASTLE:
 				enemies[i]->path = balloonCastle;
 				break;
@@ -200,10 +205,23 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 				enemies[i] = new Enemy_Vase(info.x, info.y);
 				enemies[i]->type = ENEMY_TYPES::VASE;
 				break;
+			/*case ENEMY_TYPES::DRONE:
+				
+				enemies[i] = new Enemy_Drone(info.x, info.y);
+				enemies[i]->type = ENEMY_TYPES::DRONE;
+				break;*/
 			case ENEMY_TYPES::DRONE:
 				enemies[i] = new Enemy_Drone(info.x, info.y);
 				enemies[i]->type = ENEMY_TYPES::DRONE;
-				break;
+				switch (info.move)
+				{
+
+				case ENEMY_MOVE::DRONE_CASTLE:
+					enemies[i]->path = drone;
+					break;
+				default:
+					break;
+				}
 
 
 
