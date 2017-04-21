@@ -121,6 +121,10 @@ ModuleParticles::ModuleParticles()
 	laser_ash.anim.PushBack({ 646, 39, 3, 29 });
 	laser_ash.life = 1500;
 
+	//Laser tetsu
+	laser_tetsu.anim.PushBack({ 646, 73, 1, 33 });
+	laser_tetsu.life = 1500;
+
 	//Power Up SI NO VA PUES SE BORRA
 	power_up.anim.PushBack({ 685, 147, 22, 13 });
 	power_up.anim.PushBack({ 710, 147, 22, 13 });
@@ -186,7 +190,10 @@ bool ModuleParticles::Start()
 	laser_marion_right_2.fx = App->audio->LoadWAV("assets/audio/sound/gunbird-055_Shoot_Marion.wav");
 
 	//Laser Ash audio
-		laser_ash.fx = App->audio->LoadWAV("assets/audio/sound/gunbird-059_Shoot_Ash.wav");
+	laser_ash.fx = App->audio->LoadWAV("assets/audio/sound/gunbird-059_Shoot_Ash.wav");
+
+	//Laser Ash audio
+	laser_tetsu.fx = App->audio->LoadWAV("assets/audio/sound/gunbird-058_Shoot_Tetsu.wav");
 	
 	up = true;
 	left = true;
@@ -225,7 +232,7 @@ bool ModuleParticles::CleanUp()
 	App->audio->UnloadWAV(laser_marion_right_1.fx);
 	App->audio->UnloadWAV(laser_marion_right_2.fx);
 	App->audio->UnloadWAV(laser_ash.fx);
-
+	App->audio->UnloadWAV(laser_tetsu.fx);
 	for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
 	{
 		if (active[i] != nullptr)

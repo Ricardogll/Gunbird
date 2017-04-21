@@ -90,6 +90,8 @@ public:
 
 	Particle laser_ash;
 
+	Particle laser_tetsu;
+
 	Particle shot_enemy;
 
 	Particle explosion_balloon;

@@ -276,8 +276,8 @@ void Character_Tetsu::Move()
 		{
 			animation = &idle;
 			position.y += speed;
-			if (position.y > ((abs(App->render->camera.y) + (SCREEN_HEIGHT*SCREEN_SIZE))) / SCREEN_SIZE) {
-				position.y = (abs(App->render->camera.y) + (SCREEN_HEIGHT*SCREEN_SIZE)) / SCREEN_SIZE;
+			if (position.y > ((abs(App->render->camera.y) + (SCREEN_HEIGHT*SCREEN_SIZE))) / SCREEN_SIZE - 37) {
+				position.y = (abs(App->render->camera.y) + (SCREEN_HEIGHT*SCREEN_SIZE)) / SCREEN_SIZE - 37;
 			}
 		}
 
@@ -304,7 +304,188 @@ void Character_Tetsu::Move()
 }
 
 void Character_Tetsu::Laser() {
-
+	if (this->desactivateInput == false) {
+		if ((App->player->characters[0]->type == TETSU && App->input->keyboard[SDL_SCANCODE_X] == KEY_STATE::KEY_DOWN || (0 < time)) ||
+			(App->player->characters[1] != nullptr && App->player->characters[1]->type == TETSU && App->input->keyboard[SDL_SCANCODE_LCTRL] == KEY_STATE::KEY_DOWN || (0 < time))) {
+			//LEVEL 0
+			if (level == 0) {
+				if (time == 0)
+				{
+					App->particles->AddParticle(App->particles->laser_tetsu, position.x + 9, position.y - 17, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_tetsu, position.x + 19, position.y - 17, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					shot = false;
+				}
+				if (time == 5)
+				{
+					App->particles->AddParticle(App->particles->laser_tetsu, position.x + 8, position.y - 17, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_tetsu, position.x + 20, position.y - 17, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+				}
+				if (time == 10)
+				{
+					App->particles->AddParticle(App->particles->laser_tetsu, position.x + 7, position.y - 17, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_tetsu, position.x + 21, position.y - 17, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+				}
+				if (time == 15)
+				{
+					App->particles->AddParticle(App->particles->laser_tetsu, position.x + 9, position.y - 17, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_tetsu, position.x + 19, position.y - 17, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					time = 0;
+					shot = true;
+				}
+				if (shot == false)
+					time++;
+			}
+			//LEVEL 1
+			if (level == 1) {
+				if (time == 0)
+				{
+					App->particles->AddParticle(App->particles->laser_tetsu, position.x - 1, position.y - 13, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_tetsu, position.x + 6, position.y - 21, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_tetsu, position.x + 22, position.y - 21, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_tetsu, position.x + 29, position.y - 13, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					shot = false;
+				}
+				if (time == 5)
+				{
+					App->particles->AddParticle(App->particles->laser_tetsu, position.x + 1, position.y - 13, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_tetsu, position.x + 7, position.y - 21, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_tetsu, position.x + 21, position.y - 21, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_tetsu, position.x + 27, position.y - 13, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+				}
+				if (time == 10)
+				{
+					App->particles->AddParticle(App->particles->laser_tetsu, position.x , position.y - 13, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_tetsu, position.x + 6, position.y - 21, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_tetsu, position.x + 22, position.y - 21, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_tetsu, position.x + 28, position.y - 13, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+				}
+				if (time == 15)
+				{
+					App->particles->AddParticle(App->particles->laser_tetsu, position.x - 1, position.y - 13, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_tetsu, position.x + 6, position.y - 21, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_tetsu, position.x + 22, position.y - 21, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_tetsu, position.x + 29, position.y - 13, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					time = 0;
+					shot = true;
+				}
+				if (shot == false)
+					time++;
+			}
+			//LEVEL 2
+			if (level == 2) {
+				if (time == 0)
+				{
+					App->particles->AddParticle(App->particles->laser_tetsu, position.x - 7, position.y - 7, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_tetsu, position.x - 3, position.y - 11, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_tetsu, position.x + 2, position.y - 15, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_tetsu, position.x + 9, position.y - 19, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_tetsu, position.x + 19, position.y - 19, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_tetsu, position.x + 26, position.y - 15, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_tetsu, position.x + 31, position.y - 11, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_tetsu, position.x + 35, position.y - 7, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					shot = false;
+				}
+				if (time == 5)
+				{
+					App->particles->AddParticle(App->particles->laser_tetsu, position.x - 8, position.y - 7, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_tetsu, position.x - 4, position.y - 11, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_tetsu, position.x + 1, position.y - 15, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_tetsu, position.x + 8, position.y - 19, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_tetsu, position.x + 20, position.y - 19, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_tetsu, position.x + 27, position.y - 15, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_tetsu, position.x + 32, position.y - 11, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_tetsu, position.x + 36, position.y - 7, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+				}
+				if (time == 10)
+				{
+					App->particles->AddParticle(App->particles->laser_tetsu, position.x - 9, position.y - 7, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_tetsu, position.x - 5, position.y - 11, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_tetsu, position.x, position.y - 15, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_tetsu, position.x + 7, position.y - 19, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_tetsu, position.x + 21, position.y - 19, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_tetsu, position.x + 28, position.y - 15, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_tetsu, position.x + 33, position.y - 11, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_tetsu, position.x + 37, position.y - 7, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+				
+				}
+				if (time == 15)
+				{
+					App->particles->AddParticle(App->particles->laser_tetsu, position.x - 7, position.y - 7, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_tetsu, position.x - 3, position.y - 11, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_tetsu, position.x + 2, position.y - 15, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_tetsu, position.x + 9, position.y - 19, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_tetsu, position.x + 19, position.y - 19, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_tetsu, position.x + 26, position.y - 15, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_tetsu, position.x + 31, position.y - 11, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_tetsu, position.x + 35, position.y - 7, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					time = 0;
+					shot = true;
+				}
+				if (shot == false)
+					time++;
+			}
+			//LEVEL 3
+			if (level == 3) {
+				if (time == 0)
+				{
+					App->particles->AddParticle(App->particles->laser_tetsu, position.x - 17, position.y - 9, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_tetsu, position.x - 13, position.y - 13, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_tetsu, position.x - 8, position.y - 17, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_tetsu, position.x - 1, position.y - 13, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_tetsu, position.x + 6, position.y - 21, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_tetsu, position.x + 22, position.y - 21, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_tetsu, position.x + 29, position.y - 13, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_tetsu, position.x + 36, position.y - 17, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_tetsu, position.x + 41, position.y - 13, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_tetsu, position.x + 45, position.y - 9, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					shot = false;
+				}
+				if (time == 5)
+				{
+					App->particles->AddParticle(App->particles->laser_tetsu, position.x - 15, position.y - 9, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_tetsu, position.x - 11, position.y - 13, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_tetsu, position.x - 6, position.y - 17, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_tetsu, position.x + 1, position.y - 13, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_tetsu, position.x + 7, position.y - 21, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_tetsu, position.x + 21, position.y - 21, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_tetsu, position.x + 27, position.y - 13, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_tetsu, position.x + 34, position.y - 17, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_tetsu, position.x + 39, position.y - 13, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_tetsu, position.x + 43, position.y - 9, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+				}
+				if (time == 10)
+				{
+					App->particles->AddParticle(App->particles->laser_tetsu, position.x - 15, position.y - 9, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_tetsu, position.x - 12, position.y - 13, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_tetsu, position.x - 7, position.y - 17, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_tetsu, position.x, position.y - 13, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_tetsu, position.x + 6, position.y - 21, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_tetsu, position.x + 22, position.y - 21, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_tetsu, position.x + 28, position.y - 13, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_tetsu, position.x + 35, position.y - 17, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_tetsu, position.x + 40, position.y - 13, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_tetsu, position.x + 44, position.y - 9, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+				}
+				if (time == 15)
+				{
+					App->particles->AddParticle(App->particles->laser_tetsu, position.x - 17, position.y - 9, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_tetsu, position.x - 13, position.y - 13, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_tetsu, position.x - 8, position.y - 17, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_tetsu, position.x - 1, position.y - 13, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_tetsu, position.x + 6, position.y - 21, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_tetsu, position.x + 22, position.y - 21, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_tetsu, position.x + 29, position.y - 13, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_tetsu, position.x + 36, position.y - 17, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_tetsu, position.x + 41, position.y - 13, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_tetsu, position.x + 45, position.y - 9, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					time = 0;
+					shot = true;
+				}
+				if (shot == false)
+					time++;
+			}
+		}
+	}
 }
 
 void Character_Tetsu::Dead() {
