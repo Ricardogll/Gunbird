@@ -11,6 +11,7 @@
 #include "Enemy_building2.h"
 #include "Enemy_vase.h"
 #include "Enemy_drone.h"
+#include "Enemy_turret2.h"
 #include "Enemy_Missile.h"
 
 #include "PowerUp.h"
@@ -204,6 +205,11 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 				enemies[i] = new Enemy_Drone(info.x, info.y);
 				enemies[i]->type = ENEMY_TYPES::DRONE;
 				break;
+			case ENEMY_TYPES::TURRET2:
+				enemies[i] = new Enemy_Turret2(info.x, info.y);
+				enemies[i]->type = ENEMY_TYPES::TURRET2;
+				break;
+
 
 
 

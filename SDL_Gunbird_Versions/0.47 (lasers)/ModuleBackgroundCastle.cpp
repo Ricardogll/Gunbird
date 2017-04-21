@@ -140,6 +140,18 @@ bool ModuleBackgroundCastle::Start()
 	App->enemies->AddEnemy(ENEMY_TYPES::VASE, NO_MOVE, 10, 475);
 	App->enemies->AddEnemy(ENEMY_TYPES::VASE, NO_MOVE, 185, 475);
 
+	//TURRET2
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET2, NO_MOVE, 7, 1185);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET2, NO_MOVE, 4, 1145);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET2, NO_MOVE, 7, 1105);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET2, NO_MOVE, 11, 740);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET2, NO_MOVE, 17, 770);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET2, NO_MOVE, 195, 734);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET2, NO_MOVE, 190, 770);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET2, NO_MOVE, 26, 430);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET2, NO_MOVE, 170, 430);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET2, NO_MOVE, 178, 340);
+
 	//DRONE
 	/*if (App->render->camera.y == (-1355 * SCREEN_SIZE)) {
 	App->enemies->AddEnemy(ENEMY_TYPES::DRONE, BUILDING_CASTLE, 42, 1042);
