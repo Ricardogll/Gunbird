@@ -79,6 +79,9 @@ update_status ModulePlayer::Update()
 		if (characters[i] != nullptr) characters[i]->Laser();
 
 	for (uint i = 0; i < MAX_CHARACTERS; ++i)
+		if (characters[i] != nullptr) characters[i]->Dead();
+
+	for (uint i = 0; i < MAX_CHARACTERS; ++i)
 		if (characters[i] != nullptr) characters[i]->Draw(graphics);
 
 	//Activate Player 2
@@ -239,6 +242,8 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 					App->audio->PlayWAV(ash_dead);
 				if (characters[i]->type == CHARACTER_TYPES::VALNUS)
 					App->audio->PlayWAV(valnus_dead);
+
+				characters[i]->playerDead = true;
 			}
 		}
 	}

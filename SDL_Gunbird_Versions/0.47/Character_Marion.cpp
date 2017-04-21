@@ -75,194 +75,237 @@ void Character_Marion::Move()
 		}
 	}
 
-	if ((App->player->characters[0]->type == MARION && App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT) ||
-		(App->player->characters[1] != nullptr && App->player->characters[1]->type == MARION && App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT))
-	{
-		animation = &right;
-		position.x += speed;
-		if (position.x > (SCREEN_WIDTH - 20)) {
-			position.x = (SCREEN_WIDTH - 20);
+	if (this->desactivateInput == false) {
+
+		if ((App->player->characters[0]->type == MARION && App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT) ||
+			(App->player->characters[1] != nullptr && App->player->characters[1]->type == MARION && App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT))
+		{
+			animation = &right;
+			position.x += speed;
+			if (position.x > (SCREEN_WIDTH - 20)) {
+				position.x = (SCREEN_WIDTH - 20);
+			}
 		}
-	}
-	if ((App->player->characters[0]->type == MARION && App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_REPEAT) ||
-		(App->player->characters[1] != nullptr && App->player->characters[1]->type == MARION && App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT))
-	{
-		animation = &left;
-		position.x -= speed;
-		if (position.x < 0) {
-			position.x = 0;
+		if ((App->player->characters[0]->type == MARION && App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_REPEAT) ||
+			(App->player->characters[1] != nullptr && App->player->characters[1]->type == MARION && App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT))
+		{
+			animation = &left;
+			position.x -= speed;
+			if (position.x < 0) {
+				position.x = 0;
+			}
 		}
-	}
-	if ((App->player->characters[0]->type == MARION && App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_REPEAT) ||
-		(App->player->characters[1] != nullptr && App->player->characters[1]->type == MARION && App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT))
-	{
-		animation = &idle;
-		position.y -= speed;
-		if (position.y < (abs(App->render->camera.y) / SCREEN_SIZE)) {
-			position.y = (abs(App->render->camera.y) / SCREEN_SIZE);
+		if ((App->player->characters[0]->type == MARION && App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_REPEAT) ||
+			(App->player->characters[1] != nullptr && App->player->characters[1]->type == MARION && App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT))
+		{
+			animation = &idle;
+			position.y -= speed;
+			if (position.y < (abs(App->render->camera.y) / SCREEN_SIZE)) {
+				position.y = (abs(App->render->camera.y) / SCREEN_SIZE);
+			}
 		}
-	}
-	if ((App->player->characters[0]->type == MARION && App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_STATE::KEY_REPEAT) ||
-		(App->player->characters[1] != nullptr && App->player->characters[1]->type == MARION && App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT))
-	{
-		animation = &idle;
-		position.y += speed;
-		if (position.y >((abs(App->render->camera.y) + (SCREEN_HEIGHT*SCREEN_SIZE))) / SCREEN_SIZE - 32) {
-			position.y = (abs(App->render->camera.y) + (SCREEN_HEIGHT*SCREEN_SIZE)) / SCREEN_SIZE - 32;
+		if ((App->player->characters[0]->type == MARION && App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_STATE::KEY_REPEAT) ||
+			(App->player->characters[1] != nullptr && App->player->characters[1]->type == MARION && App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT))
+		{
+			animation = &idle;
+			position.y += speed;
+			if (position.y > ((abs(App->render->camera.y) + (SCREEN_HEIGHT*SCREEN_SIZE))) / SCREEN_SIZE - 32) {
+				position.y = (abs(App->render->camera.y) + (SCREEN_HEIGHT*SCREEN_SIZE)) / SCREEN_SIZE - 32;
+			}
 		}
+
+		if ((App->player->characters[0]->type == MARION && App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT) ||
+			(App->player->characters[1] != nullptr && App->player->characters[1]->type == MARION && App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT))
+			animation = &right;
+
+		if ((App->player->characters[0]->type == MARION && App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_REPEAT) ||
+			(App->player->characters[1] != nullptr && App->player->characters[1]->type == MARION && App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT))
+			animation = &left;
+
+		if ((App->player->characters[0]->type == MARION && App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT) ||
+			(App->player->characters[1] != nullptr && App->player->characters[1]->type == MARION && App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT))
+			animation = &right;
+
+		if ((App->player->characters[0]->type == MARION && App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_REPEAT) ||
+			(App->player->characters[1] != nullptr && App->player->characters[1]->type == MARION && App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT))
+			animation = &left;
+
+		if ((App->player->characters[0]->type == MARION && App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT) ||
+			(App->player->characters[1] != nullptr && App->player->characters[1]->type == MARION && App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT))
+			animation = &idle;
 	}
-
-	if ((App->player->characters[0]->type == MARION && App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT) || 
-		(App->player->characters[1] != nullptr && App->player->characters[1]->type == MARION && App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT))
-		animation = &right;
-
-	if ((App->player->characters[0]->type == MARION && App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_REPEAT) ||
-		(App->player->characters[1] != nullptr && App->player->characters[1]->type == MARION && App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT))
-		animation = &left;
-
-	if ((App->player->characters[0]->type == MARION && App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT) ||
-		(App->player->characters[1] != nullptr && App->player->characters[1]->type == MARION && App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT))
-		animation = &right;
-
-	if ((App->player->characters[0]->type == MARION && App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_REPEAT) ||
-		(App->player->characters[1] != nullptr && App->player->characters[1]->type == MARION && App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT))
-		animation = &left;
-
-	if ((App->player->characters[0]->type == MARION && App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT) ||
-		(App->player->characters[1] != nullptr && App->player->characters[1]->type == MARION && App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT))
-		animation = &idle;
 }
 
 void Character_Marion::Laser() {
-	if ((App->player->characters[0]->type == MARION && App->input->keyboard[SDL_SCANCODE_X] == KEY_STATE::KEY_DOWN || (0 < time)) || 
-		(App->player->characters[1] != nullptr && App->player->characters[1]->type == MARION && App->input->keyboard[SDL_SCANCODE_LCTRL] == KEY_STATE::KEY_DOWN || (0 < time))) {
+	if (this->desactivateInput == false) {
+		if ((App->player->characters[0]->type == MARION && App->input->keyboard[SDL_SCANCODE_X] == KEY_STATE::KEY_DOWN || (0 < time)) ||
+			(App->player->characters[1] != nullptr && App->player->characters[1]->type == MARION && App->input->keyboard[SDL_SCANCODE_LCTRL] == KEY_STATE::KEY_DOWN || (0 < time))) {
 
-		if (level == 0) {
-			if (time == 0)
-			{
-				App->particles->AddParticle(App->particles->laser_marion_0, position.x + 7, position.y, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
-				shot = false;
+			if (level == 0) {
+				if (time == 0)
+				{
+					App->particles->AddParticle(App->particles->laser_marion_0, position.x + 7, position.y, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					shot = false;
+				}
+				if (time == 5)
+				{
+					App->particles->AddParticle(App->particles->laser_marion_1, position.x + 7, position.y, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+				}
+				if (time == 10)
+				{
+					App->particles->AddParticle(App->particles->laser_marion_2, position.x + 7, position.y, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+				}
+				if (time == 15)
+				{
+					App->particles->AddParticle(App->particles->laser_marion_0, position.x + 7, position.y, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					time = 0;
+					shot = true;
+				}
+				if (shot == false)
+					time++;
 			}
-			if (time == 5)
-			{
-				App->particles->AddParticle(App->particles->laser_marion_1, position.x + 7, position.y, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
-			}
-			if (time == 10)
-			{
-				App->particles->AddParticle(App->particles->laser_marion_2, position.x + 7, position.y, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
-			}
-			if (time == 15)
-			{
-				App->particles->AddParticle(App->particles->laser_marion_0, position.x + 7, position.y, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
-				time = 0;
-				shot = true;
-			}
-			if (shot == false)
-				time++;
-		}
 
-		if (level == 1) {
-			if (time == 0)
-			{
-				App->particles->AddParticle(App->particles->laser_marion_2, position.x, position.y, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
-				App->particles->AddParticle(App->particles->laser_marion_2, position.x + 10, position.y, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
-				shot = false;
+			if (level == 1) {
+				if (time == 0)
+				{
+					App->particles->AddParticle(App->particles->laser_marion_2, position.x, position.y, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_marion_2, position.x + 10, position.y, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					shot = false;
+				}
+				if (time == 5)
+				{
+					App->particles->AddParticle(App->particles->laser_marion_0, position.x, position.y, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_marion_0, position.x + 7, position.y, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+				}
+				if (time == 10)
+				{
+					App->particles->AddParticle(App->particles->laser_marion_1, position.x, position.y, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_marion_1, position.x + 9, position.y, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+				}
+				if (time == 15)
+				{
+					App->particles->AddParticle(App->particles->laser_marion_2, position.x, position.y, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_marion_2, position.x + 10, position.y, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					time = 0;
+					shot = true;
+				}
+				if (shot == false)
+					time++;
 			}
-			if (time == 5)
-			{
-				App->particles->AddParticle(App->particles->laser_marion_0, position.x, position.y, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
-				App->particles->AddParticle(App->particles->laser_marion_0, position.x + 7, position.y, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
-			}
-			if (time == 10)
-			{
-				App->particles->AddParticle(App->particles->laser_marion_1, position.x, position.y, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
-				App->particles->AddParticle(App->particles->laser_marion_1, position.x + 9, position.y, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
-			}
-			if (time == 15)
-			{
-				App->particles->AddParticle(App->particles->laser_marion_2, position.x, position.y, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
-				App->particles->AddParticle(App->particles->laser_marion_2, position.x + 10, position.y, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
-				time = 0;
-				shot = true;
-			}
-			if (shot == false)
-				time++;
-		}
 
-		if (level == 2) {
-			if (time == 0)
-			{
-				App->particles->AddParticle(App->particles->laser_marion_left_0, position.x + 3, position.y, -2, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
-				App->particles->AddParticle(App->particles->laser_marion_0, position.x + 7, position.y, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
-				App->particles->AddParticle(App->particles->laser_marion_right_0, position.x + 11, position.y, 2, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
-				shot = false;
+			if (level == 2) {
+				if (time == 0)
+				{
+					App->particles->AddParticle(App->particles->laser_marion_left_0, position.x + 3, position.y, -2, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_marion_0, position.x + 7, position.y, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_marion_right_0, position.x + 11, position.y, 2, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					shot = false;
+				}
+				if (time == 5)
+				{
+					App->particles->AddParticle(App->particles->laser_marion_left_1, position.x + 3, position.y, -2, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_marion_1, position.x + 7, position.y, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_marion_right_1, position.x + 11, position.y, 2, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+				}
+				if (time == 10)
+				{
+					App->particles->AddParticle(App->particles->laser_marion_left_2, position.x + 3, position.y, -2, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_marion_2, position.x + 7, position.y, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_marion_right_2, position.x + 11, position.y, 2, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+				}
+				if (time == 15)
+				{
+					App->particles->AddParticle(App->particles->laser_marion_left_0, position.x + 3, position.y, -2, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_marion_0, position.x + 7, position.y, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_marion_right_0, position.x + 11, position.y, 2, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					time = 0;
+					shot = true;
+				}
+				if (shot == false)
+					time++;
 			}
-			if (time == 5)
-			{
-				App->particles->AddParticle(App->particles->laser_marion_left_1, position.x + 3, position.y, -2, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
-				App->particles->AddParticle(App->particles->laser_marion_1, position.x + 7, position.y, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
-				App->particles->AddParticle(App->particles->laser_marion_right_1, position.x + 11, position.y, 2, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+			//NEXT TO DO
+			if (level == 3) {
+				if (time == 0)
+				{
+					App->particles->AddParticle(App->particles->laser_marion_left_0, position.x - 7, position.y, -2, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_marion_left_0, position.x - 1, position.y, -2, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_marion_0, position.x, position.y, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_marion_0, position.x + 7, position.y, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_marion_right_0, position.x + 8, position.y, 2, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_marion_right_0, position.x + 14, position.y, 2, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					shot = false;
+				}
+				if (time == 5)
+				{
+					App->particles->AddParticle(App->particles->laser_marion_left_1, position.x - 10, position.y, -2, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_marion_left_1, position.x - 1, position.y, -2, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_marion_1, position.x, position.y, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_marion_1, position.x + 9, position.y, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_marion_right_1, position.x + 10, position.y, 2, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_marion_right_1, position.x + 18, position.y, 2, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+				}
+				if (time == 10)
+				{
+					App->particles->AddParticle(App->particles->laser_marion_left_2, position.x - 10, position.y, -2, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_marion_left_2, position.x - 1, position.y, -2, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_marion_2, position.x, position.y, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_marion_2, position.x + 10, position.y, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_marion_right_1, position.x + 11, position.y, 2, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_marion_right_1, position.x + 19, position.y, 2, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+				}
+				if (time == 15)
+				{
+					App->particles->AddParticle(App->particles->laser_marion_left_0, position.x - 7, position.y, -2, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_marion_left_0, position.x - 1, position.y, -2, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_marion_0, position.x, position.y, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_marion_0, position.x + 7, position.y, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_marion_right_0, position.x + 8, position.y, 2, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_marion_right_0, position.x + 14, position.y, 2, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+					time = 0;
+					shot = true;
+				}
+				if (shot == false)
+					time++;
 			}
-			if (time == 10)
-			{
-				App->particles->AddParticle(App->particles->laser_marion_left_2, position.x + 3, position.y, -2, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
-				App->particles->AddParticle(App->particles->laser_marion_2, position.x + 7, position.y, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
-				App->particles->AddParticle(App->particles->laser_marion_right_2, position.x + 11, position.y, 2, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
-			}
-			if (time == 15)
-			{
-				App->particles->AddParticle(App->particles->laser_marion_left_0, position.x + 3, position.y, -2, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
-				App->particles->AddParticle(App->particles->laser_marion_0, position.x + 7, position.y, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
-				App->particles->AddParticle(App->particles->laser_marion_right_0, position.x + 11, position.y, 2, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
-				time = 0;
-				shot = true;
-			}
-			if (shot == false)
-				time++;
 		}
-		//NEXT TO DO
-		if (level == 3) {
-			if (time == 0)
-			{
-				App->particles->AddParticle(App->particles->laser_marion_left_0, position.x - 7, position.y, -2, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
-				App->particles->AddParticle(App->particles->laser_marion_left_0, position.x - 1, position.y, -2, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
-				App->particles->AddParticle(App->particles->laser_marion_0, position.x, position.y, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
-				App->particles->AddParticle(App->particles->laser_marion_0, position.x + 7, position.y, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
-				App->particles->AddParticle(App->particles->laser_marion_right_0, position.x + 8, position.y, 2, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
-				App->particles->AddParticle(App->particles->laser_marion_right_0, position.x + 14, position.y, 2, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
-				shot = false;
+	}
+}
+
+void Character_Marion::Dead() {
+	if (this->playerDead == true) {
+		animation = &death;
+		this->desactivateInput = true;
+
+		if (this->spawnPlayer == false && position.y <= 50 + ((abs(App->render->camera.y) + (SCREEN_HEIGHT*SCREEN_SIZE))) / SCREEN_SIZE)
+			position.y += 4;
+
+		else {
+			this->spawnPlayer = true;
+			if (position.y >= ((abs(App->render->camera.y) + (SCREEN_HEIGHT*SCREEN_SIZE))) / SCREEN_SIZE) {
+				if (App->player->characters[0])
+					position.x = App->render->camera.x + 50;
+				if (App->player->characters[1])
+					position.x = App->render->camera.x + 150;
 			}
-			if (time == 5)
-			{
-				App->particles->AddParticle(App->particles->laser_marion_left_1, position.x - 10, position.y, -2, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
-				App->particles->AddParticle(App->particles->laser_marion_left_1, position.x - 1, position.y, -2, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
-				App->particles->AddParticle(App->particles->laser_marion_1, position.x, position.y, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
-				App->particles->AddParticle(App->particles->laser_marion_1, position.x + 9, position.y, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
-				App->particles->AddParticle(App->particles->laser_marion_right_1, position.x + 10, position.y, 2, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
-				App->particles->AddParticle(App->particles->laser_marion_right_1, position.x + 18, position.y, 2, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
+
+			animation = &idle;
+
+			if (position.y >= ((abs(App->render->camera.y) + (SCREEN_HEIGHT*SCREEN_SIZE))) / SCREEN_SIZE - 80)
+				position.y -= 1;
+
+			else {
+				if (this->scroll == 0) {
+					if (App->player->characters[0])
+						position.y = abs(App->render->camera.y / SCREEN_SIZE) + 240;
+					if (App->player->characters[1])
+						position.y = abs(App->render->camera.y / SCREEN_SIZE) + 240;
+
+					this->spawnPlayer = false;
+					this->playerDead = false;
+					this->desactivateInput = false;
+				}
 			}
-			if (time == 10)
-			{
-				App->particles->AddParticle(App->particles->laser_marion_left_2, position.x - 10, position.y, -2, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
-				App->particles->AddParticle(App->particles->laser_marion_left_2, position.x - 1, position.y, -2, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
-				App->particles->AddParticle(App->particles->laser_marion_2, position.x, position.y, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
-				App->particles->AddParticle(App->particles->laser_marion_2, position.x + 10, position.y, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
-				App->particles->AddParticle(App->particles->laser_marion_right_1, position.x + 11, position.y, 2, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
-				App->particles->AddParticle(App->particles->laser_marion_right_1, position.x + 19, position.y, 2, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
-			}
-			if (time == 15)
-			{
-				App->particles->AddParticle(App->particles->laser_marion_left_0, position.x - 7, position.y, -2, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
-				App->particles->AddParticle(App->particles->laser_marion_left_0, position.x - 1, position.y, -2, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
-				App->particles->AddParticle(App->particles->laser_marion_0, position.x, position.y, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
-				App->particles->AddParticle(App->particles->laser_marion_0, position.x + 7, position.y, 0, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
-				App->particles->AddParticle(App->particles->laser_marion_right_0, position.x + 8, position.y, 2, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
-				App->particles->AddParticle(App->particles->laser_marion_right_0, position.x + 14, position.y, 2, SPEED_LASER_PLAYER, COLLIDER_PLAYER_SHOT);
-				time = 0;
-				shot = true;
-			}
-			if (shot == false)
-				time++;
 		}
 	}
 }

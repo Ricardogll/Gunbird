@@ -1,22 +1,32 @@
-﻿  ModuleEnemies.cpp
-c:\users\david\desktop\gunbird\sdl_gunbird_versions\0.47\path.h(6): warning C4099: 'Animation': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
-  c:\users\david\desktop\gunbird\sdl_gunbird_versions\0.47\animation.h(47): note: vea la declaración de 'Animation'
-c:\users\david\desktop\gunbird\sdl_gunbird_versions\0.47\enemy.h(8): warning C4099: 'Path': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
-  c:\users\david\desktop\gunbird\sdl_gunbird_versions\0.47\path.h(17): note: vea la declaración de 'Path'
-c:\users\david\desktop\gunbird\sdl_gunbird_versions\0.47\moduleenemies.cpp(56): warning C4553: '==': el operador no tiene efecto; ¿ha pensado en '='?
-  ModuleBackgroundCastle.cpp
-c:\users\david\desktop\gunbird\sdl_gunbird_versions\0.47\path.h(6): warning C4099: 'Animation': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
-  c:\users\david\desktop\gunbird\sdl_gunbird_versions\0.47\animation.h(47): note: vea la declaración de 'Animation'
-c:\users\david\desktop\gunbird\sdl_gunbird_versions\0.47\enemy.h(8): warning C4099: 'Path': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
-  c:\users\david\desktop\gunbird\sdl_gunbird_versions\0.47\path.h(17): note: vea la declaración de 'Path'
-  Enemy_Turret.cpp
-c:\users\david\desktop\gunbird\sdl_gunbird_versions\0.47\path.h(6): warning C4099: 'Animation': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
-  c:\users\david\desktop\gunbird\sdl_gunbird_versions\0.47\animation.h(47): note: vea la declaración de 'Animation'
-c:\users\david\desktop\gunbird\sdl_gunbird_versions\0.47\enemy.h(8): warning C4099: 'Path': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
-  c:\users\david\desktop\gunbird\sdl_gunbird_versions\0.47\path.h(17): note: vea la declaración de 'Path'
+﻿  Character_YuanNang.cpp
+c:\users\adrià gironès\desktop\0.47\path.h(6): warning C4099: 'Animation': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+  c:\users\adrià gironès\desktop\0.47\animation.h(47): note: vea la declaración de 'Animation'
+  Character_Valnus.cpp
+c:\users\adrià gironès\desktop\0.47\path.h(6): warning C4099: 'Animation': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+  c:\users\adrià gironès\desktop\0.47\animation.h(47): note: vea la declaración de 'Animation'
+  Character_Tetsu.cpp
+c:\users\adrià gironès\desktop\0.47\path.h(6): warning C4099: 'Animation': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+  c:\users\adrià gironès\desktop\0.47\animation.h(47): note: vea la declaración de 'Animation'
   Character_Marion.cpp
-c:\users\david\desktop\gunbird\sdl_gunbird_versions\0.47\path.h(6): warning C4099: 'Animation': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
-  c:\users\david\desktop\gunbird\sdl_gunbird_versions\0.47\animation.h(47): note: vea la declaración de 'Animation'
+c:\users\adrià gironès\desktop\0.47\path.h(6): warning C4099: 'Animation': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+  c:\users\adrià gironès\desktop\0.47\animation.h(47): note: vea la declaración de 'Animation'
+  Character_Ash.cpp
+c:\users\adrià gironès\desktop\0.47\path.h(6): warning C4099: 'Animation': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+  c:\users\adrià gironès\desktop\0.47\animation.h(47): note: vea la declaración de 'Animation'
   Generando código...
-  SDL Game.vcxproj -> C:\Users\David\Desktop\Gunbird\SDL_Gunbird_Versions\0.47\Debug\Gunbird.exe
-  SDL Game.vcxproj -> C:\Users\David\Desktop\Gunbird\SDL_Gunbird_Versions\0.47\Debug\Gunbird.pdb (Full PDB)
+  Compilando...
+  ModulePlayer.cpp
+c:\users\adrià gironès\desktop\0.47\path.h(6): warning C4099: 'Animation': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+  c:\users\adrià gironès\desktop\0.47\animation.h(47): note: vea la declaración de 'Animation'
+  Generando código...
+  Omitiendo... (no se detectaron cambios relevantes)
+  ModuleUI.cpp
+  ModuleTitleScreen.cpp
+  ModuleCharacterSelection.cpp
+  ModuleBackgroundSea.cpp
+  ModuleBackgroundMine.cpp
+  ModuleBackgroundCastle.cpp
+  Character.cpp
+  Application.cpp
+  SDL Game.vcxproj -> C:\Users\Adrià Gironès\Desktop\0.47\Debug\Gunbird.exe
+  SDL Game.vcxproj -> C:\Users\Adrià Gironès\Desktop\0.47\Debug\Gunbird.pdb (Full PDB)

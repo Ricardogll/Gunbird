@@ -18,9 +18,8 @@ private:
 public:
 	Character_Marion(int x, int y);
 	void Move();
-	void Move2();
 	void Laser();
-	void Laser2();
+	void Dead();
 	void OnCollision(Collider* collider);
 
 };

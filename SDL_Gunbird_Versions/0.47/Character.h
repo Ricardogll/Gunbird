@@ -18,6 +18,7 @@ protected:
 	bool shot;
 	int time = 0;
 	float scroll = 0;
+	bool spawnPlayer = false;
 
 public:
 	iPoint position;
@@ -26,6 +27,8 @@ public:
 	int live = 2;
 	int bombs = 2;
 	bool movement = false;
+	bool playerDead = false;
+	bool desactivateInput = false;
 
 public:
 	Character(int x, int y);
@@ -35,6 +38,7 @@ public:
 
 	virtual void Move() {};
 	virtual void Laser() {};
+	virtual void Dead() {};
 	virtual void Draw(SDL_Texture* sprites);
 	virtual void OnCollision(Collider* collider);
 	virtual uint getHitPoints() { return 0; }

@@ -68,71 +68,111 @@ void Character_Valnus::Move()
 		}
 	}
 
-	if ((App->player->characters[0]->type == VALNUS && App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT) ||
-		(App->player->characters[1] != nullptr && App->player->characters[1]->type == VALNUS && App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT))
-	{
-		animation = &right;
-		animation = &mright;
-		position.x += speed;
-		if (position.x > (SCREEN_WIDTH - 30)) {
-			position.x = (SCREEN_WIDTH - 30);
+	if (this->desactivateInput == false) {
+		if ((App->player->characters[0]->type == VALNUS && App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT) ||
+			(App->player->characters[1] != nullptr && App->player->characters[1]->type == VALNUS && App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT))
+		{
+			animation = &right;
+			animation = &mright;
+			position.x += speed;
+			if (position.x > (SCREEN_WIDTH - 30)) {
+				position.x = (SCREEN_WIDTH - 30);
+			}
 		}
-	}
 
-	if ((App->player->characters[0]->type == VALNUS && App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_REPEAT) ||
-		(App->player->characters[1] != nullptr && App->player->characters[1]->type == VALNUS && App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT))
-	{
-		animation = &left;
-		animation = &mleft;
-		position.x -= speed;
-		if (position.x < 0) {
-			position.x = 0;
+		if ((App->player->characters[0]->type == VALNUS && App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_REPEAT) ||
+			(App->player->characters[1] != nullptr && App->player->characters[1]->type == VALNUS && App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT))
+		{
+			animation = &left;
+			animation = &mleft;
+			position.x -= speed;
+			if (position.x < 0) {
+				position.x = 0;
+			}
 		}
-	}
 
-	if ((App->player->characters[0]->type == VALNUS && App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_REPEAT) ||
-		(App->player->characters[1] != nullptr && App->player->characters[1]->type == VALNUS && App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT))
-	{
-		animation = &idle;
-		position.y -= speed;
-		if (position.y < (abs(App->render->camera.y) / SCREEN_SIZE)) {
-			position.y = (abs(App->render->camera.y) / SCREEN_SIZE);
+		if ((App->player->characters[0]->type == VALNUS && App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_REPEAT) ||
+			(App->player->characters[1] != nullptr && App->player->characters[1]->type == VALNUS && App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT))
+		{
+			animation = &idle;
+			position.y -= speed;
+			if (position.y < (abs(App->render->camera.y) / SCREEN_SIZE)) {
+				position.y = (abs(App->render->camera.y) / SCREEN_SIZE);
+			}
 		}
-	}
 
-	if ((App->player->characters[0]->type == VALNUS && App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_STATE::KEY_REPEAT) ||
-		(App->player->characters[1] != nullptr && App->player->characters[1]->type == VALNUS && App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT))
-	{
-		animation = &idle;
-		position.y += speed;
-		if (position.y >((abs(App->render->camera.y) + (SCREEN_HEIGHT*SCREEN_SIZE))) / SCREEN_SIZE - 31) {
-			position.y = (abs(App->render->camera.y) + (SCREEN_HEIGHT*SCREEN_SIZE)) / SCREEN_SIZE - 31;
+		if ((App->player->characters[0]->type == VALNUS && App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_STATE::KEY_REPEAT) ||
+			(App->player->characters[1] != nullptr && App->player->characters[1]->type == VALNUS && App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT))
+		{
+			animation = &idle;
+			position.y += speed;
+			if (position.y > ((abs(App->render->camera.y) + (SCREEN_HEIGHT*SCREEN_SIZE))) / SCREEN_SIZE - 31) {
+				position.y = (abs(App->render->camera.y) + (SCREEN_HEIGHT*SCREEN_SIZE)) / SCREEN_SIZE - 31;
+			}
 		}
+
+		if ((App->player->characters[0]->type == VALNUS && App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT) ||
+			(App->player->characters[1] != nullptr && App->player->characters[1]->type == VALNUS && App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT))
+			animation = &right;
+
+		if ((App->player->characters[0]->type == VALNUS && App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_REPEAT) ||
+			(App->player->characters[1] != nullptr && App->player->characters[1]->type == VALNUS && App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT))
+			animation = &left;
+
+		if ((App->player->characters[0]->type == VALNUS && App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT) ||
+			(App->player->characters[1] != nullptr && App->player->characters[1]->type == VALNUS && App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT))
+			animation = &right;
+
+		if ((App->player->characters[0]->type == VALNUS && App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_REPEAT) ||
+			(App->player->characters[1] != nullptr && App->player->characters[1]->type == VALNUS && App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT))
+			animation = &left;
+
+		if ((App->player->characters[0]->type == VALNUS && App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT) ||
+			(App->player->characters[1] != nullptr && App->player->characters[1]->type == VALNUS && App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT))
+			animation = &idle;
 	}
-
-	if ((App->player->characters[0]->type == VALNUS && App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT) ||
-		(App->player->characters[1] != nullptr && App->player->characters[1]->type == VALNUS && App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT))
-		animation = &right;
-
-	if ((App->player->characters[0]->type == VALNUS && App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_REPEAT) ||
-		(App->player->characters[1] != nullptr && App->player->characters[1]->type == VALNUS && App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT))
-		animation = &left;
-
-	if ((App->player->characters[0]->type == VALNUS && App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT) ||
-		(App->player->characters[1] != nullptr && App->player->characters[1]->type == VALNUS && App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT))
-		animation = &right;
-
-	if ((App->player->characters[0]->type == VALNUS && App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_REPEAT) ||
-		(App->player->characters[1] != nullptr && App->player->characters[1]->type == VALNUS && App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT))
-		animation = &left;
-
-	if ((App->player->characters[0]->type == VALNUS && App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT) ||
-		(App->player->characters[1] != nullptr && App->player->characters[1]->type == VALNUS && App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT))
-		animation = &idle;
 }
 
 void Character_Valnus::Laser() {
 
+}
+
+void Character_Valnus::Dead() {
+	if (this->playerDead == true) {
+		animation = &death;
+		this->desactivateInput = true;
+
+		if (this->spawnPlayer == false && position.y <= 50 + ((abs(App->render->camera.y) + (SCREEN_HEIGHT*SCREEN_SIZE))) / SCREEN_SIZE)
+			position.y += 4;
+
+		else {
+			this->spawnPlayer = true;
+			if (position.y >= ((abs(App->render->camera.y) + (SCREEN_HEIGHT*SCREEN_SIZE))) / SCREEN_SIZE) {
+				if (App->player->characters[0])
+					position.x = App->render->camera.x + 50;
+				if (App->player->characters[1])
+					position.x = App->render->camera.x + 150;
+			}
+
+			animation = &idle;
+
+			if (position.y >= ((abs(App->render->camera.y) + (SCREEN_HEIGHT*SCREEN_SIZE))) / SCREEN_SIZE - 80)
+				position.y -= 1;
+
+			else {
+				if (this->scroll == 0) {
+					if (App->player->characters[0])
+						position.y = abs(App->render->camera.y / SCREEN_SIZE) + 240;
+					if (App->player->characters[1])
+						position.y = abs(App->render->camera.y / SCREEN_SIZE) + 240;
+
+					this->spawnPlayer = false;
+					this->playerDead = false;
+					this->desactivateInput = false;
+				}
+			}
+		}
+	}
 }
 
 void Character_Valnus::OnCollision(Collider* collider) {
