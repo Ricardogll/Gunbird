@@ -28,6 +28,8 @@ public:
 
 public:
 	KEY_STATE keyboard[MAX_KEYS];
+	bool gate_player;
+	bool gate_enemies;
 };
 
 #endif // __ModuleInput_H__

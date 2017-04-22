@@ -8,6 +8,7 @@
 #include "Enemy.h"
 #include "Enemy_Balloon.h"
 #include "Enemy_Turret.h"
+#include "Enemy_turret2.h"
 #include "Enemy_building.h"
 #include "Enemy_building2.h"
 #include "Enemy_vase.h"
@@ -16,7 +17,7 @@
 
 #include "PowerUp.h"
 
-#define SPAWN_MARGIN 250 //50
+#define SPAWN_MARGIN 260 
 
 ModuleEnemies::ModuleEnemies()
 {
@@ -24,11 +25,12 @@ ModuleEnemies::ModuleEnemies()
 		enemies[i] = nullptr;
 
 	//Path Balloon Castle
-	balloonCastle.PushBack({ 0.0f, 1.5f }, 50); 
-	balloonCastle.PushBack({ 0.0f, 0.0f }, 100); 
-	balloonCastle.PushBack({ 0.0f, -1.5f }, 150); 
-	balloonCastle.PushBack({ 0.0f, 0.0f }, 100); 
-	balloonCastle.PushBack({ 0.0f, 1.5f }, 142);
+	balloonCastle.PushBack({ 0.0f, 0.0f }, 420);
+	balloonCastle.PushBack({ 0.0f, 0.5f }, 100); 
+	balloonCastle.PushBack({ 0.0f, 0.0f }, 120); 
+	balloonCastle.PushBack({ 0.0f, -2.5f }, 60); 
+	balloonCastle.PushBack({ 0.0f, 0.0f }, 300); 
+	balloonCastle.PushBack({ 0.0f, 1.5f }, 300);
 	balloonCastle.loop = false;
 
 	//FLAG
@@ -41,7 +43,9 @@ ModuleEnemies::ModuleEnemies()
 	flag.PushBack({ 745,615,64,21 });
 	flag.speed = 0.08f;
 
-	
+	drone.PushBack({ 0.0f, 1.5f }, 100);
+	drone.PushBack({ 0.0f, 0.0f }, 150);
+	drone.PushBack({ 1.5f, 1.5f }, 150);
 
 }
 
@@ -66,11 +70,11 @@ update_status ModuleEnemies::PreUpdate()
 	{
 		if (queue[i].type != ENEMY_TYPES::NO_TYPE)
 		{
-			if (queue[i].x * SCREEN_SIZE < App->render->camera.x + (App->render->camera.w * SCREEN_SIZE) + SPAWN_MARGIN)
+			if (queue[i].y > (abs(App->render->camera.y) / SCREEN_SIZE) - SPAWN_MARGIN)
 			{
 				SpawnEnemy(queue[i]);
 				queue[i].type = ENEMY_TYPES::NO_TYPE;
-				LOG("Spawning enemy at %d", queue[i].x * SCREEN_SIZE);
+				LOG("Spawning enemy at %d", queue[i].y);
 			}
 		}
 	}
@@ -93,6 +97,16 @@ update_status ModuleEnemies::Update()
 	if (building2_destroyed == false)
 		App->render->Blit(sprites, 110, 785, &(flag.GetCurrentFrame()));
 
+	//if (App->input->keyboard[SDL_SCANCODE_ESCAPE]) {
+	//	for (uint i = 0; i < MAX_ENEMIES; ++i) {
+	//		if (enemies[i] != nullptr) {
+	//			enemies[i]->position.y = 5000;
+	//			enemies[i]->position.x = 0;
+	//			App->collision->EraseCollider(enemies[i]->collider);
+	//		}
+	//	}
+	//	App->input->gate_enemies = true;
+	//}
 
 	return UPDATE_CONTINUE;
 }
@@ -104,9 +118,9 @@ update_status ModuleEnemies::PostUpdate()
 	{
 		if (enemies[i] != nullptr)
 		{
-			if (enemies[i]->position.x * SCREEN_SIZE < (App->render->camera.x) - SPAWN_MARGIN)
+			if (enemies[i]->position.y >((abs(App->render->camera.y) + SCREEN_WIDTH) / SCREEN_SIZE) + 240)
 			{
-				LOG("DeSpawning enemy at %d", enemies[i]->position.x * SCREEN_SIZE);
+				LOG("DeSpawning enemy at %d", enemies[i]->position.y);
 				delete enemies[i];
 				enemies[i] = nullptr;
 			}
@@ -127,6 +141,7 @@ bool ModuleEnemies::CleanUp()
 	{
 		if (enemies[i] != nullptr)
 		{
+			//App->collision->EraseCollider(enemies[i]->collider);
 			delete enemies[i];
 			enemies[i] = nullptr;
 		}
@@ -210,9 +225,12 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 				case ENEMY_MOVE::DRONE_CASTLE:
 					enemies[i]->path = drone;
 					break;
-				default:
-					break;
+				
 				}
+			case ENEMY_TYPES::TURRET2:
+				enemies[i] = new Enemy_Turret2(info.x, info.y);
+				enemies[i]->type = ENEMY_TYPES::TURRET2;
+				break;
 
 		}
 	}
@@ -267,6 +285,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 			if (enemies[i]->type == ENEMY_TYPES::BUILDING2) {
 				if (enemies[i]->getHitPoints() == 0) {
 					scoreEnemy(enemies[i], c2);
+					this->AddEnemy(ENEMY_TYPES::POWERUP, ENEMY_MOVE::NO_MOVE, c1->rect.x, c1->rect.y);
 					building2_destroyed = true;
 					App->particles->AddParticle(App->particles->explosion_balloon, (c1->rect.x - ((c1->rect.w)) / 2), (c1->rect.y - ((c1->rect.h)) / 2), NULL, NULL, NULL);
 					delete enemies[i];
@@ -280,6 +299,15 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 					App->particles->AddParticle(App->particles->explosion_balloon, (c1->rect.x - ((c1->rect.w)) / 2), (c1->rect.y - ((c1->rect.h)) / 2), NULL, NULL, NULL);
 					//Spawn Power Up when an enemy dies
 					this->AddEnemy(ENEMY_TYPES::POWERUP, ENEMY_MOVE::NO_MOVE, c1->rect.x, c1->rect.y);
+					delete enemies[i];
+					enemies[i] = nullptr;
+					break;
+				}
+			}
+			if (enemies[i]->type == ENEMY_TYPES::TURRET2) {
+				if (enemies[i]->getHitPoints() == 0) {
+					scoreEnemy(enemies[i], c2);
+					App->particles->AddParticle(App->particles->explosion_balloon, (c1->rect.x - ((c1->rect.w)) / 2), (c1->rect.y - ((c1->rect.h)) / 2), NULL, NULL, NULL);
 					delete enemies[i];
 					enemies[i] = nullptr;
 					break;

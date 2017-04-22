@@ -2,6 +2,9 @@
 #include "Application.h"
 #include "ModuleInput.h"
 #include "SDL/include/SDL.h"
+#include "ModulePlayer.h"
+#include "ModuleEnemies.h"
+#include "ModuleCollision.h"
 
 ModuleInput::ModuleInput() : Module()
 {
@@ -25,6 +28,9 @@ bool ModuleInput::Init()
 		LOG("SDL_EVENTS could not initialize! SDL_Error: %s\n", SDL_GetError());
 		ret = false;
 	}
+
+	gate_player = false;
+	gate_enemies = false;
 
 	return ret;
 }
@@ -55,8 +61,9 @@ update_status ModuleInput::PreUpdate()
 	}
 
 	if (keyboard[SDL_SCANCODE_ESCAPE])
-		return update_status::UPDATE_STOP;
+			return update_status::UPDATE_STOP;
 
+		
 	SDL_Event event;
 	while (SDL_PollEvent(&event)) {
 		if (event.type == SDL_QUIT)

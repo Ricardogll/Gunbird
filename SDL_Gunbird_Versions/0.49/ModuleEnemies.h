@@ -22,6 +22,7 @@ enum ENEMY_TYPES
 	BUILDING2,
 	VASE,
 	DRONE,
+	TURRET2,
 
 	POWERUP
 };
@@ -63,6 +64,8 @@ public:
 	bool building_destroyed = false;
 	bool building2_destroyed = false;
 
+	Enemy* enemies[MAX_ENEMIES];
+
 private:
 
 	void SpawnEnemy(const EnemyInfo& info);
@@ -77,7 +80,6 @@ private:
 	Animation flag;
 
 	EnemyInfo queue[MAX_ENEMIES];
-	Enemy* enemies[MAX_ENEMIES];
 	SDL_Texture* sprites;
 
 	int scoreP1;

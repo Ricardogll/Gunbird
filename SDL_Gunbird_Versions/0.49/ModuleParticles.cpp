@@ -125,6 +125,16 @@ ModuleParticles::ModuleParticles()
 	laser_tetsu.anim.PushBack({ 646, 73, 1, 33 });
 	laser_tetsu.life = 1500;
 
+	//Valnus Laser
+	laser_valnus_0.anim.PushBack({ 575, 112, 1, 16 });
+	laser_valnus_0.life = 1500;
+	laser_valnus_1.anim.PushBack({ 582, 112, 3, 24 });
+	laser_valnus_1.life = 1500;
+	laser_valnus_2.anim.PushBack({ 588, 112, 3, 24 });
+	laser_valnus_2.life = 1500;
+	laser_valnus_3.anim.PushBack({ 595, 112, 5, 26 });
+	laser_valnus_3.life = 1500;
+
 	//Power Up SI NO VA PUES SE BORRA
 	power_up.anim.PushBack({ 685, 147, 22, 13 });
 	power_up.anim.PushBack({ 710, 147, 22, 13 });

@@ -13,6 +13,8 @@
 #include "Character_Tetsu.h"
 #include "Character_Valnus.h"
 
+#define SPAWN_MARGIN 260
+
 ModulePlayer::ModulePlayer()
 {
 	for (uint i = 0; i < MAX_CHARACTERS; ++i)
@@ -59,6 +61,25 @@ bool ModulePlayer::Start()
 	return ret;
 }
 
+update_status ModulePlayer::PreUpdate()
+{
+	// check camera position to decide what to spawn
+	for (uint i = 0; i < MAX_CHARACTERS; ++i)
+	{
+		if (queue[i].type != CHARACTER_TYPES::NO_CHARACTER)
+		{
+			if (queue[i].y >(abs(App->render->camera.y) / SCREEN_SIZE) - SPAWN_MARGIN)
+			{
+				SpawnCharacter(queue[i]);
+				queue[i].type = CHARACTER_TYPES::NO_CHARACTER;
+				LOG("Spawning player at %d", queue[i].y);
+			}
+		}
+	}
+
+	return UPDATE_CONTINUE;
+}
+
 // Called before render is available
 update_status ModulePlayer::Update()
 {
@@ -99,6 +120,36 @@ update_status ModulePlayer::Update()
 		App->audio->PlayWAV(insertcoin_fx);
 		if (coins < 9) {
 			coins++;
+		}
+	}
+
+	/*if (App->input->keyboard[SDL_SCANCODE_ESCAPE]) {
+		for (uint i = 0; i < MAX_CHARACTERS; ++i) {
+			if (characters[i] != nullptr) {
+				characters[i]->position.y = 5000;
+				characters[i]->position.x = -5000;
+				App->collision->EraseCollider(characters[i]->collider);
+			}
+		}
+		App->input->gate_player = true;
+	}*/
+
+	return UPDATE_CONTINUE;
+}
+
+update_status ModulePlayer::PostUpdate()
+{
+	// check camera position to decide what to spawn
+	for (uint i = 0; i < MAX_CHARACTERS; ++i)
+	{
+		if (characters[i] != nullptr)
+		{
+			if (characters[i]->position.y > ((abs(App->render->camera.y) + SCREEN_HEIGHT) / SCREEN_SIZE) + 3520)
+			{
+				LOG("DeSpawning player at %d", characters[i]->position.y);
+				delete characters[i];
+				characters[i] = nullptr;
+			}
 		}
 	}
 

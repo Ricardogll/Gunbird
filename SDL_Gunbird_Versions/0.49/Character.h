@@ -14,13 +14,13 @@ class Character
 {
 protected:
 	Animation* animation = nullptr;
-	Collider* collider = nullptr;
 	bool shot;
 	int time = 0;
 	float scroll = 0;
 	bool spawnPlayer = false;
 
 public:
+	Collider* collider = nullptr;
 	iPoint position;
 	int type;
 	int level = 0;

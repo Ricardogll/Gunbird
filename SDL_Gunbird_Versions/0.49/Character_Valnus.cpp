@@ -135,7 +135,185 @@ void Character_Valnus::Move()
 }
 
 void Character_Valnus::Laser() {
-
+	if ((App->player->characters[0]->type == VALNUS && App->input->keyboard[SDL_SCANCODE_X] == KEY_STATE::KEY_DOWN || (0 < time)) ||
+		(App->player->characters[1] != nullptr && App->player->characters[1]->type == VALNUS && App->input->keyboard[SDL_SCANCODE_LCTRL] == KEY_STATE::KEY_DOWN || (0 < time))) {
+		//LEVEL 0
+		if (level == 0) {
+			if (time == 0)
+			{
+				App->particles->AddParticle(App->particles->laser_valnus_0, position.x + 9, position.y - 11, 0, SPEED_LASER_PLAYER, VALNUS, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_valnus_0, position.x + 13, position.y - 14, 0, SPEED_LASER_PLAYER, VALNUS, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_valnus_0, position.x + 17, position.y - 14, 0, SPEED_LASER_PLAYER, VALNUS, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_valnus_0, position.x + 21, position.y - 11, 0, SPEED_LASER_PLAYER, VALNUS, COLLIDER_PLAYER_SHOT);
+				App->audio->PlayWAV(App->particles->laser_valnus_fx);
+				shot = false;
+			}
+			if (time == 5)/*7,25*/
+			{
+				App->particles->AddParticle(App->particles->laser_valnus_0, position.x + 8, position.y - 11, 0, SPEED_LASER_PLAYER, VALNUS, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_valnus_0, position.x + 12, position.y - 14, 0, SPEED_LASER_PLAYER, VALNUS, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_valnus_0, position.x + 18, position.y - 14, 0, SPEED_LASER_PLAYER, VALNUS, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_valnus_0, position.x + 22, position.y - 11, 0, SPEED_LASER_PLAYER, VALNUS, COLLIDER_PLAYER_SHOT);
+				App->audio->PlayWAV(App->particles->laser_valnus_fx);
+			}
+			if (time == 10)
+			{
+				App->particles->AddParticle(App->particles->laser_valnus_0, position.x + 10, position.y - 11, 0, SPEED_LASER_PLAYER, VALNUS, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_valnus_0, position.x + 13, position.y - 14, 0, SPEED_LASER_PLAYER, VALNUS, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_valnus_0, position.x + 17, position.y - 14, 0, SPEED_LASER_PLAYER, VALNUS, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_valnus_0, position.x + 20, position.y - 11, 0, SPEED_LASER_PLAYER, VALNUS, COLLIDER_PLAYER_SHOT);
+				App->audio->PlayWAV(App->particles->laser_valnus_fx);
+			}
+			if (time == 15)
+			{
+				App->particles->AddParticle(App->particles->laser_valnus_0, position.x + 9, position.y - 11, 0, SPEED_LASER_PLAYER, VALNUS, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_valnus_0, position.x + 13, position.y - 14, 0, SPEED_LASER_PLAYER, VALNUS, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_valnus_0, position.x + 17, position.y - 14, 0, SPEED_LASER_PLAYER, VALNUS, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_valnus_0, position.x + 21, position.y - 11, 0, SPEED_LASER_PLAYER, VALNUS, COLLIDER_PLAYER_SHOT);
+				App->audio->PlayWAV(App->particles->laser_valnus_fx);
+				time = 0;
+				shot = true;
+			}
+			if (shot == false)
+				time++;
+		}
+		//LEVEL 1
+		if (level == 1) {
+			if (time == 0)
+			{
+				App->particles->AddParticle(App->particles->laser_valnus_1, position.x + 5, position.y - 16, 0, SPEED_LASER_PLAYER, VALNUS, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_valnus_1, position.x + 11, position.y - 20, 0, SPEED_LASER_PLAYER, VALNUS, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_valnus_1, position.x + 17, position.y - 20, 0, SPEED_LASER_PLAYER, VALNUS, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_valnus_1, position.x + 23, position.y - 16, 0, SPEED_LASER_PLAYER, VALNUS, COLLIDER_PLAYER_SHOT);
+				App->audio->PlayWAV(App->particles->laser_valnus_fx);
+				shot = false;
+			}
+			if (time == 7)/*7,5*/
+			{
+				App->particles->AddParticle(App->particles->laser_valnus_1, position.x + 3, position.y - 16, 0, SPEED_LASER_PLAYER, VALNUS, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_valnus_1, position.x + 10, position.y - 20, 0, SPEED_LASER_PLAYER, VALNUS, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_valnus_1, position.x + 18, position.y - 20, 0, SPEED_LASER_PLAYER, VALNUS, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_valnus_1, position.x + 25, position.y - 16, 0, SPEED_LASER_PLAYER, VALNUS, COLLIDER_PLAYER_SHOT);
+				App->audio->PlayWAV(App->particles->laser_valnus_fx);
+			}
+			if (time == 14)
+			{
+				App->particles->AddParticle(App->particles->laser_valnus_1, position.x + 6, position.y - 16, 0, SPEED_LASER_PLAYER, VALNUS, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_valnus_1, position.x + 10, position.y - 20, 0, SPEED_LASER_PLAYER, VALNUS, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_valnus_1, position.x + 18, position.y - 20, 0, SPEED_LASER_PLAYER, VALNUS, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_valnus_1, position.x + 22, position.y - 16, 0, SPEED_LASER_PLAYER, VALNUS, COLLIDER_PLAYER_SHOT);
+				App->audio->PlayWAV(App->particles->laser_valnus_fx);
+			}
+			if (time == 21)
+			{
+				App->particles->AddParticle(App->particles->laser_valnus_1, position.x + 5, position.y - 16, 0, SPEED_LASER_PLAYER, VALNUS, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_valnus_1, position.x + 11, position.y - 20, 0, SPEED_LASER_PLAYER, VALNUS, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_valnus_1, position.x + 17, position.y - 20, 0, SPEED_LASER_PLAYER, VALNUS, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_valnus_1, position.x + 23, position.y - 16, 0, SPEED_LASER_PLAYER, VALNUS, COLLIDER_PLAYER_SHOT);
+				App->audio->PlayWAV(App->particles->laser_valnus_fx);
+				time = 0;
+				shot = true;
+			}
+			if (shot == false)
+				time++;
+		}
+		//LEVEL 2
+		if (level == 2) {
+			if (time == 0)
+			{
+				App->particles->AddParticle(App->particles->laser_valnus_2, position.x + 1, position.y - 12, 0, SPEED_LASER_PLAYER, VALNUS, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_valnus_2, position.x + 7, position.y - 16, 0, SPEED_LASER_PLAYER, VALNUS, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_valnus_2, position.x + 12, position.y - 20, 0, SPEED_LASER_PLAYER, VALNUS, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_valnus_2, position.x + 16, position.y - 20, 0, SPEED_LASER_PLAYER, VALNUS, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_valnus_2, position.x + 21, position.y - 16, 0, SPEED_LASER_PLAYER, VALNUS, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_valnus_2, position.x + 27, position.y - 12, 0, SPEED_LASER_PLAYER, VALNUS, COLLIDER_PLAYER_SHOT);
+				App->audio->PlayWAV(App->particles->laser_valnus_fx);
+				shot = false;
+			}
+			if (time == 7)/*6,9*/
+			{
+				App->particles->AddParticle(App->particles->laser_valnus_2, position.x, position.y - 12, 0, SPEED_LASER_PLAYER, VALNUS, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_valnus_2, position.x + 4, position.y - 16, 0, SPEED_LASER_PLAYER, VALNUS, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_valnus_2, position.x + 10, position.y - 20, 0, SPEED_LASER_PLAYER, VALNUS, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_valnus_2, position.x + 18, position.y - 20, 0, SPEED_LASER_PLAYER, VALNUS, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_valnus_2, position.x + 24, position.y - 16, 0, SPEED_LASER_PLAYER, VALNUS, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_valnus_2, position.x + 28, position.y - 12, 0, SPEED_LASER_PLAYER, VALNUS, COLLIDER_PLAYER_SHOT);
+				App->audio->PlayWAV(App->particles->laser_valnus_fx);
+			}
+			if (time == 14)
+			{
+				App->particles->AddParticle(App->particles->laser_valnus_2, position.x, position.y - 12, 0, SPEED_LASER_PLAYER, VALNUS, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_valnus_2, position.x + 5, position.y - 16, 0, SPEED_LASER_PLAYER, VALNUS, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_valnus_2, position.x + 11, position.y - 20, 0, SPEED_LASER_PLAYER, VALNUS, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_valnus_2, position.x + 17, position.y - 20, 0, SPEED_LASER_PLAYER, VALNUS, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_valnus_2, position.x + 23, position.y - 16, 0, SPEED_LASER_PLAYER, VALNUS, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_valnus_2, position.x + 28, position.y - 12, 0, SPEED_LASER_PLAYER, VALNUS, COLLIDER_PLAYER_SHOT);
+				App->audio->PlayWAV(App->particles->laser_valnus_fx);
+			}
+			if (time == 21)
+			{
+				App->particles->AddParticle(App->particles->laser_valnus_2, position.x + 1, position.y - 12, 0, SPEED_LASER_PLAYER, VALNUS, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_valnus_2, position.x + 7, position.y - 16, 0, SPEED_LASER_PLAYER, VALNUS, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_valnus_2, position.x + 12, position.y - 20, 0, SPEED_LASER_PLAYER, VALNUS, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_valnus_2, position.x + 16, position.y - 20, 0, SPEED_LASER_PLAYER, VALNUS, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_valnus_2, position.x + 21, position.y - 16, 0, SPEED_LASER_PLAYER, VALNUS, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_valnus_2, position.x + 27, position.y - 12, 0, SPEED_LASER_PLAYER, VALNUS, COLLIDER_PLAYER_SHOT);
+				App->audio->PlayWAV(App->particles->laser_valnus_fx);
+				time = 0;
+				shot = true;
+			}
+			if (shot == false)
+				time++;
+		}
+		//LEVEL 3
+		if (level == 3) {
+			if (time == 0)
+			{
+				App->particles->AddParticle(App->particles->laser_valnus_3, position.x - 5, position.y - 12, 0, SPEED_LASER_PLAYER, VALNUS, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_valnus_3, position.x + 2, position.y - 20, 0, SPEED_LASER_PLAYER, VALNUS, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_valnus_3, position.x + 10, position.y - 28, 0, SPEED_LASER_PLAYER, VALNUS, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_valnus_3, position.x + 16, position.y - 28, 0, SPEED_LASER_PLAYER, VALNUS, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_valnus_3, position.x + 24, position.y - 20, 0, SPEED_LASER_PLAYER, VALNUS, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_valnus_3, position.x + 31, position.y - 12, 0, SPEED_LASER_PLAYER, VALNUS, COLLIDER_PLAYER_SHOT);
+				App->audio->PlayWAV(App->particles->laser_valnus_fx);
+				shot = false;
+			}
+			if (time == 9)/*9,3*/
+			{
+				App->particles->AddParticle(App->particles->laser_valnus_3, position.x - 6, position.y - 12, 0, SPEED_LASER_PLAYER, VALNUS, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_valnus_3, position.x, position.y - 20, 0, SPEED_LASER_PLAYER, VALNUS, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_valnus_3, position.x + 8, position.y - 28, 0, SPEED_LASER_PLAYER, VALNUS, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_valnus_3, position.x + 18, position.y - 28, 0, SPEED_LASER_PLAYER, VALNUS, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_valnus_3, position.x + 26, position.y - 20, 0, SPEED_LASER_PLAYER, VALNUS, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_valnus_3, position.x + 32, position.y - 12, 0, SPEED_LASER_PLAYER, VALNUS, COLLIDER_PLAYER_SHOT);
+				App->audio->PlayWAV(App->particles->laser_valnus_fx);
+			}
+			if (time == 18)
+			{
+				App->particles->AddParticle(App->particles->laser_valnus_3, position.x - 7, position.y - 12, 0, SPEED_LASER_PLAYER, VALNUS, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_valnus_3, position.x + 1, position.y - 20, 0, SPEED_LASER_PLAYER, VALNUS, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_valnus_3, position.x + 9, position.y - 28, 0, SPEED_LASER_PLAYER, VALNUS, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_valnus_3, position.x + 17, position.y - 28, 0, SPEED_LASER_PLAYER, VALNUS, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_valnus_3, position.x + 25, position.y - 20, 0, SPEED_LASER_PLAYER, VALNUS, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_valnus_3, position.x + 33, position.y - 12, 0, SPEED_LASER_PLAYER, VALNUS, COLLIDER_PLAYER_SHOT);
+				App->audio->PlayWAV(App->particles->laser_valnus_fx);
+			}
+			if (time == 27)
+			{
+				App->particles->AddParticle(App->particles->laser_valnus_3, position.x - 5, position.y - 12, 0, SPEED_LASER_PLAYER, VALNUS, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_valnus_3, position.x + 2, position.y - 20, 0, SPEED_LASER_PLAYER, VALNUS, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_valnus_3, position.x + 10, position.y - 28, 0, SPEED_LASER_PLAYER, VALNUS, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_valnus_3, position.x + 16, position.y - 28, 0, SPEED_LASER_PLAYER, VALNUS, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_valnus_3, position.x + 24, position.y - 20, 0, SPEED_LASER_PLAYER, VALNUS, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_valnus_3, position.x + 31, position.y - 12, 0, SPEED_LASER_PLAYER, VALNUS, COLLIDER_PLAYER_SHOT);
+				App->audio->PlayWAV(App->particles->laser_valnus_fx);
+				time = 0;
+				shot = true;
+			}
+			if (shot == false)
+				time++;
+		}
+	}
 }
 
 void Character_Valnus::Dead() {

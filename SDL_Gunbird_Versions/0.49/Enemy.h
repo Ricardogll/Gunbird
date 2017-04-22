@@ -13,7 +13,6 @@ class Enemy
 {
 protected:
 	Animation* animation = nullptr;
-	Collider* collider = nullptr;
 	uint hitPoints;
 	uint currentTime;
 	uint lastTime;
@@ -21,6 +20,7 @@ protected:
 	bool shot;
 
 public:
+	Collider* collider = nullptr;
 	iPoint position;
 	Path path;
 	int type;

@@ -94,6 +94,11 @@ public:
 
 	Particle laser_tetsu;
 
+	Particle laser_valnus_0;
+	Particle laser_valnus_1;
+	Particle laser_valnus_2;
+	Particle laser_valnus_3;
+
 	Particle shot_enemy;
 
 	Particle explosion_balloon;

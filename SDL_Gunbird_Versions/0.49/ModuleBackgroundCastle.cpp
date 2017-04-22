@@ -142,6 +142,18 @@ bool ModuleBackgroundCastle::Start()
 	App->enemies->AddEnemy(ENEMY_TYPES::MISSILE, BUILDING_CASTLE, 30, 1170);
 	App->enemies->AddEnemy(ENEMY_TYPES::MISSILE, BUILDING_CASTLE, 10, 1140);
 
+	//TURRET2
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET2, NO_MOVE, 7, 1185);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET2, NO_MOVE, 4, 1145);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET2, NO_MOVE, 7, 1105);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET2, NO_MOVE, 11, 740);
+	//App->enemies->AddEnemy(ENEMY_TYPES::TURRET2, NO_MOVE, 17, 770);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET2, NO_MOVE, 190, 770);
+	//App->enemies->AddEnemy(ENEMY_TYPES::TURRET2, NO_MOVE, 195, 734);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET2, NO_MOVE, 26, 430);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET2, NO_MOVE, 170, 430);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET2, NO_MOVE, 178, 340);
+
 	//VASE
 	App->enemies->AddEnemy(ENEMY_TYPES::VASE, NO_MOVE, 10, 690);
 	App->enemies->AddEnemy(ENEMY_TYPES::VASE, NO_MOVE, 185, 690);
@@ -149,7 +161,7 @@ bool ModuleBackgroundCastle::Start()
 	App->enemies->AddEnemy(ENEMY_TYPES::VASE, NO_MOVE, 185, 475);
 
 	//DRONE
-	/*	App->enemies->AddEnemy(ENEMY_TYPES::DRONE, DRONE_CASTLE, 42, 1042);
+	/*App->enemies->AddEnemy(ENEMY_TYPES::DRONE, DRONE_CASTLE, 42, 1042);
 	App->enemies->AddEnemy(ENEMY_TYPES::DRONE, DRONE_CASTLE, 55, 1080);
 	App->enemies->AddEnemy(ENEMY_TYPES::DRONE, DRONE_CASTLE, 75, 1042);*/
 
@@ -215,12 +227,12 @@ update_status ModuleBackgroundCastle::Update()
 	//BUILDING
 	//App->render->Blit(animation_building, 147, 1091, &(building.GetCurrentFrame()));
 	//BRIDGE
-	if (App->render->camera.y >= -1000 * SCREEN_SIZE) {
+	if (App->render->camera.y >= -980 * SCREEN_SIZE) {
 		App->render->Blit(animation_door, 87, 966, &(floor.GetCurrentFrame()));
 		App->render->Blit(animation_door, 66, 955, &(door.GetCurrentFrame()));
 
 	}
-	if (App->render->camera.y >= -970 * SCREEN_SIZE) {
+	if (App->render->camera.y >= -950 * SCREEN_SIZE) {
 		App->render->Blit(animation_door, 67, 907, &(door2.GetCurrentFrame()));
 	}
 	//SOLDIER
