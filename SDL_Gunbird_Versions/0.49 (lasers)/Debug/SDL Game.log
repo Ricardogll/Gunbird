@@ -1,0 +1,5 @@
+﻿  Character_Valnus.cpp
+c:\users\david\desktop\0.49\path.h(6): warning C4099: 'Animation': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+  c:\users\david\desktop\0.49\animation.h(47): note: vea la declaración de 'Animation'
+  SDL Game.vcxproj -> C:\Users\David\Desktop\0.49\Debug\Gunbird.exe
+  SDL Game.vcxproj -> C:\Users\David\Desktop\0.49\Debug\Gunbird.pdb (Full PDB)
