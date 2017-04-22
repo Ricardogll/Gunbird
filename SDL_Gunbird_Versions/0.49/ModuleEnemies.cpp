@@ -214,8 +214,6 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 					break;
 				}
 
-
-
 		}
 	}
 }
@@ -240,6 +238,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 			}
 			if (enemies[i]->type == ENEMY_TYPES::TURRET) {
 				if (enemies[i]->getHitPoints() == 0) {
+					scoreEnemy(enemies[i], c2);
 					App->particles->AddParticle(App->particles->explosion_balloon, (c1->rect.x - ((c1->rect.w)) / 2), (c1->rect.y - ((c1->rect.h)) / 2), NULL, NULL, NULL);
 					delete enemies[i];
 					enemies[i] = nullptr;
@@ -248,6 +247,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 			}
 			if (enemies[i]->type == ENEMY_TYPES::MISSILE) {
 				if (enemies[i]->getHitPoints() == 0) {
+					scoreEnemy(enemies[i], c2);
 					App->particles->AddParticle(App->particles->explosion_balloon, (c1->rect.x - ((c1->rect.w)) / 2), (c1->rect.y - ((c1->rect.h)) / 2), NULL, NULL, NULL);
 					delete enemies[i];
 					enemies[i] = nullptr;
@@ -256,6 +256,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 			}
 			if (enemies[i]->type == ENEMY_TYPES::BUILDING) {
 				if (enemies[i]->getHitPoints() == 0) {
+					scoreEnemy(enemies[i], c2);
 					building_destroyed = true;
 					App->particles->AddParticle(App->particles->explosion_balloon, (c1->rect.x - ((c1->rect.w)) / 2), (c1->rect.y - ((c1->rect.h)) / 2), NULL, NULL, NULL);
 					delete enemies[i];
@@ -265,6 +266,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 			}
 			if (enemies[i]->type == ENEMY_TYPES::BUILDING2) {
 				if (enemies[i]->getHitPoints() == 0) {
+					scoreEnemy(enemies[i], c2);
 					building2_destroyed = true;
 					App->particles->AddParticle(App->particles->explosion_balloon, (c1->rect.x - ((c1->rect.w)) / 2), (c1->rect.y - ((c1->rect.h)) / 2), NULL, NULL, NULL);
 					delete enemies[i];
@@ -274,6 +276,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 			}
 			if (enemies[i]->type == ENEMY_TYPES::VASE){
 				if (enemies[i]->getHitPoints() == 0) {
+					scoreEnemy(enemies[i], c2);
 					App->particles->AddParticle(App->particles->explosion_balloon, (c1->rect.x - ((c1->rect.w)) / 2), (c1->rect.y - ((c1->rect.h)) / 2), NULL, NULL, NULL);
 					//Spawn Power Up when an enemy dies
 					this->AddEnemy(ENEMY_TYPES::POWERUP, ENEMY_MOVE::NO_MOVE, c1->rect.x, c1->rect.y);
@@ -293,13 +296,58 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 }
 
 void ModuleEnemies::scoreEnemy(Enemy* enemy, Collider* c2) {
-	/*for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
+	for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
 	{
-		if (c2 == App->particles->active[i]->collider) {
-			if (App->player->characters[0] != nullptr)
-				App->player->characters[0]->score = 10;
+		//PLAYER 1
+		if (c2->type==COLLIDER_PLAYER_SHOT && c2->character == YUAN_NANG) {
+			if (App->player->characters[0] != nullptr && App->player->characters[0]->type == YUAN_NANG)
+					scoreP1 = enemy->score;
 		}
-	}*/
-	
+		if (c2->type == COLLIDER_PLAYER_SHOT && c2->character == MARION) {
+			if (App->player->characters[0] != nullptr && App->player->characters[0]->type == MARION)
+				scoreP1 = enemy->score;
+		}
+		if (c2->type == COLLIDER_PLAYER_SHOT && c2->character == ASH) {
+			if (App->player->characters[0] != nullptr && App->player->characters[0]->type == ASH)
+				scoreP1 = enemy->score;
+		}
+		if (c2->type == COLLIDER_PLAYER_SHOT && c2->character == TETSU) {
+			if (App->player->characters[0] != nullptr && App->player->characters[0]->type == TETSU)
+				scoreP1 = enemy->score;
+		}
+		if (c2->type == COLLIDER_PLAYER_SHOT && c2->character == VALNUS) {
+			if (App->player->characters[0] != nullptr && App->player->characters[0]->type == VALNUS)
+				scoreP1 = enemy->score;
+		}
+		//PLAYER 2
+		if (c2->type == COLLIDER_PLAYER_SHOT && c2->character == YUAN_NANG) {
+			if (App->player->characters[1] != nullptr && App->player->characters[1]->type == YUAN_NANG)
+				scoreP2 = enemy->score;
+		}
+		if (c2->type == COLLIDER_PLAYER_SHOT && c2->character == MARION) {
+			if (App->player->characters[1] != nullptr && App->player->characters[1]->type == MARION)
+				scoreP2 = enemy->score;
+		}
+		if (c2->type == COLLIDER_PLAYER_SHOT && c2->character == ASH) {
+			if (App->player->characters[1] != nullptr && App->player->characters[1]->type == ASH)
+				scoreP2 = enemy->score;
+		}
+		if (c2->type == COLLIDER_PLAYER_SHOT && c2->character == TETSU) {
+			if (App->player->characters[1] != nullptr && App->player->characters[1]->type == TETSU)
+				scoreP2 = enemy->score;
+		}
+		if (c2->type == COLLIDER_PLAYER_SHOT && c2->character == VALNUS) {
+			if (App->player->characters[1] != nullptr && App->player->characters[1]->type == VALNUS)
+				scoreP2 = enemy->score;
+		}
+
+	}
+
+	if (App->player->characters[0] != nullptr) {
+		App->player->characters[0]->score += scoreP1;
+	}
+	if (App->player->characters[1] != nullptr) {
+		App->player->characters[1]->score += scoreP2;
+	}
 
 }

@@ -22,7 +22,7 @@ Enemy_Drone::Enemy_Drone(int x, int y) : Enemy(x, y)
 
 	animation = &drone;
 
-	collider = App->collision->AddCollider({ 0, 0, 32, 35 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
+	collider = App->collision->AddCollider({ 0, 0, 32, 35 }, COLLIDER_TYPE::COLLIDER_ENEMY, NULL, (Module*)App->enemies);
 
 	original_pos.y = y;
 	original_pos.x = x;

@@ -13,7 +13,7 @@ Enemy_Vase::Enemy_Vase(int x, int y) : Enemy(x, y)
 
 	animation = &vase;
 
-	collider = App->collision->AddCollider({ 0, 0, 32, 49 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
+	collider = App->collision->AddCollider({ 0, 0, 32, 49 }, COLLIDER_TYPE::COLLIDER_ENEMY, NULL, (Module*)App->enemies);
 
 	original_pos.y = y;
 	original_pos.x = x;

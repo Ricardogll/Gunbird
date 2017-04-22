@@ -44,7 +44,7 @@ Character_Valnus::Character_Valnus(int x, int y) : Character(x, y)
 	// death sprite
 	death.PushBack({ 294, 443, 32, 37 });
 
-	collider = App->collision->AddCollider({ position.x, position.y, 31, 30 }, COLLIDER_PLAYER, (Module*)App->player);
+	collider = App->collision->AddCollider({ position.x, position.y, 31, 30 }, COLLIDER_PLAYER, VALNUS, (Module*)App->player);
 
 	animation = &idle;
 
@@ -163,7 +163,7 @@ void Character_Valnus::Dead() {
 				position.y -= 1;
 
 			else {
-				if (this->scroll == 0) {
+				if (App->render->scroll == 0) {
 					position.y = abs(App->render->camera.y / SCREEN_SIZE) + 240;
 					this->spawnPlayer = false;
 					this->playerDead = false;

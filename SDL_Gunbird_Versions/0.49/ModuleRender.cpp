@@ -24,6 +24,9 @@ bool ModuleRender::Init()
 	bool ret = true;
 	Uint32 flags = 0;
 
+	scroll = 0;
+	activateScroll = false;
+
 	if(REN_VSYNC == true)
 	{
 		flags |= SDL_RENDERER_PRESENTVSYNC;
@@ -51,6 +54,17 @@ update_status ModuleRender::PreUpdate()
 update_status ModuleRender::Update()	
 {
 	int speed = 30;
+
+	if (activateScroll == false)
+		scroll = 0;
+
+	if (activateScroll == true)
+		scroll += 0.5;
+
+	if (scroll == 1.5) {
+		App->render->camera.y += 1 * SCREEN_SIZE;
+		scroll = 0;
+	}
 
 	if (App->input->keyboard[SDL_SCANCODE_I] == KEY_STATE::KEY_REPEAT)
 		camera.y += speed;

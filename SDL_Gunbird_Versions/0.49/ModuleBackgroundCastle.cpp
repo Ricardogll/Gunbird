@@ -71,7 +71,7 @@ bool ModuleBackgroundCastle::Start()
 	bool ret = true;
 	gate = true;
 	choose_character = true;
-	scroll = 0;
+	App->render->activateScroll = true;
 
 	graphics = App->textures->Load("assets/backgrounds/Background castle.png");
 	animation_door = App->textures->Load("assets/particles/animations.png");
@@ -162,13 +162,14 @@ bool ModuleBackgroundCastle::Start()
 
 bool ModuleBackgroundCastle::CleanUp()
 {
-	App->ui->printPlayer2 = false;
 	App->ui->Disable();
 	App->enemies->Disable();
 	App->collision->Disable();
 	App->particles->Disable();
-
 	App->player->Disable();
+
+	App->ui->printPlayer2 = false;
+	App->render->activateScroll = false;
 
 	LOG("Unloading castle stage");
 	App->textures->Unload(graphics);
@@ -194,6 +195,7 @@ update_status ModuleBackgroundCastle::Update()
 
 	// Draw everything --------------------------------------
 	if (App->render->camera.y == -20 * SCREEN_SIZE) {
+		App->render->activateScroll = false;
 		App->render->camera.y = -20 * SCREEN_SIZE;
 		for (uint i = 0; i < 2; ++i) {
 			if(App->player->characters[1]!=nullptr)
@@ -204,19 +206,9 @@ update_status ModuleBackgroundCastle::Update()
 	}
 
 	else {
-		scroll += 0.5;
-		if (scroll == 1.5) {
+		if (App->render->scroll == 1.5) 
 			App->render->camera.y += 1 * SCREEN_SIZE;
-			scroll = 0;
-		}
 	}
-
-	/*for (uint i = 0; i < MAX_ENEMIES; ++i) {
-		if (App->enemies->enemies[i]->type == BUILDING) {
-			App->render->Blit(animation_flag, 177, 1049, &(flag.GetCurrentFrame()));
-		}
-
-	}*/
 
 	App->render->Blit(graphics, 0, 0, NULL);
 
@@ -271,41 +263,43 @@ void ModuleBackgroundCastle::choosePlayer2()
 				App->ui->selectPlayer2_ui = true;
 				choose_character = false;
 			}
-			if (App->ui->assignCharacter == true) {
-				if (App->ui->characterP2 == 1) {
-					App->player->AddCharacter(CHARACTER_TYPES::YUAN_NANG, App->render->camera.x + 150, abs(App->render->camera.y / SCREEN_SIZE) + 240, 1);
-					App->audio->PlayWAV(selection_yuan_nang_fx);
-					gate = false;
-					App->player->activatePlayer2 = false;
-					App->ui->printPlayer2 = true;
-				}
-				if (App->ui->characterP2 == 2) {
-					App->player->AddCharacter(CHARACTER_TYPES::MARION, App->render->camera.x + 150, abs(App->render->camera.y / SCREEN_SIZE) + 240, 1);
-					App->audio->PlayWAV(selection_marion_fx);
-					gate = false;
-					App->player->activatePlayer2 = false;
-					App->ui->printPlayer2 = true;
-				}
-				if (App->ui->characterP2 == 3) {
-					App->player->AddCharacter(CHARACTER_TYPES::ASH, App->render->camera.x + 150, abs(App->render->camera.y / SCREEN_SIZE) + 240, 1);
-					App->audio->PlayWAV(selection_ash_fx);
-					gate = false;
-					App->player->activatePlayer2 = false;
-					App->ui->printPlayer2 = true;
-				}
-				if (App->ui->characterP2 == 4) {
-					App->player->AddCharacter(CHARACTER_TYPES::TETSU, App->render->camera.x + 150, abs(App->render->camera.y / SCREEN_SIZE) + 240, 1);
-					App->audio->PlayWAV(selection_tetsu_fx);
-					gate = false;
-					App->player->activatePlayer2 = false;
-					App->ui->printPlayer2 = true;
-				}
-				if (App->ui->characterP2 == 5) {
-					App->player->AddCharacter(CHARACTER_TYPES::VALNUS, App->render->camera.x + 150, abs(App->render->camera.y / SCREEN_SIZE) + 240, 1);
-					App->audio->PlayWAV(selection_valnus_fx);
-					gate = false;
-					App->player->activatePlayer2 = false;
-					App->ui->printPlayer2 = true;
+			if (App->render->scroll == 0.5) {
+				if (App->ui->assignCharacter == true) {
+					if (App->ui->characterP2 == 1) {
+						App->player->AddCharacter(CHARACTER_TYPES::YUAN_NANG, App->render->camera.x + 150, abs(App->render->camera.y / SCREEN_SIZE) + 240, 1);
+						App->audio->PlayWAV(selection_yuan_nang_fx);
+						gate = false;
+						App->player->activatePlayer2 = false;
+						App->ui->printPlayer2 = true;
+					}
+					if (App->ui->characterP2 == 2) {
+						App->player->AddCharacter(CHARACTER_TYPES::MARION, App->render->camera.x + 150, abs(App->render->camera.y / SCREEN_SIZE) + 240, 1);
+						App->audio->PlayWAV(selection_marion_fx);
+						gate = false;
+						App->player->activatePlayer2 = false;
+						App->ui->printPlayer2 = true;
+					}
+					if (App->ui->characterP2 == 3) {
+						App->player->AddCharacter(CHARACTER_TYPES::ASH, App->render->camera.x + 150, abs(App->render->camera.y / SCREEN_SIZE) + 240, 1);
+						App->audio->PlayWAV(selection_ash_fx);
+						gate = false;
+						App->player->activatePlayer2 = false;
+						App->ui->printPlayer2 = true;
+					}
+					if (App->ui->characterP2 == 4) {
+						App->player->AddCharacter(CHARACTER_TYPES::TETSU, App->render->camera.x + 150, abs(App->render->camera.y / SCREEN_SIZE) + 240, 1);
+						App->audio->PlayWAV(selection_tetsu_fx);
+						gate = false;
+						App->player->activatePlayer2 = false;
+						App->ui->printPlayer2 = true;
+					}
+					if (App->ui->characterP2 == 5) {
+						App->player->AddCharacter(CHARACTER_TYPES::VALNUS, App->render->camera.x + 150, abs(App->render->camera.y / SCREEN_SIZE) + 240, 1);
+						App->audio->PlayWAV(selection_valnus_fx);
+						gate = false;
+						App->player->activatePlayer2 = false;
+						App->ui->printPlayer2 = true;
+					}
 				}
 			}
 		}

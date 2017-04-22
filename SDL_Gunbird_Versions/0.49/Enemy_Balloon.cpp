@@ -20,7 +20,7 @@ Enemy_Balloon::Enemy_Balloon(int x, int y) : Enemy(x, y)
 
 	animation = &balloon;
 
-	collider = App->collision->AddCollider({ 0, 0, 43, 53 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
+	collider = App->collision->AddCollider({ 0, 0, 43, 53 }, COLLIDER_TYPE::COLLIDER_ENEMY, NULL, (Module*)App->enemies);
 
 	original_pos.y = y;
 	original_pos.x = x;

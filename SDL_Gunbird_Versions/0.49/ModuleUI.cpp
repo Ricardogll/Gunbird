@@ -8,6 +8,9 @@
 #include "ModuleCharacterSelection.h"
 #include "ModuleFonts.h"
 #include <stdio.h>
+#include "SDL/include/SDL_render.h"
+
+#include "ModuleBackgroundCastle.h"
 
 ModuleUI::ModuleUI()
 {
@@ -15,25 +18,25 @@ ModuleUI::ModuleUI()
 	start.PushBack({ 12, 12, 68, 15 });
 	start.PushBack({ 0, 0, 0, 0 });
 	start.PushBack({ 0, 0, 0, 0 });
-	start.speed = 0.15f;
-
-	start_selection.PushBack({ 92, 14, 68, 15 });
-	start_selection.PushBack({ 12, 12, 68, 15 });
-	start_selection.PushBack({ 0, 0, 0, 0 });
-	start_selection.PushBack({ 0, 0, 0, 0 });
-	start_selection.speed = 0.08f;
+	start.speed = 0.08f;
 
 	insert_coins.PushBack({ 86, 59, 77, 13 });
 	insert_coins.PushBack({ 86, 59, 77, 13 });
 	insert_coins.PushBack({ 0, 0, 0, 0 });
 	insert_coins.PushBack({ 0, 0, 0, 0 });
-	insert_coins.speed = 0.15f;
+	insert_coins.speed = 0.08f;
 
-	insert_coins_selection.PushBack({ 86, 59, 77, 13 });
-	insert_coins_selection.PushBack({ 86, 59, 77, 13 });
-	insert_coins_selection.PushBack({ 0, 0, 0, 0 });
-	insert_coins_selection.PushBack({ 0, 0, 0, 0 });
-	insert_coins_selection.speed = 0.08f;
+
+	//CONTINUE 
+	gameover_continue.x = 86;
+	gameover_continue.y = 40;
+	gameover_continue.w = 71;
+	gameover_continue.h = 12;
+
+	gameover_icon.x = 124;
+	gameover_icon.y = 235;
+	gameover_icon.w = 124;
+	gameover_icon.h = 16;
 
 
 	//ICONS PLAYERS
@@ -62,6 +65,12 @@ ModuleUI::ModuleUI()
 	select.y = 76;
 	select.w = 35;
 	select.h = 18;
+
+	time_icon.x = 212;
+	time_icon.y = 20;
+	time_icon.w = 29;
+	time_icon.h = 8;
+
 
 	//PORTRAITS
 	portraits[0].x = 73; //YUAN NANG
@@ -115,7 +124,6 @@ ModuleUI::ModuleUI()
 	live[4].w = 15;
 	live[4].h = 12;
 
-
 	credit_number1.PushBack({ 181, 37, 8, 11 });
 	credit_number2.PushBack({ 183, 57, 8, 11 });
 	credit_number3.PushBack({ 183, 78, 8, 11 });
@@ -125,6 +133,8 @@ ModuleUI::ModuleUI()
 	credit_number7.PushBack({ 182, 159, 8, 11 });
 	credit_number8.PushBack({ 183, 179, 8, 11 });
 	credit_number9.PushBack({ 183, 200, 8, 11 });
+
+	black_screen = { 0, 0, SCREEN_WIDTH * SCREEN_SIZE, SCREEN_HEIGHT * SCREEN_SIZE };
 }
 
 ModuleUI::~ModuleUI()
@@ -135,10 +145,13 @@ bool ModuleUI::Start()
 {
 	bool ret = true;
 
+	activatePlayer1_ui = true;
+
 	if (App->player->characters[1] == nullptr)
 		activatePlayer2_ui = false;
 
 	assignCharacter = false;
+	activateGameOver_ui == false;
 	selection_character = 0;
 	characterP2 = 0;
 	
@@ -157,6 +170,8 @@ bool ModuleUI::Start()
 bool ModuleUI::CleanUp()
 {
 	bool ret = true;
+
+	activateGameOver_ui = false;
 
 	LOG("Unloading screen UI");
 	App->textures->Unload(graphics);
@@ -179,12 +194,12 @@ update_status ModuleUI::Update()
 		}
 		if (characterselection_ui == true && App->player->coins != 0 && App->player->activatePlayer2 == false) {
 			//Animation START
-			Animation* current_animation = &start_selection;
+			Animation* current_animation = &start;
 			SDL_Rect r = current_animation->GetCurrentFrame();
 			App->render->Blit(graphics, 120, abs(App->render->camera.y / SCREEN_SIZE) + 5, &r);
 		}
 		if (titlescreen_ui == true) {
-			Animation* current_animation = &start_selection;
+			Animation* current_animation = &start;
 			SDL_Rect r = current_animation->GetCurrentFrame();
 			App->render->Blit(graphics, 75, abs(App->render->camera.y / SCREEN_SIZE) + 224, &r);
 		}
@@ -230,7 +245,7 @@ update_status ModuleUI::Update()
 		}
 		if (App->player->coins == 0 && App->player->activatePlayer2 == false) {
 			if (characterselection_ui == true) {
-				Animation* current_animation2 = &insert_coins_selection;
+				Animation* current_animation2 = &insert_coins;
 				SDL_Rect r2 = current_animation2->GetCurrentFrame();
 				App->render->Blit(graphics, 118, abs(App->render->camera.y / SCREEN_SIZE) + 6, &r2, 1.0f);
 			}
@@ -243,27 +258,27 @@ update_status ModuleUI::Update()
 	}
 
 	//Player 1 icons
-	if (App->player->characters[0] != nullptr) {
-		(App->render->Blit(graphics, 5, abs(App->render->camera.y / SCREEN_SIZE) + 6, &iconP1, 1.0f));
-		
-		char str[10];
-		sprintf_s(str, "%i", App->player->characters[0]->score);
-		App->fonts->BlitText(68, abs(App->render->camera.y / SCREEN_SIZE) + 6, font_score, str);
+	if (activatePlayer1_ui == true) {
+		if (App->player->characters[0] != nullptr) {
+			(App->render->Blit(graphics, 5, abs(App->render->camera.y / SCREEN_SIZE) + 6, &iconP1, 1.0f));
 
+			scoreCharacter(0);
+			liveCharacter(0);
 
-		liveCharacter(0);
-		if (App->player->characters[0]->bombs >= 1) {
-			(App->render->Blit(graphics, 5, abs(App->render->camera.y / SCREEN_SIZE) + 300, &bombPlayer, 1.0f));
+			if (App->player->characters[0]->bombs >= 1) {
+				(App->render->Blit(graphics, 5, abs(App->render->camera.y / SCREEN_SIZE) + 300, &bombPlayer, 1.0f));
+			}
+
+			if (App->player->characters[0]->bombs >= 2) {
+				(App->render->Blit(graphics, 20, abs(App->render->camera.y / SCREEN_SIZE) + 300, &bombPlayer, 1.0f));
+			}
+
+			if (App->player->characters[0]->bombs >= 3) {
+				(App->render->Blit(graphics, 35, abs(App->render->camera.y / SCREEN_SIZE) + 300, &bombPlayer, 1.0f));
+			} //NO SE CUAL ES EL NUMERO MAXIMO DE BOMBS QUE UN PLAYER PUEDE TENER XD
 		}
-
-		if (App->player->characters[0]->bombs >= 2) {
-			(App->render->Blit(graphics, 20, abs(App->render->camera.y / SCREEN_SIZE) + 300, &bombPlayer, 1.0f));
-		}
-
-		if (App->player->characters[0]->bombs >= 3) {
-			(App->render->Blit(graphics, 35, abs(App->render->camera.y / SCREEN_SIZE) + 300, &bombPlayer, 1.0f));
-		} //NO SE CUAL ES EL NUMERO MAXIMO DE BOMBS QUE UN PLAYER PUEDE TENER XD
 	}
+	
 	//Player 2 icons 
 	if (activatePlayer2_ui == true) {
 		if (selectPlayer2_ui == true) {
@@ -273,8 +288,11 @@ update_status ModuleUI::Update()
 
 		if (selectPlayer2_ui == false && printPlayer2 == true) {
 			if (time > 1) {
-				(App->render->Blit(graphics, 112, abs(App->render->camera.y / SCREEN_SIZE) + 5, &iconP2, 1.0f));
+				(App->render->Blit(graphics, 112, abs(App->render->camera.y / SCREEN_SIZE) + 6, &iconP2, 1.0f));
+		
+				scoreCharacter(1);
 				liveCharacter(1);
+
 				if (App->player->characters[1]->bombs >= 1) {
 					(App->render->Blit(graphics, 112, abs(App->render->camera.y / SCREEN_SIZE) + 300, &bombPlayer, 1.0f));
 				}
@@ -290,6 +308,48 @@ update_status ModuleUI::Update()
 				time++;
 		}
 	}
+
+	if (App->player->characters[0] != nullptr) {
+		if (App->player->characters[0]->live == -1)
+			activateGameOver_ui = true;
+	}
+
+	if (activateGameOver_ui == true) {
+		SDL_SetRenderDrawColor(App->render->renderer, 0, 0, 0, (Uint8)(130.0f));
+		SDL_RenderFillRect(App->render->renderer, &black_screen);
+
+		App->render->activateScroll = false;
+
+		activatePlayer1_ui = false;
+		activatePlayer2_ui = false;
+
+		App->render->Blit(graphics, 50, abs(App->render->camera.y / SCREEN_SIZE) + 104, &gameover_icon, 1.0f);
+		App->render->Blit(graphics, 50, abs(App->render->camera.y / SCREEN_SIZE) + 140, &gameover_continue, 1.0f);
+
+		Animation* current_animation4 = &insert_coins;
+		SDL_Rect r4 = current_animation4->GetCurrentFrame();
+		App->render->Blit(graphics, 118, abs(App->render->camera.y / SCREEN_SIZE) + 6, &r4, 1.0f); 
+		App->render->Blit(graphics, 6, abs(App->render->camera.y / SCREEN_SIZE) + 6, &r4, 1.0f);
+
+		if (App->player->characters[0]->position.y > ((abs(App->render->camera.y) + (SCREEN_HEIGHT*SCREEN_SIZE))) / SCREEN_SIZE)
+			App->player->characters[0]->position.y = ((abs(App->render->camera.y) + (SCREEN_HEIGHT*SCREEN_SIZE))) / SCREEN_SIZE; //ARREGLAR ESTO
+
+		if (App->input->keyboard[SDL_SCANCODE_BACKSPACE] == KEY_STATE::KEY_DOWN) {
+			activatePlayer1_ui = true;
+
+			if (App->player->characters[1] != nullptr)
+				activatePlayer2_ui = false;
+
+			App->player->characters[0]->position.x = App->render->camera.x; 
+			App->player->characters[0]->position.y = abs(App->render->camera.y / SCREEN_SIZE) + 240;
+			App->render->activateScroll = true;
+
+			App->player->characters[0]->live = 2;
+			activateGameOver_ui = false;
+		}
+		
+	}
+	
 	return UPDATE_CONTINUE;
 }
 
@@ -466,5 +526,48 @@ void ModuleUI::liveCharacter(uint player)
 		if (App->player->characters[player]->live >= 2) {
 			(App->render->Blit(graphics, 22 + cont, abs(App->render->camera.y / SCREEN_SIZE) + 21, &live[4], 1.0f));
 		}
+	}
+}
+
+void ModuleUI::scoreCharacter(uint player)
+{
+	if (player == 0)
+	{
+		char str[10];
+		sprintf_s(str, "%i", App->player->characters[0]->score);
+		if (App->player->characters[0]->score == 0) 
+			App->fonts->BlitText(68, abs(App->render->camera.y / SCREEN_SIZE) + 6, font_score, str);
+		if (App->player->characters[0]->score < 10 && App->player->characters[0]->score >= 0)
+			App->fonts->BlitText(76, abs(App->render->camera.y / SCREEN_SIZE) + 6, font_score, str);
+		if (App->player->characters[0]->score < 100 && App->player->characters[0]->score >= 10)
+			App->fonts->BlitText(68, abs(App->render->camera.y / SCREEN_SIZE) + 6, font_score, str);
+		if (App->player->characters[0]->score < 1000 && App->player->characters[0]->score >= 100)
+			App->fonts->BlitText(60, abs(App->render->camera.y / SCREEN_SIZE) + 6, font_score, str);
+		if (App->player->characters[0]->score < 10000 && App->player->characters[0]->score >= 1000)
+			App->fonts->BlitText(52, abs(App->render->camera.y / SCREEN_SIZE) + 6, font_score, str);
+		if (App->player->characters[0]->score < 100000 && App->player->characters[0]->score >= 10000)
+			App->fonts->BlitText(44, abs(App->render->camera.y / SCREEN_SIZE) + 6, font_score, str);
+		if (App->player->characters[0]->score < 1000000 && App->player->characters[0]->score >= 100000)
+			App->fonts->BlitText(36, abs(App->render->camera.y / SCREEN_SIZE) + 6, font_score, str);
+	}
+
+	if (player == 1)
+	{
+		char str[10];
+		sprintf_s(str, "%i", App->player->characters[1]->score);
+		if (App->player->characters[1]->score == 0)
+			App->fonts->BlitText(180, abs(App->render->camera.y / SCREEN_SIZE) + 6, font_score, str);
+		if (App->player->characters[1]->score < 10 && App->player->characters[1]->score >= 0)
+			App->fonts->BlitText(188, abs(App->render->camera.y / SCREEN_SIZE) + 6, font_score, str);
+		if (App->player->characters[1]->score < 100 && App->player->characters[1]->score >= 10)
+			App->fonts->BlitText(180, abs(App->render->camera.y / SCREEN_SIZE) + 6, font_score, str);
+		if (App->player->characters[1]->score < 1000 && App->player->characters[1]->score >= 100)
+			App->fonts->BlitText(172, abs(App->render->camera.y / SCREEN_SIZE) + 6, font_score, str);
+		if (App->player->characters[1]->score < 10000 && App->player->characters[1]->score >= 1000)
+			App->fonts->BlitText(164, abs(App->render->camera.y / SCREEN_SIZE) + 6, font_score, str);
+		if (App->player->characters[1]->score < 100000 && App->player->characters[1]->score >= 10000)
+			App->fonts->BlitText(156, abs(App->render->camera.y / SCREEN_SIZE) + 6, font_score, str);
+		if (App->player->characters[1]->score < 1000000 && App->player->characters[1]->score >= 100000)
+			App->fonts->BlitText(148, abs(App->render->camera.y / SCREEN_SIZE) + 6, font_score, str);
 	}
 }

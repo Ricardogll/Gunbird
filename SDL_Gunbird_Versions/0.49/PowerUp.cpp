@@ -33,10 +33,12 @@ PowerUp::PowerUp(int x, int y) : Enemy(x, y)
 
 	animation = &anim;
 
+	score = 2000;
+
 	position.x = x;
 	position.y = y;
 
-	collider = App->collision->AddCollider({ 0, 0, 22, 13 }, COLLIDER_TYPE::COLLIDER_POWER_UP, (Module*)App->enemies);
+	collider = App->collision->AddCollider({ 0, 0, 22, 13 }, COLLIDER_TYPE::COLLIDER_POWER_UP, NULL, (Module*)App->enemies);
 
 	up = true;
 	left = true;

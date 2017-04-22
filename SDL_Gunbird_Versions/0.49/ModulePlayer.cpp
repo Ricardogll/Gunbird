@@ -224,12 +224,14 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 				App->audio->PlayWAV(ash_powerup_limit);
 				if (characters[i]->type == CHARACTER_TYPES::VALNUS && characters[i]->level == 3)
 				App->audio->PlayWAV(valnus_powerup_limit);
+
+				characters[i]->score += 2000;
 			}
 
 			characters[i]->OnCollision(c2);
 			if (c2->type == COLLIDER_ENEMY_SHOT)
 			{
-				if (characters[i]->live > 0)
+				if (characters[i]->live >= 0)
 					characters[i]->live--;
 
 				if (characters[i]->type == CHARACTER_TYPES::YUAN_NANG)

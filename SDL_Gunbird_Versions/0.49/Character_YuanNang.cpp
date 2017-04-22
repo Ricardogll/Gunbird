@@ -58,7 +58,7 @@ Character_YuanNang::Character_YuanNang(int x, int y) : Character(x, y)
 	// death sprite
 	death.PushBack({ 23, 965, 30, 30 });
 
-	collider = App->collision->AddCollider({ position.x, position.y, 27, 48 }, COLLIDER_PLAYER, (Module*)App->player);
+	collider = App->collision->AddCollider({ position.x, position.y, 27, 48 }, COLLIDER_PLAYER, YUAN_NANG,(Module*)App->player);
 
 	animation = &idle;
 
@@ -315,7 +315,7 @@ void Character_YuanNang::Laser() {
 }
 
 void Character_YuanNang::Dead() {
-	if (this->playerDead == true) {
+	if (this->playerDead == true && this->live != -1) {
 		animation = &death;
 		this->desactivateInput = true;
 

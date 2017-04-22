@@ -21,7 +21,7 @@ Enemy_Missile::Enemy_Missile(int x, int y) : Enemy(x, y)
 
 	animation = &missile;
 
-	collider = App->collision->AddCollider({ 0, 0, 18, 32 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
+	collider = App->collision->AddCollider({ 0, 0, 18, 32 }, COLLIDER_TYPE::COLLIDER_ENEMY, NULL, (Module*)App->enemies);
 
 	original_pos.y = y;
 	original_pos.x = x;

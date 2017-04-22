@@ -36,7 +36,6 @@ public:
 	SDL_Rect background;
 	bool gate;
 	bool choose_character;
-	float scroll;
 
 	//Audio Characters P2
 	uint selection_yuan_nang_fx;

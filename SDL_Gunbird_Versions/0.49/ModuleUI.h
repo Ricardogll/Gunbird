@@ -20,6 +20,7 @@ public:
 
 	void choosePlayer2();
 	void liveCharacter(uint player);
+	void scoreCharacter(uint player);
 
 public:
 
@@ -30,13 +31,15 @@ public:
 	SDL_Rect bombPlayer;
 	SDL_Rect credit;
 	SDL_Rect select;
+	SDL_Rect time_icon;
+	SDL_Rect gameover_continue;
+	SDL_Rect gameover_icon;
 	SDL_Rect portraits[5];
 	SDL_Rect live[5];
+	SDL_Rect black_screen;
 
 	Animation start;
-	Animation start_selection;
 	Animation insert_coins;
-	Animation insert_coins_selection;
 	Animation credit_number1;
 	Animation credit_number2;
 	Animation credit_number3;
@@ -51,12 +54,14 @@ public:
 
 	uint characterP2;
 	int selection_character;
+	bool activatePlayer1_ui;
 	bool activatePlayer2_ui;
 	bool characterselection_ui;
 	bool titlescreen_ui;
 	bool selectPlayer2_ui;
 	bool printPlayer2;
 	bool assignCharacter;
+	bool activateGameOver_ui;
 
 	int font_score = -1;
 	char score_text[10];

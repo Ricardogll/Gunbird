@@ -42,7 +42,7 @@ Character_Ash::Character_Ash(int x, int y) : Character(x, y)
 	// death sprite
 	death.PushBack({ 289, 395, 31, 26 });
 
-	collider = App->collision->AddCollider({ position.x, position.y, 19, 32 }, COLLIDER_PLAYER, (Module*)App->player);
+	collider = App->collision->AddCollider({ position.x, position.y, 19, 32 }, COLLIDER_PLAYER, ASH, (Module*)App->player);
 
 	animation = &idle;
 

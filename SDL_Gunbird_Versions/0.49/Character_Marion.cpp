@@ -51,7 +51,7 @@ Character_Marion::Character_Marion(int x, int y) : Character(x, y)
 	//death sprite
 	death.PushBack({ 215, 180, 32, 28 });
 
-	collider = App->collision->AddCollider({ position.x, position.y, 20, 32 }, COLLIDER_PLAYER, (Module*)App->player);
+	collider = App->collision->AddCollider({ position.x, position.y, 20, 32 }, COLLIDER_PLAYER, MARION, (Module*)App->player);
 
 	animation = &idle;
 

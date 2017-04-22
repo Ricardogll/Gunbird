@@ -213,7 +213,7 @@ Character_Tetsu::Character_Tetsu(int x, int y) : Character(x, y)
 	mright.loop = true;
 	mright.speed = 0.25f;
 
-	collider = App->collision->AddCollider({ position.x, position.y, 30, 37 }, COLLIDER_PLAYER, (Module*)App->player);
+	collider = App->collision->AddCollider({ position.x, position.y, 30, 37 }, COLLIDER_PLAYER, TETSU, (Module*)App->player);
 
 	animation = &idle;
 
