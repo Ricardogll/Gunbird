@@ -146,6 +146,9 @@
     <ClInclude Include="ModuleFonts.h">
       <Filter>Modules</Filter>
     </ClInclude>
+    <ClInclude Include="Coin.h">
+      <Filter>Modules\Enemies\Items</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -255,6 +258,9 @@
     </ClCompile>
     <ClCompile Include="ModuleFonts.cpp">
       <Filter>Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="Coin.cpp">
+      <Filter>Modules\Enemies\Items</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

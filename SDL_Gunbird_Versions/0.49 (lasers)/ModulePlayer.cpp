@@ -227,6 +227,20 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 
 				characters[i]->score += 2000;
 			}
+			characters[i]->OnCollision(c2);
+			if (c2->type == COLLIDER_COIN)
+			{
+				if (characters[i]->type == CHARACTER_TYPES::YUAN_NANG)
+					characters[i]->score += 200;
+				if (characters[i]->type == CHARACTER_TYPES::MARION  )
+					characters[i]->score += 200;
+				if (characters[i]->type == CHARACTER_TYPES::TETSU  )
+					characters[i]->score += 200;
+				if (characters[i]->type == CHARACTER_TYPES::ASH)
+					characters[i]->score += 200;
+				if (characters[i]->type == CHARACTER_TYPES::VALNUS )
+					characters[i]->score += 200;
+			}
 
 			characters[i]->OnCollision(c2);
 			if (c2->type == COLLIDER_ENEMY_SHOT)

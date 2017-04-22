@@ -141,6 +141,11 @@ bool ModuleBackgroundCastle::Start()
 	App->enemies->AddEnemy(ENEMY_TYPES::MISSILE, BUILDING_CASTLE, 60, 1200);
 	App->enemies->AddEnemy(ENEMY_TYPES::MISSILE, BUILDING_CASTLE, 30, 1170);
 	App->enemies->AddEnemy(ENEMY_TYPES::MISSILE, BUILDING_CASTLE, 10, 1140);
+	//COIN
+	App->enemies->AddEnemy(ENEMY_TYPES::COIN, NO_MOVE, 20, 699);
+	App->enemies->AddEnemy(ENEMY_TYPES::COIN, NO_MOVE, 195, 699);
+	App->enemies->AddEnemy(ENEMY_TYPES::COIN, NO_MOVE, 20, 489);
+	App->enemies->AddEnemy(ENEMY_TYPES::COIN, NO_MOVE, 195, 489);
 
 	//VASE
 	App->enemies->AddEnemy(ENEMY_TYPES::VASE, NO_MOVE, 10, 690);
@@ -148,8 +153,10 @@ bool ModuleBackgroundCastle::Start()
 	App->enemies->AddEnemy(ENEMY_TYPES::VASE, NO_MOVE, 10, 475);
 	App->enemies->AddEnemy(ENEMY_TYPES::VASE, NO_MOVE, 185, 475);
 
+	
+
 	//DRONE
-	/*	App->enemies->AddEnemy(ENEMY_TYPES::DRONE, DRONE_CASTLE, 42, 1042);
+	/*App->enemies->AddEnemy(ENEMY_TYPES::DRONE, DRONE_CASTLE, 42, 1042);
 	App->enemies->AddEnemy(ENEMY_TYPES::DRONE, DRONE_CASTLE, 55, 1080);
 	App->enemies->AddEnemy(ENEMY_TYPES::DRONE, DRONE_CASTLE, 75, 1042);*/
 

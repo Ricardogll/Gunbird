@@ -12,6 +12,7 @@
 #include "Enemy_building2.h"
 #include "Enemy_vase.h"
 #include "Enemy_drone.h"
+#include "coin.h"
 #include "Enemy_Missile.h"
 
 #include "PowerUp.h"
@@ -189,6 +190,10 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 			enemies[i] = new PowerUp(info.x, info.y);
 			enemies[i]->type = ENEMY_TYPES::POWERUP;
 			break;
+		case ENEMY_TYPES::COIN:
+			enemies[i] = new Coin (info.x, info.y);
+			enemies[i]->type = ENEMY_TYPES::COIN;
+			break;
 		case ENEMY_TYPES::BUILDING:
 			enemies[i] = new Enemy_Building(info.x, info.y);
 			enemies[i]->type = ENEMY_TYPES::BUILDING;
@@ -213,6 +218,7 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 				default:
 					break;
 				}
+			
 
 		}
 	}
@@ -287,6 +293,11 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 			}
 			//Erase Power Up when the player grabs it
 			else if (enemies[i]->type == ENEMY_TYPES::POWERUP && c2->type == COLLIDER_TYPE::COLLIDER_PLAYER) {
+				delete enemies[i];
+				enemies[i] = nullptr;
+				break;
+			}
+			else if (enemies[i]->type == ENEMY_TYPES::COIN&& c2->type == COLLIDER_TYPE::COLLIDER_PLAYER) {
 				delete enemies[i];
 				enemies[i] = nullptr;
 				break;
