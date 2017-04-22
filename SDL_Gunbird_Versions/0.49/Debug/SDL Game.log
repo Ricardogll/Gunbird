@@ -1,7 +1,2 @@
-﻿  ModuleBackgroundCastle.cpp
-c:\users\adrià gironès\desktop\0.49\path.h(6): warning C4099: 'Animation': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
-  c:\users\adrià gironès\desktop\0.49\animation.h(47): note: vea la declaración de 'Animation'
-c:\users\adrià gironès\desktop\0.49\enemy.h(8): warning C4099: 'Path': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
-  c:\users\adrià gironès\desktop\0.49\path.h(17): note: vea la declaración de 'Path'
-  SDL Game.vcxproj -> C:\Users\Adrià Gironès\Desktop\0.49\Debug\Gunbird.exe
-  SDL Game.vcxproj -> C:\Users\Adrià Gironès\Desktop\0.49\Debug\Gunbird.pdb (Full PDB)
+﻿  SDL Game.vcxproj -> C:\Users\David\Desktop\Gunbird\SDL_Gunbird_Versions\0.49\Debug\Gunbird.exe
+  SDL Game.vcxproj -> C:\Users\David\Desktop\Gunbird\SDL_Gunbird_Versions\0.49\Debug\Gunbird.pdb (Full PDB)

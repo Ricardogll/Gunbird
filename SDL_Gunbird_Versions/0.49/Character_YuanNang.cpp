@@ -88,8 +88,12 @@ void Character_YuanNang::Move()
 		if ((App->player->characters[0]->type == YUAN_NANG && App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT) ||
 			(App->player->characters[1] != nullptr && App->player->characters[1]->type == YUAN_NANG && App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT))
 		{
-			animation = &right;
-			animation = &mright;
+			if (animation != &right)
+				animation = &right;
+
+			if (right.Finished())
+				animation = &mright;
+
 			position.x += speed;
 			if (position.x > (SCREEN_WIDTH - 27)) {
 				position.x = (SCREEN_WIDTH - 27);
