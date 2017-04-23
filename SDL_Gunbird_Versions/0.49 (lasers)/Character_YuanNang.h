@@ -6,12 +6,12 @@
 class Character_YuanNang : public Character
 {
 private:
-	Animation idle;
-	Animation right;
-	Animation mright;
-	Animation left;
-	Animation mleft;
-	Animation death;
+	Animation blit_idle;
+	Animation blit_right;
+	Animation blit_mright;
+	Animation blit_left;
+	Animation blit_mleft;
+	Animation blit_death;
 
 	iPoint original_pos;
 

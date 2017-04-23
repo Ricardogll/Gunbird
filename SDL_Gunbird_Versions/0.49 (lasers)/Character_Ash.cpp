@@ -10,47 +10,47 @@
 Character_Ash::Character_Ash(int x, int y) : Character(x, y)
 {
 	// idle animation
-	idle.PushBack({ 217, 223, 19, 32 }); //1
-	idle.PushBack({ 246, 223, 19, 32 }); //2
+	blit_idle.PushBack({ 217, 223, 19, 32 }); //1
+	blit_idle.PushBack({ 0,0,0,0 }); //2
 
-	idle.speed = 0.2f;
+	blit_idle.speed = 0.2f;
 
 	// left animation
-	left.PushBack({ 219, 265, 17, 32 });
-	left.PushBack({ 246, 265, 17, 32 });
-	left.loop = false;
-	left.speed = 0.2f;
+	blit_left.PushBack({ 219, 265, 17, 32 });
+	blit_left.PushBack({ 0, 0, 0,0 });
+	blit_left.loop = false;
+	blit_left.speed = 0.2f;
 
 	// more left animation
-	mleft.PushBack({ 273, 265, 14, 32 });
-	mleft.PushBack({ 297, 265, 14, 32 });
-	mleft.loop = true;
-	mleft.speed = 0.2f;
+	blit_mleft.PushBack({ 273, 265, 14, 32 });
+	blit_mleft.PushBack({ 0, 0, 0, 0 });
+	blit_mleft.loop = true;
+	blit_mleft.speed = 0.2f;
 
 	// right animation
-	right.PushBack({ 266, 307, 17, 32 });
-	right.PushBack({ 293, 307, 17, 32 });
-	right.loop = false;
-	right.speed = 0.2f;
+	blit_right.PushBack({ 266, 307, 17, 32 });
+	blit_right.PushBack({ 0,0,0,0 });
+	blit_right.loop = false;
+	blit_right.speed = 0.2f;
 
 	// more right animation
-	mright.PushBack({ 218, 307, 14, 32 });
-	mright.PushBack({ 242, 307, 14, 32 });
-	mright.loop = true;
-	mright.speed = 0.2f;
+	blit_mright.PushBack({ 218, 307, 14, 32 });
+	blit_mright.PushBack({ 0, 0, 0,0 });
+	blit_mright.loop = true;
+	blit_mright.speed = 0.2f;
 
 	// death sprite
-	death.PushBack({ 289, 395, 31, 26 });
+	blit_death.PushBack({ 289, 395, 31, 26 });
 
 	collider = App->collision->AddCollider({ position.x, position.y, 19, 32 }, COLLIDER_PLAYER, ASH, (Module*)App->player);
 
-	animation = &idle;
+	animation = &blit_idle;
 
 }
 
 void Character_Ash::Move()
 {
-	animation = &idle;
+	animation = &blit_idle;
 
 	int speed = SPEED_CHARACTER;
 
@@ -71,8 +71,8 @@ void Character_Ash::Move()
 		if ((App->player->characters[0]->type == ASH && App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT) ||
 			(App->player->characters[1] != nullptr && App->player->characters[1]->type == ASH && App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT))
 		{
-			animation = &right;
-			animation = &mright;
+			animation = &blit_right;
+			animation = &blit_mright;
 			position.x += speed;
 			if (position.x > (SCREEN_WIDTH - 19)) {
 				position.x = (SCREEN_WIDTH - 19);
@@ -82,8 +82,8 @@ void Character_Ash::Move()
 		if ((App->player->characters[0]->type == ASH && App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_REPEAT) ||
 			(App->player->characters[1] != nullptr && App->player->characters[1]->type == ASH && App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT))
 		{
-			animation = &left;
-			animation = &mleft;
+			animation = &blit_left;
+			animation = &blit_mleft;
 			position.x -= speed;
 			if (position.x < 0) {
 				position.x = 0;
@@ -93,7 +93,7 @@ void Character_Ash::Move()
 		if ((App->player->characters[0]->type == ASH && App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_REPEAT) ||
 			(App->player->characters[1] != nullptr && App->player->characters[1]->type == ASH && App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT))
 		{
-			animation = &idle;
+			animation = &blit_idle;
 			position.y -= speed;
 			if (position.y < (abs(App->render->camera.y) / SCREEN_SIZE)) {
 				position.y = (abs(App->render->camera.y) / SCREEN_SIZE);
@@ -103,7 +103,7 @@ void Character_Ash::Move()
 		if ((App->player->characters[0]->type == ASH && App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_STATE::KEY_REPEAT) ||
 			(App->player->characters[1] != nullptr && App->player->characters[1]->type == ASH && App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT))
 		{
-			animation = &idle;
+			animation = &blit_idle;
 			position.y += speed;
 			if (position.y > ((abs(App->render->camera.y) + (SCREEN_HEIGHT*SCREEN_SIZE))) / SCREEN_SIZE - 32) {
 				position.y = (abs(App->render->camera.y) + (SCREEN_HEIGHT*SCREEN_SIZE)) / SCREEN_SIZE - 32;
@@ -112,23 +112,23 @@ void Character_Ash::Move()
 
 		if ((App->player->characters[0]->type == ASH && App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT) ||
 			(App->player->characters[1] != nullptr && App->player->characters[1]->type == ASH && App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT))
-			animation = &right;
+			animation = &blit_right;
 
 		if ((App->player->characters[0]->type == ASH && App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_REPEAT) ||
 			(App->player->characters[1] != nullptr && App->player->characters[1]->type == ASH && App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT))
-			animation = &left;
+			animation = &blit_left;
 
 		if ((App->player->characters[0]->type == ASH && App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT) ||
 			(App->player->characters[1] != nullptr && App->player->characters[1]->type == ASH && App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT))
-			animation = &right;
+			animation = &blit_right;
 
 		if ((App->player->characters[0]->type == ASH && App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_REPEAT) ||
 			(App->player->characters[1] != nullptr && App->player->characters[1]->type == ASH && App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT))
-			animation = &left;
+			animation = &blit_left;
 
 		if ((App->player->characters[0]->type == ASH && App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT) ||
 			(App->player->characters[1] != nullptr && App->player->characters[1]->type == ASH && App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT))
-			animation = &idle;
+			animation = &blit_idle;
 	}
 }
 
@@ -298,7 +298,7 @@ void Character_Ash::Laser() {
 
 void Character_Ash::Dead() {
 	if (this->playerDead == true) {
-		animation = &death;
+		animation = &blit_death;
 		this->desactivateInput = true;
 
 		if (this->spawnPlayer == false && position.y <= 50 + ((abs(App->render->camera.y) + (SCREEN_HEIGHT*SCREEN_SIZE))) / SCREEN_SIZE)
@@ -315,7 +315,7 @@ void Character_Ash::Dead() {
 				}
 			}
 
-			animation = &idle;
+			animation = &blit_idle;
 
 			if (position.y >= ((abs(App->render->camera.y) + (SCREEN_HEIGHT*SCREEN_SIZE))) / SCREEN_SIZE - 80)
 				position.y -= 1;

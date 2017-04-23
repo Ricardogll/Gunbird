@@ -13,46 +13,46 @@ Character_Valnus::Character_Valnus(int x, int y) : Character(x, y)
 	position.y = y;
 
 	// idle animation
-	idle.PushBack({ 218, 443, 31, 30 }); //1
-	idle.PushBack({ 256, 443, 31, 30 }); //2
-	idle.speed = 0.2f;
+	blit_idle.PushBack({ 218, 443, 31, 30 }); //1
+	blit_idle.PushBack({ 256, 443, 31, 30 }); //2
+	blit_idle.speed = 0.2f;
 
 	// left animation
-	left.PushBack({ 218, 519, 26, 30 });
-	left.PushBack({ 256, 519, 26, 30 });
-	left.loop = false;
-	left.speed = 0.2f;
+	blit_left.PushBack({ 218, 519, 26, 30 });
+	blit_left.PushBack({ 256, 519, 26, 30 });
+	blit_left.loop = false;
+	blit_left.speed = 0.2f;
 
 	// more left animation
-	mleft.PushBack({ 294, 519, 21, 30 });
-	mleft.PushBack({ 332, 519, 21, 30 });
-	mleft.loop = true;
-	mleft.speed = 0.2f;
+	blit_mleft.PushBack({ 294, 519, 21, 30 });
+	blit_mleft.PushBack({ 332, 519, 21, 30 });
+	blit_mleft.loop = true;
+	blit_mleft.speed = 0.2f;
 
 	// right animation
-	right.PushBack({ 218, 481, 26, 30 });
-	right.PushBack({ 256, 481, 26, 30 });
-	right.loop = false;
-	right.speed = 0.2f;
+	blit_right.PushBack({ 218, 481, 26, 30 });
+	blit_right.PushBack({ 256, 481, 26, 30 });
+	blit_right.loop = false;
+	blit_right.speed = 0.2f;
 
 	// more right animation
-	mright.PushBack({ 294, 481, 21, 30 });
-	mright.PushBack({ 332, 481, 21, 30 });
-	mright.loop = true;
-	mright.speed = 0.2f;
+	blit_mright.PushBack({ 294, 481, 21, 30 });
+	blit_mright.PushBack({ 332, 481, 21, 30 });
+	blit_mright.loop = true;
+	blit_mright.speed = 0.2f;
 
 	// death sprite
-	death.PushBack({ 294, 443, 32, 37 });
+	blit_death.PushBack({ 294, 443, 32, 37 });
 
 	collider = App->collision->AddCollider({ position.x, position.y, 31, 30 }, COLLIDER_PLAYER, VALNUS, (Module*)App->player);
 
-	animation = &idle;
+	animation = &blit_idle;
 
 }
 
 void Character_Valnus::Move()
 {
-	animation = &idle;
+	animation = &blit_idle;
 
 	int speed = SPEED_CHARACTER;
 
@@ -73,8 +73,8 @@ void Character_Valnus::Move()
 		if ((App->player->characters[0]->type == VALNUS && App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT) ||
 			(App->player->characters[1] != nullptr && App->player->characters[1]->type == VALNUS && App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT))
 		{
-			animation = &right;
-			animation = &mright;
+			animation = &blit_right;
+			animation = &blit_mright;
 			position.x += speed;
 			if (position.x > (SCREEN_WIDTH - 30)) {
 				position.x = (SCREEN_WIDTH - 30);
@@ -84,8 +84,8 @@ void Character_Valnus::Move()
 		if ((App->player->characters[0]->type == VALNUS && App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_REPEAT) ||
 			(App->player->characters[1] != nullptr && App->player->characters[1]->type == VALNUS && App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT))
 		{
-			animation = &left;
-			animation = &mleft;
+			animation = &blit_left;
+			animation = &blit_mleft;
 			position.x -= speed;
 			if (position.x < 0) {
 				position.x = 0;
@@ -95,7 +95,7 @@ void Character_Valnus::Move()
 		if ((App->player->characters[0]->type == VALNUS && App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_REPEAT) ||
 			(App->player->characters[1] != nullptr && App->player->characters[1]->type == VALNUS && App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT))
 		{
-			animation = &idle;
+			animation = &blit_idle;
 			position.y -= speed;
 			if (position.y < (abs(App->render->camera.y) / SCREEN_SIZE)) {
 				position.y = (abs(App->render->camera.y) / SCREEN_SIZE);
@@ -105,7 +105,7 @@ void Character_Valnus::Move()
 		if ((App->player->characters[0]->type == VALNUS && App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_STATE::KEY_REPEAT) ||
 			(App->player->characters[1] != nullptr && App->player->characters[1]->type == VALNUS && App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT))
 		{
-			animation = &idle;
+			animation = &blit_idle;
 			position.y += speed;
 			if (position.y > ((abs(App->render->camera.y) + (SCREEN_HEIGHT*SCREEN_SIZE))) / SCREEN_SIZE - 31) {
 				position.y = (abs(App->render->camera.y) + (SCREEN_HEIGHT*SCREEN_SIZE)) / SCREEN_SIZE - 31;
@@ -114,23 +114,23 @@ void Character_Valnus::Move()
 
 		if ((App->player->characters[0]->type == VALNUS && App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT) ||
 			(App->player->characters[1] != nullptr && App->player->characters[1]->type == VALNUS && App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT))
-			animation = &right;
+			animation = &blit_right;
 
 		if ((App->player->characters[0]->type == VALNUS && App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_REPEAT) ||
 			(App->player->characters[1] != nullptr && App->player->characters[1]->type == VALNUS && App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT))
-			animation = &left;
+			animation = &blit_left;
 
 		if ((App->player->characters[0]->type == VALNUS && App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT) ||
 			(App->player->characters[1] != nullptr && App->player->characters[1]->type == VALNUS && App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT))
-			animation = &right;
+			animation = &blit_right;
 
 		if ((App->player->characters[0]->type == VALNUS && App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_REPEAT) ||
 			(App->player->characters[1] != nullptr && App->player->characters[1]->type == VALNUS && App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT))
-			animation = &left;
+			animation = &blit_left;
 
 		if ((App->player->characters[0]->type == VALNUS && App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT) ||
 			(App->player->characters[1] != nullptr && App->player->characters[1]->type == VALNUS && App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT))
-			animation = &idle;
+			animation = &blit_idle;
 	}
 }
 
@@ -318,7 +318,7 @@ void Character_Valnus::Laser() {
 
 void Character_Valnus::Dead() {
 	if (this->playerDead == true) {
-		animation = &death;
+		animation = &blit_death;
 		this->desactivateInput = true;
 
 		if (this->spawnPlayer == false && position.y <= 50 + ((abs(App->render->camera.y) + (SCREEN_HEIGHT*SCREEN_SIZE))) / SCREEN_SIZE)
@@ -335,7 +335,7 @@ void Character_Valnus::Dead() {
 				}
 			}
 
-			animation = &idle;
+			animation = &blit_idle;
 
 			if (position.y >= ((abs(App->render->camera.y) + (SCREEN_HEIGHT*SCREEN_SIZE))) / SCREEN_SIZE - 80)
 				position.y -= 1;

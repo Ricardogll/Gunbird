@@ -6,11 +6,11 @@
 class Character_Tetsu : public Character
 {
 private:
-	Animation idle;
-	Animation right;
-	Animation mright;
-	Animation left;
-	Animation mleft;
+	Animation blit_idle;
+	Animation blit_right;
+	Animation blit_mright;
+	Animation blit_left;
+	Animation blit_mleft;
 
 	iPoint original_pos;
 

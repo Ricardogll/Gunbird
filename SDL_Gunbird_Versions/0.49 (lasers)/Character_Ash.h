@@ -6,12 +6,12 @@
 class Character_Ash : public Character
 {
 private:
-	Animation idle;
-	Animation left;
-	Animation mleft;
-	Animation right;
-	Animation mright;
-	Animation death;
+	Animation blit_idle;
+	Animation blit_left;
+	Animation blit_mleft;
+	Animation blit_right;
+	Animation blit_mright;
+	Animation blit_death;
 
 	iPoint original_pos;
 

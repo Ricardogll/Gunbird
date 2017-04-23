@@ -13,53 +13,53 @@ Character_Marion::Character_Marion(int x, int y) : Character(x, y)
 	position.y = y;
 
 	// idle animation
-	idle.PushBack({ 216, 71, 20, 32 }); //1
-	idle.PushBack({ 248, 71, 20, 32 }); //2
-	idle.PushBack({ 279, 71, 20, 32 }); //3
-	idle.PushBack({ 312, 71, 20, 32 }); //4
+	blit_idle.PushBack({ 216, 71, 20, 32 }); //1
+	blit_idle.PushBack({ 0, 0, 0, 0 }); //2
+	blit_idle.PushBack({ 279, 71, 20, 32 }); //3
+	blit_idle.PushBack({ 0, 0, 0, 0 }); //4
 
-	idle.speed = 0.25f;
+	blit_idle.speed = 0.25f;
 
 	// left animation
-	left.PushBack({ 214, 39, 21, 32 });
-	left.PushBack({ 246, 39, 21, 32 });
-	left.PushBack({ 277, 39, 21, 32 });
-	left.PushBack({ 310, 39, 21, 32 });
-	left.speed = 0.25f;
+	blit_left.PushBack({ 214, 39, 21, 32 });
+	blit_left.PushBack({ 0, 0,0,0 });
+	blit_left.PushBack({ 277, 39, 21, 32 });
+	blit_left.PushBack({ 0, 0,0,0 });
+	blit_left.speed = 0.25f;
 
 	// more left animation
-	mleft.PushBack({ 212, 7, 23, 32 });
-	mleft.PushBack({ 244, 7, 23, 32 });
-	mleft.PushBack({ 276, 7, 23, 32 });
-	mleft.PushBack({ 308, 7, 23, 32 });
-	mleft.speed = 0.25f;
+	blit_mleft.PushBack({ 212, 7, 23, 32 });
+	blit_mleft.PushBack({ 0, 0,0,0 });
+	blit_mleft.PushBack({ 276, 7, 23, 32 });
+	blit_mleft.PushBack({ 0, 0,0,0 });
+	blit_mleft.speed = 0.25f;
 
 	//right animation
-	right.PushBack({ 217, 135, 21, 32 });
-	right.PushBack({ 249, 135, 21, 32 });
-	right.PushBack({ 280, 135, 21, 32 });
-	right.PushBack({ 313, 135, 21, 32 });
-	right.speed = 0.25f;
+	blit_right.PushBack({ 217, 135, 21, 32 });
+	blit_right.PushBack({ 0, 0,0,0 });
+	blit_right.PushBack({ 280, 135, 21, 32 });
+	blit_right.PushBack({ 0, 0,0,0 });
+	blit_right.speed = 0.25f;
 
 	//more right animation
-	mright.PushBack({ 217, 103, 23, 32 });
-	mright.PushBack({ 249, 103, 23, 32 });
-	mright.PushBack({ 280, 103, 23, 32 });
-	mright.PushBack({ 313, 103, 23, 32 });
-	mright.speed = 0.25f;
+	blit_mright.PushBack({ 217, 103, 23, 32 });
+	blit_mright.PushBack({ 0, 0,0,0 });
+	blit_mright.PushBack({ 280, 103, 23, 32 });
+	blit_mright.PushBack({ 0, 0,0,0 });
+	blit_mright.speed = 0.25f;
 
 	//death sprite
-	death.PushBack({ 215, 180, 32, 28 });
+	blit_death.PushBack({ 215, 180, 32, 28 });
 
 	collider = App->collision->AddCollider({ position.x, position.y, 20, 32 }, COLLIDER_PLAYER, MARION, (Module*)App->player);
 
-	animation = &idle;
+	animation = &blit_idle;
 
 }
 
 void Character_Marion::Move()
 {
-	animation = &idle;
+	animation = &blit_idle;
 
 	int speed = SPEED_CHARACTER;
 
@@ -81,7 +81,7 @@ void Character_Marion::Move()
 		if ((App->player->characters[0]->type == MARION && App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT) ||
 			(App->player->characters[1] != nullptr && App->player->characters[1]->type == MARION && App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT))
 		{
-			animation = &right;
+			animation = &blit_right;
 			position.x += speed;
 			if (position.x > (SCREEN_WIDTH - 20)) {
 				position.x = (SCREEN_WIDTH - 20);
@@ -90,7 +90,7 @@ void Character_Marion::Move()
 		if ((App->player->characters[0]->type == MARION && App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_REPEAT) ||
 			(App->player->characters[1] != nullptr && App->player->characters[1]->type == MARION && App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT))
 		{
-			animation = &left;
+			animation = &blit_left;
 			position.x -= speed;
 			if (position.x < 0) {
 				position.x = 0;
@@ -99,7 +99,7 @@ void Character_Marion::Move()
 		if ((App->player->characters[0]->type == MARION && App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_REPEAT) ||
 			(App->player->characters[1] != nullptr && App->player->characters[1]->type == MARION && App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT))
 		{
-			animation = &idle;
+			animation = &blit_idle;
 			position.y -= speed;
 			if (position.y < (abs(App->render->camera.y) / SCREEN_SIZE)) {
 				position.y = (abs(App->render->camera.y) / SCREEN_SIZE);
@@ -108,7 +108,7 @@ void Character_Marion::Move()
 		if ((App->player->characters[0]->type == MARION && App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_STATE::KEY_REPEAT) ||
 			(App->player->characters[1] != nullptr && App->player->characters[1]->type == MARION && App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT))
 		{
-			animation = &idle;
+			animation = &blit_idle;
 			position.y += speed;
 			if (position.y > ((abs(App->render->camera.y) + (SCREEN_HEIGHT*SCREEN_SIZE))) / SCREEN_SIZE - 32) {
 				position.y = (abs(App->render->camera.y) + (SCREEN_HEIGHT*SCREEN_SIZE)) / SCREEN_SIZE - 32;
@@ -117,23 +117,23 @@ void Character_Marion::Move()
 
 		if ((App->player->characters[0]->type == MARION && App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT) ||
 			(App->player->characters[1] != nullptr && App->player->characters[1]->type == MARION && App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT))
-			animation = &right;
+			animation = &blit_right;
 
 		if ((App->player->characters[0]->type == MARION && App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_REPEAT) ||
 			(App->player->characters[1] != nullptr && App->player->characters[1]->type == MARION && App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT))
-			animation = &left;
+			animation = &blit_left;
 
 		if ((App->player->characters[0]->type == MARION && App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT) ||
 			(App->player->characters[1] != nullptr && App->player->characters[1]->type == MARION && App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT))
-			animation = &right;
+			animation = &blit_right;
 
 		if ((App->player->characters[0]->type == MARION && App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_REPEAT) ||
 			(App->player->characters[1] != nullptr && App->player->characters[1]->type == MARION && App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT))
-			animation = &left;
+			animation = &blit_left;
 
 		if ((App->player->characters[0]->type == MARION && App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT) ||
 			(App->player->characters[1] != nullptr && App->player->characters[1]->type == MARION && App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT))
-			animation = &idle;
+			animation = &blit_idle;
 	}
 }
 
@@ -291,7 +291,7 @@ void Character_Marion::Laser() {
 
 void Character_Marion::Dead() {
 	if (this->playerDead == true) {
-		animation = &death;
+		animation = &blit_death;
 		this->desactivateInput = true;
 
 		if (this->spawnPlayer == false && position.y <= 50 + ((abs(App->render->camera.y) + (SCREEN_HEIGHT*SCREEN_SIZE))) / SCREEN_SIZE)
@@ -308,7 +308,7 @@ void Character_Marion::Dead() {
 				}
 			}
 
-			animation = &idle;
+			animation = &blit_idle;
 
 			if (position.y >= ((abs(App->render->camera.y) + (SCREEN_HEIGHT*SCREEN_SIZE))) / SCREEN_SIZE - 80)
 				position.y -= 1;
