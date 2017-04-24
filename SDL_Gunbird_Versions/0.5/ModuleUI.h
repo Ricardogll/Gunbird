@@ -69,8 +69,9 @@ public:
 private:
 	uint cont;
 	uint time = 0;
+	uint countdown;
+	uint timeover;
 	int titlecredit_x;
-
 	uint order_yuan_nang[4] = { 2,5,4,3 };
 	uint order_marion[4] = { 1,5,4,3 };
 	uint order_ash[4] = { 2,1,5,4 };

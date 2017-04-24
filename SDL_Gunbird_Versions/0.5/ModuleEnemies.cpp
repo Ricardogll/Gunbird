@@ -356,10 +356,12 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 void ModuleEnemies::scoreEnemy(Enemy* enemy, Collider* c2) {
 	for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
 	{
+		scoreP1 = 0;
+		scoreP2 = 0;
 		//PLAYER 1
 		if (c2->type==COLLIDER_PLAYER_SHOT && c2->character == YUAN_NANG) {
 			if (App->player->characters[0] != nullptr && App->player->characters[0]->type == YUAN_NANG)
-					scoreP1 = enemy->score;
+				scoreP1 = enemy->score;
 		}
 		if (c2->type == COLLIDER_PLAYER_SHOT && c2->character == MARION) {
 			if (App->player->characters[0] != nullptr && App->player->characters[0]->type == MARION)

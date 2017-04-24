@@ -7,10 +7,11 @@
 #include "ModuleInput.h"
 #include "ModuleCharacterSelection.h"
 #include "ModuleFonts.h"
+#include "ModuleFadeToBlack.h"
 #include <stdio.h>
 #include "SDL/include/SDL_render.h"
-
 #include "ModuleBackgroundCastle.h"
+#include "ModuleScoreScreen.h"
 
 ModuleUI::ModuleUI()
 {
@@ -154,6 +155,8 @@ bool ModuleUI::Start()
 	activateGameOver_ui == false;
 	selection_character = 0;
 	characterP2 = 0;
+	timeover = 0;
+	countdown = 9;
 	
 	LOG("Loading screen UI");
 	graphics = App->textures->Load("assets/UI/interface.png");
@@ -336,6 +339,22 @@ update_status ModuleUI::Update()
 		App->render->Blit(graphics, 118, abs(App->render->camera.y / SCREEN_SIZE) + 6, &r4, 1.0f); 
 		App->render->Blit(graphics, 6, abs(App->render->camera.y / SCREEN_SIZE) + 6, &r4, 1.0f);
 
+		//TIME
+		char str[10];
+		sprintf_s(str, "%i", countdown);
+		App->fonts->BlitText(138, abs(App->render->camera.y / SCREEN_SIZE) + 140, font_score, str);
+
+		timeover++;
+		if (timeover == 60) {
+			countdown--;
+			timeover = 0;
+		}
+
+		if (countdown == 0) {
+			App->fade->FadeToBlack(App->background3, App->scorescreen, 1);
+		}
+
+
 		if (App->player->characters[0]->live == -1) {
 			if (App->player->characters[0]->position.y > ((abs(App->render->camera.y) + (SCREEN_HEIGHT*SCREEN_SIZE))) / SCREEN_SIZE)
 				App->player->characters[0]->position.y = ((abs(App->render->camera.y) + (SCREEN_HEIGHT*SCREEN_SIZE))) / SCREEN_SIZE; //ARREGLAR ESTO
@@ -377,6 +396,11 @@ update_status ModuleUI::Update()
 				//App->player->characters[0]->position.y = abs(App->render->camera.y / SCREEN_SIZE) + 240;
 
 				activateGameOver_ui = false;
+				
+				if (activateGameOver_ui == false) {
+					timeover = 0;
+					countdown = 9;
+				}
 			}
 		}
 
@@ -398,6 +422,11 @@ update_status ModuleUI::Update()
 					App->player->deathwin = false;
 
 					activateGameOver_ui = false;
+
+					if (activateGameOver_ui == false) {
+						timeover = 0;
+						countdown = 9;
+					}
 				}
 			}
 		}
