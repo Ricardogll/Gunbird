@@ -72,6 +72,10 @@ public:
 	uint valnus_dead;
 	uint tetsu_dead;
 
+public:
+	bool gateF4;
+	bool deathwin;
+
 private:
 
 	void SpawnCharacter(const CharacterInfo& info);

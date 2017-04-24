@@ -75,7 +75,7 @@ void Character_Ash::Move()
 	else
 		animation = &blit_idle;
 
-	int speed = SPEED_CHARACTER;
+	int speed = SPEED_ASH;
 
 	if (desactivateLimit == false) 
 		if ((position.y < (abs(App->render->camera.y) / SCREEN_SIZE)))

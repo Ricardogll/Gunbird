@@ -34,8 +34,8 @@ Application::Application()
 	modules[i++] = background = new ModuleBackgroundSea();
 	modules[i++] = background2 = new ModuleBackgroundMine();
 	modules[i++] = scorescreen = new ModuleScoreScreen();
-	modules[i++] = particles = new ModuleParticles();
 	modules[i++] = enemies = new ModuleEnemies();
+	modules[i++] = particles = new ModuleParticles();
 	modules[i++] = player = new ModulePlayer();
 	modules[i++] = collision = new ModuleCollision();
 	modules[i++] = ui = new ModuleUI();

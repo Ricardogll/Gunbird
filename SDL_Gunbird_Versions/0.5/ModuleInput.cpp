@@ -28,6 +28,7 @@ bool ModuleInput::Init()
 
 	gate_player = false;
 	gate_enemies = false;
+	activateDebug = false;
 
 	return ret;
 }

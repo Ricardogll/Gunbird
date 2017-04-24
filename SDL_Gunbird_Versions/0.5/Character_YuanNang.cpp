@@ -105,7 +105,7 @@ void Character_YuanNang::Move()
 	else
 		animation = &blit_idle;
 
-	int speed = SPEED_CHARACTER;
+	int speed = SPEED_YUAN_NANG;
 
 	if (desactivateLimit == false)
 		if ((position.y < (abs(App->render->camera.y) / SCREEN_SIZE)))

@@ -8,7 +8,11 @@
 struct SDL_Texture;
 struct Collider;
 
-#define SPEED_CHARACTER 2
+#define SPEED_ASH 4
+#define SPEED_MARION 3
+#define SPEED_VALNUS 3
+#define SPEED_YUAN_NANG 2
+#define SPEED_TETSU 2
 
 class Character
 {

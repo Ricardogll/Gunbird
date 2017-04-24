@@ -30,6 +30,7 @@ public:
 	KEY_STATE keyboard[MAX_KEYS];
 	bool gate_player;
 	bool gate_enemies;
+	bool activateDebug;
 };
 
 #endif // __ModuleInput_H__

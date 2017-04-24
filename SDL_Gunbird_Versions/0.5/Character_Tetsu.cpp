@@ -293,7 +293,7 @@ void Character_Tetsu::Move()
 	else
 		animation = &blit_idle;
 
-	int speed = SPEED_CHARACTER;
+	int speed = SPEED_TETSU;
 
 	if (desactivateLimit == false)
 		if ((position.y < (abs(App->render->camera.y) / SCREEN_SIZE)))

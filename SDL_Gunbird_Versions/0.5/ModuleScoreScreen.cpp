@@ -78,6 +78,11 @@ bool ModuleScoreScreen::CleanUp()
 
 	App->fonts->UnLoad(font_credit);
 
+	for (uint i = 0; i < 10; ++i) {
+		App->savescore->saveScore[i] = 0;
+		App->savescore->saveCharacter[i] = 0;
+	}
+
 	return true;
 }
 

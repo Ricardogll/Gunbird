@@ -30,6 +30,8 @@ bool ModulePlayer::Start()
 {
 	bool ret = true;
 	activatePlayer2 = false;
+	gateF4 = true;
+	deathwin = false;
 
 	// Create a prototype for each enemy available so we can copy them around
 	graphics = App->textures->Load("assets/characters/Characters.png");
@@ -125,56 +127,64 @@ update_status ModulePlayer::Update()
 		}
 	}
 
-	//INMORTAL
- 	if (App->input->keyboard[SDL_SCANCODE_F2] == KEY_STATE::KEY_DOWN) { //ACTIVATE INMORTAL
-		for (uint i = 0; i < MAX_CHARACTERS; ++i)
-		{
-			LOG("ACIVATE INMORTAL");
-			if (characters[i] != nullptr)
-				characters[i]->inmortal = true;
+	if (App->input->activateDebug == true) {
+		//INMORTAL
+		if (App->input->keyboard[SDL_SCANCODE_F2] == KEY_STATE::KEY_DOWN) { //ACTIVATE INMORTAL
+			for (uint i = 0; i < MAX_CHARACTERS; ++i)
+			{
+				LOG("ACIVATE INMORTAL");
+				if (characters[i] != nullptr)
+					characters[i]->inmortal = true;
+			}
 		}
-	}
 
-	if (App->input->keyboard[SDL_SCANCODE_F3] == KEY_STATE::KEY_DOWN) { //DESACTIVATE INMORTAL
-		for (uint i = 0; i < MAX_CHARACTERS; ++i)
-		{
-			if (characters[i] != nullptr)
-				characters[i]->inmortal = false;
+		if (App->input->keyboard[SDL_SCANCODE_F3] == KEY_STATE::KEY_DOWN) { //DESACTIVATE INMORTAL
+			for (uint i = 0; i < MAX_CHARACTERS; ++i)
+			{
+				if (characters[i] != nullptr)
+					characters[i]->inmortal = false;
+			}
 		}
-	}
 
-	if (App->input->keyboard[SDL_SCANCODE_F4] == KEY_STATE::KEY_DOWN) { //DIRECT WIN
-		App->render->camera.y = -22 * SCREEN_SIZE;
-		for (uint i = 0; i < MAX_CHARACTERS; ++i)
-		{
-			if (characters[i] != nullptr)
-				characters[i]->position.y = 50;
+		if (App->input->keyboard[SDL_SCANCODE_F4] == KEY_STATE::KEY_DOWN) { //DIRECT WIN
+				if (gateF4 == true && deathwin == false) {
+					App->render->camera.y = -22 * SCREEN_SIZE;
+					for (uint i = 0; i < MAX_CHARACTERS; ++i)
+					{
+						if (characters[i] != nullptr)
+							characters[i]->position.y = 50;
+					}
+					gateF4 = false;
+				}
 		}
-	}
 
-	if (App->input->keyboard[SDL_SCANCODE_F5] == KEY_STATE::KEY_DOWN) { //DIRECT LOSE
-		for (uint i = 0; i < MAX_CHARACTERS; ++i)
-		{
-			if (characters[i] != nullptr) {
-				characters[i]->live = -1;
+		if (App->input->keyboard[SDL_SCANCODE_F5] == KEY_STATE::KEY_DOWN) { //DIRECT LOSE
+				for (uint i = 0; i < MAX_CHARACTERS; ++i)
+				{
+					if (characters[i] != nullptr) {
+						if (characters[i]->inmortal != true) {
+							characters[i]->live = -1;
+							deathwin = true;
 
-				if (characters[i]->type == CHARACTER_TYPES::YUAN_NANG)
-					App->audio->PlayWAV(yuan_nang_dead);
-				if (characters[i]->type == CHARACTER_TYPES::MARION)
-					App->audio->PlayWAV(marion_dead);
-				if (characters[i]->type == CHARACTER_TYPES::TETSU)
-					App->audio->PlayWAV(tetsu_dead);
-				if (characters[i]->type == CHARACTER_TYPES::ASH)
-					App->audio->PlayWAV(ash_dead);
-				if (characters[i]->type == CHARACTER_TYPES::VALNUS)
-					App->audio->PlayWAV(valnus_dead);
+							if (characters[i]->type == CHARACTER_TYPES::YUAN_NANG)
+								App->audio->PlayWAV(yuan_nang_dead);
+							if (characters[i]->type == CHARACTER_TYPES::MARION)
+								App->audio->PlayWAV(marion_dead);
+							if (characters[i]->type == CHARACTER_TYPES::TETSU)
+								App->audio->PlayWAV(tetsu_dead);
+							if (characters[i]->type == CHARACTER_TYPES::ASH)
+								App->audio->PlayWAV(ash_dead);
+							if (characters[i]->type == CHARACTER_TYPES::VALNUS)
+								App->audio->PlayWAV(valnus_dead);
 
-				characters[i]->playerDead = true;
-				characters[i]->inmortal = true;
+							characters[i]->playerDead = true;
+							characters[i]->inmortal = true;
+						}
+				}
 			}
 		}
 	}
-
+	
 	/*if (App->input->keyboard[SDL_SCANCODE_ESCAPE]) {
 		for (uint i = 0; i < MAX_CHARACTERS; ++i) {
 			if (characters[i] != nullptr) {

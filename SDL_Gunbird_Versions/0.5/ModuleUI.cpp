@@ -371,6 +371,8 @@ update_status ModuleUI::Update()
 
 				App->render->activateScroll = true;
 
+				App->player->deathwin = false;
+
 				//App->player->characters[0]->position.x = App->render->camera.x; 
 				//App->player->characters[0]->position.y = abs(App->render->camera.y / SCREEN_SIZE) + 240;
 
@@ -392,6 +394,8 @@ update_status ModuleUI::Update()
 						App->player->characters[1]->live = 2;
 
 					App->render->activateScroll = true;
+
+					App->player->deathwin = false;
 
 					activateGameOver_ui = false;
 				}

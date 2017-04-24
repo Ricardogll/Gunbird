@@ -61,7 +61,8 @@ bool ModuleEnemies::Start()
 	// Create a prototype for each enemy available so we can copy them around
 	sprites = App->textures->Load("assets/enemies/enemies.png");
 	explosion1 = App->audio->LoadWAV("assets/audio/sound/gunbird-069_Explosion01.wav");
-	building_destroyed == false;
+	building_destroyed = false;
+	building2_destroyed = false;
 
 	return true;
 }

@@ -73,6 +73,7 @@ bool ModuleBackgroundCastle::Start()
 	gate = true;
 	choose_character = true;
 	App->render->activateScroll = true;
+	App->input->activateDebug = true;
 
 	graphics = App->textures->Load("assets/backgrounds/Background castle.png");
 	animation_door = App->textures->Load("assets/particles/animations.png");
@@ -184,6 +185,7 @@ bool ModuleBackgroundCastle::CleanUp()
 	App->ui->printPlayer2 = false;
 	App->ui->selectPlayer2_ui = false;
 	App->render->activateScroll = false;
+	App->input->activateDebug = false;
 
 	LOG("Unloading castle stage");
 	App->textures->Unload(graphics);

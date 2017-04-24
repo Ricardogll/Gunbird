@@ -98,7 +98,7 @@ void Character_Marion::Move()
 	else
 		animation = &blit_idle;
 
-	int speed = SPEED_CHARACTER;
+	int speed = SPEED_MARION;
 
 	if (desactivateLimit == false)
 		if ((position.y < (abs(App->render->camera.y) / SCREEN_SIZE)))

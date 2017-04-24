@@ -77,7 +77,7 @@ void Character_Valnus::Move()
 	else
 		animation = &blit_idle;
 
-	int speed = SPEED_CHARACTER;
+	int speed = SPEED_VALNUS;
 
 	if (desactivateLimit == false)
 		if ((position.y < (abs(App->render->camera.y) / SCREEN_SIZE)))
