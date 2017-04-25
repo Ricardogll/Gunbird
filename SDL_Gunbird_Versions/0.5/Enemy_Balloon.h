@@ -8,6 +8,8 @@ class Enemy_Balloon : public Enemy
 {
 private:
 	Animation balloon;
+	Animation balloon_white;
+	Animation balloon_red;
 	iPoint original_pos;
 
 public:

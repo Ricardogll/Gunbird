@@ -7,6 +7,7 @@ class Enemy_Missile : public Enemy
 {
 private:
 	Animation missile;
+	Animation missile_white;
 	iPoint original_pos;
 
 public:

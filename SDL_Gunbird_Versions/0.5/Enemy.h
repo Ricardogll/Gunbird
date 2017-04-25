@@ -18,6 +18,7 @@ protected:
 	uint lastTime;
 	int time = 0;
 	bool shot;
+	bool hit_animation;
 
 public:
 	Collider* collider = nullptr;

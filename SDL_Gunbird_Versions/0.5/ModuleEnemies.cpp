@@ -43,7 +43,7 @@ ModuleEnemies::ModuleEnemies()
 	flag.PushBack({ 745,590,64,21 });
 	flag.PushBack({ 821,597,64,21 });
 	flag.PushBack({ 745,615,64,21 });
-	flag.speed = 0.08f;
+	flag.speed = 0.1f;
 
 	drone.PushBack({ 0.0f, 1.5f }, 100);
 	drone.PushBack({ 0.0f, 0.0f }, 150);

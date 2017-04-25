@@ -15,6 +15,8 @@ Enemy_Missile::Enemy_Missile(int x, int y) : Enemy(x, y)
 	missile.PushBack({ 104,82,16,32 });
 	missile.speed = 0.1f;
 
+	missile_white.PushBack({ 118,46,19,33 });
+
 	hitPoints = 5;
 
 	score = 200;
@@ -30,6 +32,14 @@ Enemy_Missile::Enemy_Missile(int x, int y) : Enemy(x, y)
 
 void Enemy_Missile::Move()
 {
+	animation = &missile;
+
+	if (hit_animation == true) {
+		animation = &missile_white;
+		hit_animation = false;
+	}
+
+
 	if (move_missile == true) {
 		position.y += 1;
 		position.x += 1;
@@ -40,8 +50,10 @@ void Enemy_Missile::Move()
 }
 
 void Enemy_Missile::OnCollision(Collider* collider) {
-	if (collider->type == COLLIDER_TYPE::COLLIDER_PLAYER_SHOT)
+	if (collider->type == COLLIDER_TYPE::COLLIDER_PLAYER_SHOT) {
+		hit_animation = true;
 		hitPoints -= 1;
+	}
 }
 
 uint Enemy_Missile::getHitPoints() {

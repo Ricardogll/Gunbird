@@ -19,6 +19,8 @@ Enemy_Turret2::Enemy_Turret2(int x, int y) : Enemy(x, y)
 	turret2.PushBack({ 12,369,28,41 });
 	turret2.PushBack({ 53,369,28,41 });
 
+	turret2_white.PushBack({ 97,368,29,42 });
+
 	turret2.speed = 0.25f;
 
 	lastTime = 0;
@@ -38,6 +40,13 @@ Enemy_Turret2::Enemy_Turret2(int x, int y) : Enemy(x, y)
 void Enemy_Turret2::Move()
 {
 	//position = original_pos + path.GetCurrentPosition(&animation);
+
+	animation = &turret2;
+
+	if (hit_animation == true) {
+		animation = &turret2_white;
+		hit_animation = false;
+	}
 
 	int i = id;
 
@@ -62,8 +71,10 @@ void Enemy_Turret2::Move()
 }
 
 void Enemy_Turret2::OnCollision(Collider* collider) {
-	if (collider->type == COLLIDER_TYPE::COLLIDER_PLAYER_SHOT)
+	if (collider->type == COLLIDER_TYPE::COLLIDER_PLAYER_SHOT) {
+		hit_animation = true;
 		hitPoints -= 1;
+	}
 }
 
 uint Enemy_Turret2::getHitPoints() {

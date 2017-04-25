@@ -20,7 +20,6 @@ Character_Valnus::Character_Valnus(int x, int y) : Character(x, y)
 	// left animation
 	left.PushBack({ 218, 519, 26, 30 });
 	left.PushBack({ 256, 519, 26, 30 });
-	left.loop = false;
 	left.speed = 0.2f;
 
 	// more left animation
@@ -32,7 +31,6 @@ Character_Valnus::Character_Valnus(int x, int y) : Character(x, y)
 	// right animation
 	right.PushBack({ 218, 481, 26, 30 });
 	right.PushBack({ 256, 481, 26, 30 });
-	right.loop = false;
 	right.speed = 0.2f;
 
 	// more right animation

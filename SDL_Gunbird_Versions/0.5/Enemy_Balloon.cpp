@@ -12,6 +12,33 @@ Enemy_Balloon::Enemy_Balloon(int x, int y) : Enemy(x, y)
 	balloon.PushBack({ 420,6,42,53 });
 	balloon.speed = 0.25f;
 
+	balloon_red.PushBack({ 212,6,43,53 });
+	balloon_red.PushBack({ 521,6,42,53 }); //RED
+	balloon_red.PushBack({ 265,6,42,53 });
+	balloon_red.PushBack({ 317,6,42,53 });
+	balloon_red.PushBack({ 369,6,43,53 });
+	balloon_red.PushBack({ 420,6,42,53 });
+	balloon_red.PushBack({ 212,6,43,53 });
+	balloon_red.PushBack({ 265,6,42,53 });
+	balloon_red.PushBack({ 317,6,42,53 });
+	balloon_red.PushBack({ 369,6,43,53 });
+	balloon_red.PushBack({ 420,6,42,53 });
+	balloon_red.PushBack({ 212,6,43,53 });
+	balloon_red.PushBack({ 521,6,42,53 });
+	balloon_red.PushBack({ 265,6,42,53 });
+	balloon_red.PushBack({ 317,6,42,53 });
+	balloon_red.PushBack({ 369,6,43,53 });
+	balloon_red.PushBack({ 420,6,42,53 });
+	balloon_red.speed = 0.25f;
+
+	//balloon.PushBack({ 470,6,42,53 });
+
+//	balloon.PushBack({ 521,6,42,53 });
+
+	balloon_white.PushBack({ 470,6,42,53 });
+	balloon_white.speed = 0.25f;
+	balloon_white.loop = true;
+
 	lastTime = 0;
 
 	hitPoints = 25;
@@ -30,18 +57,26 @@ void Enemy_Balloon::Move()
 {
 	position = original_pos + path.GetCurrentPosition(&animation);
 
-	currentTime = SDL_GetTicks();
+	animation = &balloon;
 
-	if (currentTime > (lastTime + 70)) {
-		animation = &balloon;
-		lastTime = 0;
+	if (hit_animation == true) {
+		animation = &balloon_white;
+		hit_animation = false;
+	}
+
+	if (hitPoints <= 15 && animation != &balloon_white)
+	{
+		animation = &balloon_red;
 	}
 
 }
 
 void Enemy_Balloon::OnCollision(Collider* collider) {
-	if (collider->type == COLLIDER_TYPE::COLLIDER_PLAYER_SHOT)
-	hitPoints -= 1;
+	if (collider->type == COLLIDER_TYPE::COLLIDER_PLAYER_SHOT) {
+		hit_animation = true;
+		hitPoints -= 1;
+	}
+	
 }
 
 uint Enemy_Balloon::getHitPoints() {

@@ -17,7 +17,6 @@ Character_Ash::Character_Ash(int x, int y) : Character(x, y)
 	// left animation
 	left.PushBack({ 219, 265, 17, 32 });
 	left.PushBack({ 246, 265, 17, 32 });
-	left.loop = false;
 	left.speed = 0.2f;
 
 	// more left animation
@@ -29,7 +28,6 @@ Character_Ash::Character_Ash(int x, int y) : Character(x, y)
 	// right animation
 	right.PushBack({ 266, 307, 17, 32 });
 	right.PushBack({ 293, 307, 17, 32 });
-	right.loop = false;
 	right.speed = 0.2f;
 
 	// more right animation

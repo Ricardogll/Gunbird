@@ -1,7 +1,156 @@
-﻿  Application.cpp
-c:\users\davidvm12\desktop\0.5\path.h(6): warning C4099: 'Animation': type name first seen using 'class' now seen using 'struct'
-  c:\users\davidvm12\desktop\0.5\animation.h(47): note: see declaration of 'Animation'
-c:\users\davidvm12\desktop\0.5\enemy.h(8): warning C4099: 'Path': type name first seen using 'class' now seen using 'struct'
-  c:\users\davidvm12\desktop\0.5\path.h(17): note: see declaration of 'Path'
-  SDL Game.vcxproj -> C:\Users\davidvm12\Desktop\0.5\Debug\Gunbird.exe
-  SDL Game.vcxproj -> C:\Users\davidvm12\Desktop\0.5\Debug\Gunbird.pdb (Full PDB)
+﻿  PowerUp.cpp
+c:\users\adrià gironès\desktop\0.5 (leaks)\path.h(6): warning C4099: 'Animation': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+  c:\users\adrià gironès\desktop\0.5 (leaks)\animation.h(47): note: vea la declaración de 'Animation'
+c:\users\adrià gironès\desktop\0.5 (leaks)\enemy.h(8): warning C4099: 'Path': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+  c:\users\adrià gironès\desktop\0.5 (leaks)\path.h(17): note: vea la declaración de 'Path'
+  ModuleWindow.cpp
+  ModuleUI.cpp
+c:\users\adrià gironès\desktop\0.5 (leaks)\path.h(6): warning C4099: 'Animation': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+  c:\users\adrià gironès\desktop\0.5 (leaks)\animation.h(47): note: vea la declaración de 'Animation'
+c:\users\adrià gironès\desktop\0.5 (leaks)\enemy.h(8): warning C4099: 'Path': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+  c:\users\adrià gironès\desktop\0.5 (leaks)\path.h(17): note: vea la declaración de 'Path'
+c:\users\adrià gironès\desktop\0.5 (leaks)\moduleui.cpp(155): warning C4553: '==': el operador no tiene efecto; ¿ha pensado en '='?
+  ModuleTitleScreen.cpp
+c:\users\adrià gironès\desktop\0.5 (leaks)\path.h(6): warning C4099: 'Animation': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+  c:\users\adrià gironès\desktop\0.5 (leaks)\animation.h(47): note: vea la declaración de 'Animation'
+c:\users\adrià gironès\desktop\0.5 (leaks)\moduletitlescreen.cpp(68): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+  ModuleTextures.cpp
+  ModuleScoreScreen.cpp
+c:\users\adrià gironès\desktop\0.5 (leaks)\path.h(6): warning C4099: 'Animation': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+  c:\users\adrià gironès\desktop\0.5 (leaks)\animation.h(47): note: vea la declaración de 'Animation'
+  ModuleSaveScore.cpp
+c:\users\adrià gironès\desktop\0.5 (leaks)\path.h(6): warning C4099: 'Animation': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+  c:\users\adrià gironès\desktop\0.5 (leaks)\animation.h(47): note: vea la declaración de 'Animation'
+  ModuleRender.cpp
+c:\users\adrià gironès\desktop\0.5 (leaks)\path.h(6): warning C4099: 'Animation': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+  c:\users\adrià gironès\desktop\0.5 (leaks)\animation.h(47): note: vea la declaración de 'Animation'
+  ModulePlayer.cpp
+c:\users\adrià gironès\desktop\0.5 (leaks)\path.h(6): warning C4099: 'Animation': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+  c:\users\adrià gironès\desktop\0.5 (leaks)\animation.h(47): note: vea la declaración de 'Animation'
+  ModuleParticles.cpp
+  ModuleInput.cpp
+  ModuleFonts.cpp
+c:\users\adrià gironès\desktop\0.5 (leaks)\modulefonts.cpp(54): warning C4018: '<': no coinciden signed/unsigned
+c:\users\adrià gironès\desktop\0.5 (leaks)\modulefonts.cpp(110): warning C4018: '<': no coinciden signed/unsigned
+  ModuleFadeToBlack.cpp
+  ModuleEnemies.cpp
+c:\users\adrià gironès\desktop\0.5 (leaks)\path.h(6): warning C4099: 'Animation': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+  c:\users\adrià gironès\desktop\0.5 (leaks)\animation.h(47): note: vea la declaración de 'Animation'
+c:\users\adrià gironès\desktop\0.5 (leaks)\enemy.h(8): warning C4099: 'Path': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+  c:\users\adrià gironès\desktop\0.5 (leaks)\path.h(17): note: vea la declaración de 'Path'
+  ModuleCollision.cpp
+  ModuleCharacterSelection.cpp
+c:\users\adrià gironès\desktop\0.5 (leaks)\path.h(6): warning C4099: 'Animation': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+  c:\users\adrià gironès\desktop\0.5 (leaks)\animation.h(47): note: vea la declaración de 'Animation'
+c:\users\adrià gironès\desktop\0.5 (leaks)\enemy.h(8): warning C4099: 'Path': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+  c:\users\adrià gironès\desktop\0.5 (leaks)\path.h(17): note: vea la declaración de 'Path'
+c:\users\adrià gironès\desktop\0.5 (leaks)\modulecharacterselection.cpp(350): warning C4553: '==': el operador no tiene efecto; ¿ha pensado en '='?
+c:\users\adrià gironès\desktop\0.5 (leaks)\modulecharacterselection.cpp(368): warning C4553: '==': el operador no tiene efecto; ¿ha pensado en '='?
+c:\users\adrià gironès\desktop\0.5 (leaks)\modulecharacterselection.cpp(401): warning C4553: '==': el operador no tiene efecto; ¿ha pensado en '='?
+c:\users\adrià gironès\desktop\0.5 (leaks)\modulecharacterselection.cpp(419): warning C4553: '==': el operador no tiene efecto; ¿ha pensado en '='?
+c:\users\adrià gironès\desktop\0.5 (leaks)\modulecharacterselection.cpp(449): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+c:\users\adrià gironès\desktop\0.5 (leaks)\modulecharacterselection.cpp(477): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+c:\users\adrià gironès\desktop\0.5 (leaks)\modulecharacterselection.cpp(480): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+  ModuleBackgroundSea.cpp
+c:\users\adrià gironès\desktop\0.5 (leaks)\path.h(6): warning C4099: 'Animation': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+  c:\users\adrià gironès\desktop\0.5 (leaks)\animation.h(47): note: vea la declaración de 'Animation'
+c:\users\adrià gironès\desktop\0.5 (leaks)\enemy.h(8): warning C4099: 'Path': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+  c:\users\adrià gironès\desktop\0.5 (leaks)\path.h(17): note: vea la declaración de 'Path'
+c:\users\adrià gironès\desktop\0.5 (leaks)\modulebackgroundsea.cpp(79): warning C4244: '+=': conversión de 'double' a 'int'; posible pérdida de datos
+  ModuleBackgroundMine.cpp
+c:\users\adrià gironès\desktop\0.5 (leaks)\path.h(6): warning C4099: 'Animation': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+  c:\users\adrià gironès\desktop\0.5 (leaks)\animation.h(47): note: vea la declaración de 'Animation'
+c:\users\adrià gironès\desktop\0.5 (leaks)\modulebackgroundmine.cpp(85): warning C4244: '+=': conversión de 'double' a 'int'; posible pérdida de datos
+  ModuleBackgroundCastle.cpp
+c:\users\adrià gironès\desktop\0.5 (leaks)\path.h(6): warning C4099: 'Animation': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+  c:\users\adrià gironès\desktop\0.5 (leaks)\animation.h(47): note: vea la declaración de 'Animation'
+c:\users\adrià gironès\desktop\0.5 (leaks)\enemy.h(8): warning C4099: 'Path': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+  c:\users\adrià gironès\desktop\0.5 (leaks)\path.h(17): note: vea la declaración de 'Path'
+c:\users\adrià gironès\desktop\0.5 (leaks)\modulebackgroundcastle.cpp(284): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+c:\users\adrià gironès\desktop\0.5 (leaks)\modulebackgroundcastle.cpp(285): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+c:\users\adrià gironès\desktop\0.5 (leaks)\modulebackgroundcastle.cpp(286): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+  ModuleAudio.cpp
+  Generando código...
+  Compilando...
+  Main.cpp
+  Globals.cpp
+  Enemy_vase.cpp
+c:\users\adrià gironès\desktop\0.5 (leaks)\path.h(6): warning C4099: 'Animation': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+  c:\users\adrià gironès\desktop\0.5 (leaks)\animation.h(47): note: vea la declaración de 'Animation'
+c:\users\adrià gironès\desktop\0.5 (leaks)\enemy.h(8): warning C4099: 'Path': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+  c:\users\adrià gironès\desktop\0.5 (leaks)\path.h(17): note: vea la declaración de 'Path'
+  Enemy_turret2.cpp
+c:\users\adrià gironès\desktop\0.5 (leaks)\path.h(6): warning C4099: 'Animation': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+  c:\users\adrià gironès\desktop\0.5 (leaks)\animation.h(47): note: vea la declaración de 'Animation'
+c:\users\adrià gironès\desktop\0.5 (leaks)\enemy.h(8): warning C4099: 'Path': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+  c:\users\adrià gironès\desktop\0.5 (leaks)\path.h(17): note: vea la declaración de 'Path'
+c:\users\adrià gironès\desktop\0.5 (leaks)\enemy_turret2.cpp(55): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+c:\users\adrià gironès\desktop\0.5 (leaks)\enemy_turret2.cpp(60): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+c:\users\adrià gironès\desktop\0.5 (leaks)\enemy_turret2.cpp(65): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+  Enemy_Turret.cpp
+c:\users\adrià gironès\desktop\0.5 (leaks)\path.h(6): warning C4099: 'Animation': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+  c:\users\adrià gironès\desktop\0.5 (leaks)\animation.h(47): note: vea la declaración de 'Animation'
+c:\users\adrià gironès\desktop\0.5 (leaks)\enemy.h(8): warning C4099: 'Path': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+  c:\users\adrià gironès\desktop\0.5 (leaks)\path.h(17): note: vea la declaración de 'Path'
+  Enemy_Missile.cpp
+c:\users\adrià gironès\desktop\0.5 (leaks)\path.h(6): warning C4099: 'Animation': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+  c:\users\adrià gironès\desktop\0.5 (leaks)\animation.h(47): note: vea la declaración de 'Animation'
+c:\users\adrià gironès\desktop\0.5 (leaks)\enemy.h(8): warning C4099: 'Path': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+  c:\users\adrià gironès\desktop\0.5 (leaks)\path.h(17): note: vea la declaración de 'Path'
+  Enemy_drone.cpp
+c:\users\adrià gironès\desktop\0.5 (leaks)\path.h(6): warning C4099: 'Animation': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+  c:\users\adrià gironès\desktop\0.5 (leaks)\animation.h(47): note: vea la declaración de 'Animation'
+c:\users\adrià gironès\desktop\0.5 (leaks)\enemy.h(8): warning C4099: 'Path': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+  c:\users\adrià gironès\desktop\0.5 (leaks)\path.h(17): note: vea la declaración de 'Path'
+  Enemy_building2.cpp
+c:\users\adrià gironès\desktop\0.5 (leaks)\path.h(6): warning C4099: 'Animation': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+  c:\users\adrià gironès\desktop\0.5 (leaks)\animation.h(47): note: vea la declaración de 'Animation'
+c:\users\adrià gironès\desktop\0.5 (leaks)\enemy.h(8): warning C4099: 'Path': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+  c:\users\adrià gironès\desktop\0.5 (leaks)\path.h(17): note: vea la declaración de 'Path'
+  Enemy_building.cpp
+c:\users\adrià gironès\desktop\0.5 (leaks)\path.h(6): warning C4099: 'Animation': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+  c:\users\adrià gironès\desktop\0.5 (leaks)\animation.h(47): note: vea la declaración de 'Animation'
+c:\users\adrià gironès\desktop\0.5 (leaks)\enemy.h(8): warning C4099: 'Path': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+  c:\users\adrià gironès\desktop\0.5 (leaks)\path.h(17): note: vea la declaración de 'Path'
+  Enemy_Balloon.cpp
+c:\users\adrià gironès\desktop\0.5 (leaks)\path.h(6): warning C4099: 'Animation': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+  c:\users\adrià gironès\desktop\0.5 (leaks)\animation.h(47): note: vea la declaración de 'Animation'
+c:\users\adrià gironès\desktop\0.5 (leaks)\enemy.h(8): warning C4099: 'Path': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+  c:\users\adrià gironès\desktop\0.5 (leaks)\path.h(17): note: vea la declaración de 'Path'
+  Enemy.cpp
+c:\users\adrià gironès\desktop\0.5 (leaks)\path.h(6): warning C4099: 'Animation': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+  c:\users\adrià gironès\desktop\0.5 (leaks)\animation.h(47): note: vea la declaración de 'Animation'
+c:\users\adrià gironès\desktop\0.5 (leaks)\enemy.h(8): warning C4099: 'Path': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+  c:\users\adrià gironès\desktop\0.5 (leaks)\path.h(17): note: vea la declaración de 'Path'
+  Coin.cpp
+c:\users\adrià gironès\desktop\0.5 (leaks)\path.h(6): warning C4099: 'Animation': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+  c:\users\adrià gironès\desktop\0.5 (leaks)\animation.h(47): note: vea la declaración de 'Animation'
+c:\users\adrià gironès\desktop\0.5 (leaks)\enemy.h(8): warning C4099: 'Path': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+  c:\users\adrià gironès\desktop\0.5 (leaks)\path.h(17): note: vea la declaración de 'Path'
+  Character_YuanNang.cpp
+c:\users\adrià gironès\desktop\0.5 (leaks)\path.h(6): warning C4099: 'Animation': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+  c:\users\adrià gironès\desktop\0.5 (leaks)\animation.h(47): note: vea la declaración de 'Animation'
+  Character_Valnus.cpp
+c:\users\adrià gironès\desktop\0.5 (leaks)\path.h(6): warning C4099: 'Animation': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+  c:\users\adrià gironès\desktop\0.5 (leaks)\animation.h(47): note: vea la declaración de 'Animation'
+  Character_Tetsu.cpp
+c:\users\adrià gironès\desktop\0.5 (leaks)\path.h(6): warning C4099: 'Animation': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+  c:\users\adrià gironès\desktop\0.5 (leaks)\animation.h(47): note: vea la declaración de 'Animation'
+  Character_Marion.cpp
+c:\users\adrià gironès\desktop\0.5 (leaks)\path.h(6): warning C4099: 'Animation': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+  c:\users\adrià gironès\desktop\0.5 (leaks)\animation.h(47): note: vea la declaración de 'Animation'
+  Character_Ash.cpp
+c:\users\adrià gironès\desktop\0.5 (leaks)\path.h(6): warning C4099: 'Animation': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+  c:\users\adrià gironès\desktop\0.5 (leaks)\animation.h(47): note: vea la declaración de 'Animation'
+  Character.cpp
+c:\users\adrià gironès\desktop\0.5 (leaks)\path.h(6): warning C4099: 'Animation': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+  c:\users\adrià gironès\desktop\0.5 (leaks)\animation.h(47): note: vea la declaración de 'Animation'
+  Application.cpp
+c:\users\adrià gironès\desktop\0.5 (leaks)\path.h(6): warning C4099: 'Animation': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+  c:\users\adrià gironès\desktop\0.5 (leaks)\animation.h(47): note: vea la declaración de 'Animation'
+c:\users\adrià gironès\desktop\0.5 (leaks)\enemy.h(8): warning C4099: 'Path': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+  c:\users\adrià gironès\desktop\0.5 (leaks)\path.h(17): note: vea la declaración de 'Path'
+  Generando código...
+  LINK : no se encontró C:\Users\Adrià Gironès\Desktop\0.5 (leaks)\Debug\Gunbird.exe o no lo generó el último vínculo incremental; ejecutando vínculo completo
+  SDL Game.vcxproj -> C:\Users\Adrià Gironès\Desktop\0.5 (leaks)\Debug\Gunbird.exe
+  SDL Game.vcxproj -> C:\Users\Adrià Gironès\Desktop\0.5 (leaks)\Debug\Gunbird.pdb (Full PDB)

@@ -11,6 +11,15 @@ Enemy_Turret::Enemy_Turret(int x, int y) : Enemy(x, y)
 	turret.PushBack({ 122,8,32,32 });
 	turret.speed = 0.25f;
 
+	turret_white.PushBack({ 161,8,33,33 });
+
+	turret_red.PushBack({ 20,8,32,32 });
+	turret_red.PushBack({ 160,47,33,33 }); //RED
+	turret_red.PushBack({ 54,8,32,32 });
+	turret_red.PushBack({ 88,8,32,32 });
+	turret_red.PushBack({ 122,8,32,32 });
+	turret_red.speed = 0.25f;
+
 	hitPoints = 25;
 
 	score = 500;
@@ -26,6 +35,18 @@ Enemy_Turret::Enemy_Turret(int x, int y) : Enemy(x, y)
 void Enemy_Turret::Move()
 {
 	position = original_pos;
+
+	animation = &turret;
+
+	if (hit_animation == true) {
+		animation = &turret_white;
+		hit_animation = false;
+	}
+
+	if (hitPoints <= 10 && animation != &turret_white)
+	{
+		animation = &turret_red;
+	}
 
 	if (time == 100)
 	{
@@ -56,8 +77,10 @@ void Enemy_Turret::Move()
 }
 
 void Enemy_Turret::OnCollision(Collider* collider) {
-	if (collider->type == COLLIDER_TYPE::COLLIDER_PLAYER_SHOT)
-	hitPoints -= 1;
+	if (collider->type == COLLIDER_TYPE::COLLIDER_PLAYER_SHOT) {
+		hit_animation = true;
+		hitPoints -= 1;
+	}
 }
 
 uint Enemy_Turret::getHitPoints() {

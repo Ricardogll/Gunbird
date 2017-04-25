@@ -46,7 +46,6 @@ Character_Tetsu::Character_Tetsu(int x, int y) : Character(x, y)
 	left.PushBack({ 683, 282, 30, 37 }); //4
 	left.PushBack({ 723, 282, 30, 37 }); //5
 	left.PushBack({ 563, 329, 30, 37 }); //6
-	left.loop = false;
 	left.speed = 0.8f;
 
 	//more left animation
@@ -104,7 +103,6 @@ Character_Tetsu::Character_Tetsu(int x, int y) : Character(x, y)
 	right.PushBack({ 842, 284, 30, 37 }); //4
 	right.PushBack({ 803, 284, 30, 37 }); //5
 	right.PushBack({ 961, 331, 30, 37 }); //6
-	right.loop = false;
 	right.speed = 0.8f;
 
 	//more right animation

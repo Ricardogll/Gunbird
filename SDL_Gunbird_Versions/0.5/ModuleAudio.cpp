@@ -13,13 +13,42 @@ ModuleAudio::~ModuleAudio()
 
 bool ModuleAudio::Init()
 {
-	LOG("Loading Audio");
+	/*LOG("Loading Audio");
 	SDL_Init(0);
 	SDL_InitSubSystem(SDL_INIT_AUDIO);
 	Mix_Init(MIX_INIT_OGG);
-	Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048);
+	Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048);*/
 
-	return true;
+	LOG("Loading Audio Mixer");
+	bool ret = true;
+	SDL_Init(0);
+
+	if (SDL_InitSubSystem(SDL_INIT_AUDIO) < 0)
+	{
+		LOG("SDL_INIT_AUDIO could not initialize! SDL_Error: %s\n", SDL_GetError());
+		ret = false;
+	}
+
+	// load support for the OGG format
+	int flags = MIX_INIT_OGG;
+	int init = Mix_Init(flags);
+
+	if ((init & flags) != flags)
+	{
+		LOG("Could not initialize Mixer lib. Mix_Init: %s", Mix_GetError());
+		ret = false;
+	}
+
+	//Initialize SDL_mixer
+	if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048) < 0)
+	{
+		LOG("SDL_mixer could not initialize! SDL_mixer Error: %s\n", Mix_GetError());
+		ret = false;
+	}
+
+	return ret;
+
+	//return true;
 }
 
 bool ModuleAudio::CleanUp()
@@ -60,17 +89,25 @@ uint ModuleAudio::LoadWAV(const char* path)
 	else
 	{
 		fx[last_fx] = audio;
-		ret = last_fx;
+		ret = last_fx++;
+		if (last_fx == 500) {
+			last_fx = 0;
+			ret = last_fx;
+		}
 	}
-
-	last_fx++;
 
 	return ret;
 }
 
 bool ModuleAudio::PlayWAV(uint wav, int repeat)
 {
-	Mix_PlayChannel(-1, fx[wav], repeat);
+	bool ret = false;
+
+	if (fx[wav] != nullptr)
+	{
+		Mix_PlayChannel(-1, fx[wav], repeat);
+		ret = true;
+	}
 
 	return true;
 }

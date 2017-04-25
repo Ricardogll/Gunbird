@@ -8,11 +8,14 @@ class Enemy_Vase : public Enemy
 {
 private:
 	Animation vase;
+	Animation vase_white;
+	Animation vase_red;
 	iPoint original_pos;
 
 public:
 	Enemy_Vase(int x, int y);
 	void OnCollision(Collider* collider);
+	void Move();
 	uint getHitPoints();
 };
 

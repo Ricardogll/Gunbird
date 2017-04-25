@@ -53,7 +53,6 @@ ModuleBackgroundCastle::ModuleBackgroundCastle()
 
 	building.PushBack({ 32,182,62,52 });
 
-
 	floor.PushBack({ 749,185,57,13 });
 	floor.loop = false;
 
@@ -190,6 +189,8 @@ bool ModuleBackgroundCastle::CleanUp()
 	LOG("Unloading castle stage");
 	App->textures->Unload(graphics);
 	App->textures->Unload(animation_door);
+	App->textures->Unload(animation_soldier);
+	App->textures->Unload(animation_building);
 
 	LOG("Destroying SDL audio");
 	App->audio->StopMusic();

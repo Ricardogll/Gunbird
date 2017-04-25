@@ -28,7 +28,6 @@ Character_YuanNang::Character_YuanNang(int x, int y) : Character(x, y)
 	left.PushBack({ 73, 418, 24, 47 });
 	left.PushBack({ 122, 419, 24, 47 });
 	left.PushBack({ 170, 420, 24, 46 });
-	left.loop = false;
 	left.speed = 0.25f;
 
 	// more left animation
@@ -44,7 +43,6 @@ Character_YuanNang::Character_YuanNang(int x, int y) : Character(x, y)
 	right.PushBack({ 119, 171, 27, 48 });
 	right.PushBack({ 168, 172, 27, 48 });
 	right.PushBack({ 15, 174, 27, 48 });
-	right.loop = false;
 	right.speed = 0.25f;
 
 	// more right animation
