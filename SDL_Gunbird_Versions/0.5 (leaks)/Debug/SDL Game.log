@@ -1,0 +1,7 @@
+﻿  Application.cpp
+c:\users\davidvm12\desktop\0.5\path.h(6): warning C4099: 'Animation': type name first seen using 'class' now seen using 'struct'
+  c:\users\davidvm12\desktop\0.5\animation.h(47): note: see declaration of 'Animation'
+c:\users\davidvm12\desktop\0.5\enemy.h(8): warning C4099: 'Path': type name first seen using 'class' now seen using 'struct'
+  c:\users\davidvm12\desktop\0.5\path.h(17): note: see declaration of 'Path'
+  SDL Game.vcxproj -> C:\Users\davidvm12\Desktop\0.5\Debug\Gunbird.exe
+  SDL Game.vcxproj -> C:\Users\davidvm12\Desktop\0.5\Debug\Gunbird.pdb (Full PDB)
