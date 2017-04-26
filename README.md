@@ -13,7 +13,11 @@ If you want more information about the game, check the following link: https://g
 **_Unzip the release folder and execute the .exe file_**
 
 ## Game Controls
+     * SPACE ➲ Insert Coins
+     
+
 ### Player 1
+     * START ➲ 1
      * W ➲ Move player up
      * S ➲ Move player down
      * A ➲ Move player left
@@ -22,7 +26,9 @@ If you want more information about the game, check the following link: https://g
      * W + A ➲ ↖
      * S + D ➲ ↘
      * S + A ➲ ↙
+     * LASER ➲ Left Control
 ### Player 2
+     * START ➲ Backspace
      * ↑ ➲ Move player up
      * ↓ ➲ Move player down
      * ← ➲ Move player left
@@ -31,6 +37,7 @@ If you want more information about the game, check the following link: https://g
      * ↑ + ← ➲ ↖
      * ↓ + → ➲ ↘
      * ↓ + ← ➲ ↙
+     * LASER ➲ Right Control
 ## Changelist
 ### 0.1 Version (27/03/2017)
 * First map
