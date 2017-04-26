@@ -64,6 +64,20 @@ bool ModuleScoreScreen::Start()
 	portraits_graphics = App->textures->Load("assets/UI/interface.png");
 	font_credit = App->fonts->Load("assets/fonts/credit.png", "0123456789", 1);
 
+	int aux1, aux2;
+	for (int i = 0; i < 12 - 1; i++) {
+		for (int x = i + 1; x < 12; x++) {
+			if (App->savescore->saveScore[i] > App->savescore->saveScore[x]) {
+				aux1 = App->savescore->saveScore[i];
+				aux2 = App->savescore->saveCharacter[i];
+				App->savescore->saveScore[i] = App->savescore->saveScore[x];
+				App->savescore->saveScore[x] = aux1;
+				App->savescore->saveCharacter[i] = App->savescore->saveCharacter[x];
+				App->savescore->saveCharacter[x] = aux2;
+			}
+		}
+	}
+
 	return ret;
 }
 
@@ -77,11 +91,6 @@ bool ModuleScoreScreen::CleanUp()
 	App->textures->Unload(portraits_graphics);
 
 	App->fonts->UnLoad(font_credit);
-
-	for (uint i = 0; i < 10; ++i) {
-		App->savescore->saveScore[i] = 0;
-		App->savescore->saveCharacter[i] = 0;
-	}
 
 	return true;
 }
@@ -97,8 +106,8 @@ update_status ModuleScoreScreen::Update()
 	}
 
 
-	int j = 58;
-	for (uint i = 0; i < 2; ++i)
+	int j = 274;
+	for (uint i = 2; i < 12; ++i)
 	{
 		char str[10];
 		sprintf_s(str, "%i", App->savescore->saveScore[i]);
@@ -128,7 +137,7 @@ update_status ModuleScoreScreen::Update()
 		if (App->savescore->saveCharacter[i] == VALNUS) 
 			App->render->Blit(portraits_graphics, 181, abs(App->render->camera.y / SCREEN_SIZE) + j - 2, &live[4], 1.0f);
 
-		j += 24;
+		j -= 24;
 	}
 
 	return UPDATE_CONTINUE;

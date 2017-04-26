@@ -14,7 +14,7 @@ bool ModuleSaveScore::Init()
 	LOG("Init Save Score");
 	bool ret = true;
 
-	for (uint i = 0; i < 10; ++i) {
+	for (uint i = 0; i < 12; ++i) {
 		saveScore[i] = 0;
 		saveCharacter[i] = 0;
 	}
@@ -24,6 +24,7 @@ bool ModuleSaveScore::Init()
 
 update_status ModuleSaveScore::Update()
 {
+
 	for (uint i = 0; i < MAX_CHARACTERS; ++i)
 	{
 		if (App->player->characters[i] != nullptr) {
@@ -38,7 +39,7 @@ update_status ModuleSaveScore::Update()
 // Called before quitting
 bool ModuleSaveScore::CleanUp()
 {
-	for (uint i = 0; i < 10; ++i) {
+	for (uint i = 0; i < 12; ++i) {
 		saveScore[i] = 0;
 		saveCharacter[i] = 0;
 	}

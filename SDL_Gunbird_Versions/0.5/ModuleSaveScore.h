@@ -15,8 +15,8 @@ public:
 
 public:
 
-	int saveScore[10];
-	uint saveCharacter[10];
+	int saveScore[12];
+	uint saveCharacter[12];
 };
 
 #endif //__ModuleSaveScore_H__
