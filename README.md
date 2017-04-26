@@ -112,6 +112,43 @@ If you want more information about the game, check the following link: https://g
      * Fixed Speed of Particles
      * Fixed Module Audio
 
+### 0.5 Version (26/04/2017)
+* Implement enemies
+* Implement bridge animations
+* Implement tetsu animations
+* Implement tetsu animations
+* Implement Marion lasers
+* Implement Ash lasers
+* Implement soldiers (background animations)
+* Implement enemy shot directed to the player
+* Implement player death
+* Implement enemy drone
+* Implement Tetsu lasers
+* Implement Game Over screen
+* Implement Tetsu lasers
+* Implement coin item
+* Implement immortal animation for the player
+* Implement God Mode, direct Win / direct Lose
+* Implement Score Screen
+* Implement the game over timer
+* Implement animation when player shot hits a enemy
+* Implement score for 10 puntuations organized with highest ranking order
+* Extract sprites
+* Module Fonts + Score for the 2 players
+* Choose 2nd Player in the background screen
+* Rip more sprites
+* Add Spritesheets
+* Icon Marion in the .exe archive
+* Final retouches
+* **Bug-Fixing**
+     * Fixed Scroll Castle
+     * Fixed 2 Players input
+     * Fixed Yuan Nang lasers
+     * Fix bugs (Spawn, Death )
+     * Fix bugs (change control)
+     * Fix Tetsu sprite animations
+     * Fix bugs: debug functionality gates
+
 ## Credits
 * **Github project page**: https://github.com/lFreecss/Gunbird
 * **Github wiki page**: https://github.com/lFreecss/Gunbird/wiki
