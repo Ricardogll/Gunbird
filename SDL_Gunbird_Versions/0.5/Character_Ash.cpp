@@ -126,8 +126,8 @@ void Character_Ash::Move()
 				animation = &blit_idle;
 
 			position.y -= speed;
-			if (position.y < (abs(App->render->camera.y) / SCREEN_SIZE)) {
-				position.y = (abs(App->render->camera.y) / SCREEN_SIZE);
+			if (position.y < (abs(App->render->camera.y) / SCREEN_SIZE) + 32) {
+				position.y = (abs(App->render->camera.y) / SCREEN_SIZE) + 32;
 			}
 		}
 
