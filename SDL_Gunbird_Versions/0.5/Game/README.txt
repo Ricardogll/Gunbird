@@ -1,3 +1,56 @@
+GUNBIRD
+
+****************Description****************
+Gunbird is a shoot'em up game released in Japanese arcades in 1994 by Psikyo.
+Later, it was included in the videogame consoles Sega Saturn, Play Station and the PC platform Steam. 
+It was included in the Gunbird Special Edition which collects first and second Gunbird editions. 
+Out of Japan, the game was re-named to Mobile Light Force.
+
+The game consists of getting the four parts of a magic mirror that gives a single desire to whom obtains it.
+The game is divided in seven vertical scrolling stages. 
+Four of them are focused on collecting mirror parts and the last three on arriving to the temple. 
+It has two levels of diffculty. This way, when you finish the story, it restarts to the first stage with a higher level of difficulty.
+
+****************Team Members****************
+
+- Management: David Valdivia
+       Github: AwesomeSuitGuy
+- Art/Design: David Varela
+       Github: lFreecss
+- Code: Adrià Gironès
+       Github: adrineko98
+- QA: Victor Tirado
+       Github: VictorTirado
+
+****************Game Controls****************
+
+ * SPACE ? Insert Coins
+- Player 1
+
+    * START -> 1
+    * W -> Move player up
+    * S -> Move player down
+    * A -> Move player left
+    * D -> Move player right
+    * W + D -> Diagonal up+right
+    * W + A -> Diagonal up+left
+    * S + D -> Diagonal down+right
+    * S + A -> Diagonal down+left
+    * LASER -> Left Control
+
+- Player 2
+
+     * START -> Backspace (NOTE THAT YOU CAN START PLAYER 2 GAME WHEN THE GAME HAS ALREADY BEGUN)
+     * UP -> Move player up
+     * DOWN -> Move player down
+     * LEFT -> Move player left
+     * RIGHT -> Move player right
+     * UP + RIGHT -> Diagonal up+right
+     * UP + LEFT -> Diagonal up+left
+     * DOWN + RIGHT -> Diagonal down+right
+     * DOWN + LEFT -> Diagonal down+left
+     * LASER -> Right Control
+
 ****************0.1 Version (27/03/2017)****************
 Changelist:
 - First map
@@ -35,10 +88,10 @@ Changelist:
     * S -> Move player down
     * A -> Move player left
     * D -> Move player right
-    * W + D ? Diagonal up+right
-    * W + A ? Diagonal up+left
-    * S + D ? Diagonal down+right
-    * S + A ? Diagonal down+left
+    * W + D -> Diagonal up+right
+    * W + A -> Diagonal up+left
+    * S + D -> Diagonal down+right
+    * S + A -> Diagonal down+left
 - Bug-Fixing:
     * Memory Leaks
 
