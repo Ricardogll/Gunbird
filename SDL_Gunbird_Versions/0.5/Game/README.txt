@@ -24,7 +24,7 @@ It has two levels of diffculty. This way, when you finish the story, it restarts
 
 ****************Game Controls****************
 
- * SPACE ? Insert Coins
+    * SPACE -> Insert Coins
 - Player 1
 
     * START -> 1
