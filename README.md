@@ -18,19 +18,19 @@ If you want more information about the game, check the following link: https://g
      * S ➲ Move player down
      * A ➲ Move player left
      * D ➲ Move player right
-     * W + D ➲ **↗**
-     * W + A ➲ **↖**
-     * S + D ➲ **↘**
-     * S + A ➲ **↙**
+     * W + D ➲ ↗
+     * W + A ➲ ↖
+     * S + D ➲ ↘
+     * S + A ➲ ↙
 ### Player 2
      * ↑ ➲ Move player up
      * ↓ ➲ Move player down
      * ← ➲ Move player left
      * → ➲ Move player right
-     * ↑ + → ➲ **↗**
-     * ↑ + ← ➲ **↖**
-     * ↓ + → ➲ **↘**
-     * ↓ + ← ➲ **↙**
+     * ↑ + → ➲ ↗
+     * ↑ + ← ➲ ↖
+     * ↓ + → ➲ ↘
+     * ↓ + ← ➲ ↙
 ## Changelist
 ### 0.1 Version (27/03/2017)
 * First map
