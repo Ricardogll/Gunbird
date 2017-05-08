@@ -1,0 +1,8 @@
+﻿  ModuleUI.cpp
+c:\users\adrià gironès\desktop\0.5 gamepad\path.h(6): warning C4099: 'Animation': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+  c:\users\adrià gironès\desktop\0.5 gamepad\animation.h(47): note: vea la declaración de 'Animation'
+c:\users\adrià gironès\desktop\0.5 gamepad\enemy.h(8): warning C4099: 'Path': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+  c:\users\adrià gironès\desktop\0.5 gamepad\path.h(17): note: vea la declaración de 'Path'
+c:\users\adrià gironès\desktop\0.5 gamepad\moduleui.cpp(155): warning C4553: '==': el operador no tiene efecto; ¿ha pensado en '='?
+  SDL Game.vcxproj -> C:\Users\Adrià Gironès\Desktop\0.5 gamepad\Debug\Gunbird.exe
+  SDL Game.vcxproj -> C:\Users\Adrià Gironès\Desktop\0.5 gamepad\Debug\Gunbird.pdb (Full PDB)
