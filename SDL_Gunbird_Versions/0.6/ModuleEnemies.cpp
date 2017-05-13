@@ -35,6 +35,16 @@ ModuleEnemies::ModuleEnemies()
 	balloonCastle.PushBack({ 0.0f, 1.5f }, 300);
 	balloonCastle.loop = false;
 
+	//Path Turret1
+	turret1.PushBack({ 0.0f, 0.0f }, 150);
+	turret1.PushBack({ 0.5f, 0.0f }, 150);
+	turret1.loop = false;
+
+	//Path Turret1
+	turret2.PushBack({ 0.0f, 0.0f }, 150);
+	turret2.PushBack({ -0.5f, 0.0f }, 150);
+	turret2.loop = false;
+
 	//FLAG
 	flag.PushBack({ 745,539,64,21 });
 	flag.PushBack({ 821,541,64,21 });
@@ -246,6 +256,17 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 				enemies[i] = new Enemy_Turret2(info.x, info.y);
 				enemies[i]->type = ENEMY_TYPES::TURRET2;
 				enemies[i]->id = info.id;
+				switch (info.move)
+				{
+				case ENEMY_MOVE::TURRET_1:
+					enemies[i]->path = turret1;
+					break;
+				case ENEMY_MOVE::TURRET_2:
+					enemies[i]->path = turret2;
+					break;
+				default:
+					break;
+				}
 				break;
 			case ENEMY_TYPES::COIN:
 				enemies[i] = new Coin(info.x, info.y);

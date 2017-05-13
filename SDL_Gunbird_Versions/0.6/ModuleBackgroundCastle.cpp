@@ -144,16 +144,18 @@ bool ModuleBackgroundCastle::Start()
 	App->enemies->AddEnemy(ENEMY_TYPES::MISSILE, BUILDING_CASTLE, 10, 1140);
 
 	//TURRET2
-	App->enemies->AddEnemy(ENEMY_TYPES::TURRET2, NO_MOVE, 7, 1185);
-	App->enemies->AddEnemy(ENEMY_TYPES::TURRET2, NO_MOVE, 4, 1145);
-	App->enemies->AddEnemy(ENEMY_TYPES::TURRET2, NO_MOVE, 7, 1105);
-	App->enemies->AddEnemy(ENEMY_TYPES::TURRET2, NO_MOVE, 11, 740);
-	//App->enemies->AddEnemy(ENEMY_TYPES::TURRET2, NO_MOVE, 17, 770);
-	App->enemies->AddEnemy(ENEMY_TYPES::TURRET2, NO_MOVE, 190, 770);
-	//App->enemies->AddEnemy(ENEMY_TYPES::TURRET2, NO_MOVE, 195, 734);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET2, TURRET_1, -75, 1185);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET2, TURRET_1, -50, 1145);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET2, TURRET_1, -75, 1105);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET2, TURRET_1, -75, 740);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET2, NO_MOVE, 25, 770);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET2, TURRET_2, 270 , 740);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET2, NO_MOVE, 170, 770);
 	App->enemies->AddEnemy(ENEMY_TYPES::TURRET2, NO_MOVE, 26, 430);
 	App->enemies->AddEnemy(ENEMY_TYPES::TURRET2, NO_MOVE, 170, 430);
-	App->enemies->AddEnemy(ENEMY_TYPES::TURRET2, NO_MOVE, 178, 340);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET2, TURRET_2, 250, 340);
+
+	
 
 	//VASE
 	App->enemies->AddEnemy(ENEMY_TYPES::VASE, NO_MOVE, 10, 690);
@@ -289,6 +291,10 @@ update_status ModuleBackgroundCastle::Update()
 			}
 		}
 	}
+
+
+	if (App->input->keyboard[SDL_SCANCODE_F] == KEY_STATE::KEY_DOWN)
+		App->render->camera.y = (-1150 + SCREEN_HEIGHT) * SCREEN_SIZE;
 
 	return UPDATE_CONTINUE;
 }

@@ -39,7 +39,7 @@ Enemy_Turret2::Enemy_Turret2(int x, int y) : Enemy(x, y)
 
 void Enemy_Turret2::Move()
 {
-	//position = original_pos + path.GetCurrentPosition(&animation);
+	position = original_pos + path.GetCurrentPosition(&animation);
 
 	animation = &turret2;
 
