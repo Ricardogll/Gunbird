@@ -138,10 +138,17 @@ bool ModuleBackgroundCastle::Start()
 
 
 	//MISILE
-	App->enemies->AddEnemy(ENEMY_TYPES::MISSILE, BUILDING_CASTLE, 90, 1230);
-	App->enemies->AddEnemy(ENEMY_TYPES::MISSILE, BUILDING_CASTLE, 60, 1200);
-	App->enemies->AddEnemy(ENEMY_TYPES::MISSILE, BUILDING_CASTLE, 30, 1170);
-	App->enemies->AddEnemy(ENEMY_TYPES::MISSILE, BUILDING_CASTLE, 10, 1140);
+	App->enemies->AddEnemy(ENEMY_TYPES::MISSILE, MISSILE_1, 90, 1230);
+	App->enemies->AddEnemy(ENEMY_TYPES::MISSILE, MISSILE_1, 60, 1200);
+	App->enemies->AddEnemy(ENEMY_TYPES::MISSILE, MISSILE_1, 30, 1170);
+	App->enemies->AddEnemy(ENEMY_TYPES::MISSILE, MISSILE_1, 10, 1140);
+
+	App->enemies->AddEnemy(ENEMY_TYPES::MISSILE, MISSILE_2, 36 + 228, 636);
+	App->enemies->AddEnemy(ENEMY_TYPES::MISSILE, MISSILE_2, 72 + 228, 636);
+	App->enemies->AddEnemy(ENEMY_TYPES::MISSILE, MISSILE_2, 108 + 228, 636);
+	App->enemies->AddEnemy(ENEMY_TYPES::MISSILE, MISSILE_2, 144 + 228, 636);
+	App->enemies->AddEnemy(ENEMY_TYPES::MISSILE, MISSILE_2, 180 + 228, 636);
+	App->enemies->AddEnemy(ENEMY_TYPES::MISSILE, MISSILE_2, 216 + 228, 636);
 
 	//TURRET2
 	App->enemies->AddEnemy(ENEMY_TYPES::TURRET2, TURRET_1, -75, 1185);
@@ -294,7 +301,7 @@ update_status ModuleBackgroundCastle::Update()
 
 
 	if (App->input->keyboard[SDL_SCANCODE_F] == KEY_STATE::KEY_DOWN)
-		App->render->camera.y = (-1150 + SCREEN_HEIGHT) * SCREEN_SIZE;
+		App->render->camera.y = (-1100 + SCREEN_HEIGHT) * SCREEN_SIZE;
 
 	return UPDATE_CONTINUE;
 }

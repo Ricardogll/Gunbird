@@ -35,7 +35,9 @@ enum ENEMY_MOVE
 	BUILDING_CASTLE, 
 	DRONE_CASTLE,
 	TURRET_1,
-	TURRET_2
+	TURRET_2,
+	MISSILE_1,
+	MISSILE_2
 };
 
 class Enemy;
@@ -84,6 +86,8 @@ private:
 	Path drone;
 	Path turret1;
 	Path turret2;
+	Path missile1;
+	Path missile2;
 
 	Animation flag;
 

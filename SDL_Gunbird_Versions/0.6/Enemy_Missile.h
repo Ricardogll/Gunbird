@@ -15,7 +15,6 @@ public:
 	void Move();
 	void OnCollision(Collider* collider);
 	uint getHitPoints();
-	bool move_missile;
 };
 
 

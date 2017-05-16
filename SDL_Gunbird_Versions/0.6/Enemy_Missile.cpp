@@ -27,26 +27,19 @@ Enemy_Missile::Enemy_Missile(int x, int y) : Enemy(x, y)
 
 	original_pos.y = y;
 	original_pos.x = x;
-	move_missile = false;
 }
 
 void Enemy_Missile::Move()
 {
+	position = original_pos + path.GetCurrentPosition(&animation);
+
 	animation = &missile;
 
 	if (hit_animation == true) {
 		animation = &missile_white;
 		hit_animation = false;
 	}
-
-
-	if (move_missile == true) {
-		position.y += 1;
-		position.x += 1;
-	}
-	/*if ((abs(App->render->camera.y) / SCREEN_SIZE) > 1270 || (abs(App->render->camera.y) / SCREEN_SIZE) == 1240
-		|| (abs(App->render->camera.y) / SCREEN_SIZE) == 1210 || (abs(App->render->camera.y) / SCREEN_SIZE) == 1180)*/
-		move_missile = true;
+	
 }
 
 void Enemy_Missile::OnCollision(Collider* collider) {

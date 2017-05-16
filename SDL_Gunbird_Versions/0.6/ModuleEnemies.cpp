@@ -40,10 +40,21 @@ ModuleEnemies::ModuleEnemies()
 	turret1.PushBack({ 0.5f, 0.0f }, 150);
 	turret1.loop = false;
 
-	//Path Turret1
+	//Path Turret2
 	turret2.PushBack({ 0.0f, 0.0f }, 150);
 	turret2.PushBack({ -0.5f, 0.0f }, 150);
 	turret2.loop = false;
+
+	//Path Missile1
+	missile1.PushBack({ 1.0f, 1.0f }, 15000);
+	missile1.loop = true;
+
+	//Path Missile2
+	missile2.PushBack({ 0.0f, 0.0f }, 250);
+	missile2.PushBack({ -5.0f, -0.3f }, 50);
+	missile2.PushBack({ 0.0f, -0.3f }, 70);
+	missile2.PushBack({ 0.0f, 3.0f }, 150);
+	missile2.loop = false;
 
 	//FLAG
 	flag.PushBack({ 745,539,64,21 });
@@ -219,6 +230,17 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 			enemies[i] = new Enemy_Missile(info.x, info.y);
 			enemies[i]->type = ENEMY_TYPES::MISSILE;
 			enemies[i]->id = info.id;
+			switch (info.move)
+			{
+			case ENEMY_MOVE::MISSILE_1:
+				enemies[i]->path = missile1;
+				break;
+			case ENEMY_MOVE::MISSILE_2:
+				enemies[i]->path = missile2;
+				break;
+			default:
+				break;
+			}
 			break;
 		case ENEMY_TYPES::POWERUP:
 			enemies[i] = new PowerUp(info.x, info.y);
