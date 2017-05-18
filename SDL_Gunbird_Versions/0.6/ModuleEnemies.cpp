@@ -13,7 +13,7 @@
 #include "Enemy_building.h"
 #include "Enemy_building2.h"
 #include "Enemy_vase.h"
-#include "Enemy_drone.h"
+#include "Enemy_Drone.h"
 #include "Enemy_Missile.h"
 #include "Enemy_robot.h"
 
@@ -70,9 +70,9 @@ ModuleEnemies::ModuleEnemies()
 	flag.PushBack({ 745,615,64,21 });
 	flag.speed = 0.1f;
 
-	drone.PushBack({ 0.0f, 1.5f }, 100);
+	/*drone.PushBack({ 0.0f, 1.5f }, 100);
 	drone.PushBack({ 0.0f, 0.0f }, 150);
-	drone.PushBack({ 1.5f, 1.5f }, 150);
+	drone.PushBack({ 1.5f, 1.5f }, 150);*/
 
 	robot.PushBack({ 1.0f,1.0f },150);
 	
@@ -278,14 +278,8 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 				enemies[i] = new Enemy_Drone(info.x, info.y);
 				enemies[i]->type = ENEMY_TYPES::DRONE;
 				enemies[i]->id = info.id;
-				switch (info.move)
-				{
-
-				case ENEMY_MOVE::DRONE_CASTLE:
-					enemies[i]->path = drone;
-					break;
-				
-				}
+				break;
+			
 			case ENEMY_TYPES::TURRET2:
 				enemies[i] = new Enemy_Turret2(info.x, info.y);
 				enemies[i]->type = ENEMY_TYPES::TURRET2;
@@ -393,6 +387,17 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 					break;
 				}
 			}
+			if (enemies[i]->type == ENEMY_TYPES::DRONE) {
+				if (enemies[i]->getHitPoints() == 0) {
+					scoreEnemy(enemies[i], c2);
+					App->particles->AddParticle(App->particles->explosion_balloon, (c1->rect.x - ((c1->rect.w)) / 2), (c1->rect.y - ((c1->rect.h)) / 2), NULL, NULL, NULL);
+					App->audio->PlayWAV(explosion1);
+					delete enemies[i];
+					enemies[i] = nullptr;
+					break;
+				}
+			}
+			//Erase Coin when the player grabs it
 			if (enemies[i]->type == ENEMY_TYPES::COIN && c2->type == COLLIDER_TYPE::COLLIDER_PLAYER) {
 				delete enemies[i];
 				enemies[i] = nullptr;

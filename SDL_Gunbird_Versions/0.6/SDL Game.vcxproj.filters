@@ -140,9 +140,6 @@
     <ClInclude Include="Enemy_vase.h">
       <Filter>Modules\Enemies</Filter>
     </ClInclude>
-    <ClInclude Include="Enemy_drone.h">
-      <Filter>Modules\Enemies</Filter>
-    </ClInclude>
     <ClInclude Include="ModuleFonts.h">
       <Filter>Modules</Filter>
     </ClInclude>
@@ -155,7 +152,11 @@
     <ClInclude Include="ModuleSaveScore.h">
       <Filter>Modules</Filter>
     </ClInclude>
+<<<<<<< HEAD
     <ClInclude Include="Enemy_robot.h">
+=======
+    <ClInclude Include="Enemy_Drone.h">
+>>>>>>> origin/master
       <Filter>Modules\Enemies</Filter>
     </ClInclude>
   </ItemGroup>
@@ -262,9 +263,6 @@
     <ClCompile Include="Enemy_vase.cpp">
       <Filter>Modules\Enemies</Filter>
     </ClCompile>
-    <ClCompile Include="Enemy_drone.cpp">
-      <Filter>Modules\Enemies</Filter>
-    </ClCompile>
     <ClCompile Include="ModuleFonts.cpp">
       <Filter>Modules</Filter>
     </ClCompile>
@@ -277,7 +275,11 @@
     <ClCompile Include="ModuleSaveScore.cpp">
       <Filter>Modules</Filter>
     </ClCompile>
+<<<<<<< HEAD
     <ClCompile Include="Enemy_robot.cpp">
+=======
+    <ClCompile Include="Enemy_Drone.cpp">
+>>>>>>> origin/master
       <Filter>Modules\Enemies</Filter>
     </ClCompile>
   </ItemGroup>

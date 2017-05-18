@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿  ModuleEnemies.cpp
 c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.6\path.h(6): warning C4099: 'Animation': type name first seen using 'class' now seen using 'struct'
   c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.6\animation.h(47): note: see declaration of 'Animation'
@@ -5,3 +6,7 @@ c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.6\enemy.h(8): w
   c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.6\path.h(17): note: see declaration of 'Path'
   SDL Game.vcxproj -> C:\Users\Usuario\Documents\GitHub\Gunbird\SDL_Gunbird_Versions\0.6\Debug\Gunbird.exe
   SDL Game.vcxproj -> C:\Users\Usuario\Documents\GitHub\Gunbird\SDL_Gunbird_Versions\0.6\Debug\Gunbird.pdb (Full PDB)
+=======
+﻿  SDL Game.vcxproj -> C:\Users\David\Desktop\Gunbird\SDL_Gunbird_Versions\0.6\Debug\Gunbird.exe
+  SDL Game.vcxproj -> C:\Users\David\Desktop\Gunbird\SDL_Gunbird_Versions\0.6\Debug\Gunbird.pdb (Full PDB)
+>>>>>>> origin/master

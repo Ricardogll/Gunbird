@@ -1,5 +1,5 @@
 #include "Application.h"
-#include "Enemy_drone.h"
+#include "Enemy_Drone.h"
 #include "ModuleCollision.h"
 #include "SDL\include\SDL_timer.h"
 
@@ -43,7 +43,7 @@ void Enemy_Drone::Move()
 
 void Enemy_Drone::OnCollision(Collider* collider) {
 	if (collider->type == COLLIDER_TYPE::COLLIDER_PLAYER_SHOT)
-	hitPoints -= 1;
+		hitPoints -= 1;
 }
 
 uint Enemy_Drone::getHitPoints() {

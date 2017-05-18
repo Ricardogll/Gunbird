@@ -173,9 +173,9 @@ bool ModuleBackgroundCastle::Start()
 	App->enemies->AddEnemy(ENEMY_TYPES::VASE, NO_MOVE, 185, 475);
 
 	//DRONE
-	/*App->enemies->AddEnemy(ENEMY_TYPES::DRONE, DRONE_CASTLE, 42, 1042);
-	App->enemies->AddEnemy(ENEMY_TYPES::DRONE, DRONE_CASTLE, 55, 1080);
-	App->enemies->AddEnemy(ENEMY_TYPES::DRONE, DRONE_CASTLE, 75, 1042);*/
+	App->enemies->AddEnemy(ENEMY_TYPES::DRONE, NO_MOVE, 42, 1042);
+	//App->enemies->AddEnemy(ENEMY_TYPES::DRONE, NO_MOVE, 55, 1080);
+	//App->enemies->AddEnemy(ENEMY_TYPES::DRONE, NO_MOVE, 75, 1042);
 
 	//App->enemies->AddEnemy(ENEMY_TYPES::MISSILE, NO_MOVE , 12, 1241);
 
