@@ -155,6 +155,9 @@
     <ClInclude Include="ModuleSaveScore.h">
       <Filter>Modules</Filter>
     </ClInclude>
+    <ClInclude Include="Enemy_robot.h">
+      <Filter>Modules\Enemies</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -273,6 +276,9 @@
     </ClCompile>
     <ClCompile Include="ModuleSaveScore.cpp">
       <Filter>Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_robot.cpp">
+      <Filter>Modules\Enemies</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

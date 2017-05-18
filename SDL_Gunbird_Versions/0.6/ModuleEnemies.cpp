@@ -15,6 +15,7 @@
 #include "Enemy_vase.h"
 #include "Enemy_drone.h"
 #include "Enemy_Missile.h"
+#include "Enemy_robot.h"
 
 #include "PowerUp.h"
 #include "Coin.h"
@@ -49,6 +50,9 @@ ModuleEnemies::ModuleEnemies()
 	missile1.PushBack({ 1.0f, 1.0f }, 15000);
 	missile1.loop = true;
 
+	//PATH ROBOT
+	robot.PushBack({ -1.0f,0.0f }, 1000);
+
 	//Path Missile2
 	missile2.PushBack({ 0.0f, 0.0f }, 250);
 	missile2.PushBack({ -5.0f, -0.3f }, 50);
@@ -69,6 +73,9 @@ ModuleEnemies::ModuleEnemies()
 	drone.PushBack({ 0.0f, 1.5f }, 100);
 	drone.PushBack({ 0.0f, 0.0f }, 150);
 	drone.PushBack({ 1.5f, 1.5f }, 150);
+
+	robot.PushBack({ 1.0f,1.0f },150);
+	
 
 }
 
@@ -224,6 +231,11 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 		case ENEMY_TYPES::TURRET:
 			enemies[i] = new Enemy_Turret(info.x, info.y);
 			enemies[i]->type = ENEMY_TYPES::TURRET;
+			enemies[i]->id = info.id;
+			break;
+		case ENEMY_TYPES::ROBOT:
+			enemies[i] = new Enemy_Robot(info.x, info.y);
+			enemies[i]->type = ENEMY_TYPES::ROBOT;
 			enemies[i]->id = info.id;
 			break;
 		case ENEMY_TYPES::MISSILE:

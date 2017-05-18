@@ -131,10 +131,12 @@ bool ModuleBackgroundCastle::Start()
 	//ENEMIES
 	App->enemies->AddEnemy(ENEMY_TYPES::BALLOON, BALLOON_CASTLE, 95, 1255);
 	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, NO_MOVE, 162, 1241);
+	App->enemies->AddEnemy(ENEMY_TYPES::ROBOT, ROBOT_, 70, 1242);
 
 	//BUILDING
 	App->enemies->AddEnemy(ENEMY_TYPES::BUILDING, BUILDING_CASTLE, 147, 1059);
 	App->enemies->AddEnemy(ENEMY_TYPES::BUILDING2, BUILDING_CASTLE, 78, 799);
+
 
 
 	//MISILE
