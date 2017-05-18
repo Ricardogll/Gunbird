@@ -2,12 +2,7 @@
 #define __ModuleEnemies_H__
 
 #include "Module.h"
-#include "Enemy_Balloon.h"
-#include "Enemy_Turret.h"
-#include "Enemy_Missile.h"
-#include "Enemy_building.h"
-#include "Enemy_building2.h"
-#include "PowerUp.h"
+#include "Enemy.h"
 #include "Path.h"
 
 #define MAX_ENEMIES 50
@@ -21,10 +16,11 @@ enum ENEMY_TYPES
 	BUILDING,
 	BUILDING2,
 	VASE,
-	DRONE,
 	TURRET2,
+	DRONE,
+	
+	
 	COIN,
-
 	POWERUP
 };
 
@@ -33,7 +29,6 @@ enum ENEMY_MOVE
 	NO_MOVE,
 	BALLOON_CASTLE,
 	BUILDING_CASTLE, 
-	DRONE_CASTLE,
 	TURRET_1,
 	TURRET_2,
 	MISSILE_1,
@@ -83,7 +78,6 @@ private:
 
 	//Paths
 	Path balloonCastle;
-	Path drone;
 	Path turret1;
 	Path turret2;
 	Path missile1;

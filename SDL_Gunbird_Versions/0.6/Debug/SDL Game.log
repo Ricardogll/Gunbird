@@ -1,7 +1,2 @@
-﻿  ModuleEnemies.cpp
-c:\users\david\desktop\gunbird\sdl_gunbird_versions\0.6\path.h(6): warning C4099: 'Animation': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
-  c:\users\david\desktop\gunbird\sdl_gunbird_versions\0.6\animation.h(47): note: vea la declaración de 'Animation'
-c:\users\david\desktop\gunbird\sdl_gunbird_versions\0.6\enemy.h(8): warning C4099: 'Path': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
-  c:\users\david\desktop\gunbird\sdl_gunbird_versions\0.6\path.h(17): note: vea la declaración de 'Path'
-  SDL Game.vcxproj -> C:\Users\David\Desktop\Gunbird\SDL_Gunbird_Versions\0.6\Debug\Gunbird.exe
+﻿  SDL Game.vcxproj -> C:\Users\David\Desktop\Gunbird\SDL_Gunbird_Versions\0.6\Debug\Gunbird.exe
   SDL Game.vcxproj -> C:\Users\David\Desktop\Gunbird\SDL_Gunbird_Versions\0.6\Debug\Gunbird.pdb (Full PDB)
