@@ -1,12 +1,40 @@
-<<<<<<< HEAD
-﻿  ModuleEnemies.cpp
+﻿  Enemy_robot.cpp
 c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.6\path.h(6): warning C4099: 'Animation': type name first seen using 'class' now seen using 'struct'
   c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.6\animation.h(47): note: see declaration of 'Animation'
 c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.6\enemy.h(8): warning C4099: 'Path': type name first seen using 'class' now seen using 'struct'
   c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.6\path.h(17): note: see declaration of 'Path'
+  LINK : C:\Users\Usuario\Documents\GitHub\Gunbird\SDL_Gunbird_Versions\0.6\Debug\Gunbird.exe not found or not built by the last incremental link; performing full link
+PowerUp.obj : warning LNK4204: 'C:\Users\Usuario\Documents\GitHub\Gunbird\SDL_Gunbird_Versions\0.6\Debug\vc140.pdb' is missing debugging information for referencing module; linking object as if no debug info
+ModuleWindow.obj : warning LNK4204: 'C:\Users\Usuario\Documents\GitHub\Gunbird\SDL_Gunbird_Versions\0.6\Debug\vc140.pdb' is missing debugging information for referencing module; linking object as if no debug info
+ModuleTitleScreen.obj : warning LNK4204: 'C:\Users\Usuario\Documents\GitHub\Gunbird\SDL_Gunbird_Versions\0.6\Debug\vc140.pdb' is missing debugging information for referencing module; linking object as if no debug info
+ModuleTextures.obj : warning LNK4204: 'C:\Users\Usuario\Documents\GitHub\Gunbird\SDL_Gunbird_Versions\0.6\Debug\vc140.pdb' is missing debugging information for referencing module; linking object as if no debug info
+ModuleScoreScreen.obj : warning LNK4204: 'C:\Users\Usuario\Documents\GitHub\Gunbird\SDL_Gunbird_Versions\0.6\Debug\vc140.pdb' is missing debugging information for referencing module; linking object as if no debug info
+ModuleSaveScore.obj : warning LNK4204: 'C:\Users\Usuario\Documents\GitHub\Gunbird\SDL_Gunbird_Versions\0.6\Debug\vc140.pdb' is missing debugging information for referencing module; linking object as if no debug info
+ModuleRender.obj : warning LNK4204: 'C:\Users\Usuario\Documents\GitHub\Gunbird\SDL_Gunbird_Versions\0.6\Debug\vc140.pdb' is missing debugging information for referencing module; linking object as if no debug info
+ModulePlayer.obj : warning LNK4204: 'C:\Users\Usuario\Documents\GitHub\Gunbird\SDL_Gunbird_Versions\0.6\Debug\vc140.pdb' is missing debugging information for referencing module; linking object as if no debug info
+ModuleParticles.obj : warning LNK4204: 'C:\Users\Usuario\Documents\GitHub\Gunbird\SDL_Gunbird_Versions\0.6\Debug\vc140.pdb' is missing debugging information for referencing module; linking object as if no debug info
+ModuleInput.obj : warning LNK4204: 'C:\Users\Usuario\Documents\GitHub\Gunbird\SDL_Gunbird_Versions\0.6\Debug\vc140.pdb' is missing debugging information for referencing module; linking object as if no debug info
+ModuleFonts.obj : warning LNK4204: 'C:\Users\Usuario\Documents\GitHub\Gunbird\SDL_Gunbird_Versions\0.6\Debug\vc140.pdb' is missing debugging information for referencing module; linking object as if no debug info
+ModuleFadeToBlack.obj : warning LNK4204: 'C:\Users\Usuario\Documents\GitHub\Gunbird\SDL_Gunbird_Versions\0.6\Debug\vc140.pdb' is missing debugging information for referencing module; linking object as if no debug info
+ModuleCollision.obj : warning LNK4204: 'C:\Users\Usuario\Documents\GitHub\Gunbird\SDL_Gunbird_Versions\0.6\Debug\vc140.pdb' is missing debugging information for referencing module; linking object as if no debug info
+ModuleBackgroundMine.obj : warning LNK4204: 'C:\Users\Usuario\Documents\GitHub\Gunbird\SDL_Gunbird_Versions\0.6\Debug\vc140.pdb' is missing debugging information for referencing module; linking object as if no debug info
+ModuleAudio.obj : warning LNK4204: 'C:\Users\Usuario\Documents\GitHub\Gunbird\SDL_Gunbird_Versions\0.6\Debug\vc140.pdb' is missing debugging information for referencing module; linking object as if no debug info
+Main.obj : warning LNK4204: 'C:\Users\Usuario\Documents\GitHub\Gunbird\SDL_Gunbird_Versions\0.6\Debug\vc140.pdb' is missing debugging information for referencing module; linking object as if no debug info
+Globals.obj : warning LNK4204: 'C:\Users\Usuario\Documents\GitHub\Gunbird\SDL_Gunbird_Versions\0.6\Debug\vc140.pdb' is missing debugging information for referencing module; linking object as if no debug info
+Enemy_vase.obj : warning LNK4204: 'C:\Users\Usuario\Documents\GitHub\Gunbird\SDL_Gunbird_Versions\0.6\Debug\vc140.pdb' is missing debugging information for referencing module; linking object as if no debug info
+Enemy_Turret.obj : warning LNK4204: 'C:\Users\Usuario\Documents\GitHub\Gunbird\SDL_Gunbird_Versions\0.6\Debug\vc140.pdb' is missing debugging information for referencing module; linking object as if no debug info
+Enemy_Missile.obj : warning LNK4204: 'C:\Users\Usuario\Documents\GitHub\Gunbird\SDL_Gunbird_Versions\0.6\Debug\vc140.pdb' is missing debugging information for referencing module; linking object as if no debug info
+Enemy_Drone.obj : warning LNK4204: 'C:\Users\Usuario\Documents\GitHub\Gunbird\SDL_Gunbird_Versions\0.6\Debug\vc140.pdb' is missing debugging information for referencing module; linking object as if no debug info
+Enemy_building2.obj : warning LNK4204: 'C:\Users\Usuario\Documents\GitHub\Gunbird\SDL_Gunbird_Versions\0.6\Debug\vc140.pdb' is missing debugging information for referencing module; linking object as if no debug info
+Enemy_building.obj : warning LNK4204: 'C:\Users\Usuario\Documents\GitHub\Gunbird\SDL_Gunbird_Versions\0.6\Debug\vc140.pdb' is missing debugging information for referencing module; linking object as if no debug info
+Enemy_Balloon.obj : warning LNK4204: 'C:\Users\Usuario\Documents\GitHub\Gunbird\SDL_Gunbird_Versions\0.6\Debug\vc140.pdb' is missing debugging information for referencing module; linking object as if no debug info
+Enemy.obj : warning LNK4204: 'C:\Users\Usuario\Documents\GitHub\Gunbird\SDL_Gunbird_Versions\0.6\Debug\vc140.pdb' is missing debugging information for referencing module; linking object as if no debug info
+Coin.obj : warning LNK4204: 'C:\Users\Usuario\Documents\GitHub\Gunbird\SDL_Gunbird_Versions\0.6\Debug\vc140.pdb' is missing debugging information for referencing module; linking object as if no debug info
+Character_YuanNang.obj : warning LNK4204: 'C:\Users\Usuario\Documents\GitHub\Gunbird\SDL_Gunbird_Versions\0.6\Debug\vc140.pdb' is missing debugging information for referencing module; linking object as if no debug info
+Character_Valnus.obj : warning LNK4204: 'C:\Users\Usuario\Documents\GitHub\Gunbird\SDL_Gunbird_Versions\0.6\Debug\vc140.pdb' is missing debugging information for referencing module; linking object as if no debug info
+Character_Tetsu.obj : warning LNK4204: 'C:\Users\Usuario\Documents\GitHub\Gunbird\SDL_Gunbird_Versions\0.6\Debug\vc140.pdb' is missing debugging information for referencing module; linking object as if no debug info
+Character_Marion.obj : warning LNK4204: 'C:\Users\Usuario\Documents\GitHub\Gunbird\SDL_Gunbird_Versions\0.6\Debug\vc140.pdb' is missing debugging information for referencing module; linking object as if no debug info
+Character_Ash.obj : warning LNK4204: 'C:\Users\Usuario\Documents\GitHub\Gunbird\SDL_Gunbird_Versions\0.6\Debug\vc140.pdb' is missing debugging information for referencing module; linking object as if no debug info
+Character.obj : warning LNK4204: 'C:\Users\Usuario\Documents\GitHub\Gunbird\SDL_Gunbird_Versions\0.6\Debug\vc140.pdb' is missing debugging information for referencing module; linking object as if no debug info
   SDL Game.vcxproj -> C:\Users\Usuario\Documents\GitHub\Gunbird\SDL_Gunbird_Versions\0.6\Debug\Gunbird.exe
   SDL Game.vcxproj -> C:\Users\Usuario\Documents\GitHub\Gunbird\SDL_Gunbird_Versions\0.6\Debug\Gunbird.pdb (Full PDB)
-=======
-﻿  SDL Game.vcxproj -> C:\Users\David\Desktop\Gunbird\SDL_Gunbird_Versions\0.6\Debug\Gunbird.exe
-  SDL Game.vcxproj -> C:\Users\David\Desktop\Gunbird\SDL_Gunbird_Versions\0.6\Debug\Gunbird.pdb (Full PDB)
->>>>>>> origin/master
