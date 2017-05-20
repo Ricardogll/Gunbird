@@ -11,6 +11,7 @@ private:
 	Animation mright;
 	Animation left;
 	Animation mleft;
+	Animation death;
 	Animation blit_idle;
 	Animation blit_left;
 	Animation blit_mleft;

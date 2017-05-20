@@ -278,6 +278,9 @@ Character_Tetsu::Character_Tetsu(int x, int y) : Character(x, y)
 	blit_mright.loop = true;
 	blit_mright.speed = 0.8f;
 
+	// death sprite
+	death.PushBack({ 781, 11, 22, 20 });
+
 	collider = App->collision->AddCollider({ position.x, position.y, 30, 37 }, COLLIDER_PLAYER, TETSU, (Module*)App->player);
 
 	animation = &idle;
@@ -619,7 +622,7 @@ void Character_Tetsu::Laser() {
 
 void Character_Tetsu::Dead() {
 	if (this->playerDead == true) {
-		//animation = &death;
+		animation = &death;
 		this->desactivateInput = true;
 
 		if (this->spawnPlayer == false && position.y <= 50 + ((abs(App->render->camera.y) + (SCREEN_HEIGHT*SCREEN_SIZE))) / SCREEN_SIZE)
