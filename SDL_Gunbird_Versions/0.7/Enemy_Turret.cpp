@@ -50,24 +50,24 @@ void Enemy_Turret::Move()
 
 	if (time == 100)
 	{
-		App->particles->AddParticle(App->particles->shot_enemy, position.x + 6, position.y + 6, -1, -1, NULL, COLLIDER_ENEMY_SHOT);
-		App->particles->AddParticle(App->particles->shot_enemy, position.x + 6, position.y + 20, -1, 1, NULL, COLLIDER_ENEMY_SHOT);
-		App->particles->AddParticle(App->particles->shot_enemy, position.x + 20, position.y + 20, 1, 1, NULL, COLLIDER_ENEMY_SHOT);
-		App->particles->AddParticle(App->particles->shot_enemy, position.x + 20, position.y + 6, 1, -1, NULL, COLLIDER_ENEMY_SHOT);
+		App->particles->AddParticle(App->particles->shot_turret, position.x + 6, position.y + 6, -1, -1, NULL, COLLIDER_ENEMY_SHOT);
+		App->particles->AddParticle(App->particles->shot_turret, position.x + 6, position.y + 20, -1, 1, NULL, COLLIDER_ENEMY_SHOT);
+		App->particles->AddParticle(App->particles->shot_turret, position.x + 20, position.y + 20, 1, 1, NULL, COLLIDER_ENEMY_SHOT);
+		App->particles->AddParticle(App->particles->shot_turret, position.x + 20, position.y + 6, 1, -1, NULL, COLLIDER_ENEMY_SHOT);
 	}
 	if (time == 200)
 	{
-		App->particles->AddParticle(App->particles->shot_enemy, position.x + 6, position.y + 6, -1, -1, NULL, COLLIDER_ENEMY_SHOT);
-		App->particles->AddParticle(App->particles->shot_enemy, position.x + 6, position.y + 20, -1, 1, NULL, COLLIDER_ENEMY_SHOT);
-		App->particles->AddParticle(App->particles->shot_enemy, position.x + 20, position.y + 20, 1, 1, NULL, COLLIDER_ENEMY_SHOT);
-		App->particles->AddParticle(App->particles->shot_enemy, position.x + 20, position.y + 6, 1, -1, NULL, COLLIDER_ENEMY_SHOT);
+		App->particles->AddParticle(App->particles->shot_turret, position.x + 6, position.y + 6, -1, -1, NULL, COLLIDER_ENEMY_SHOT);
+		App->particles->AddParticle(App->particles->shot_turret, position.x + 6, position.y + 20, -1, 1, NULL, COLLIDER_ENEMY_SHOT);
+		App->particles->AddParticle(App->particles->shot_turret, position.x + 20, position.y + 20, 1, 1, NULL, COLLIDER_ENEMY_SHOT);
+		App->particles->AddParticle(App->particles->shot_turret, position.x + 20, position.y + 6, 1, -1, NULL, COLLIDER_ENEMY_SHOT);
 	}
 	if (time == 300)
 	{
-		App->particles->AddParticle(App->particles->shot_enemy, position.x + 6, position.y + 6, -1, -1, NULL, COLLIDER_ENEMY_SHOT);
-		App->particles->AddParticle(App->particles->shot_enemy, position.x + 6, position.y + 20, -1, 1, NULL, COLLIDER_ENEMY_SHOT);
-		App->particles->AddParticle(App->particles->shot_enemy, position.x + 20, position.y + 20, 1, 1, NULL, COLLIDER_ENEMY_SHOT);
-		App->particles->AddParticle(App->particles->shot_enemy, position.x + 20, position.y + 6, 1, -1, NULL, COLLIDER_ENEMY_SHOT);
+		App->particles->AddParticle(App->particles->shot_turret, position.x + 6, position.y + 6, -1, -1, NULL, COLLIDER_ENEMY_SHOT);
+		App->particles->AddParticle(App->particles->shot_turret, position.x + 6, position.y + 20, -1, 1, NULL, COLLIDER_ENEMY_SHOT);
+		App->particles->AddParticle(App->particles->shot_turret, position.x + 20, position.y + 20, 1, 1, NULL, COLLIDER_ENEMY_SHOT);
+		App->particles->AddParticle(App->particles->shot_turret, position.x + 20, position.y + 6, 1, -1, NULL, COLLIDER_ENEMY_SHOT);
 		time = 0;
 	}
 

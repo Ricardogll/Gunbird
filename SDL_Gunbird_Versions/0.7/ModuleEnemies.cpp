@@ -315,7 +315,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 				if (enemies[i]->getHitPoints() == 0) {
 					scoreEnemy(enemies[i], c2);
 					App->audio->PlayWAV(explosion1);
-					App->particles->AddParticle(App->particles->explosion_balloon, (c1->rect.x - ((c1->rect.w)) / 2), (c1->rect.y - ((c1->rect.h)) / 2), NULL, NULL, NULL);
+					App->particles->AddParticle(App->particles->explosion_turret, (c1->rect.x - ((c1->rect.w)) / 2), (c1->rect.y - ((c1->rect.h)) / 2), NULL, NULL, NULL);
 					delete enemies[i];
 					enemies[i] = nullptr;
 					break;
@@ -357,7 +357,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 			if (enemies[i]->type == ENEMY_TYPES::VASE){
 				if (enemies[i]->getHitPoints() == 0) {
 					scoreEnemy(enemies[i], c2);
-					App->particles->AddParticle(App->particles->explosion_balloon, (c1->rect.x - ((c1->rect.w)) / 2), (c1->rect.y - ((c1->rect.h)) / 2), NULL, NULL, NULL);
+					App->particles->AddParticle(App->particles->explosion_turret, (c1->rect.x - ((c1->rect.w)) / 2), (c1->rect.y - ((c1->rect.h)) / 2), NULL, NULL, NULL);
 					//Spawn Power Up when an enemy dies
 					this->AddEnemy(ENEMY_TYPES::COIN, ENEMY_MOVE::NO_MOVE, c1->rect.x + 9, c1->rect.y + 13);
 					delete enemies[i];
@@ -368,7 +368,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 			if (enemies[i]->type == ENEMY_TYPES::TURRET2) {
 				if (enemies[i]->getHitPoints() == 0) {
 					scoreEnemy(enemies[i], c2);
-					App->particles->AddParticle(App->particles->explosion_balloon, (c1->rect.x - ((c1->rect.w)) / 2), (c1->rect.y - ((c1->rect.h)) / 2), NULL, NULL, NULL);
+					App->particles->AddParticle(App->particles->explosion_turret, (c1->rect.x - ((c1->rect.w)) / 2), (c1->rect.y - ((c1->rect.h)) / 2), NULL, NULL, NULL);
 					App->audio->PlayWAV(explosion1);
 					delete enemies[i];
 					enemies[i] = nullptr;

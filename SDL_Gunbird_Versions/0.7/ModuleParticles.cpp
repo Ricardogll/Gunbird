@@ -35,6 +35,15 @@ ModuleParticles::ModuleParticles()
 	shot_enemy.anim.PushBack({ 756, 246, 6, 6 });
 	shot_enemy.anim.speed = 0.5f;
 	shot_enemy.life = 10000;
+
+	//SHOT TURRET
+	shot_turret.anim.PushBack({ 551,400,12,12 });
+	shot_turret.anim.PushBack({ 518,400,12,12 });
+	shot_turret.anim.PushBack({ 575,400,12,12 });
+	shot_turret.anim.PushBack({ 518,418,12,12 });
+	shot_turret.anim.PushBack({ 552,419,12,12 });
+	shot_turret.anim.speed = 0.5f;
+	shot_turret.life = 10000;
 	
 
 	//Explosion
@@ -52,6 +61,27 @@ ModuleParticles::ModuleParticles()
 	explosion_balloon.anim.PushBack({ 357,301,71,51 });
 	explosion_balloon.anim.loop = false;
 	explosion_balloon.anim.speed = 0.5f;
+
+	//Explosion turret
+	explosion_turret.anim.PushBack({ 247,397,54,61 });
+	explosion_turret.anim.PushBack({ 324,390,54,61 });
+	explosion_turret.anim.PushBack({ 406,387,54,61 });
+	explosion_turret.anim.PushBack({ 244,462,54,61 });
+	explosion_turret.anim.PushBack({ 338,464,54,61 });
+	explosion_turret.anim.PushBack({ 410,461,54,61 });
+	explosion_turret.anim.PushBack({ 240,542,54,61 });
+	explosion_turret.anim.PushBack({ 338,541,54,61 });
+	explosion_turret.anim.PushBack({ 427,573,54,61 });
+	explosion_turret.anim.PushBack({ 238,626,54,61 });
+	explosion_turret.anim.PushBack({ 342,633,54,61 });
+	explosion_turret.anim.PushBack({ 428,631,54,61 });
+	explosion_turret.anim.PushBack({ 238,725,54,61 });
+	explosion_turret.anim.PushBack({ 344,718,54,61 });
+	explosion_turret.anim.PushBack({ 422,722,54,61 });
+	explosion_turret.anim.PushBack({ 243,829,54,61 });
+	explosion_turret.anim.loop = false;
+	explosion_turret.anim.speed = 0.5f;
+
 
 	// Yuan Nang laser
 	laser_nang_0.anim.PushBack({ 575, 39, 5, 29 }); //1

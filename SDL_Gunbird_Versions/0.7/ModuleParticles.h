@@ -100,7 +100,8 @@ public:
 	Particle laser_valnus_3;
 
 	Particle shot_enemy;
-
+	Particle shot_turret;
+	Particle explosion_turret;
 	Particle explosion_balloon;
 	Particle power_up;
 
