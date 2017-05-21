@@ -82,6 +82,26 @@ ModuleParticles::ModuleParticles()
 	explosion_turret.anim.loop = false;
 	explosion_turret.anim.speed = 0.5f;
 
+	//Explosion drone/ missile
+
+	explosion_drone.anim.PushBack({ 29,585,48,36 });
+	explosion_drone.anim.PushBack({ 81,578,48,36 });
+	explosion_drone.anim.PushBack({ 147,573,48,36 });
+	explosion_drone.anim.PushBack({ 19,632,48,36 });
+	explosion_drone.anim.PushBack({ 82,632,48,36 });
+	explosion_drone.anim.PushBack({ 148,624,48,36 });
+	explosion_drone.anim.PushBack({ 14,692,48,36 });
+	explosion_drone.anim.PushBack({ 87,689,48,36 });
+	explosion_drone.anim.PushBack({ 153,687,48,36 });
+	explosion_drone.anim.PushBack({ 17,746,48,36 });
+	explosion_drone.anim.PushBack({ 89,744,48,36 });
+	explosion_drone.anim.PushBack({ 154,739,48,36 });
+	explosion_drone.anim.PushBack({ 19,792,48,36 });
+	explosion_drone.anim.PushBack({ 95,786,48,36 });
+	explosion_drone.anim.loop = false;
+	explosion_drone.anim.speed = 0.5f;
+
+
 
 	// Yuan Nang laser
 	laser_nang_0.anim.PushBack({ 575, 39, 5, 29 }); //1

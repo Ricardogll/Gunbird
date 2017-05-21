@@ -102,6 +102,7 @@ public:
 	Particle shot_enemy;
 	Particle shot_turret;
 	Particle explosion_turret;
+	Particle explosion_drone;
 	Particle explosion_balloon;
 	Particle power_up;
 
