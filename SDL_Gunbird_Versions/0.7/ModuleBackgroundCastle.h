@@ -35,6 +35,12 @@ public:
 	Animation building;
 	Animation soldier;
 	Animation soldier2;
+	float soldier2_x;
+	float soldier2_y;
+	Animation soldier3;
+	float soldier3_x;
+	float soldier3_y;
+
 	SDL_Rect background;
 	bool gate;
 	bool choose_character;

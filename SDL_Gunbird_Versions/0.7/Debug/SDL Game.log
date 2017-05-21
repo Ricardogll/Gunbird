@@ -1,5 +1,7 @@
-﻿  Character_Tetsu.cpp
-c:\users\david\desktop\0.7\path.h(6): warning C4099: 'Animation': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
-  c:\users\david\desktop\0.7\animation.h(47): note: vea la declaración de 'Animation'
-  SDL Game.vcxproj -> C:\Users\David\Desktop\0.7\Debug\Gunbird.exe
-  SDL Game.vcxproj -> C:\Users\David\Desktop\0.7\Debug\Gunbird.pdb (Full PDB)
+﻿  Enemy_Balloon.cpp
+c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.7\path.h(6): warning C4099: 'Animation': type name first seen using 'class' now seen using 'struct'
+  c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.7\animation.h(47): note: see declaration of 'Animation'
+c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.7\enemy.h(8): warning C4099: 'Path': type name first seen using 'class' now seen using 'struct'
+  c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.7\path.h(17): note: see declaration of 'Path'
+  SDL Game.vcxproj -> C:\Users\Usuario\Documents\GitHub\Gunbird\SDL_Gunbird_Versions\0.7\Debug\Gunbird.exe
+  SDL Game.vcxproj -> C:\Users\Usuario\Documents\GitHub\Gunbird\SDL_Gunbird_Versions\0.7\Debug\Gunbird.pdb (Full PDB)

@@ -19,6 +19,7 @@ Enemy_Building::Enemy_Building(int x, int y) : Enemy(x, y)
 
 	score = 3000;
 
+
 	animation = &building;
 
 	collider = App->collision->AddCollider({ 0, 0, 64, 86 }, COLLIDER_TYPE::COLLIDER_ENEMY, NULL, (Module*)App->enemies);

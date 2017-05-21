@@ -49,7 +49,15 @@ ModuleBackgroundCastle::ModuleBackgroundCastle()
 	soldier2.PushBack({ 85,68,12,25 });
 	soldier2.PushBack({ 68,67,12,25 });
 	soldier2.PushBack({ 101,68,25,25 });
-	soldier2.speed = 0.05f;
+	soldier2.speed = 0.01f;
+	soldier2_x = 50;
+	soldier2_y = 1237;
+
+	soldier3.PushBack({ 52,39,15,24 });
+	soldier3.PushBack({ 52,67,12,25 });
+	soldier3.speed = 0.1f;
+	soldier3_x = 178;
+	soldier3_y = 850;
 
 	building.PushBack({ 32,182,62,52 });
 
@@ -142,6 +150,11 @@ bool ModuleBackgroundCastle::Start()
 	//BUILDING
 	App->enemies->AddEnemy(ENEMY_TYPES::BUILDING, BUILDING_CASTLE, 147, 1059);
 	App->enemies->AddEnemy(ENEMY_TYPES::BUILDING2, BUILDING_CASTLE, 78, 799);
+	if (App->enemies->building_destroyed=true) {
+		if (App->render->camera.y <= -1140 * SCREEN_SIZE) {
+			
+		}
+	}
 
 	//MISILE
 	App->enemies->AddEnemy(ENEMY_TYPES::MISSILE, MISSILE_1, 90, 1230);
@@ -265,25 +278,33 @@ update_status ModuleBackgroundCastle::Update()
 	}
 	//SOLDIER
 	if (App->render->camera.y <= -1140 * SCREEN_SIZE) {
-		App->render->Blit(animation_soldier, 79, abs(App->render->camera.y / SCREEN_SIZE - 150) , &(soldier.GetCurrentFrame()));
+		App->render->Blit(animation_soldier, 79, abs(App->render->camera.y / SCREEN_SIZE - 150), &(soldier.GetCurrentFrame()));
 	}
 	if (App->render->camera.y <= -1170 * SCREEN_SIZE) {
 		App->render->Blit(animation_soldier, 107, abs(App->render->camera.y / SCREEN_SIZE - 120), &(soldier.GetCurrentFrame()));
 	}
-	if (App->render->camera.y >= -1270 * SCREEN_SIZE) {
-		App->render->Blit(animation_soldier, abs(App->render->camera.x / SCREEN_SIZE-130 ), 1237, &(soldier2.GetCurrentFrame()));
-	}
-	if (App->render->camera.y >= -1270 * SCREEN_SIZE) {
-		App->render->Blit(animation_soldier, abs(App->render->camera.x / SCREEN_SIZE - 115), 1237, &(soldier2.GetCurrentFrame()));
-	}
-	if (App->render->camera.y >= -1270 * SCREEN_SIZE) {
-		App->render->Blit(animation_soldier, abs(App->render->camera.x / SCREEN_SIZE - 100), 1237, &(soldier2.GetCurrentFrame()));
-	}
-	if (App->render->camera.y <= -1140 * SCREEN_SIZE) {
-		App->render->Blit(animation_soldier, abs(App->render->camera.y / SCREEN_HEIGHT - 90), 1537, &(soldier2.GetCurrentFrame()));
+	if (App->render->camera.y <= -1170 * SCREEN_SIZE) {
+		App->render->Blit(animation_soldier, soldier2_x + 220, soldier2_y - 318 + SCREEN_HEIGHT, &(soldier2.GetCurrentFrame()));
 	}
 	if (App->render->camera.y <= -1170 * SCREEN_SIZE) {
-		App->render->Blit(animation_soldier, abs(App->render->camera.x / SCREEN_SIZE - 75), 1530, &(soldier2.GetCurrentFrame()));
+		App->render->Blit(animation_soldier, soldier2_x + 240, soldier2_y - 318 + SCREEN_HEIGHT, &(soldier2.GetCurrentFrame()));
+		
+
+	}
+	if (App->render->camera.y <= -1170 * SCREEN_SIZE) {
+		App->render->Blit(animation_soldier, soldier2_x + 260, soldier2_y - 318 + SCREEN_HEIGHT, &(soldier2.GetCurrentFrame()));
+	}
+	if (App->render->camera.y <= -1170 * SCREEN_SIZE) {
+		App->render->Blit(animation_soldier, soldier2_x, soldier2_y - 4 + SCREEN_HEIGHT, &(soldier2.GetCurrentFrame()));
+
+	}
+	if (App->render->camera.y <= -1170 * SCREEN_SIZE) {
+		App->render->Blit(animation_soldier, soldier2_x + 40, soldier2_y - 20 + SCREEN_HEIGHT, &(soldier2.GetCurrentFrame()));
+	}
+//	App->enemies->
+	if (background.y < SCREEN_HEIGHT) {
+
+		soldier2_x += -0.5;
 	}
 
 	
