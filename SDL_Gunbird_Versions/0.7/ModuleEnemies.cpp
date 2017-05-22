@@ -14,6 +14,7 @@
 #include "Enemy_building2.h"
 #include "Enemy_vase.h"
 #include "Enemy_Drone.h"
+#include "Enemy_Robot.h"
 #include "Enemy_Missile.h"
 
 #include "PowerUp.h"
@@ -48,6 +49,10 @@ ModuleEnemies::ModuleEnemies()
 	//Path Missile1
 	missile1.PushBack({ 1.0f, 1.0f }, 15000);
 	missile1.loop = true;
+
+	// Path Robot
+	robot.PushBack({ 1.0f,0.0f }, 200);
+	robot.loop = false;
 
 	//Path Missile2
 	missile2.PushBack({ 0.0f, 0.0f }, 250);
@@ -208,6 +213,7 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 	{
 		switch (info.type)
 		{
+
 		case ENEMY_TYPES::BALLOON:
 			enemies[i] = new Enemy_Balloon(info.x, info.y);
 			enemies[i]->type = ENEMY_TYPES::BALLOON;
@@ -226,6 +232,21 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 			enemies[i]->type = ENEMY_TYPES::TURRET;
 			enemies[i]->id = info.id;
 			break;
+		case ENEMY_TYPES::ROBOT:
+			enemies[i] = new Enemy_Robot(info.x, info.y);
+			enemies[i]->type = ENEMY_TYPES::ROBOT;
+			enemies[i]->id = info.id;
+			switch (info.move) 
+			{
+			case ENEMY_MOVE::_ROBOT:
+				enemies[i]->path = robot;
+				break;
+			default:
+				break;
+			}
+			break;
+		
+			
 		case ENEMY_TYPES::MISSILE:
 			enemies[i] = new Enemy_Missile(info.x, info.y);
 			enemies[i]->type = ENEMY_TYPES::MISSILE;
@@ -289,6 +310,7 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 				enemies[i]->type = ENEMY_TYPES::COIN;
 				enemies[i]->id = info.id;
 				break;
+			
 		}
 	}
 }

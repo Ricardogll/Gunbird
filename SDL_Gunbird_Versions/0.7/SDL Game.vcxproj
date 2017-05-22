@@ -85,6 +85,7 @@
     <ClInclude Include="Enemy_building2.h" />
     <ClInclude Include="Enemy_Drone.h" />
     <ClInclude Include="Enemy_Missile.h" />
+    <ClInclude Include="Enemy_Robot.h" />
     <ClInclude Include="Enemy_Turret.h" />
     <ClInclude Include="Enemy_turret2.h" />
     <ClInclude Include="Enemy_vase.h" />
@@ -130,6 +131,7 @@
     <ClCompile Include="Enemy_building2.cpp" />
     <ClCompile Include="Enemy_Drone.cpp" />
     <ClCompile Include="Enemy_Missile.cpp" />
+    <ClCompile Include="Enemy_Robot.cpp" />
     <ClCompile Include="Enemy_Turret.cpp" />
     <ClCompile Include="Enemy_turret2.cpp" />
     <ClCompile Include="Enemy_vase.cpp" />

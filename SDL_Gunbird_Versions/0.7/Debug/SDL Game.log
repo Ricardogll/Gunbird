@@ -1,3 +1,16 @@
-﻿  ModuleParticles.cpp
+﻿  ModuleBackgroundCastle.cpp
+c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.7\path.h(6): warning C4099: 'Animation': type name first seen using 'class' now seen using 'struct'
+  c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.7\animation.h(47): note: see declaration of 'Animation'
+c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.7\enemy.h(8): warning C4099: 'Path': type name first seen using 'class' now seen using 'struct'
+  c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.7\path.h(17): note: see declaration of 'Path'
+c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.7\modulebackgroundcastle.cpp(293): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.7\modulebackgroundcastle.cpp(296): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.7\modulebackgroundcastle.cpp(301): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.7\modulebackgroundcastle.cpp(304): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.7\modulebackgroundcastle.cpp(308): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.7\modulebackgroundcastle.cpp(311): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.7\modulebackgroundcastle.cpp(339): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.7\modulebackgroundcastle.cpp(340): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.7\modulebackgroundcastle.cpp(341): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
   SDL Game.vcxproj -> C:\Users\Usuario\Documents\GitHub\Gunbird\SDL_Gunbird_Versions\0.7\Debug\Gunbird.exe
   SDL Game.vcxproj -> C:\Users\Usuario\Documents\GitHub\Gunbird\SDL_Gunbird_Versions\0.7\Debug\Gunbird.pdb (Full PDB)

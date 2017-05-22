@@ -18,6 +18,7 @@ enum ENEMY_TYPES
 	VASE,
 	TURRET2,
 	DRONE,
+	ROBOT,
 	
 	
 	COIN,
@@ -32,7 +33,8 @@ enum ENEMY_MOVE
 	TURRET_1,
 	TURRET_2,
 	MISSILE_1,
-	MISSILE_2
+	MISSILE_2,
+	_ROBOT
 };
 
 class Enemy;
@@ -82,6 +84,7 @@ private:
 	Path turret2;
 	Path missile1;
 	Path missile2;
+	Path robot;
 
 	Animation flag;
 

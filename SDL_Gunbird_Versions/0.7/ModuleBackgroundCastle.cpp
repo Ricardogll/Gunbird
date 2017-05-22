@@ -53,12 +53,17 @@ ModuleBackgroundCastle::ModuleBackgroundCastle()
 	soldier2_x = 50;
 	soldier2_y = 1237;
 
-	soldier3.PushBack({ 52,39,15,24 });
-	soldier3.PushBack({ 52,67,12,25 });
-	soldier3.speed = 0.1f;
-	soldier3_x = 178;
-	soldier3_y = 850;
+	soldier3.PushBack({ 127,69,15,25 });
+	soldier3.PushBack({ 146,69,15,25 });
+	soldier3.PushBack({ 166,68,15,25 });
+	soldier3.PushBack({ 186,68,15,25 });
+	
 
+	soldier3.speed = 0.1f;
+	soldier3_x = 23;
+	soldier3_y = 340;
+
+	
 	building.PushBack({ 32,182,62,52 });
 
 	floor.PushBack({ 749,185,57,13 });
@@ -146,6 +151,7 @@ bool ModuleBackgroundCastle::Start()
 	//ENEMIES
 	App->enemies->AddEnemy(ENEMY_TYPES::BALLOON, BALLOON_CASTLE, 95, 1255);
 	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, NO_MOVE, 162, 1241);
+	//App->enemies->AddEnemy(ENEMY_TYPES::ROBOT, _ROBOT, 80, 1400);
 
 	//BUILDING
 	App->enemies->AddEnemy(ENEMY_TYPES::BUILDING, BUILDING_CASTLE, 147, 1059);
@@ -301,10 +307,24 @@ update_status ModuleBackgroundCastle::Update()
 	if (App->render->camera.y <= -1170 * SCREEN_SIZE) {
 		App->render->Blit(animation_soldier, soldier2_x + 40, soldier2_y - 20 + SCREEN_HEIGHT, &(soldier2.GetCurrentFrame()));
 	}
-//	App->enemies->
-	if (background.y < SCREEN_HEIGHT) {
 
+		App->render->Blit(animation_soldier, soldier3_x, soldier3_y + SCREEN_HEIGHT, &(soldier3.GetCurrentFrame()));
+		/*soldier3_x += -0.5;
+		soldier3_y += -0.5;*/
+
+	
+	if (background.y < SCREEN_HEIGHT) {
 		soldier2_x += -0.5;
+	}
+	/*if ( App->render->camera.y <= -360 * SCREEN_SIZE) {
+		soldier3_x += -0.5;
+		soldier3_y += -0.5;
+		
+	}*/
+	if (App->render->camera.y >= -644 * SCREEN_SIZE) {
+		soldier3_x += -0.5;
+		soldier3_y += -0.5;
+
 	}
 
 	

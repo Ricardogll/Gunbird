@@ -158,6 +158,9 @@
     <ClInclude Include="Character_Kyoko.h">
       <Filter>Modules\Characters</Filter>
     </ClInclude>
+    <ClInclude Include="Enemy_Robot.h">
+      <Filter>Modules\Enemies</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -279,6 +282,9 @@
     </ClCompile>
     <ClCompile Include="Character_Kyoko.cpp">
       <Filter>Modules\Characters</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_Robot.cpp">
+      <Filter>Modules\Enemies</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

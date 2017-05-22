@@ -149,6 +149,7 @@ update_status ModulePlayer::Update()
 					characters[i]->inmortal = false;
 			}
 		}
+		
 
 		if (App->input->keyboard[SDL_SCANCODE_F4] == KEY_STATE::KEY_DOWN) { //DIRECT WIN
 				if (gateF4 == true && deathwin == false) {
