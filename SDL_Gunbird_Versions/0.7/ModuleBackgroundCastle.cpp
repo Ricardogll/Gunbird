@@ -327,11 +327,6 @@ update_status ModuleBackgroundCastle::Update()
 
 	}
 
-	
-	/*if (App->input->keyboard[SDL_SCANCODE_RETURN] == KEY_STATE::KEY_DOWN && App->fade->IsFading() == false) {
-		App->fade->FadeToBlack(this, App->scorescreen, 1);
-	}*/
-
 	if (App->player->characters[0] != nullptr) {
 		for (uint i = 0; i < MAX_ENEMIES; ++i) {
 			if (App->enemies->enemies[i] != nullptr) {
