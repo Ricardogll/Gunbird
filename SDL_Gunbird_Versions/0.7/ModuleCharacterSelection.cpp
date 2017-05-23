@@ -365,7 +365,7 @@ update_status ModuleCharacterSelection::Update()
 	//PLAYER 1 CHOOSE
 	if (gate_selection == true)
 	{
-		if (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_DOWN || App->input->gamepad.DPAD_LEFT == CONTROLLER_STATE::BUTTON_DOWN)
+		if (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_DOWN || App->input->gamepad.DPAD_LEFT == CONTROLLER_STATE::BUTTON_DOWN || App->input->joystick_left_repeat)
 		{
 			pos1p_x -= 35;
 			App->audio->PlayWAV(change_selection_fx);
@@ -383,7 +383,7 @@ update_status ModuleCharacterSelection::Update()
 				pos1p_x = 184;
 		}
 
-		if (App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_DOWN || App->input->gamepad.DPAD_RIGHT == CONTROLLER_STATE::BUTTON_DOWN)
+		if (App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_DOWN || App->input->gamepad.DPAD_RIGHT == CONTROLLER_STATE::BUTTON_DOWN || App->input->joystick_right_repeat)
 		{
 			pos1p_x += 35;
 			App->audio->PlayWAV(change_selection_fx);

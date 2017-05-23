@@ -3,6 +3,7 @@
 
 #include "Module.h"
 #include "Globals.h"
+#include "p2Point.h"
 #include "SDL\include\SDL_scancode.h"
 #include "SDL/include/SDL.h"
 
@@ -33,6 +34,7 @@ struct Gamepad {
 	CONTROLLER_STATE DPAD_DOWN;
 	CONTROLLER_STATE DPAD_LEFT;
 	CONTROLLER_STATE DPAD_RIGHT;
+	p2Point<float> left_joystick;
 };
 
 class ModuleInput : public Module
@@ -55,8 +57,17 @@ public:
 	bool activateDebug;
 	Gamepad gamepad;
 
+	bool joystick_up;
+	bool joystick_down;
+	bool joystick_left;
+	bool joystick_right;
+
+	bool joystick_left_repeat;
+	bool joystick_right_repeat;
+
 private:
 	SDL_GameController* controller;
+	int time = 0;
 };
 
 #endif // __ModuleInput_H__

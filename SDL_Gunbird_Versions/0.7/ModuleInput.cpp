@@ -74,6 +74,61 @@ update_status ModuleInput::PreUpdate()
 
 	inputGamepad();
 
+	gamepad.left_joystick.x = ((float)SDL_GameControllerGetAxis(controller, SDL_CONTROLLER_AXIS_LEFTX) / 32767.0f);
+	gamepad.left_joystick.y = ((float)SDL_GameControllerGetAxis(controller, SDL_CONTROLLER_AXIS_LEFTY) / 32767.0f);
+
+	//JOYSTICK
+	if (gamepad.left_joystick.x > 0.25)
+	{
+		joystick_right = true;
+		if (time == 8) {
+			joystick_right_repeat = true;
+			time = 0;
+		}
+		else
+			joystick_right_repeat = false;
+
+		time++;
+	}
+	else {
+		joystick_right = false;
+		joystick_right_repeat = false;
+	}
+
+	if (gamepad.left_joystick.x < -0.25)
+	{
+		joystick_left = true;
+		if (time == 8) {
+			joystick_left_repeat = true;
+			time = 0;
+		}
+		else
+			joystick_left_repeat = false;
+
+		time++;
+	}
+	else {
+		joystick_left = false;
+		joystick_left_repeat = false;
+	}
+
+	joystick_down = 0;
+	joystick_up = 0;
+
+	if (gamepad.left_joystick.y > 0.25)
+	{
+		joystick_down = true;
+	}
+	else
+		joystick_down = false;
+	if (gamepad.left_joystick.y < -0.25)
+	{
+		joystick_up = true;
+	}
+	else
+		joystick_up = false;
+
+
 	//CLOSE WINDOW
 	if (keyboard[SDL_SCANCODE_ESCAPE])
 			return update_status::UPDATE_STOP;
