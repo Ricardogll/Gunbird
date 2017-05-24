@@ -1,0 +1,290 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Core">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Modules">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Containers">
+      <UniqueIdentifier>{78a7f487-1d77-4fdc-9f51-f067eccd6239}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Modules\Background">
+      <UniqueIdentifier>{03744347-c861-4830-b0d8-502911ace4b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Modules\Enemies">
+      <UniqueIdentifier>{33f13ee2-d7f0-46c7-92c6-220844f35173}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Modules\Enemies\Items">
+      <UniqueIdentifier>{f10f3257-39e9-48b4-9fe2-43d50c29a711}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Modules\Characters">
+      <UniqueIdentifier>{db0013c7-305b-4455-8ab4-1c4c7fd9b1f9}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Module.h">
+      <Filter>Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleWindow.h">
+      <Filter>Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="MemLeaks.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Globals.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Application.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleInput.h">
+      <Filter>Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleRender.h">
+      <Filter>Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleTextures.h">
+      <Filter>Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="p2Point.h">
+      <Filter>Containers</Filter>
+    </ClInclude>
+    <ClInclude Include="Animation.h">
+      <Filter>Containers</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleFadeToBlack.h">
+      <Filter>Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleParticles.h">
+      <Filter>Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleCollision.h">
+      <Filter>Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleEnemies.h">
+      <Filter>Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleBackgroundMine.h">
+      <Filter>Modules\Background</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleBackgroundSea.h">
+      <Filter>Modules\Background</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleScoreScreen.h">
+      <Filter>Modules\Background</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleTitleScreen.h">
+      <Filter>Modules\Background</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleBackgroundCastle.h">
+      <Filter>Modules\Background</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy.h">
+      <Filter>Modules\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Path.h">
+      <Filter>Containers</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_Balloon.h">
+      <Filter>Modules\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_Turret.h">
+      <Filter>Modules\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_Missile.h">
+      <Filter>Modules\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="PowerUp.h">
+      <Filter>Modules\Enemies\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleUI.h">
+      <Filter>Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_building.h">
+      <Filter>Modules\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_building2.h">
+      <Filter>Modules\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Character.h">
+      <Filter>Modules\Characters</Filter>
+    </ClInclude>
+    <ClInclude Include="Character_YuanNang.h">
+      <Filter>Modules\Characters</Filter>
+    </ClInclude>
+    <ClInclude Include="Character_Marion.h">
+      <Filter>Modules\Characters</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleAudio.h">
+      <Filter>Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="ModulePlayer.h">
+      <Filter>Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="Character_Ash.h">
+      <Filter>Modules\Characters</Filter>
+    </ClInclude>
+    <ClInclude Include="Character_Valnus.h">
+      <Filter>Modules\Characters</Filter>
+    </ClInclude>
+    <ClInclude Include="Character_Tetsu.h">
+      <Filter>Modules\Characters</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleCharacterSelection.h">
+      <Filter>Modules\Background</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_vase.h">
+      <Filter>Modules\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleFonts.h">
+      <Filter>Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_turret2.h">
+      <Filter>Modules\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Coin.h">
+      <Filter>Modules\Enemies\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleSaveScore.h">
+      <Filter>Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_Drone.h">
+      <Filter>Modules\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Character_Kyoko.h">
+      <Filter>Modules\Characters</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_Robot.h">
+      <Filter>Modules\Enemies</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Main.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Application.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleWindow.cpp">
+      <Filter>Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleInput.cpp">
+      <Filter>Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleRender.cpp">
+      <Filter>Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleTextures.cpp">
+      <Filter>Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="Globals.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleFadeToBlack.cpp">
+      <Filter>Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleParticles.cpp">
+      <Filter>Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleCollision.cpp">
+      <Filter>Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleEnemies.cpp">
+      <Filter>Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleBackgroundMine.cpp">
+      <Filter>Modules\Background</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleBackgroundSea.cpp">
+      <Filter>Modules\Background</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleScoreScreen.cpp">
+      <Filter>Modules\Background</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleTitleScreen.cpp">
+      <Filter>Modules\Background</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleBackgroundCastle.cpp">
+      <Filter>Modules\Background</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy.cpp">
+      <Filter>Modules\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_Balloon.cpp">
+      <Filter>Modules\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_Turret.cpp">
+      <Filter>Modules\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_Missile.cpp">
+      <Filter>Modules\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="PowerUp.cpp">
+      <Filter>Modules\Enemies\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleUI.cpp">
+      <Filter>Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_building.cpp">
+      <Filter>Modules\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_building2.cpp">
+      <Filter>Modules\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="Character.cpp">
+      <Filter>Modules\Characters</Filter>
+    </ClCompile>
+    <ClCompile Include="Character_YuanNang.cpp">
+      <Filter>Modules\Characters</Filter>
+    </ClCompile>
+    <ClCompile Include="Character_Marion.cpp">
+      <Filter>Modules\Characters</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleAudio.cpp">
+      <Filter>Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="ModulePlayer.cpp">
+      <Filter>Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="Character_Ash.cpp">
+      <Filter>Modules\Characters</Filter>
+    </ClCompile>
+    <ClCompile Include="Character_Valnus.cpp">
+      <Filter>Modules\Characters</Filter>
+    </ClCompile>
+    <ClCompile Include="Character_Tetsu.cpp">
+      <Filter>Modules\Characters</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleCharacterSelection.cpp">
+      <Filter>Modules\Background</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_vase.cpp">
+      <Filter>Modules\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleFonts.cpp">
+      <Filter>Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_turret2.cpp">
+      <Filter>Modules\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="Coin.cpp">
+      <Filter>Modules\Enemies\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleSaveScore.cpp">
+      <Filter>Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_Drone.cpp">
+      <Filter>Modules\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="Character_Kyoko.cpp">
+      <Filter>Modules\Characters</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_Robot.cpp">
+      <Filter>Modules\Enemies</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
