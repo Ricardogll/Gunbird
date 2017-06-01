@@ -16,6 +16,7 @@
 #include "Enemy_Drone.h"
 #include "Enemy_Robot.h"
 #include "Enemy_Missile.h"
+#include "Enemy_Turret3.h"
 
 #include "PowerUp.h"
 #include "Coin.h"
@@ -51,7 +52,7 @@ ModuleEnemies::ModuleEnemies()
 	missile1.loop = true;
 
 	// Path Robot
-	robot.PushBack({ 1.0f,0.0f }, 200);
+	robot.PushBack({ 0.0f,-1.0f }, 200);
 	robot.loop = false;
 
 	//Path Missile2
@@ -305,6 +306,11 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 					break;
 				}
 				break;
+			case ENEMY_TYPES::TURRET3:
+				enemies[i] = new Enemy_Turret3(info.x, info.y);
+				enemies[i]->type = ENEMY_TYPES::TURRET3;
+				enemies[i]->id = info.id;
+				break;
 			case ENEMY_TYPES::COIN:
 				enemies[i] = new Coin(info.x, info.y);
 				enemies[i]->type = ENEMY_TYPES::COIN;
@@ -402,6 +408,16 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 					scoreEnemy(enemies[i], c2);
 					App->particles->AddParticle(App->particles->explosion_drone, (c1->rect.x - ((c1->rect.w)) / 2), (c1->rect.y - ((c1->rect.h)) / 2), NULL, NULL, NULL);
 					App->audio->PlayWAV(explosion1);
+					delete enemies[i];
+					enemies[i] = nullptr;
+					break;
+				}
+			}
+			if (enemies[i]->type == ENEMY_TYPES::TURRET3) {
+				if (enemies[i]->getHitPoints() == 0) {
+					scoreEnemy(enemies[i], c2);
+					App->audio->PlayWAV(explosion1);
+					App->particles->AddParticle(App->particles->explosion_turret, (c1->rect.x - ((c1->rect.w)) / 2), (c1->rect.y - ((c1->rect.h)) / 2), NULL, NULL, NULL);
 					delete enemies[i];
 					enemies[i] = nullptr;
 					break;

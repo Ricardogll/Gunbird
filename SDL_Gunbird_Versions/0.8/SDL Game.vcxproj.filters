@@ -164,6 +164,9 @@
     <ClInclude Include="ModuleEndScene.h">
       <Filter>Modules\Background</Filter>
     </ClInclude>
+    <ClInclude Include="Enemy_Turret3.h">
+      <Filter>Modules\Enemies</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -291,6 +294,9 @@
     </ClCompile>
     <ClCompile Include="ModuleEndScene.cpp">
       <Filter>Modules\Background</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_Turret3.cpp">
+      <Filter>Modules\Enemies</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

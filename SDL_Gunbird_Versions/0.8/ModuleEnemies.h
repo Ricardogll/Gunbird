@@ -19,6 +19,7 @@ enum ENEMY_TYPES
 	TURRET2,
 	DRONE,
 	ROBOT,
+	TURRET3,
 	
 	
 	COIN,

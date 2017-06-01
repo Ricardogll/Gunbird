@@ -39,11 +39,6 @@ void Enemy_Robot::Move()
 	position = original_pos + path.GetCurrentPosition(&animation);
 
 	animation = &robot;
-
-	
-
-	
-
 }
 
 void Enemy_Robot::OnCollision(Collider* collider) {

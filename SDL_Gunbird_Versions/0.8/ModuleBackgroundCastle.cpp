@@ -147,7 +147,7 @@ bool ModuleBackgroundCastle::Start()
 	//ENEMIES
 	App->enemies->AddEnemy(ENEMY_TYPES::BALLOON, BALLOON_CASTLE, 95, 1255);
 	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, NO_MOVE, 162, 1241);
-	App->enemies->AddEnemy(ENEMY_TYPES::ROBOT, _ROBOT, 80, 1400);
+	//App->enemies->AddEnemy(ENEMY_TYPES::ROBOT, _ROBOT, 80, 1400);
 
 	//BUILDING
 	App->enemies->AddEnemy(ENEMY_TYPES::BUILDING, BUILDING_CASTLE, 147, 1059);
@@ -183,6 +183,9 @@ bool ModuleBackgroundCastle::Start()
 	App->enemies->AddEnemy(ENEMY_TYPES::TURRET2, NO_MOVE, 170, 430);
 	App->enemies->AddEnemy(ENEMY_TYPES::TURRET2, TURRET_2, 250, 340);
 
+	//TURRET3
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET3, NO_MOVE, 16, 826);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET3, NO_MOVE, 176, 826);
 	//VASE
 	App->enemies->AddEnemy(ENEMY_TYPES::VASE, NO_MOVE, 10, 690);
 	App->enemies->AddEnemy(ENEMY_TYPES::VASE, NO_MOVE, 185, 690);
@@ -342,7 +345,13 @@ update_status ModuleBackgroundCastle::Update()
 
 
 	if (App->input->keyboard[SDL_SCANCODE_F] == KEY_STATE::KEY_DOWN)
-		App->render->camera.y = (-500 + SCREEN_HEIGHT) * SCREEN_SIZE;
+		App->render->camera.y = (-1200 + SCREEN_HEIGHT) * SCREEN_SIZE; /////////////////////////////
+
+	if (App->input->keyboard[SDL_SCANCODE_G] == KEY_STATE::KEY_DOWN)
+		App->render->activateScroll = false; //////////////
+
+	if (App->input->keyboard[SDL_SCANCODE_H] == KEY_STATE::KEY_DOWN)
+		App->render->activateScroll = true; //////////////
 
 	return UPDATE_CONTINUE;
 }
