@@ -265,13 +265,13 @@ ModuleEndScene::ModuleEndScene()
 
 	screen_sky.x = 603;
 	screen_sky.y = 544;
-	screen_sky.w = 432;
-	screen_sky.h = 97;
+	screen_sky.w = 416;
+	screen_sky.h = 112;
 
 	screen_up.x = 785;
 	screen_up.y = 11;
 	screen_up.w = 224;
-	screen_up.h = 209;
+	screen_up.h = 128;
 
 	screen_down.x = 785;
 	screen_down.y = 251;
@@ -327,7 +327,7 @@ update_status ModuleEndScene::Update()
 {
 	// Draw everything --------------------------------------
 	App->render->Blit(graphics, 0, 0, &screen_up, 0.75f);
-	App->render->Blit(graphics, scroll, 129, &screen_sky, 0.75f);
+	App->render->Blit(graphics, scroll, 128, &screen_sky, 0.75f);
 	App->render->Blit(graphics, 0, 240, &screen_down, 0.75f);
 
 	//SKY SCROLL
