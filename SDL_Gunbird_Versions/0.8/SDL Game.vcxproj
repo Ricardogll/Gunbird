@@ -98,6 +98,7 @@
     <ClInclude Include="ModuleBackgroundSea.h" />
     <ClInclude Include="ModuleCharacterSelection.h" />
     <ClInclude Include="ModuleCollision.h" />
+    <ClInclude Include="ModuleEndScene.h" />
     <ClInclude Include="ModuleEnemies.h" />
     <ClInclude Include="ModuleFadeToBlack.h" />
     <ClInclude Include="ModuleFonts.h" />
@@ -143,6 +144,7 @@
     <ClCompile Include="ModuleBackgroundSea.cpp" />
     <ClCompile Include="ModuleCharacterSelection.cpp" />
     <ClCompile Include="ModuleCollision.cpp" />
+    <ClCompile Include="ModuleEndScene.cpp" />
     <ClCompile Include="ModuleEnemies.cpp" />
     <ClCompile Include="ModuleFadeToBlack.cpp" />
     <ClCompile Include="ModuleFonts.cpp" />

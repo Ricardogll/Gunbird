@@ -189,7 +189,7 @@ bool ModuleUI::CleanUp()
 	App->textures->Unload(graphics);
 	App->fonts->UnLoad(font_score);
 
-	return false;
+	return true;
 }
 
 // Update: draw background

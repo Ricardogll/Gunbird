@@ -76,7 +76,6 @@ bool ModuleScoreScreen::Start()
 			}
 		}
 	}
-
 	return ret;
 }
 

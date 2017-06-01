@@ -18,6 +18,7 @@
 #include "ModuleUI.h"
 #include "ModuleSaveScore.h"
 #include "ModuleFonts.h"
+#include "ModuleEndScene.h"
 
 Application::Application()
 {
@@ -34,6 +35,7 @@ Application::Application()
 	modules[i++] = background = new ModuleBackgroundSea();
 	modules[i++] = background2 = new ModuleBackgroundMine();
 	modules[i++] = scorescreen = new ModuleScoreScreen();
+	modules[i++] = endscene = new ModuleEndScene();
 	modules[i++] = enemies = new ModuleEnemies();
 	modules[i++] = particles = new ModuleParticles();
 	modules[i++] = player = new ModulePlayer();
@@ -62,6 +64,7 @@ bool Application::Init()
 	background3->Disable();
 	background->Disable();
 	background2->Disable();
+	endscene->Disable();
 	scorescreen->Disable();
 	particles->Disable();
 	ui->Disable();

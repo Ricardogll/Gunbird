@@ -34,6 +34,14 @@ bool ModuleTitleScreen::Start()
 	App->ui->titlescreen_ui = true;
 	App->player->coins = 1;
 
+	for (uint i = 0; i < MAX_CHARACTERS; ++i)
+	{
+		if (App->player->characters[i] != nullptr) {
+			App->savescore->saveScore[i] = App->player->characters[i]->score;
+			App->savescore->saveCharacter[i] = App->player->characters[i]->type;
+		}
+	}
+
 	App->audio->PlayMusic("assets/audio/music/gunbird-002_Title_Castle.ogg");
 	insertcoin = App->audio->LoadWAV("assets/audio/sound/InsertCoin.wav");
 

@@ -5,7 +5,6 @@
 #include "ModuleInput.h"
 #include "ModuleAudio.h"
 #include "ModuleBackgroundCastle.h"
-#include "ModuleBackgroundMine.h"
 #include "ModuleCharacterSelection.h"
 #include "ModulePlayer.h"
 #include "ModuleEnemies.h"
@@ -16,7 +15,7 @@
 #include "SDL\include\SDL_timer.h"
 #include <math.h>
 
-#include "ModuleScoreScreen.h"
+#include "ModuleEndScene.h"
 
 ModuleBackgroundCastle::ModuleBackgroundCastle()
 {
@@ -57,18 +56,15 @@ ModuleBackgroundCastle::ModuleBackgroundCastle()
 	soldier3.PushBack({ 146,69,15,25 });
 	soldier3.PushBack({ 166,68,15,25 });
 	soldier3.PushBack({ 186,68,15,25 });
-	
 
 	soldier3.speed = 0.1f;
 	soldier3_x = 23;
 	soldier3_y = 340;
 
-	
 	building.PushBack({ 32,182,62,52 });
 
 	floor.PushBack({ 749,185,57,13 });
 	floor.loop = false;
-
 }
 
 ModuleBackgroundCastle::~ModuleBackgroundCastle()
@@ -151,7 +147,7 @@ bool ModuleBackgroundCastle::Start()
 	//ENEMIES
 	App->enemies->AddEnemy(ENEMY_TYPES::BALLOON, BALLOON_CASTLE, 95, 1255);
 	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, NO_MOVE, 162, 1241);
-	//App->enemies->AddEnemy(ENEMY_TYPES::ROBOT, _ROBOT, 80, 1400);
+	App->enemies->AddEnemy(ENEMY_TYPES::ROBOT, _ROBOT, 80, 1400);
 
 	//BUILDING
 	App->enemies->AddEnemy(ENEMY_TYPES::BUILDING, BUILDING_CASTLE, 147, 1059);
@@ -247,21 +243,25 @@ update_status ModuleBackgroundCastle::Update()
 	if (App->render->camera.y == -20 * SCREEN_SIZE) {
 		App->render->activateScroll = false;
 		App->render->camera.y = -20 * SCREEN_SIZE;
-		/*for (uint i = 0; i < 2; ++i) { //CHARACTER STOP MOVE
-			if(App->player->characters[1]!=nullptr)
+
+		for (uint i = 0; i < 2; ++i) { //CHARACTER STOP MOVE
+			if(App->player->characters[1] != nullptr)
 			App->player->characters[i]->movement = true;
 			else
 				App->player->characters[0]->movement = true;
-		}*/
+		}
+
 		for (uint i = 0; i < 2; ++i) {
 			if (App->player->characters[i] != nullptr) {
 				App->player->characters[i]->movement = true;
 				App->player->characters[i]->desactivateInput = true;
 				App->player->characters[i]->desactivateLimit = true;
-				App->player->characters[i]->position.y -= 3;
+
+				App->player->characters[i]->position.y -= 3; 
+
 			}
 		}
-		App->fade->FadeToBlack(this, App->scorescreen, 1);
+		App->fade->FadeToBlack(this, App->endscene, 1);
 	}
 
 	else {
@@ -342,7 +342,7 @@ update_status ModuleBackgroundCastle::Update()
 
 
 	if (App->input->keyboard[SDL_SCANCODE_F] == KEY_STATE::KEY_DOWN)
-		App->render->camera.y = (-1100 + SCREEN_HEIGHT) * SCREEN_SIZE;
+		App->render->camera.y = (-500 + SCREEN_HEIGHT) * SCREEN_SIZE;
 
 	return UPDATE_CONTINUE;
 }
