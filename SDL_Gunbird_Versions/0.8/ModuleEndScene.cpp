@@ -103,6 +103,10 @@ ModuleEndScene::ModuleEndScene()
 	rabbit_scene1.w = 71;
 	rabbit_scene1.h = 90;
 
+	kyoko_scene1.x = 23 ;
+	kyoko_scene1.y = 657;
+	kyoko_scene1.w = 98;
+	kyoko_scene1.h = 121 ;
 
 	//TEXTS
 	text_ash.x = 1;
@@ -134,6 +138,11 @@ ModuleEndScene::ModuleEndScene()
 	text_rabbit.y = 113;
 	text_rabbit.w = 200;
 	text_rabbit.h = 27;
+
+	text_kyoko.x = 424;
+	text_kyoko.y = 315;
+	text_kyoko.w = 200;
+	text_kyoko.h = 55;
 
 	text_ash_tetsu1.x = 424;
 	text_ash_tetsu1.y = 38;
@@ -249,6 +258,69 @@ ModuleEndScene::ModuleEndScene()
 	text_marion_tetsu2.y = 278;
 	text_marion_tetsu2.w = 200;
 	text_marion_tetsu2.h = 27;
+
+	//--------------
+
+	text_kyoko_tetsu1.x = 424;
+	text_kyoko_tetsu1.y = 378 ;
+	text_kyoko_tetsu1.w = 210;
+	text_kyoko_tetsu1.h = 41 ;
+
+	text_kyoko_tetsu2.x = 424;
+	text_kyoko_tetsu2.y = 430;
+	text_kyoko_tetsu2.w = 210;
+	text_kyoko_tetsu2.h = 27;
+
+	text_kyoko_marion1.x = 636;
+	text_kyoko_marion1.y = 1;
+	text_kyoko_marion1.w = 210;          
+	text_kyoko_marion1.h = 44;
+
+	text_kyoko_marion2.x = 636;
+	text_kyoko_marion2.y = 54;
+	text_kyoko_marion2.w = 210;
+	text_kyoko_marion2.h = 13;
+
+	text_kyoko_marion3.x = 636;
+	text_kyoko_marion3.y = 75;
+	text_kyoko_marion3.w = 210;
+	text_kyoko_marion3.h = 13;
+
+	text_kyoko_yuan1.x = 636;
+	text_kyoko_yuan1.y = 96;
+	text_kyoko_yuan1.w = 210;
+	text_kyoko_yuan1.h = 30;
+
+	text_kyoko_yuan2.x = 636;
+	text_kyoko_yuan2.y = 133;
+	text_kyoko_yuan2.w = 210;
+	text_kyoko_yuan2.h = 41;
+
+	text_kyoko_yuan3.x = 636;
+	text_kyoko_yuan3.y = 184;
+	text_kyoko_yuan3.w = 210;
+	text_kyoko_yuan3.h = 45;
+
+	text_kyoko_valnus1.x = 636;
+	text_kyoko_valnus1.y = 236;
+	text_kyoko_valnus1.w = 210;
+	text_kyoko_valnus1.h = 41;
+
+	text_kyoko_valnus2.x = 636;
+	text_kyoko_valnus2.y = 287;
+	text_kyoko_valnus2.w = 210;
+	text_kyoko_valnus2.h = 27;
+
+	text_kyoko_ash1.x = 636;
+	text_kyoko_ash1.y = 321;
+	text_kyoko_ash1.w = 210;
+	text_kyoko_ash1.h = 41;
+
+	text_kyoko_ash2.x = 636;
+	text_kyoko_ash2.y = 372;
+	text_kyoko_ash2.w = 210;
+	text_kyoko_ash2.h = 27;
+	
 	   
 
 	//MIRROR
@@ -413,9 +485,19 @@ update_status ModuleEndScene::Update()
 		}
 	}
 
+	if (App->savescore->saveCharacter[0] == KYOKO && App->savescore->saveCharacter[1] == NO_CHARACTER) {
+		if (cont_left < 206)
+			cont_left += 3;
+		App->render->Blit(graphics, 63, 119, &kyoko_scene1, 0.75f);
+		App->render->Blit(graphics_text, -190 + cont_left, 249, &text_kyoko, 0.75f);
+		if (time == TIME_END_SCENE) {
+			App->fade->FadeToBlack(this, App->scorescreen, 1);
+		}
+	}
+
 	//TWO PLAYERS
 	if ((App->savescore->saveCharacter[0] == ASH && App->savescore->saveCharacter[1] == TETSU) || (App->savescore->saveCharacter[0] == TETSU && App->savescore->saveCharacter[1] == ASH)) {
-		App->render->Blit(graphics, 9 - cont_right, 119, &ash_scene2, 0.75f);
+		App->render->Blit(graphics, 9 - cont_right, 119, &ash_scene3, 0.75f);
 		App->render->Blit(graphics, 225 - cont_right, 112, &tetsu_scene4, 0.75f);
 		App->render->Blit(graphics_text, 240 - cont_right, 249, &text_ash_tetsu2, 0.75f);
 
@@ -647,6 +729,134 @@ update_status ModuleEndScene::Update()
 
 		if (time < 240) {
 			App->render->Blit(graphics_text, 235 - cont_right, 249, &text_marion_tetsu1, 0.75f);
+		}
+
+		if (time >= 240) {
+			if (cont_left < 224)
+				cont_left += 4;
+		}
+
+		if (cont_right < 224)
+			cont_right += 4;
+
+		if (time == TIME_END_SCENE) {
+			App->fade->FadeToBlack(this, App->scorescreen, 1);
+		}
+	}
+
+	if ((App->savescore->saveCharacter[0] == KYOKO && App->savescore->saveCharacter[1] == TETSU) || (App->savescore->saveCharacter[0] == TETSU && App->savescore->saveCharacter[1] == KYOKO)) {
+		App->render->Blit(graphics, 63 - cont_right, 119, &kyoko_scene1, 0.75f);
+		App->render->Blit(graphics, 225 - cont_right, 112, &tetsu_scene2, 0.75f);
+		App->render->Blit(graphics_text, 240 - cont_right, 249, &text_kyoko_tetsu2, 0.75f);
+
+		if (time < 240)
+			App->render->Blit(graphics_text, -190 + cont_left, 249, &text_kyoko_tetsu1, 0.75f);
+
+		if (time >= 240) {
+			if (cont_right < 224)
+				cont_right += 4;
+		}
+
+		if (cont_left < 206)
+			cont_left += 3;
+
+		if (time == TIME_END_SCENE) {
+			App->fade->FadeToBlack(this, App->scorescreen, 1);
+		}
+	}
+
+	if ((App->savescore->saveCharacter[0] == YUAN_NANG && App->savescore->saveCharacter[1] == KYOKO) || (App->savescore->saveCharacter[0] == KYOKO && App->savescore->saveCharacter[1] == YUAN_NANG)) {
+		App->render->Blit(graphics, -172 + cont_left, 119, &kyoko_scene1, 0.75f);
+		if (time < 320) {
+			App->render->Blit(graphics_text, -208 + cont_left, 249, &text_kyoko_yuan2, 0.75f);
+			App->render->Blit(graphics, 16 + cont_left, 112, &yuan_nang_scene4, 0.75f);
+		}
+
+		if (time < 160) {
+			App->render->Blit(graphics_text, 240 - cont_right, 249, &text_kyoko_yuan1, 0.75f);
+		}
+
+		if (time >= 160 && time <= 320) {
+			if (cont_left < 224)
+				cont_left += 4;
+			cont_right = 0;
+		}
+
+		if (time > 320) {
+			if (cont_left > 0)
+				cont_left -= 4;
+			App->render->Blit(graphics_text, 240 - cont_right, 249, &text_kyoko_yuan3, 0.75f);
+			App->render->Blit(graphics, 272 - cont_right, 112, &yuan_nang_scene2, 0.75f);
+		}
+
+		if (cont_right < 224)
+			cont_right += 4;
+
+		if (time == TIME_END_SCENE) {
+			App->fade->FadeToBlack(this, App->scorescreen, 1);
+		}
+	}
+
+	if ((App->savescore->saveCharacter[0] == KYOKO && App->savescore->saveCharacter[1] == MARION) || (App->savescore->saveCharacter[0] == MARION && App->savescore->saveCharacter[1] == KYOKO)) {
+		App->render->Blit(graphics, 287 - cont_right, 119, &kyoko_scene1, 0.75f);
+		if (time < 320) {
+			App->render->Blit(graphics_text, 240 - cont_right, 249, &text_kyoko_marion2, 0.75f);
+			App->render->Blit(graphics, 32 - cont_right, 122, &marion_scene2, 0.75f);
+		}
+
+		if (time < 160) {
+			App->render->Blit(graphics_text, -200 + cont_left, 249, &text_kyoko_marion1, 0.75f);
+		}
+
+		if (time >= 160 && time <= 320) {
+			if (cont_right < 224)
+				cont_right += 4;
+			cont_left = 0;
+		}
+
+		if (time > 320) {
+			if (cont_right > 0)
+				cont_right -= 4;
+			App->render->Blit(graphics_text, -190 + cont_left, 249, &text_kyoko_marion3, 0.75f);
+			App->render->Blit(graphics, 27 - cont_right, 119, &marion_scene3, 0.75f);
+		}
+
+		if (cont_left < 206)
+			cont_left += 4;
+
+		if (time == TIME_END_SCENE) {
+			App->fade->FadeToBlack(this, App->scorescreen, 1);
+		}
+	}
+
+	if ((App->savescore->saveCharacter[0] == KYOKO && App->savescore->saveCharacter[1] == VALNUS) || (App->savescore->saveCharacter[0] == VALNUS && App->savescore->saveCharacter[1] == KYOKO)) {
+		App->render->Blit(graphics, 63 - cont_right, 121, &kyoko_scene1, 0.75f);
+		App->render->Blit(graphics, 224 - cont_right, 112, &valnus_scene1, 0.75f);
+		App->render->Blit(graphics_text, 240 - cont_right, 249, &text_kyoko_valnus2, 0.75f);
+
+		if (time < 240)
+			App->render->Blit(graphics_text, -190 + cont_left, 249, &text_kyoko_valnus1, 0.75f);
+
+		if (time >= 240) {
+			if (cont_right < 224)
+				cont_right += 4;
+		}
+
+		if (cont_left < 206)
+			cont_left += 3;
+
+		if (time == TIME_END_SCENE) {
+			App->fade->FadeToBlack(this, App->scorescreen, 1);
+		}
+	}
+
+	if ((App->savescore->saveCharacter[0] == KYOKO && App->savescore->saveCharacter[1] == ASH) || (App->savescore->saveCharacter[0] == ASH && App->savescore->saveCharacter[1] == KYOKO)) {
+		App->render->Blit(graphics, -161 + cont_left, 119, &kyoko_scene1, 0.75f);
+		App->render->Blit(graphics_text, -208 + cont_left, 249, &text_kyoko_ash2, 0.75f);
+		App->render->Blit(graphics, 11 + cont_left, 119, &ash_scene2, 0.75f);
+
+		if (time < 240) {
+			App->render->Blit(graphics_text, 240 - cont_right, 249, &text_kyoko_ash1, 0.75f);
 		}
 
 		if (time >= 240) {

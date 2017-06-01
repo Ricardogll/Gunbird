@@ -1,2 +1,5 @@
-﻿  SDL Game.vcxproj -> C:\Users\David\Desktop\Gunbird\SDL_Gunbird_Versions\0.8\Debug\Gunbird.exe
-  SDL Game.vcxproj -> C:\Users\David\Desktop\Gunbird\SDL_Gunbird_Versions\0.8\Debug\Gunbird.pdb (Full PDB)
+﻿  ModuleEndScene.cpp
+c:\users\adrià gironès\desktop\0.8\path.h(6): warning C4099: 'Animation': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+  c:\users\adrià gironès\desktop\0.8\animation.h(47): note: vea la declaración de 'Animation'
+  SDL Game.vcxproj -> C:\Users\Adrià Gironès\Desktop\0.8\Debug\Gunbird.exe
+  SDL Game.vcxproj -> C:\Users\Adrià Gironès\Desktop\0.8\Debug\Gunbird.pdb (Full PDB)

@@ -47,6 +47,7 @@ public:
 	SDL_Rect yuan_nang_scene2;
 	SDL_Rect yuan_nang_scene3;
 	SDL_Rect yuan_nang_scene4;
+	SDL_Rect kyoko_scene1;
 
 	Animation* animation = nullptr;
 	Animation mirror;
@@ -58,6 +59,7 @@ public:
 	SDL_Rect text_tetsu;
 	SDL_Rect text_valnus;
 	SDL_Rect text_rabbit;
+	SDL_Rect text_kyoko;
 	SDL_Rect text_ash_tetsu1;
 	SDL_Rect text_ash_tetsu2;
 	SDL_Rect text_ash_valnus1;
@@ -81,6 +83,18 @@ public:
 	SDL_Rect text_marion_yuan3;
 	SDL_Rect text_tetsu_yuan1;
 	SDL_Rect text_tetsu_yuan2;
+	SDL_Rect text_kyoko_tetsu1;
+	SDL_Rect text_kyoko_tetsu2;
+	SDL_Rect text_kyoko_valnus1;
+	SDL_Rect text_kyoko_valnus2;
+	SDL_Rect text_kyoko_ash1;
+	SDL_Rect text_kyoko_ash2;
+	SDL_Rect text_kyoko_yuan1;
+	SDL_Rect text_kyoko_yuan2;
+	SDL_Rect text_kyoko_yuan3;
+	SDL_Rect text_kyoko_marion1;
+	SDL_Rect text_kyoko_marion2;
+	SDL_Rect text_kyoko_marion3;
 
 	int scroll;
 	int cont_left;
