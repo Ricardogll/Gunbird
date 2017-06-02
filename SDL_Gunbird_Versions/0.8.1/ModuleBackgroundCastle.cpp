@@ -12,10 +12,11 @@
 #include "ModuleParticles.h"
 #include "ModuleCollision.h"
 #include "ModuleUI.h"
+#include "ModuleSaveScore.h"
+#include "ModuleEndScene.h"
 #include "SDL\include\SDL_timer.h"
 #include <math.h>
 
-#include "ModuleEndScene.h"
 
 ModuleBackgroundCastle::ModuleBackgroundCastle()
 {
@@ -101,6 +102,12 @@ bool ModuleBackgroundCastle::Start()
 	App->collision->Enable();
 	App->enemies->Enable();
 	App->particles->Enable();
+
+	for (uint i = 0; i < MAX_CHARACTERS; ++i)
+	{
+		App->savescore->saveScore[i] = 0;
+		App->savescore->saveCharacter[i] = 0;
+	}
 
 	////LOAD PLAYER 1 OF CHARACTER SELECTION
 	if (App->characterselection->selection == YUAN_NANG)

@@ -173,10 +173,10 @@ ModuleCharacterSelection::ModuleCharacterSelection()
 	sprite_tetsu.PushBack({ 1892, 676, 128, 112 }); //30
 	sprite_tetsu.speed = 0.6f;
 
-	sprite_kyoko.PushBack({ 509, 18, 96, 101 }); //1
-	sprite_kyoko.PushBack({ 659, 18, 104, 108 }); //2
-	sprite_kyoko.PushBack({ 824, 18, 104, 101 }); //3
-	sprite_kyoko.PushBack({ 981, 18, 104, 101 }); //4
+	sprite_kyoko.PushBack({ 9, 1136 , 130, 110 }); //1 //106
+	sprite_kyoko.PushBack({ 150, 1135, 130, 110 }); //2
+	sprite_kyoko.PushBack({ 291, 1134, 130, 110 }); //3
+	sprite_kyoko.PushBack({ 430, 1135, 130, 110 }); //4
 	sprite_kyoko.speed = 0.25f;
 
 	//CHARACTERS
@@ -356,7 +356,7 @@ update_status ModuleCharacterSelection::Update()
 		if (pos1p_x == 184) {
 			App->render->Blit(graphics, 12, 32, &portrait_kyoko, 0.75f);
 			App->render->Blit(graphics, 46, 166, &name_kyoko, 0.75f);
-			App->render->Blit(graphics, 96, 131, &(sprite_kyoko.GetCurrentFrame()));
+			App->render->Blit(graphics, 96, 135, &(sprite_kyoko.GetCurrentFrame()));
 			selection = KYOKO;
 		}
 
@@ -577,7 +577,7 @@ void ModuleCharacterSelection::Portraits2P() {
 
 		App->render->Blit(graphics, 116, 32, &portrait_kyoko, 0.75f);
 		App->render->Blit(graphics, 140, 6, &name_kyoko, 0.75f);
-		App->render->Blit(graphics, 117, 128, &(sprite_kyoko.GetCurrentFrame()));
+		App->render->Blit(graphics, 117, 135, &(sprite_kyoko.GetCurrentFrame()));
 		selection = ASH;
 		selection_P2 = KYOKO;
 	}
@@ -637,7 +637,7 @@ void ModuleCharacterSelection::Portraits2P() {
 
 		App->render->Blit(graphics, 116, 32, &portrait_kyoko, 0.75f);
 		App->render->Blit(graphics, 140, 6, &name_kyoko, 0.75f);
-		App->render->Blit(graphics, 117, 128, &(sprite_kyoko.GetCurrentFrame()));
+		App->render->Blit(graphics, 117, 135, &(sprite_kyoko.GetCurrentFrame()));
 		selection = MARION;
 		selection_P2 = KYOKO;
 	}
@@ -697,7 +697,7 @@ void ModuleCharacterSelection::Portraits2P() {
 
 		App->render->Blit(graphics, 116, 32, &portrait_kyoko, 0.75f);
 		App->render->Blit(graphics, 140, 6, &name_kyoko, 0.75f);
-		App->render->Blit(graphics, 117, 128, &(sprite_kyoko.GetCurrentFrame()));
+		App->render->Blit(graphics, 117, 135, &(sprite_kyoko.GetCurrentFrame()));
 		selection = VALNUS;
 		selection_P2 = KYOKO;
 	}
@@ -758,7 +758,7 @@ void ModuleCharacterSelection::Portraits2P() {
 
 		App->render->Blit(graphics, 116, 32, &portrait_kyoko, 0.75f);
 		App->render->Blit(graphics, 140, 6, &name_kyoko, 0.75f);
-		App->render->Blit(graphics, 117, 128, &(sprite_kyoko.GetCurrentFrame()));
+		App->render->Blit(graphics, 117, 135, &(sprite_kyoko.GetCurrentFrame()));
 		selection = YUAN_NANG;
 		selection_P2 = KYOKO;
 	}
@@ -818,7 +818,7 @@ void ModuleCharacterSelection::Portraits2P() {
 
 		App->render->Blit(graphics, 116, 32, &portrait_kyoko, 0.75f);
 		App->render->Blit(graphics, 140, 6, &name_kyoko, 0.75f);
-		App->render->Blit(graphics, 117, 128, &(sprite_kyoko.GetCurrentFrame()));
+		App->render->Blit(graphics, 117, 135, &(sprite_kyoko.GetCurrentFrame()));
 		selection = TETSU;
 		selection_P2 = KYOKO;
 	}
@@ -826,7 +826,7 @@ void ModuleCharacterSelection::Portraits2P() {
 	if (pos2p_x == 9 && pos1p_x == 184) { //KYOKO & ASH
 		App->render->Blit(graphics, 12, 32, &portrait_kyoko, 0.75f);
 		App->render->Blit(graphics, 36, 6, &name_kyoko, 0.75f);
-		App->render->Blit(graphics, 8, 128, &(sprite_kyoko.GetCurrentFrame()));
+		App->render->Blit(graphics, -2, 135, &(sprite_kyoko.GetCurrentFrame()));
 
 		App->render->Blit(graphics, 116, 32, &portrait_ash, 0.75f);
 		App->render->Blit(graphics, 151, 5, &name_ash, 0.75f);
@@ -838,7 +838,7 @@ void ModuleCharacterSelection::Portraits2P() {
 	if (pos2p_x == 44 && pos1p_x == 184) { //KYOKO & MARION
 		App->render->Blit(graphics, 12, 32, &portrait_kyoko, 0.75f);
 		App->render->Blit(graphics, 36, 6, &name_kyoko, 0.75f);
-		App->render->Blit(graphics, 8, 128, &(sprite_kyoko.GetCurrentFrame()));
+		App->render->Blit(graphics, -2, 135, &(sprite_kyoko.GetCurrentFrame()));
 
 		App->render->Blit(graphics, 116, 32, &portrait_marion, 0.75f);
 		App->render->Blit(graphics, 138, 5, &name_marion, 0.75f);
@@ -850,7 +850,7 @@ void ModuleCharacterSelection::Portraits2P() {
 	if (pos2p_x == 79 && pos1p_x == 184) { //KYOKO & VALNUS
 		App->render->Blit(graphics, 12, 32, &portrait_kyoko, 0.75f);
 		App->render->Blit(graphics, 36, 6, &name_kyoko, 0.75f);
-		App->render->Blit(graphics, 8, 128, &(sprite_kyoko.GetCurrentFrame()));
+		App->render->Blit(graphics, -2, 135, &(sprite_kyoko.GetCurrentFrame()));
 
 		App->render->Blit(graphics, 116, 32, &portrait_valnus, 0.75f);
 		App->render->Blit(graphics, 138, 5, &name_valnus, 0.75f);
@@ -862,7 +862,7 @@ void ModuleCharacterSelection::Portraits2P() {
 	if (pos2p_x == 114 && pos1p_x == 184) { //KYOKO & YUAN NANG 
 		App->render->Blit(graphics, 12, 32, &portrait_kyoko, 0.75f);
 		App->render->Blit(graphics, 36, 6, &name_kyoko, 0.75f);
-		App->render->Blit(graphics, 8, 128, &(sprite_kyoko.GetCurrentFrame()));
+		App->render->Blit(graphics, -2, 135, &(sprite_kyoko.GetCurrentFrame()));
 
 		App->render->Blit(graphics, 116, 32, &portrait_yuan_nang, 0.75f);
 		App->render->Blit(graphics, 123, 5, &name_yuan_nang_2P, 0.75f);
@@ -874,7 +874,7 @@ void ModuleCharacterSelection::Portraits2P() {
 	if (pos2p_x == 149 && pos1p_x == 184) { //KYOKO & TETSU
 		App->render->Blit(graphics, 12, 32, &portrait_kyoko, 0.75f);
 		App->render->Blit(graphics, 36, 6, &name_kyoko, 0.75f);
-		App->render->Blit(graphics, 8, 128, &(sprite_kyoko.GetCurrentFrame()));
+		App->render->Blit(graphics, -2, 135, &(sprite_kyoko.GetCurrentFrame()));
 
 		App->render->Blit(graphics, 116, 32, &portrait_tetsu, 0.75f);
 		App->render->Blit(graphics, 143, 6, &name_tetsu, 0.75f);

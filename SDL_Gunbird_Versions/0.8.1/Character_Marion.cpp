@@ -115,7 +115,7 @@ void Character_Marion::Move()
 	}
 
 	if (this->desactivateInput == false) {
-		if ((App->player->characters[0]->type == MARION && App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT || App->input->gamepad.DPAD_RIGHT == CONTROLLER_STATE::BUTTON_REPEAT || App->input->joystick_right) ||
+		if ((App->player->characters[0]->type == MARION && (App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT || App->input->gamepad.DPAD_RIGHT == CONTROLLER_STATE::BUTTON_REPEAT || App->input->joystick_right)) ||
 			(App->player->characters[1] != nullptr && App->player->characters[1]->type == MARION && App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT))
 		{
 			if (inmortal == false)
@@ -129,7 +129,7 @@ void Character_Marion::Move()
 			}
 		}
 
-		if ((App->player->characters[0]->type == MARION && App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT || App->input->gamepad.DPAD_LEFT == CONTROLLER_STATE::BUTTON_REPEAT || App->input->joystick_left) ||
+		if ((App->player->characters[0]->type == MARION && (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT || App->input->gamepad.DPAD_LEFT == CONTROLLER_STATE::BUTTON_REPEAT || App->input->joystick_left)) ||
 			(App->player->characters[1] != nullptr && App->player->characters[1]->type == MARION && App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_REPEAT))
 		{
 			if (inmortal == false)
@@ -143,7 +143,7 @@ void Character_Marion::Move()
 			}
 		}
 
-		if ((App->player->characters[0]->type == MARION && App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT || App->input->gamepad.DPAD_UP == CONTROLLER_STATE::BUTTON_REPEAT || App->input->joystick_up) ||
+		if ((App->player->characters[0]->type == MARION && (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT || App->input->gamepad.DPAD_UP == CONTROLLER_STATE::BUTTON_REPEAT || App->input->joystick_up)) ||
 			(App->player->characters[1] != nullptr && App->player->characters[1]->type == MARION && App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_REPEAT))
 		{
 			if (inmortal == false)
@@ -157,7 +157,7 @@ void Character_Marion::Move()
 			}
 		}
 
-		if ((App->player->characters[0]->type == MARION && App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT || App->input->gamepad.DPAD_DOWN == CONTROLLER_STATE::BUTTON_REPEAT || App->input->joystick_down) ||
+		if ((App->player->characters[0]->type == MARION && (App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT || App->input->gamepad.DPAD_DOWN == CONTROLLER_STATE::BUTTON_REPEAT || App->input->joystick_down)) ||
 			(App->player->characters[1] != nullptr && App->player->characters[1]->type == MARION && App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_STATE::KEY_REPEAT))
 		{
 			if (inmortal == false)
