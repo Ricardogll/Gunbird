@@ -50,6 +50,8 @@ public:
 	Animation credit_number8;
 	Animation credit_number9;
 
+	Animation time_rect;
+
 	Animation* current_animation_credit = &credit_number1;
 
 	uint characterP2;

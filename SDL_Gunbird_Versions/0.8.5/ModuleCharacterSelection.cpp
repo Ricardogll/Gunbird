@@ -124,20 +124,31 @@ ModuleCharacterSelection::ModuleCharacterSelection()
 	sprite_yuan_nang.PushBack({ 669, 689 ,135, 124 }); //16  
 	sprite_yuan_nang.speed = 0.25f;
 
-	sprite_marion.PushBack({ 602, 153, 128, 103  }); //1
-	sprite_marion.PushBack({ 765, 152, 128, 103 }); //2
+	sprite_marion.PushBack({ 602, 153, 128, 103 }); //1
+	sprite_marion.PushBack({ 765, 151, 128, 104 }); //2
+	sprite_marion.PushBack({ 927, 152, 128, 105 }); //3
+	sprite_marion.PushBack({ 602, 151, 128, 105 }); //1
+	sprite_marion.PushBack({ 765, 151, 128, 104 }); //2
 	sprite_marion.PushBack({ 927, 154, 128, 103 }); //3
 	sprite_marion.speed = 0.25f;
 
 	sprite_ash.PushBack({ 509, 18, 96, 101 }); //1
-	sprite_ash.PushBack({ 659, 18, 104, 108 }); //2
-	sprite_ash.PushBack({ 824, 18, 104, 101 }); //3
+	sprite_ash.PushBack({ 659, 17, 104, 109 }); //2
+	sprite_ash.PushBack({ 824, 16, 104, 103 }); //3
+	sprite_ash.PushBack({ 981, 15, 104, 104 }); //4
+	sprite_ash.PushBack({ 509, 15, 96, 104 }); //1
+	sprite_ash.PushBack({ 659, 16, 104, 110 }); //2
+	sprite_ash.PushBack({ 824, 17, 104, 102 }); //3
 	sprite_ash.PushBack({ 981, 18, 104, 101 }); //4
 	sprite_ash.speed = 0.25f;
 
 	sprite_valnus.PushBack({ 17, 884, 120, 118 }); //1
-	sprite_valnus.PushBack({ 169, 884, 120, 118 }); //2
-	sprite_valnus.PushBack({ 321, 884, 120, 118 }); //3
+	sprite_valnus.PushBack({ 169, 883, 120, 119 }); //2
+	sprite_valnus.PushBack({ 321, 882, 120, 120 }); //3
+	sprite_valnus.PushBack({ 472, 881, 120, 119 }); //4
+	sprite_valnus.PushBack({ 17, 881, 120, 121 }); //1
+	sprite_valnus.PushBack({ 169, 882, 120, 120 }); //2
+	sprite_valnus.PushBack({ 321, 883, 120, 119 }); //3
 	sprite_valnus.PushBack({ 472, 884, 120, 116 }); //4
 	sprite_valnus.speed = 0.25f;
 
@@ -174,6 +185,11 @@ ModuleCharacterSelection::ModuleCharacterSelection()
 	sprite_tetsu.speed = 0.6f;
 
 	sprite_kyoko.PushBack({ 9, 1136 , 130, 110 }); //1 //106
+	sprite_kyoko.PushBack({ 150, 1135, 130, 110 }); //2
+	sprite_kyoko.PushBack({ 291, 1134, 130, 110 }); //3
+	sprite_kyoko.PushBack({ 430, 1133, 130, 110 }); //4
+
+	sprite_kyoko.PushBack({ 9, 1134, 130, 110 }); //1 //106
 	sprite_kyoko.PushBack({ 150, 1135, 130, 110 }); //2
 	sprite_kyoko.PushBack({ 291, 1134, 130, 110 }); //3
 	sprite_kyoko.PushBack({ 430, 1135, 130, 110 }); //4
@@ -230,8 +246,10 @@ ModuleCharacterSelection::ModuleCharacterSelection()
 	tetsu.PushBack({ 692, 188, 30, 37 }); //24
 	tetsu.speed = 0.8f;
 
-	kyoko.PushBack({ 217, 223, 19, 32 }); //1
-	kyoko.PushBack({ 246, 223, 19, 32 }); //2
+	kyoko.PushBack({ 607, 804, 34, 37 }); //1
+	kyoko.PushBack({ 649, 804, 34, 37 }); //2
+	kyoko.PushBack({ 692, 804, 34, 37 }); //3
+	kyoko.PushBack({ 735, 804, 34, 37 }); //4
 	kyoko.speed = 0.2f;
 }   
 
@@ -252,6 +270,8 @@ bool ModuleCharacterSelection::Start()
 	selection = 0;
 	selection_P2 = 0;
 	pos2p_x = 0;
+	cont_tetsu = 0;
+	time_tetsu = 0;
 
 	App->player->Enable();
 	App->ui->Enable();
@@ -306,9 +326,23 @@ update_status ModuleCharacterSelection::Update()
 	App->render->Blit(graphics_character, 50, 260, &(marion.GetCurrentFrame()));
 	App->render->Blit(graphics_character, 80, 262, &(valnus.GetCurrentFrame()));
 	App->render->Blit(graphics_character, 149, 260, &(tetsu.GetCurrentFrame()));
-	App->render->Blit(graphics_character, 184, 260, &(kyoko.GetCurrentFrame()));
+	App->render->Blit(graphics_character, 182, 260, &(kyoko.GetCurrentFrame()));
 	App->render->Blit(graphics, scroll, 144, &screen_sky, 0.75f);
 	App->render->Blit(graphics, pos1p_x, 248, &player1, 0.75f);
+
+	if (time_tetsu == 60)
+		time_tetsu = 0;
+
+	time_tetsu++;
+
+	if (time_tetsu == 10 || time_tetsu == 20 || time_tetsu == 30) {
+		cont_tetsu++;
+	}
+
+	if (time_tetsu == 40 || time_tetsu == 50 || time_tetsu == 60) {
+		cont_tetsu--;
+	}
+	
 
 	//SKY SCROLL
 	if (scroll == -192)
@@ -349,7 +383,7 @@ update_status ModuleCharacterSelection::Update()
 		if (pos1p_x == 149) {
 			App->render->Blit(graphics, 12, 32, &portrait_tetsu, 0.75f);
 			App->render->Blit(graphics, 46, 166, &name_tetsu, 0.75f);
-			App->render->Blit(graphics, 96, 131, &(sprite_tetsu.GetCurrentFrame()));
+			App->render->Blit(graphics, 96, 131 + cont_tetsu, &(sprite_tetsu.GetCurrentFrame()));
 			selection = TETSU;
 		}
 

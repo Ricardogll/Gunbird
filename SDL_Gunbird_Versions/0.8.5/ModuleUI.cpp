@@ -144,6 +144,24 @@ ModuleUI::ModuleUI()
 	credit_number8.PushBack({ 183, 179, 8, 11 });
 	credit_number9.PushBack({ 183, 200, 8, 11 });
 
+	time_rect.PushBack({ 1, 215, 15, 16 });
+	time_rect.PushBack({ 17, 215, 15, 16 });
+	time_rect.PushBack({ 33, 215, 15, 16 });
+	time_rect.PushBack({ 49, 215, 15, 16 });
+	time_rect.PushBack({ 65, 215, 15, 16 });
+	time_rect.PushBack({ 81, 215, 15, 16 });
+	time_rect.PushBack({ 97, 215, 15, 16 });
+	time_rect.PushBack({ 113, 215, 15, 16 });
+	time_rect.PushBack({ 129, 215, 15, 16 });
+	time_rect.PushBack({ 145, 215, 15, 16 });
+	time_rect.PushBack({ 161, 215, 15, 16 });
+	time_rect.PushBack({ 177, 215, 15, 16 });
+	time_rect.PushBack({ 193, 215, 15, 16 });
+	time_rect.PushBack({ 209, 215, 15, 16 });
+	time_rect.PushBack({ 225, 215, 15, 16 });
+	time_rect.PushBack({ 241, 215, 15, 16 });
+	time_rect.speed = 0.28f;
+
 	black_screen = { 0, 0, SCREEN_WIDTH * SCREEN_SIZE, SCREEN_HEIGHT * SCREEN_SIZE };
 }
 
@@ -351,6 +369,7 @@ update_status ModuleUI::Update()
 		//TIME
 		char str[10];
 		sprintf_s(str, "%i", countdown);
+		App->render->Blit(graphics, 135, abs(App->render->camera.y / SCREEN_SIZE) + 138, &(time_rect.GetCurrentFrame()));
 		App->fonts->BlitText(138, abs(App->render->camera.y / SCREEN_SIZE) + 140, font_score, str);
 
 		timeover++;

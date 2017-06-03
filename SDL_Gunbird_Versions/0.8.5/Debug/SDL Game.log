@@ -1,22 +1,14 @@
-﻿  Enemy_Turret3.cpp
-c:\users\david\desktop\0.8.5\path.h(6): warning C4099: 'Animation': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
-  c:\users\david\desktop\0.8.5\animation.h(47): note: vea la declaración de 'Animation'
-c:\users\david\desktop\0.8.5\enemy.h(8): warning C4099: 'Path': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
-  c:\users\david\desktop\0.8.5\path.h(17): note: vea la declaración de 'Path'
-c:\users\david\desktop\0.8.5\enemy_turret3.cpp(103): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
-c:\users\david\desktop\0.8.5\enemy_turret3.cpp(104): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
-c:\users\david\desktop\0.8.5\enemy_turret3.cpp(109): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-c:\users\david\desktop\0.8.5\enemy_turret3.cpp(110): warning C4305: '*=': truncamiento de 'double' a 'float'
-c:\users\david\desktop\0.8.5\enemy_turret3.cpp(209): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-c:\users\david\desktop\0.8.5\enemy_turret3.cpp(214): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-c:\users\david\desktop\0.8.5\enemy_turret3.cpp(219): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-  Generando código...
-  Compilando...
-  ModuleEnemies.cpp
-c:\users\david\desktop\0.8.5\path.h(6): warning C4099: 'Animation': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
-  c:\users\david\desktop\0.8.5\animation.h(47): note: vea la declaración de 'Animation'
-c:\users\david\desktop\0.8.5\enemy.h(8): warning C4099: 'Path': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
-  c:\users\david\desktop\0.8.5\path.h(17): note: vea la declaración de 'Path'
-  Generando código...
-  SDL Game.vcxproj -> C:\Users\David\Desktop\0.8.5\Debug\Gunbird.exe
-  SDL Game.vcxproj -> C:\Users\David\Desktop\0.8.5\Debug\Gunbird.pdb (Full PDB)
+﻿  ModuleCharacterSelection.cpp
+c:\users\adrià gironès\desktop\0.8.5\path.h(6): warning C4099: 'Animation': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+  c:\users\adrià gironès\desktop\0.8.5\animation.h(47): note: vea la declaración de 'Animation'
+c:\users\adrià gironès\desktop\0.8.5\enemy.h(8): warning C4099: 'Path': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+  c:\users\adrià gironès\desktop\0.8.5\path.h(17): note: vea la declaración de 'Path'
+c:\users\adrià gironès\desktop\0.8.5\modulecharacterselection.cpp(414): warning C4553: '==': el operador no tiene efecto; ¿ha pensado en '='?
+c:\users\adrià gironès\desktop\0.8.5\modulecharacterselection.cpp(432): warning C4553: '==': el operador no tiene efecto; ¿ha pensado en '='?
+c:\users\adrià gironès\desktop\0.8.5\modulecharacterselection.cpp(465): warning C4553: '==': el operador no tiene efecto; ¿ha pensado en '='?
+c:\users\adrià gironès\desktop\0.8.5\modulecharacterselection.cpp(483): warning C4553: '==': el operador no tiene efecto; ¿ha pensado en '='?
+c:\users\adrià gironès\desktop\0.8.5\modulecharacterselection.cpp(516): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+c:\users\adrià gironès\desktop\0.8.5\modulecharacterselection.cpp(547): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+c:\users\adrià gironès\desktop\0.8.5\modulecharacterselection.cpp(550): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+  SDL Game.vcxproj -> C:\Users\Adrià Gironès\Desktop\0.8.5\Debug\Gunbird.exe
+  SDL Game.vcxproj -> C:\Users\Adrià Gironès\Desktop\0.8.5\Debug\Gunbird.pdb (Full PDB)

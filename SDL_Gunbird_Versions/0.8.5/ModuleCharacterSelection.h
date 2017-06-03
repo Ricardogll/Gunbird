@@ -68,6 +68,8 @@ public:
 	int pos_select;
 	int pos_select_2;
 
+	uint cont_tetsu;
+	uint time_tetsu;
 
 	uint selection_yuan_nang_fx;
 	uint selection_marion_fx;

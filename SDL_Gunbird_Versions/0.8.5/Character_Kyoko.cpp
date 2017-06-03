@@ -10,8 +10,10 @@
 Character_Kyoko::Character_Kyoko(int x, int y) : Character(x, y)
 {
 	// idle animation
-	idle.PushBack({ 217, 223, 19, 32 }); //1
-	idle.PushBack({ 246, 223, 19, 32 }); //2
+	idle.PushBack({ 607, 804, 34, 37 }); //1
+	idle.PushBack({ 649, 804, 34, 37 }); //2
+	idle.PushBack({ 692, 804, 34, 37 }); //3
+	idle.PushBack({ 735, 804, 34, 37 }); //4
 	idle.speed = 0.2f;
 
 	// left animation
@@ -40,7 +42,9 @@ Character_Kyoko::Character_Kyoko(int x, int y) : Character(x, y)
 	death.PushBack({ 289, 395, 31, 26 });
 
 	//blit
-	blit_idle.PushBack({ 217, 223, 19, 32 });
+	blit_idle.PushBack({ 607, 804, 34, 37 });
+	blit_idle.PushBack({ 0,0,0,0 });
+	blit_idle.PushBack({ 692, 804, 34, 37 });
 	blit_idle.PushBack({ 0,0,0,0 });
 	blit_idle.speed = 0.2f;
 
@@ -60,7 +64,7 @@ Character_Kyoko::Character_Kyoko(int x, int y) : Character(x, y)
 	blit_mright.PushBack({ 0, 0, 0,0 });
 	blit_mright.speed = 0.2f;
 
-	collider = App->collision->AddCollider({ position.x, position.y, 19, 32 }, COLLIDER_PLAYER, KYOKO, (Module*)App->player);
+	collider = App->collision->AddCollider({ position.x, position.y, 34, 37 }, COLLIDER_PLAYER, KYOKO, (Module*)App->player);
 
 	animation = &idle;
 
