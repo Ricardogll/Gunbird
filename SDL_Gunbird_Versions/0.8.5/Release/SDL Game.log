@@ -1,0 +1,10 @@
+﻿  ModuleEndScene.cpp
+c:\users\adrià gironès\desktop\0.8\Path.h(6): warning C4099: 'Animation': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+  c:\users\adrià gironès\desktop\0.8\Animation.h(47): note: vea la declaración de 'Animation'
+  Generando código
+  1 of 364 functions ( 0.3%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  Generación de código finalizada
+  SDL Game.vcxproj -> C:\Users\Adrià Gironès\Desktop\0.8\Release\Gunbird.exe
+  SDL Game.vcxproj -> C:\Users\Adrià Gironès\Desktop\0.8\Release\Gunbird.pdb (Full PDB)
