@@ -41,7 +41,7 @@ Enemy_Balloon::Enemy_Balloon(int x, int y) : Enemy(x, y)
 
 	lastTime = 0;
 
-	hitPoints = 25;
+	hitPoints = 80;
 
 	score = 500;
 

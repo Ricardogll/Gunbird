@@ -268,7 +268,7 @@ Enemy_Turret2::Enemy_Turret2(int x, int y) : Enemy(x, y)
 
 	lastTime = 0;
 
-	hitPoints = 3;
+	hitPoints = 12;
 
 	score = 500;
 

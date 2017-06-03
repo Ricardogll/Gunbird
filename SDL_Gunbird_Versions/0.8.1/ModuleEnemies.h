@@ -30,11 +30,15 @@ enum ENEMY_MOVE
 {
 	NO_MOVE,
 	BALLOON_CASTLE,
-	BUILDING_CASTLE, 
+	BUILDING_CASTLE,
 	TURRET_1,
 	TURRET_2,
 	MISSILE_1,
 	MISSILE_2,
+	MISSILE_3,
+	MISSILE_4,
+	DRONE1,
+	DRONE2,
 	_ROBOT
 };
 
@@ -81,10 +85,18 @@ private:
 
 	//Paths
 	Path balloonCastle;
+
 	Path turret1;
 	Path turret2;
+
 	Path missile1;
 	Path missile2;
+	Path missile3;
+	Path missile4;
+
+	Path drone1;
+	Path drone2;
+
 	Path robot;
 
 	Animation flag;

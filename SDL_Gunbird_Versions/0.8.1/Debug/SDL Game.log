@@ -1,18 +1,14 @@
-﻿  Character_YuanNang.cpp
-c:\users\adrià gironès\desktop\0.8.1\path.h(6): warning C4099: 'Animation': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
-  c:\users\adrià gironès\desktop\0.8.1\animation.h(47): note: vea la declaración de 'Animation'
-  Character_Valnus.cpp
-c:\users\adrià gironès\desktop\0.8.1\path.h(6): warning C4099: 'Animation': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
-  c:\users\adrià gironès\desktop\0.8.1\animation.h(47): note: vea la declaración de 'Animation'
-  Character_Tetsu.cpp
-c:\users\adrià gironès\desktop\0.8.1\path.h(6): warning C4099: 'Animation': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
-  c:\users\adrià gironès\desktop\0.8.1\animation.h(47): note: vea la declaración de 'Animation'
-  Character_Marion.cpp
-c:\users\adrià gironès\desktop\0.8.1\path.h(6): warning C4099: 'Animation': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
-  c:\users\adrià gironès\desktop\0.8.1\animation.h(47): note: vea la declaración de 'Animation'
-  Character_Kyoko.cpp
-c:\users\adrià gironès\desktop\0.8.1\path.h(6): warning C4099: 'Animation': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
-  c:\users\adrià gironès\desktop\0.8.1\animation.h(47): note: vea la declaración de 'Animation'
-  Generando código...
-  SDL Game.vcxproj -> C:\Users\Adrià Gironès\Desktop\0.8.1\Debug\Gunbird.exe
-  SDL Game.vcxproj -> C:\Users\Adrià Gironès\Desktop\0.8.1\Debug\Gunbird.pdb (Full PDB)
+﻿  Enemy_Turret3.cpp
+c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.8.1\path.h(6): warning C4099: 'Animation': type name first seen using 'class' now seen using 'struct'
+  c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.8.1\animation.h(47): note: see declaration of 'Animation'
+c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.8.1\enemy.h(8): warning C4099: 'Path': type name first seen using 'class' now seen using 'struct'
+  c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.8.1\path.h(17): note: see declaration of 'Path'
+c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.8.1\enemy_turret3.cpp(101): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.8.1\enemy_turret3.cpp(102): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.8.1\enemy_turret3.cpp(107): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.8.1\enemy_turret3.cpp(108): warning C4305: '*=': truncation from 'double' to 'float'
+c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.8.1\enemy_turret3.cpp(207): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.8.1\enemy_turret3.cpp(212): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\usuario\documents\github\gunbird\sdl_gunbird_versions\0.8.1\enemy_turret3.cpp(217): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  SDL Game.vcxproj -> C:\Users\Usuario\Documents\GitHub\Gunbird\SDL_Gunbird_Versions\0.8.1\Debug\Gunbird.exe
+  SDL Game.vcxproj -> C:\Users\Usuario\Documents\GitHub\Gunbird\SDL_Gunbird_Versions\0.8.1\Debug\Gunbird.pdb (Full PDB)

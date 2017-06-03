@@ -154,7 +154,7 @@ bool ModuleBackgroundCastle::Start()
 	//ENEMIES
 	App->enemies->AddEnemy(ENEMY_TYPES::BALLOON, BALLOON_CASTLE, 95, 1255);
 	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, NO_MOVE, 162, 1241);
-	//App->enemies->AddEnemy(ENEMY_TYPES::ROBOT, _ROBOT, 80, 1400);
+	//App->enemies->AddEnemy(ENEMY_TYPES::ROBOT, NO_MOVE, 80, 1400);
 
 	//BUILDING
 	App->enemies->AddEnemy(ENEMY_TYPES::BUILDING, BUILDING_CASTLE, 147, 1059);
@@ -166,10 +166,10 @@ bool ModuleBackgroundCastle::Start()
 	}
 
 	//MISILE
-	App->enemies->AddEnemy(ENEMY_TYPES::MISSILE, MISSILE_1, 90, 1230);
-	App->enemies->AddEnemy(ENEMY_TYPES::MISSILE, MISSILE_1, 60, 1200);
-	App->enemies->AddEnemy(ENEMY_TYPES::MISSILE, MISSILE_1, 30, 1170);
-	App->enemies->AddEnemy(ENEMY_TYPES::MISSILE, MISSILE_1, 10, 1140);
+	App->enemies->AddEnemy(ENEMY_TYPES::MISSILE, MISSILE_1, 90, 1130);
+	App->enemies->AddEnemy(ENEMY_TYPES::MISSILE, MISSILE_1, 60, 1100);
+	App->enemies->AddEnemy(ENEMY_TYPES::MISSILE, MISSILE_1, 30, 1070);
+	App->enemies->AddEnemy(ENEMY_TYPES::MISSILE, MISSILE_1, 10, 1040);
 
 	App->enemies->AddEnemy(ENEMY_TYPES::MISSILE, MISSILE_2, 36 + 228, 636);
 	App->enemies->AddEnemy(ENEMY_TYPES::MISSILE, MISSILE_2, 72 + 228, 636);
@@ -177,6 +177,43 @@ bool ModuleBackgroundCastle::Start()
 	App->enemies->AddEnemy(ENEMY_TYPES::MISSILE, MISSILE_2, 144 + 228, 636);
 	App->enemies->AddEnemy(ENEMY_TYPES::MISSILE, MISSILE_2, 180 + 228, 636);
 	App->enemies->AddEnemy(ENEMY_TYPES::MISSILE, MISSILE_2, 216 + 228, 636);
+
+	App->enemies->AddEnemy(ENEMY_TYPES::MISSILE, MISSILE_3, 14,218);
+	App->enemies->AddEnemy(ENEMY_TYPES::MISSILE, MISSILE_3, 58, 218);
+	App->enemies->AddEnemy(ENEMY_TYPES::MISSILE, MISSILE_3, 152, 218);
+	App->enemies->AddEnemy(ENEMY_TYPES::MISSILE, MISSILE_3, 200, 218);
+	App->enemies->AddEnemy(ENEMY_TYPES::MISSILE, MISSILE_3, 20, 206);
+	App->enemies->AddEnemy(ENEMY_TYPES::MISSILE, MISSILE_3, 64, 206);
+	App->enemies->AddEnemy(ENEMY_TYPES::MISSILE, MISSILE_3, 158, 206);
+	App->enemies->AddEnemy(ENEMY_TYPES::MISSILE, MISSILE_3, 206, 206);
+	App->enemies->AddEnemy(ENEMY_TYPES::MISSILE, MISSILE_3, 78, 230);
+	App->enemies->AddEnemy(ENEMY_TYPES::MISSILE, MISSILE_3, 128, 230);
+	/*App->enemies->AddEnemy(MISSILE, MISSILE_3, 550, );
+	App->enemies->AddEnemy(MISSILE, MISSILE_3, 540,);
+	App->enemies->AddEnemy(MISSILE, MISSILE_3, 540, );
+	App->enemies->AddEnemy(MISSILE, MISSILE_3, 540, );
+	App->enemies->AddEnemy(MISSILE, MISSILE_3,197, 540,);
+	App->enemies->AddEnemy(MISSILE, MISSILE_3,5, 530,);
+	App->enemies->AddEnemy(MISSILE, MISSILE_3,53, 530,);
+	App->enemies->AddEnemy(MISSILE, MISSILE_3,49, 530,);
+	App->enemies->AddEnemy(MISSILE, MISSILE_3, 197, 530,);
+	App->enemies->AddEnemy(MISSILE, MISSILE_3,75, 520,);
+	App->enemies->AddEnemy(MISSILE, MISSILE_3, 520);
+	App->enemies->AddEnemy(MISSILE, MISSILE_3, 515 );*/
+
+	//App->enemies->AddEnemy(MISSILE, 75, 550, 3, 1);
+	//App->enemies->AddEnemy(MISSILE, 123, 550, 3, 1);
+	//App->enemies->AddEnemy(MISSILE, 5, 540, 3, 1);
+	//App->enemies->AddEnemy(MISSILE, 53, 540, 3, 1);
+	//App->enemies->AddEnemy(MISSILE, 149, 540, 3, 1);
+	//App->enemies->AddEnemy(MISSILE, 197, 540, 3, 1);
+	//App->enemies->AddEnemy(MISSILE, 5, 530, 3, 1);
+	//App->enemies->AddEnemy(MISSILE, 53, 530, 3, 1);
+	//App->enemies->AddEnemy(MISSILE, 149, 530, 3, 1);
+	//App->enemies->AddEnemy(MISSILE, 197, 530, 3, 2);
+	//App->enemies->AddEnemy(MISSILE, 75, 520, 3, 1);
+	//App->enemies->AddEnemy(MISSILE, 123, 520, 3, 1);
+	//App->enemies->AddEnemy(MISSILE, 99, 515, 3, 2);
 
 	//TURRET2
 	App->enemies->AddEnemy(ENEMY_TYPES::TURRET2, TURRET_1, -75, 1185);
@@ -189,7 +226,7 @@ bool ModuleBackgroundCastle::Start()
 	App->enemies->AddEnemy(ENEMY_TYPES::TURRET2, NO_MOVE, 26, 430);
 	App->enemies->AddEnemy(ENEMY_TYPES::TURRET2, NO_MOVE, 170, 430);
 	App->enemies->AddEnemy(ENEMY_TYPES::TURRET2, TURRET_2, 250, 340);
-	App->enemies->AddEnemy(ENEMY_TYPES::TURRET2, TURRET_2, 100, 1480);
+	//App->enemies->AddEnemy(ENEMY_TYPES::TURRET2, TURRET_2, 100, 1480);
 
 	//TURRET3
 	App->enemies->AddEnemy(ENEMY_TYPES::TURRET3, NO_MOVE, 16, 826);
@@ -201,9 +238,21 @@ bool ModuleBackgroundCastle::Start()
 	App->enemies->AddEnemy(ENEMY_TYPES::VASE, NO_MOVE, 185, 475);
 
 	//DRONE
-	App->enemies->AddEnemy(ENEMY_TYPES::DRONE, NO_MOVE, 42, 1042);
-	//App->enemies->AddEnemy(ENEMY_TYPES::DRONE, NO_MOVE, 55, 1080);
-	//App->enemies->AddEnemy(ENEMY_TYPES::DRONE, NO_MOVE, 75, 1042);
+	App->enemies->AddEnemy(ENEMY_TYPES::DRONE, DRONE1, 30, 1042);
+	App->enemies->AddEnemy(ENEMY_TYPES::DRONE, DRONE1, 60, 1060);
+	App->enemies->AddEnemy(ENEMY_TYPES::DRONE, DRONE1, 90, 1042);
+
+	App->enemies->AddEnemy(ENEMY_TYPES::DRONE, DRONE2, 30, 983);
+	App->enemies->AddEnemy(ENEMY_TYPES::DRONE, DRONE2, 60, 1001);
+	App->enemies->AddEnemy(ENEMY_TYPES::DRONE, DRONE2, 90, 983);
+
+	App->enemies->AddEnemy(ENEMY_TYPES::DRONE, DRONE1, 30, 950);
+	App->enemies->AddEnemy(ENEMY_TYPES::DRONE, DRONE1, 60, 968);
+	App->enemies->AddEnemy(ENEMY_TYPES::DRONE, DRONE1, 90, 950);
+
+	App->enemies->AddEnemy(ENEMY_TYPES::DRONE, DRONE2, 30,900);
+	App->enemies->AddEnemy(ENEMY_TYPES::DRONE, DRONE2, 60, 918);
+	App->enemies->AddEnemy(ENEMY_TYPES::DRONE, DRONE2, 90, 900);
 
 	//App->enemies->AddEnemy(ENEMY_TYPES::MISSILE, NO_MOVE , 12, 1241);
 

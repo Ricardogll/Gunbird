@@ -82,7 +82,7 @@ Enemy_Turret3::Enemy_Turret3(int x, int y) : Enemy(x, y)
 
 	lastTime = 0;
 
-	hitPoints = 25;
+	hitPoints = 45;
 
 	score = 500;
 
@@ -117,35 +117,35 @@ void Enemy_Turret3::Move()
 			if (angle >= 0 && angle < REACH_ANGLE  / 2)
 				animation = &front;
 			else if (angle >= REACH_ANGLE  / 2 && angle < REACH_ANGLE  * (3 / 2))
-				animation = &r15;
+				animation = &r1;
 			else if (angle >= REACH_ANGLE *(3 / 2) && angle < REACH_ANGLE  * (5 / 2))
-				animation = &r14;
+				animation = &r2;
 			else if (angle >= REACH_ANGLE *(5 / 2) && angle < REACH_ANGLE  * (7 / 2))
-				animation = &r13;
+				animation = &r3;
 			else if (angle >= REACH_ANGLE *(7 / 2) && angle < REACH_ANGLE  * (9 / 2))
-				animation = &r12;
+				animation = &r4;
 			else if (angle >= REACH_ANGLE *(9 / 2) && angle < REACH_ANGLE  * (11 / 2))
-				animation = &r11;
+				animation = &r5;
 			else if (angle >= REACH_ANGLE *(11 / 2) && angle < REACH_ANGLE  * (13 / 2))
-				animation = &r10;
+				animation = &r6;
 			else if (angle >= REACH_ANGLE *(13 / 2) && angle < REACH_ANGLE  * (15 / 2))
-				animation = &r9;
+				animation = &r7;
 			else if (angle >= REACH_ANGLE *(15 / 2) && angle < REACH_ANGLE  * (17 / 2))
 				animation = &r8;
 			else if (angle >= REACH_ANGLE *(17 / 2) && angle < REACH_ANGLE  * (19 / 2))
-				animation = &r7;
+				animation = &r9;
 			else if (angle >= REACH_ANGLE *(19 / 2) && angle < REACH_ANGLE  * (21 / 2))
-				animation = &r6;
+				animation = &r10;
 			else if (angle >= REACH_ANGLE *(21 / 2) && angle < REACH_ANGLE  * (23 / 2))
-				animation = &r5;
+				animation = &r11;
 			else if (angle >= REACH_ANGLE *(23 / 2) && angle < REACH_ANGLE  * (25 / 2))
-				animation = &r4;
+				animation = &r12;
 			else if (angle >= REACH_ANGLE *(25 / 2) && angle < REACH_ANGLE  * (27 / 2))
-				animation = &r3;
+				animation = &r13;
 			else if (angle >= REACH_ANGLE *(27 / 2) && angle < REACH_ANGLE  * (29 / 2))
-				animation = &r2;
+				animation = &r14;
 			else if (angle >= REACH_ANGLE *(29 / 2) && angle < REACH_ANGLE  * 15)
-				animation = &r1;
+				animation = &r15;
 			else if (angle >= REACH_ANGLE * 15 && angle < REACH_ANGLE  * 16)
 				animation = &back;
 			}

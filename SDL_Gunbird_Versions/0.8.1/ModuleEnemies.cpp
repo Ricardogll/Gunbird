@@ -1,6 +1,7 @@
 #include "Application.h"
 #include "ModuleInput.h"
 #include "ModuleRender.h"
+#include "ModuleCollision.h"
 #include "ModuleEnemies.h"
 #include "ModuleParticles.h"
 #include "ModuleTextures.h"
@@ -48,7 +49,7 @@ ModuleEnemies::ModuleEnemies()
 	turret2.loop = false;
 
 	//Path Missile1
-	missile1.PushBack({ 1.0f, 1.0f }, 15000);
+	missile1.PushBack({ 1.5f, 1.5f }, 15000);
 	missile1.loop = true;
 
 	// Path Robot
@@ -62,6 +63,26 @@ ModuleEnemies::ModuleEnemies()
 	missile2.PushBack({ 0.0f, 3.0f }, 150);
 	missile2.loop = false;
 
+	//Path Missile3
+	missile3.PushBack({ 0.0f, 0.0f },0);
+	missile3.PushBack({ 0.0f, 1.5f }, 1500);
+	missile3.loop = false;
+
+	//Path Missile 4
+	missile4.PushBack({ 0.0f, 0.0f }, 0);
+	missile4.PushBack({1.0f,1.0f},1500);
+	missile4.loop = false;
+
+	//Path Drone
+	//drone1.PushBack({ 0.0f, 0.5f }, 0);
+	drone1.PushBack({ 0.5f,0.5f }, 2000);
+	drone1.loop = false;
+
+	//Path Drone 2
+	drone2.PushBack({ 0.0f, 0.5f }, 200);
+	drone2.PushBack({ -0.3f,0.3f }, 2000);
+	drone2.loop = false;
+
 	//FLAG
 	flag.PushBack({ 745,539,64,21 });
 	flag.PushBack({ 821,541,64,21 });
@@ -72,10 +93,7 @@ ModuleEnemies::ModuleEnemies()
 	flag.PushBack({ 745,615,64,21 });
 	flag.speed = 0.1f;
 
-	/*drone.PushBack({ 0.0f, 1.5f }, 100);
-	drone.PushBack({ 0.0f, 0.0f }, 150);
-	drone.PushBack({ 1.5f, 1.5f }, 150);*/
-
+	
 }
 
 // Destructor
@@ -260,6 +278,12 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 			case ENEMY_MOVE::MISSILE_2:
 				enemies[i]->path = missile2;
 				break;
+			case ENEMY_MOVE::MISSILE_3:
+				enemies[i]->path = missile3;
+				break;
+			case ENEMY_MOVE::MISSILE_4:
+				enemies[i]->path = missile3;
+				break;
 			default:
 				break;
 			}
@@ -288,6 +312,16 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 				enemies[i] = new Enemy_Drone(info.x, info.y);
 				enemies[i]->type = ENEMY_TYPES::DRONE;
 				enemies[i]->id = info.id;
+				switch (info.move) {
+				case ENEMY_MOVE::DRONE1:
+					enemies[i]->path = drone1;
+					break;
+				case ENEMY_MOVE::DRONE2:
+					enemies[i]->path = drone2;
+					break;
+				default:
+					break;
+				}
 				break;
 			
 			case ENEMY_TYPES::TURRET2:

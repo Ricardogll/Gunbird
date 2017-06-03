@@ -32,12 +32,10 @@ void Enemy_Drone::Move()
 {
 	position = original_pos + path.GetCurrentPosition(&animation);
 
-	currentTime = SDL_GetTicks();
+	animation = &drone;
+	//currentTime = SDL_GetTicks();
 
-	if (currentTime > (lastTime + 70)) {
-		animation = &drone;
-		lastTime = 0;
-	}
+	
 
 }
 

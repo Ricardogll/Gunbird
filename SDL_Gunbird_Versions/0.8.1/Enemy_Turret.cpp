@@ -20,7 +20,7 @@ Enemy_Turret::Enemy_Turret(int x, int y) : Enemy(x, y)
 	turret_red.PushBack({ 122,8,32,32 });
 	turret_red.speed = 0.25f;
 
-	hitPoints = 25;
+	hitPoints = 96;
 
 	score = 500;
 
