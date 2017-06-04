@@ -650,7 +650,7 @@ void Character_Tetsu::Dead() {
 				position.y -= 1;
 
 			else {
-				if (this->scroll == 0) {
+				if (this->scroll == 0 || App->render->activateScroll == false) {
 					position.y = abs(App->render->camera.y / SCREEN_SIZE) + 240;
 					this->spawnPlayer = false;
 					this->playerDead = false;
