@@ -52,6 +52,7 @@ If you want more information about the game, check the following link: https://g
      * S + D ➲ ↘
      * S + A ➲ ↙
      * LASER ➲ Left Control
+     
 ### Player 2
      * START ➲ Backspace
      * ↑ ➲ Move player up
