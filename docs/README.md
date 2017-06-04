@@ -76,6 +76,9 @@ If you want more information about the game, check the following link: https://g
      * ↓ + ← ➲ Move player ↙
      * RIGHT CTRL ➲ Laser
      
+## Download
+**You can download the latest version of Gunbird by Ratkid Studio TM [here](https://github.com/lFreecss/Gunbird/releases)!
+     
 ## Project page
 **Github project page**: [Project Page](https://github.com/lFreecss/Gunbird)
 
