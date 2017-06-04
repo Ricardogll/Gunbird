@@ -19,7 +19,7 @@ _**QA**: Victor Tirado_
 
 ## Installation
 
-Unzip the release folder and execute the .exe file (Contain a Changelist README from the 1.0 version)
+Unzip the release folder and execute the .exe file (Contain a changelist README from the 1.0 version)
 
 (Link)
 
@@ -70,7 +70,7 @@ If you want more information about the game, check the following link: https://g
 ## Project wiki
 **Github wiki page**: https://github.com/lFreecss/Gunbird/wiki
 
-##Project Twitter
+## Project Twitter
 **Twitter account page**: https://twitter.com/RatkidStudio
 
 CITM Terrassa 2016-2017
