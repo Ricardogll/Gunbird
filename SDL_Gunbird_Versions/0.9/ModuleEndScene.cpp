@@ -103,10 +103,10 @@ ModuleEndScene::ModuleEndScene()
 	rabbit_scene1.w = 71;
 	rabbit_scene1.h = 90;
 
-	kyoko_scene1.x = 23 ;
-	kyoko_scene1.y = 657;
-	kyoko_scene1.w = 98;
-	kyoko_scene1.h = 121 ;
+	kyoko_scene1.x = 11;
+	kyoko_scene1.y = 656;
+	kyoko_scene1.w = 86;
+	kyoko_scene1.h = 138;
 
 	//TEXTS
 	text_ash.x = 1;
@@ -488,7 +488,7 @@ update_status ModuleEndScene::Update()
 	if (App->savescore->saveCharacter[0] == KYOKO && App->savescore->saveCharacter[1] == NO_CHARACTER) {
 		if (cont_left < 206)
 			cont_left += 3;
-		App->render->Blit(graphics, 63, 119, &kyoko_scene1, 0.75f);
+		App->render->Blit(graphics, 64, 102, &kyoko_scene1, 0.75f);
 		App->render->Blit(graphics_text, -190 + cont_left, 249, &text_kyoko, 0.75f);
 		if (time == TIME_END_SCENE) {
 			App->fade->FadeToBlack(this, App->scorescreen, 1);
@@ -745,7 +745,7 @@ update_status ModuleEndScene::Update()
 	}
 
 	if ((App->savescore->saveCharacter[0] == KYOKO && App->savescore->saveCharacter[1] == TETSU) || (App->savescore->saveCharacter[0] == TETSU && App->savescore->saveCharacter[1] == KYOKO)) {
-		App->render->Blit(graphics, 63 - cont_right, 119, &kyoko_scene1, 0.75f);
+		App->render->Blit(graphics, 63 - cont_right, 102, &kyoko_scene1, 0.75f);
 		App->render->Blit(graphics, 225 - cont_right, 112, &tetsu_scene2, 0.75f);
 		App->render->Blit(graphics_text, 240 - cont_right, 249, &text_kyoko_tetsu2, 0.75f);
 
@@ -766,7 +766,7 @@ update_status ModuleEndScene::Update()
 	}
 
 	if ((App->savescore->saveCharacter[0] == YUAN_NANG && App->savescore->saveCharacter[1] == KYOKO) || (App->savescore->saveCharacter[0] == KYOKO && App->savescore->saveCharacter[1] == YUAN_NANG)) {
-		App->render->Blit(graphics, -172 + cont_left, 119, &kyoko_scene1, 0.75f);
+		App->render->Blit(graphics, -172 + cont_left, 102, &kyoko_scene1, 0.75f);
 		if (time < 320) {
 			App->render->Blit(graphics_text, -208 + cont_left, 249, &text_kyoko_yuan2, 0.75f);
 			App->render->Blit(graphics, 16 + cont_left, 112, &yuan_nang_scene4, 0.75f);
@@ -798,7 +798,7 @@ update_status ModuleEndScene::Update()
 	}
 
 	if ((App->savescore->saveCharacter[0] == KYOKO && App->savescore->saveCharacter[1] == MARION) || (App->savescore->saveCharacter[0] == MARION && App->savescore->saveCharacter[1] == KYOKO)) {
-		App->render->Blit(graphics, 287 - cont_right, 119, &kyoko_scene1, 0.75f);
+		App->render->Blit(graphics, 287 - cont_right, 102, &kyoko_scene1, 0.75f);
 		if (time < 320) {
 			App->render->Blit(graphics_text, 240 - cont_right, 249, &text_kyoko_marion2, 0.75f);
 			App->render->Blit(graphics, 32 - cont_right, 122, &marion_scene2, 0.75f);
@@ -830,7 +830,7 @@ update_status ModuleEndScene::Update()
 	}
 
 	if ((App->savescore->saveCharacter[0] == KYOKO && App->savescore->saveCharacter[1] == VALNUS) || (App->savescore->saveCharacter[0] == VALNUS && App->savescore->saveCharacter[1] == KYOKO)) {
-		App->render->Blit(graphics, 63 - cont_right, 121, &kyoko_scene1, 0.75f);
+		App->render->Blit(graphics, 63 - cont_right, 102, &kyoko_scene1, 0.75f);
 		App->render->Blit(graphics, 224 - cont_right, 112, &valnus_scene1, 0.75f);
 		App->render->Blit(graphics_text, 240 - cont_right, 249, &text_kyoko_valnus2, 0.75f);
 
@@ -851,7 +851,7 @@ update_status ModuleEndScene::Update()
 	}
 
 	if ((App->savescore->saveCharacter[0] == KYOKO && App->savescore->saveCharacter[1] == ASH) || (App->savescore->saveCharacter[0] == ASH && App->savescore->saveCharacter[1] == KYOKO)) {
-		App->render->Blit(graphics, -161 + cont_left, 119, &kyoko_scene1, 0.75f);
+		App->render->Blit(graphics, -161 + cont_left, 102, &kyoko_scene1, 0.75f);
 		App->render->Blit(graphics_text, -208 + cont_left, 249, &text_kyoko_ash2, 0.75f);
 		App->render->Blit(graphics, 11 + cont_left, 119, &ash_scene2, 0.75f);
 

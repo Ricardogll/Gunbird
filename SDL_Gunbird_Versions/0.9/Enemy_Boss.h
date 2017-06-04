@@ -10,7 +10,9 @@ private:
 	Animation boss;
 	Animation boss_white;
 	Animation boss_red;
+	Animation boss_nomove;
 	iPoint original_pos;
+	bool gate = false;
 
 public:
 	Enemy_Boss(int x, int y);

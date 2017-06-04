@@ -210,10 +210,10 @@ ModuleCharacterSelection::ModuleCharacterSelection()
 	valnus.PushBack({ 256, 443, 31, 30 }); //2
 	valnus.speed = 0.2f;
 
-	marion.PushBack({ 216, 71, 20, 32 }); //1
-	marion.PushBack({ 248, 71, 20, 32 }); //2
-	marion.PushBack({ 279, 71, 20, 32 }); //3
-	marion.PushBack({ 312, 71, 20, 32 }); //4
+	marion.PushBack({ 216, 72, 20, 31 }); //1
+	marion.PushBack({ 248, 72, 20, 31 }); //2
+	marion.PushBack({ 279, 72, 20, 31 }); //3
+	marion.PushBack({ 312, 72, 20, 31 }); //4
 	marion.speed = 0.25f;
 
 	ash.PushBack({ 217, 223, 19, 32 }); //1
@@ -389,7 +389,7 @@ update_status ModuleCharacterSelection::Update()
 
 		if (pos1p_x == 184) {
 			App->render->Blit(graphics, 12, 32, &portrait_kyoko, 0.75f);
-			App->render->Blit(graphics, 46, 166, &name_kyoko, 0.75f);
+			App->render->Blit(graphics, 42, 166, &name_kyoko, 0.75f);
 			App->render->Blit(graphics, 96, 135, &(sprite_kyoko.GetCurrentFrame()));
 			selection = KYOKO;
 		}

@@ -124,7 +124,7 @@ bool ModuleBackgroundCastle::Start()
 	selection_tetsu_fx = App->audio->LoadWAV("assets/audio/sound/gunbird-022_Tetsu_Selection.wav");
 	selection_valnus_fx = App->audio->LoadWAV("assets/audio/sound/gunbird-021_Valnus_Selection.wav");
 	selection_marion_fx = App->audio->LoadWAV("assets/audio/sound/gunbird-019_Marion_Selection.wav");
-	selection_kyoko_fx = App->audio->LoadWAV("assets/audio/sound/gunbird-023_Ash_Selection.wav");
+	selection_kyoko_fx = App->audio->LoadWAV("assets/audio/sound/Kyoko_Selection.wav");
 	change_selection_fx = App->audio->LoadWAV("assets/audio/sound/gunbird-050_Change_Character.wav");
 
 	App->ui->Enable();
@@ -186,7 +186,7 @@ bool ModuleBackgroundCastle::Start()
 	//ENEMIES
 	App->enemies->AddEnemy(ENEMY_TYPES::BALLOON, BALLOON_CASTLE, 95, 1255);
 	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, NO_MOVE, 162, 1241);
-	App->enemies->AddEnemy(ENEMY_TYPES::BOSS, NO_MOVE, 80, 1400);
+	App->enemies->AddEnemy(ENEMY_TYPES::BOSS, NO_MOVE, 36, 9);
 
 	//App->enemies->AddEnemy(ENEMY_TYPES::ROBOT, NO_MOVE, 80, 1400);
 	//App->enemies->AddEnemy(ENEMY_TYPES::RCANNON, NO_MOVE, 93, 1415);
@@ -459,7 +459,7 @@ update_status ModuleBackgroundCastle::Update()
 
 
 	if (App->input->keyboard[SDL_SCANCODE_F] == KEY_STATE::KEY_DOWN)
-		App->render->camera.y = (-1500 + SCREEN_HEIGHT) * SCREEN_SIZE; /////////////////////////////
+		App->render->camera.y = (-800 + SCREEN_HEIGHT) * SCREEN_SIZE; /////////////////////////////
 
 	if (App->input->keyboard[SDL_SCANCODE_G] == KEY_STATE::KEY_DOWN)
 		App->render->activateScroll = false; //////////////

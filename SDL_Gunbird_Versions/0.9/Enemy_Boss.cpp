@@ -1,10 +1,13 @@
 #include "Application.h"
 #include "Enemy_Boss.h"
 #include "ModuleCollision.h"
+#include "ModuleRender.h"
 #include "SDL\include\SDL_timer.h"
 
 Enemy_Boss::Enemy_Boss(int x, int y) : Enemy(x, y)
 {
+	boss_nomove.PushBack({ 0,0,0,0 });
+
 	boss.PushBack({ 1133,321,154,231 });
 	boss.PushBack({ 1343,325,154,231 });
 	boss.PushBack({ 1534,328,154,231 });
@@ -52,6 +55,11 @@ void Enemy_Boss::Move()
 	position = original_pos + path.GetCurrentPosition(&animation);
 
 	animation = &boss;
+
+	if (App->render->camera.y * SCREEN_SIZE >= -21) {
+		animation = &boss_nomove;
+	}
+		
 
 	if (hit_animation == true) {
 		animation = &boss_white;

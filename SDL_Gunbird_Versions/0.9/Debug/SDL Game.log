@@ -1,7 +1,14 @@
-﻿  Enemy_Boss.cpp
+﻿  ModuleCharacterSelection.cpp
 c:\users\adrià gironès\desktop\0.9\path.h(6): warning C4099: 'Animation': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
   c:\users\adrià gironès\desktop\0.9\animation.h(47): note: vea la declaración de 'Animation'
 c:\users\adrià gironès\desktop\0.9\enemy.h(8): warning C4099: 'Path': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
   c:\users\adrià gironès\desktop\0.9\path.h(17): note: vea la declaración de 'Path'
+c:\users\adrià gironès\desktop\0.9\modulecharacterselection.cpp(414): warning C4553: '==': el operador no tiene efecto; ¿ha pensado en '='?
+c:\users\adrià gironès\desktop\0.9\modulecharacterselection.cpp(432): warning C4553: '==': el operador no tiene efecto; ¿ha pensado en '='?
+c:\users\adrià gironès\desktop\0.9\modulecharacterselection.cpp(465): warning C4553: '==': el operador no tiene efecto; ¿ha pensado en '='?
+c:\users\adrià gironès\desktop\0.9\modulecharacterselection.cpp(483): warning C4553: '==': el operador no tiene efecto; ¿ha pensado en '='?
+c:\users\adrià gironès\desktop\0.9\modulecharacterselection.cpp(516): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+c:\users\adrià gironès\desktop\0.9\modulecharacterselection.cpp(547): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+c:\users\adrià gironès\desktop\0.9\modulecharacterselection.cpp(550): warning C4305: 'argumento': truncamiento de 'double' a 'float'
   SDL Game.vcxproj -> C:\Users\Adrià Gironès\Desktop\0.9\Debug\Gunbird.exe
   SDL Game.vcxproj -> C:\Users\Adrià Gironès\Desktop\0.9\Debug\Gunbird.pdb (Full PDB)

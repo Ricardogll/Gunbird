@@ -99,6 +99,8 @@ public:
 	Particle laser_valnus_2;
 	Particle laser_valnus_3;
 
+	Particle laser_kyoko;
+
 	Particle shot_enemy;
 	Particle shot_turret;
 	Particle explosion_turret;
@@ -111,7 +113,7 @@ public:
 	uint laser_ash_fx;
 	uint laser_tetsu_fx;
 	uint laser_valnus_fx;
-
+	uint laser_kyoko_fx;
 };
 
 #endif // __MODULEPARTICLES_H__

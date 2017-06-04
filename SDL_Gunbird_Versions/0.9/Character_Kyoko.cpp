@@ -191,28 +191,28 @@ void Character_Kyoko::Laser() {
 			if (level == 0) {
 				if (time == 0)
 				{
-					App->particles->AddParticle(App->particles->laser_ash, position.x + 4, position.y - 16, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
-					App->particles->AddParticle(App->particles->laser_ash, position.x + 12, position.y - 16, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
-					App->audio->PlayWAV(App->particles->laser_ash_fx);
+					App->particles->AddParticle(App->particles->laser_kyoko, position.x + 12, position.y - 16, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_kyoko, position.x + 20, position.y - 16, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
+					App->audio->PlayWAV(App->particles->laser_kyoko_fx);
 					shot = false;
 				}
 				if (time == 5)
 				{
-					App->particles->AddParticle(App->particles->laser_ash, position.x + 2, position.y - 16, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
-					App->particles->AddParticle(App->particles->laser_ash, position.x + 14, position.y - 16, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
-					App->audio->PlayWAV(App->particles->laser_ash_fx);
+					App->particles->AddParticle(App->particles->laser_kyoko, position.x + 10, position.y - 16, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_kyoko, position.x + 22, position.y - 16, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
+					App->audio->PlayWAV(App->particles->laser_kyoko_fx);
 				}
 				if (time == 10)
 				{
-					App->particles->AddParticle(App->particles->laser_ash, position.x + 5, position.y - 16, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
-					App->particles->AddParticle(App->particles->laser_ash, position.x + 11, position.y - 16, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
-					App->audio->PlayWAV(App->particles->laser_ash_fx);
+					App->particles->AddParticle(App->particles->laser_kyoko, position.x + 13, position.y - 16, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_kyoko, position.x + 19, position.y - 16, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
+					App->audio->PlayWAV(App->particles->laser_kyoko_fx);
 				}
 				if (time == 15)
 				{
-					App->particles->AddParticle(App->particles->laser_ash, position.x + 4, position.y - 16, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
-					App->particles->AddParticle(App->particles->laser_ash, position.x + 12, position.y - 16, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
-					App->audio->PlayWAV(App->particles->laser_ash_fx);
+					App->particles->AddParticle(App->particles->laser_kyoko, position.x + 12, position.y - 16, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_kyoko, position.x + 20, position.y - 16, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
+					App->audio->PlayWAV(App->particles->laser_kyoko_fx);
 					time = 0;
 					shot = true;
 				}
@@ -223,32 +223,32 @@ void Character_Kyoko::Laser() {
 			if (level == 1) {
 				if (time == 0)
 				{
-					App->particles->AddParticle(App->particles->laser_ash, position.x, position.y - 16, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
-					App->particles->AddParticle(App->particles->laser_ash, position.x + 8, position.y - 24, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
-					App->particles->AddParticle(App->particles->laser_ash, position.x + 16, position.y - 16, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
-					App->audio->PlayWAV(App->particles->laser_ash_fx);
+					App->particles->AddParticle(App->particles->laser_kyoko, position.x + 8, position.y - 16, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_kyoko, position.x + 16, position.y - 24, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_kyoko, position.x + 24, position.y - 16, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
+					App->audio->PlayWAV(App->particles->laser_kyoko_fx);
 					shot = false;
 				}
 				if (time == 5)
 				{
-					App->particles->AddParticle(App->particles->laser_ash, position.x - 1, position.y - 16, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
-					App->particles->AddParticle(App->particles->laser_ash, position.x + 8, position.y - 24, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
-					App->particles->AddParticle(App->particles->laser_ash, position.x + 17, position.y - 16, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
-					App->audio->PlayWAV(App->particles->laser_ash_fx);
+					App->particles->AddParticle(App->particles->laser_kyoko, position.x + 7, position.y - 16, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_kyoko, position.x + 16, position.y - 24, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_kyoko, position.x + 25, position.y - 16, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
+					App->audio->PlayWAV(App->particles->laser_kyoko_fx);
 				}
 				if (time == 10)
 				{
-					App->particles->AddParticle(App->particles->laser_ash, position.x - 3, position.y - 16, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
-					App->particles->AddParticle(App->particles->laser_ash, position.x + 8, position.y - 24, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
-					App->particles->AddParticle(App->particles->laser_ash, position.x + 19, position.y - 16, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
-					App->audio->PlayWAV(App->particles->laser_ash_fx);
+					App->particles->AddParticle(App->particles->laser_kyoko, position.x + 5, position.y - 16, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_kyoko, position.x + 16, position.y - 24, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_kyoko, position.x + 27, position.y - 16, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
+					App->audio->PlayWAV(App->particles->laser_kyoko_fx);
 				}
 				if (time == 15)
 				{
-					App->particles->AddParticle(App->particles->laser_ash, position.x, position.y - 16, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
-					App->particles->AddParticle(App->particles->laser_ash, position.x + 8, position.y - 24, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
-					App->particles->AddParticle(App->particles->laser_ash, position.x + 16, position.y - 16, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
-					App->audio->PlayWAV(App->particles->laser_ash_fx);
+					App->particles->AddParticle(App->particles->laser_kyoko, position.x + 8, position.y - 16, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_kyoko, position.x + 16, position.y - 24, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_kyoko, position.x + 24, position.y - 16, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
+					App->audio->PlayWAV(App->particles->laser_kyoko_fx);
 					time = 0;
 					shot = true;
 				}
@@ -259,36 +259,36 @@ void Character_Kyoko::Laser() {
 			if (level == 2) {
 				if (time == 0)
 				{
-					App->particles->AddParticle(App->particles->laser_ash, position.x, position.y - 16, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
-					App->particles->AddParticle(App->particles->laser_ash, position.x + 6, position.y - 24, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
-					App->particles->AddParticle(App->particles->laser_ash, position.x + 10, position.y - 24, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
-					App->particles->AddParticle(App->particles->laser_ash, position.x + 16, position.y - 16, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
-					App->audio->PlayWAV(App->particles->laser_ash_fx);
+					App->particles->AddParticle(App->particles->laser_kyoko, position.x + 8, position.y - 16, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_kyoko, position.x + 14, position.y - 24, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_kyoko, position.x + 18, position.y - 24, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_kyoko, position.x + 24, position.y - 16, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
+					App->audio->PlayWAV(App->particles->laser_kyoko_fx);
 					shot = false;
 				}
 				if (time == 5)
 				{
-					App->particles->AddParticle(App->particles->laser_ash, position.x - 1, position.y - 16, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
-					App->particles->AddParticle(App->particles->laser_ash, position.x + 5, position.y - 24, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
-					App->particles->AddParticle(App->particles->laser_ash, position.x + 11, position.y - 24, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
-					App->particles->AddParticle(App->particles->laser_ash, position.x + 17, position.y - 16, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
-					App->audio->PlayWAV(App->particles->laser_ash_fx);
+					App->particles->AddParticle(App->particles->laser_kyoko, position.x + 7, position.y - 16, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_kyoko, position.x + 13, position.y - 24, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_kyoko, position.x + 19, position.y - 24, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_kyoko, position.x + 25, position.y - 16, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
+					App->audio->PlayWAV(App->particles->laser_kyoko_fx);
 				}
 				if (time == 10)
 				{
-					App->particles->AddParticle(App->particles->laser_ash, position.x - 3, position.y - 16, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
-					App->particles->AddParticle(App->particles->laser_ash, position.x + 4, position.y - 24, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
-					App->particles->AddParticle(App->particles->laser_ash, position.x + 12, position.y - 24, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
-					App->particles->AddParticle(App->particles->laser_ash, position.x + 19, position.y - 16, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
-					App->audio->PlayWAV(App->particles->laser_ash_fx);
+					App->particles->AddParticle(App->particles->laser_kyoko, position.x + 5, position.y - 16, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_kyoko, position.x + 12, position.y - 24, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_kyoko, position.x + 20, position.y - 24, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_kyoko, position.x + 27, position.y - 16, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
+					App->audio->PlayWAV(App->particles->laser_kyoko_fx);
 				}
 				if (time == 15)
 				{
-					App->particles->AddParticle(App->particles->laser_ash, position.x, position.y - 16, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
-					App->particles->AddParticle(App->particles->laser_ash, position.x + 6, position.y - 24, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
-					App->particles->AddParticle(App->particles->laser_ash, position.x + 10, position.y - 24, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
-					App->particles->AddParticle(App->particles->laser_ash, position.x + 16, position.y - 16, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
-					App->audio->PlayWAV(App->particles->laser_ash_fx);
+					App->particles->AddParticle(App->particles->laser_kyoko, position.x + 8, position.y - 16, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_kyoko, position.x + 14, position.y - 24, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_kyoko, position.x + 18, position.y - 24, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_kyoko, position.x + 24, position.y - 16, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
+					App->audio->PlayWAV(App->particles->laser_kyoko_fx);
 					time = 0;
 					shot = true;
 				}
@@ -299,44 +299,44 @@ void Character_Kyoko::Laser() {
 			if (level == 3) {
 				if (time == 0)
 				{
-					App->particles->AddParticle(App->particles->laser_ash, position.x - 5, position.y - 16, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
-					App->particles->AddParticle(App->particles->laser_ash, position.x, position.y - 20, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
-					App->particles->AddParticle(App->particles->laser_ash, position.x + 4, position.y - 24, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
-					App->particles->AddParticle(App->particles->laser_ash, position.x + 12, position.y - 24, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
-					App->particles->AddParticle(App->particles->laser_ash, position.x + 16, position.y - 20, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
-					App->particles->AddParticle(App->particles->laser_ash, position.x + 21, position.y - 16, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
-					App->audio->PlayWAV(App->particles->laser_ash_fx);
+					App->particles->AddParticle(App->particles->laser_kyoko, position.x + 3, position.y - 16, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_kyoko, position.x + 8, position.y - 20, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_kyoko, position.x + 12, position.y - 24, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_kyoko, position.x + 20, position.y - 24, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_kyoko, position.x + 24, position.y - 20, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_kyoko, position.x + 29, position.y - 16, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
+					App->audio->PlayWAV(App->particles->laser_kyoko_fx);
 					shot = false;
 				}
 				if (time == 5)
 				{
-					App->particles->AddParticle(App->particles->laser_ash, position.x - 2, position.y - 16, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
-					App->particles->AddParticle(App->particles->laser_ash, position.x + 2, position.y - 20, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
-					App->particles->AddParticle(App->particles->laser_ash, position.x + 6, position.y - 24, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
-					App->particles->AddParticle(App->particles->laser_ash, position.x + 10, position.y - 24, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
-					App->particles->AddParticle(App->particles->laser_ash, position.x + 14, position.y - 20, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
-					App->particles->AddParticle(App->particles->laser_ash, position.x + 18, position.y - 16, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
-					App->audio->PlayWAV(App->particles->laser_ash_fx);
+					App->particles->AddParticle(App->particles->laser_kyoko, position.x + 6, position.y - 16, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_kyoko, position.x + 10, position.y - 20, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_kyoko, position.x + 14, position.y - 24, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_kyoko, position.x + 18, position.y - 24, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_kyoko, position.x + 22, position.y - 20, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_kyoko, position.x + 26, position.y - 16, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
+					App->audio->PlayWAV(App->particles->laser_kyoko_fx);
 				}
 				if (time == 10)
 				{
-					App->particles->AddParticle(App->particles->laser_ash, position.x - 3, position.y - 16, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
-					App->particles->AddParticle(App->particles->laser_ash, position.x + 1, position.y - 20, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
-					App->particles->AddParticle(App->particles->laser_ash, position.x + 5, position.y - 24, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
-					App->particles->AddParticle(App->particles->laser_ash, position.x + 11, position.y - 24, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
-					App->particles->AddParticle(App->particles->laser_ash, position.x + 15, position.y - 20, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
-					App->particles->AddParticle(App->particles->laser_ash, position.x + 19, position.y - 16, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
-					App->audio->PlayWAV(App->particles->laser_ash_fx);
+					App->particles->AddParticle(App->particles->laser_kyoko, position.x + 5, position.y - 16, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_kyoko, position.x + 9, position.y - 20, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_kyoko, position.x + 13, position.y - 24, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_kyoko, position.x + 19, position.y - 24, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_kyoko, position.x + 23, position.y - 20, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_kyoko, position.x + 27, position.y - 16, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
+					App->audio->PlayWAV(App->particles->laser_kyoko_fx);
 				}
 				if (time == 15)
 				{
-					App->particles->AddParticle(App->particles->laser_ash, position.x - 5, position.y - 16, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
-					App->particles->AddParticle(App->particles->laser_ash, position.x, position.y - 20, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
-					App->particles->AddParticle(App->particles->laser_ash, position.x + 4, position.y - 24, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
-					App->particles->AddParticle(App->particles->laser_ash, position.x + 12, position.y - 24, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
-					App->particles->AddParticle(App->particles->laser_ash, position.x + 16, position.y - 20, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
-					App->particles->AddParticle(App->particles->laser_ash, position.x + 21, position.y - 16, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
-					App->audio->PlayWAV(App->particles->laser_ash_fx);
+					App->particles->AddParticle(App->particles->laser_kyoko, position.x + 3, position.y - 16, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_kyoko, position.x + 8, position.y - 20, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_kyoko, position.x + 12, position.y - 24, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_kyoko, position.x + 20, position.y - 24, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_kyoko, position.x + 24, position.y - 20, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_kyoko, position.x + 29, position.y - 16, 0, SPEED_LASER_PLAYER, KYOKO, COLLIDER_PLAYER_SHOT);
+					App->audio->PlayWAV(App->particles->laser_kyoko_fx);
 					time = 0;
 					shot = true;
 				}
