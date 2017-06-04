@@ -15,9 +15,8 @@ If you want more information about the game, check the following link: https://g
 ## Game Controls
      * SPACE ➲ Insert Coins
      
-
-### Player 1
-     * START ➲ 1
+### Player 1 (Keyboard)
+     * 1 ➲ Start
      * W ➲ Move player up
      * S ➲ Move player down
      * A ➲ Move player left
@@ -26,18 +25,32 @@ If you want more information about the game, check the following link: https://g
      * W + A ➲ ↖
      * S + D ➲ ↘
      * S + A ➲ ↙
-     * LASER ➲ Left Control
-### Player 2
-     * START ➲ Backspace
+     * LEFT CTRL ➲ Laser
+     
+### Player 1 (Gamepad)
+     * START BUTTON ➲ Start
+     * GAMEPAD_UP ➲ Move player up
+     * GAMEPAD_DOWN ➲ Move player down
+     * GAMEPAD_LEFT ➲ Move player left
+     * GAMEPAD_RIGHT ➲ Move player right
+     * GAMEPAD_UP + GAMEPAD_RIGHT ➲ Move player ↗
+     * GAMEPAD_UP + GAMEPAD_LEFT ➲ Move player ↖
+     * GAMEPAD_DOWN + GAMEPAD_RIGHT ➲ Move player ↘
+     * GAMEPAD_DOWN + GAMEPAD_LEFT ➲ Move player ↙
+     * A BUTTON ➲ Laser
+     
+### Player 2 (Keyboard)
+     * BACKSPACE ➲ Start
      * ↑ ➲ Move player up
      * ↓ ➲ Move player down
      * ← ➲ Move player left
      * → ➲ Move player right
-     * ↑ + → ➲ ↗
-     * ↑ + ← ➲ ↖
-     * ↓ + → ➲ ↘
-     * ↓ + ← ➲ ↙
-     * LASER ➲ Right Control
+     * ↑ + → ➲ Move player ↗
+     * ↑ + ← ➲ Move player ↖
+     * ↓ + → ➲ Move player ↘
+     * ↓ + ← ➲ Move player ↙
+     * RIGHT CTRL ➲ Laser
+     
 ## Changelist
 ### 0.1 Version (27/03/2017)
 * First map
@@ -148,6 +161,26 @@ If you want more information about the game, check the following link: https://g
      * Fix bugs (change control)
      * Fix Tetsu sprite animations
      * Fix bugs: debug functionality gates
+     
+### 1.0 Version (04/06/2017)
+* Implemented turret_2 spinning animation
+* Gamepad for player 1
+* Added final cinematics for every character
+* Added turret_3 with its spinning animation and shoot 
+* Added patterns for turret_2 and drone
+* Created enemy_robot and its sppining cannons and pattern
+* Created new character from scratch: Kyoko
+* Created Kyoko sprites 
+* Implemented Kyoko sprites and animations
+* Created and implemented Kyoko final scenes
+* Implemented scene with the Trump pirates before the boss
+* Put the boss with its animations and shoot patterns
+* **Bug-Fixing**
+   * Fixed Control Stick and shoot button doubling up
+   * Fixed Bug in final character scenes
+   * Fixed Soldiers that didn't move (background animation)
+   * Fixed error in the sprite of the enemy_drone
+   * Fixed bugs with the audio (WAV)
 
 ## Credits
 * **Github project page**: https://github.com/lFreecss/Gunbird
