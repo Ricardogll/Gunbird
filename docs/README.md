@@ -22,7 +22,7 @@ _**QA**: Victor Tirado_
 
 Unzip the release folder and execute the .exe file (Contain a changelist README from the 1.0 version)
 
-(Link)
+[Release](https://github.com/lFreecss/Gunbird/releases/tag/1.0)
 
 ## Description
 
