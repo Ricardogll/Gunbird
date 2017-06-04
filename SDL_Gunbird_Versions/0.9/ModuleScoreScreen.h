@@ -25,7 +25,7 @@ public:
 	SDL_Rect scorescreen;
 	int font_credit = -1;
 	char score_text[10];
-	SDL_Rect live[5];
+	SDL_Rect live[6];
 
 };
 

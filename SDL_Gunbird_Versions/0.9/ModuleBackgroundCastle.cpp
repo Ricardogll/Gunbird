@@ -186,6 +186,7 @@ bool ModuleBackgroundCastle::Start()
 	//ENEMIES
 	App->enemies->AddEnemy(ENEMY_TYPES::BALLOON, BALLOON_CASTLE, 95, 1255);
 	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, NO_MOVE, 162, 1241);
+	App->enemies->AddEnemy(ENEMY_TYPES::BOSS, NO_MOVE, 80, 1400);
 
 	//App->enemies->AddEnemy(ENEMY_TYPES::ROBOT, NO_MOVE, 80, 1400);
 	//App->enemies->AddEnemy(ENEMY_TYPES::RCANNON, NO_MOVE, 93, 1415);

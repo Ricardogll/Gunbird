@@ -44,6 +44,11 @@ ModuleScoreScreen::ModuleScoreScreen()
 	live[4].y = 240;
 	live[4].w = 15;
 	live[4].h = 12;
+
+	live[5].x = 103; //KYOKO
+	live[5].y = 239;
+	live[5].w = 14;
+	live[5].h = 14;
 }
 
 ModuleScoreScreen::~ModuleScoreScreen()
@@ -134,6 +139,8 @@ update_status ModuleScoreScreen::Update()
 			App->render->Blit(portraits_graphics, 181, abs(App->render->camera.y / SCREEN_SIZE) + j - 2, &live[3], 1.0f);
 		if (App->savescore->saveCharacter[i] == VALNUS) 
 			App->render->Blit(portraits_graphics, 181, abs(App->render->camera.y / SCREEN_SIZE) + j - 2, &live[4], 1.0f);
+		if (App->savescore->saveCharacter[i] == KYOKO)
+			App->render->Blit(portraits_graphics, 181, abs(App->render->camera.y / SCREEN_SIZE) + j - 2, &live[5], 1.0f);
 
 		j -= 24;
 	}

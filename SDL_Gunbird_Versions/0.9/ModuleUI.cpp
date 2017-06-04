@@ -129,10 +129,10 @@ ModuleUI::ModuleUI()
 	live[4].w = 15;
 	live[4].h = 12;
 
-	live[5].x = 67; //KYOKO
-	live[5].y = 240;
-	live[5].w = 15;
-	live[5].h = 12;
+	live[5].x = 103; //KYOKO
+	live[5].y = 239;
+	live[5].w = 14;
+	live[5].h = 14;
 
 	credit_number1.PushBack({ 181, 37, 8, 11 });
 	credit_number2.PushBack({ 183, 57, 8, 11 });
@@ -705,7 +705,7 @@ void ModuleUI::liveCharacter(uint player)
 		}
 
 		if (App->player->characters[player]->live >= 2) {
-			(App->render->Blit(graphics, 22 + cont, abs(App->render->camera.y / SCREEN_SIZE) + 21, &live[5], 1.0f));
+			(App->render->Blit(graphics, 20 + cont, abs(App->render->camera.y / SCREEN_SIZE) + 21, &live[5], 1.0f));
 		}
 	}
 }

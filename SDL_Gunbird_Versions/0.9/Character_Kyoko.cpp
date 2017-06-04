@@ -17,29 +17,21 @@ Character_Kyoko::Character_Kyoko(int x, int y) : Character(x, y)
 	idle.speed = 0.2f;
 
 	// left animation
-	left.PushBack({ 219, 265, 17, 32 });
-	left.PushBack({ 246, 265, 17, 32 });
+	left.PushBack({ 609, 897, 33, 30 });
+	left.PushBack({ 649, 897, 33, 30 });
+	left.PushBack({ 689, 897, 33, 30 });
+	left.PushBack({ 729, 897, 33, 30 });
 	left.speed = 0.2f;
 
-	// more left animation
-	mleft.PushBack({ 273, 265, 14, 32 });
-	mleft.PushBack({ 297, 265, 14, 32 });
-	mleft.loop = true;
-	mleft.speed = 0.2f;
-
 	// right animation
-	right.PushBack({ 266, 307, 17, 32 });
-	right.PushBack({ 293, 307, 17, 32 });
+	right.PushBack({ 608, 853, 32, 28  });
+	right.PushBack({ 644, 853, 32, 28 });
+	right.PushBack({ 680, 853, 32, 28 });
+	right.PushBack({ 716, 853, 32, 28 });
 	right.speed = 0.2f;
 
-	// more right animation
-	mright.PushBack({ 218, 307, 14, 32 });
-	mright.PushBack({ 242, 307, 14, 32 });
-	mright.loop = true;
-	mright.speed = 0.2f;
-
 	// death sprite
-	death.PushBack({ 289, 395, 31, 26 });
+	death.PushBack({ 611, 943, 27, 22 });
 
 	//blit
 	blit_idle.PushBack({ 607, 804, 34, 37 });
@@ -48,23 +40,19 @@ Character_Kyoko::Character_Kyoko(int x, int y) : Character(x, y)
 	blit_idle.PushBack({ 0,0,0,0 });
 	blit_idle.speed = 0.2f;
 
-	blit_left.PushBack({ 219, 265, 17, 32 });
+	blit_left.PushBack({ 609, 897, 33, 30 });
+	blit_left.PushBack({ 0, 0, 0,0 });
+	blit_left.PushBack({ 689, 897, 33, 30 });
 	blit_left.PushBack({ 0, 0, 0,0 });
 	blit_left.speed = 0.2f;
 
-	blit_mleft.PushBack({ 273, 265, 14, 32 });
-	blit_mleft.PushBack({ 0, 0, 0, 0 });
-	blit_mleft.speed = 0.2f;
-
-	blit_right.PushBack({ 266, 307, 17, 32 });
+	blit_right.PushBack({ 608, 853, 32, 28 });
+	blit_right.PushBack({ 0,0,0,0 });
+	blit_right.PushBack({ 680, 853, 32, 28 });
 	blit_right.PushBack({ 0,0,0,0 });
 	blit_right.speed = 0.2f;
 
-	blit_mright.PushBack({ 218, 307, 14, 32 });
-	blit_mright.PushBack({ 0, 0, 0,0 });
-	blit_mright.speed = 0.2f;
-
-	collider = App->collision->AddCollider({ position.x, position.y, 34, 37 }, COLLIDER_PLAYER, KYOKO, (Module*)App->player);
+	collider = App->collision->AddCollider({ position.x, position.y, 14, 23 }, COLLIDER_PLAYER, KYOKO, (Module*)App->player);
 
 	animation = &idle;
 
@@ -98,13 +86,13 @@ void Character_Kyoko::Move()
 				(App->player->characters[1] != nullptr && App->player->characters[1]->type == KYOKO && App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT))
 			{
 				if (inmortal == false)
-					animation = &mright;
+					animation = &right;
 				else
-					animation = &blit_mright;
+					animation = &blit_right;
 
 				position.x += speed;
-				if (position.x > (SCREEN_WIDTH - 19)) {
-					position.x = (SCREEN_WIDTH - 19);
+				if (position.x > (SCREEN_WIDTH - 32)) {
+					position.x = (SCREEN_WIDTH - 32);
 				}
 			}
 
@@ -112,9 +100,9 @@ void Character_Kyoko::Move()
 				(App->player->characters[1] != nullptr && App->player->characters[1]->type == KYOKO && App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_REPEAT))
 			{
 				if (inmortal == false)
-					animation = &mleft;
+					animation = &left;
 				else
-					animation = &blit_mleft;
+					animation = &blit_left;
 
 				position.x -= speed;
 				if (position.x < 0) {
@@ -131,8 +119,8 @@ void Character_Kyoko::Move()
 					animation = &blit_idle;
 
 				position.y -= speed;
-				if (position.y < (abs(App->render->camera.y) / SCREEN_SIZE) + 32) {
-					position.y = (abs(App->render->camera.y) / SCREEN_SIZE) + 32;
+				if (position.y < (abs(App->render->camera.y) / SCREEN_SIZE) + 37) {
+					position.y = (abs(App->render->camera.y) / SCREEN_SIZE) + 37;
 				}
 			}
 
@@ -190,6 +178,9 @@ void Character_Kyoko::Move()
 				else
 					animation = &blit_idle;
 		}
+
+	if (collider != nullptr)
+		collider->SetPos(position.x + 10, position.y + 2);
 }
 
 void Character_Kyoko::Laser() {

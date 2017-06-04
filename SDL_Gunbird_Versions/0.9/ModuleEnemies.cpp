@@ -19,9 +19,10 @@
 #include "Enemy_Missile.h"
 #include "Enemy_Turret3.h"
 #include "Enemy_Rcannon.h"
-
+#include "Enemy_Boss.h"
 #include "PowerUp.h"
 #include "Coin.h"
+#include "ModuleBackgroundCastle.h"
 
 #define SPAWN_MARGIN 70
 
@@ -152,8 +153,6 @@ update_status ModuleEnemies::Update()
 
 	if (building2_destroyed == false)
 		App->render->Blit(sprites, 110, 785, &(flag.GetCurrentFrame()));
-	
-	
 
 	//if (App->input->keyboard[SDL_SCANCODE_ESCAPE]) {
 	//	for (uint i = 0; i < MAX_ENEMIES; ++i) {
@@ -183,6 +182,18 @@ update_status ModuleEnemies::PostUpdate()
 				enemies[i] = nullptr;
 			}
 		}
+	}
+
+	if (robot_destroyed == true) {
+		for (uint i = 0; i < MAX_ENEMIES; ++i) {
+			if (enemies[i] != nullptr) {
+				if (enemies[i]->type == ENEMY_TYPES::RCANNON) {
+					delete enemies[i];
+					enemies[i] = nullptr;
+				}
+			}
+		}
+		robot_destroyed = false;
 	}
 
 	return UPDATE_CONTINUE;
@@ -367,6 +378,11 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 			enemies[i]->type = ENEMY_TYPES::TURRET3;
 			enemies[i]->id = info.id;
 			break;
+		case ENEMY_TYPES::BOSS:
+			enemies[i] = new Enemy_Boss(info.x, info.y);
+			enemies[i]->type = ENEMY_TYPES::BOSS;
+			enemies[i]->id = info.id;
+			break;
 		case ENEMY_TYPES::COIN:
 			enemies[i] = new Coin(info.x, info.y);
 			enemies[i]->type = ENEMY_TYPES::COIN;
@@ -395,13 +411,13 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 					break;
 				}
 			}
-			if (enemies[i]->type == ENEMY_TYPES::RCANNON) {
+			/*if (enemies[i]->type == ENEMY_TYPES::RCANNON) {
 				if (robot_destroyed == true) {
 					delete enemies[i];
 					enemies[i] = nullptr;
 				}
 				break;
-			}
+			}*/
 
 			if (enemies[i]->type == ENEMY_TYPES::BALLOON) {
 				if (enemies[i]->getHitPoints() == 0) {
@@ -492,6 +508,17 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 				if (enemies[i]->getHitPoints() == 0) {
 					scoreEnemy(enemies[i], c2);
 					App->audio->PlayWAV(explosion1);
+					App->particles->AddParticle(App->particles->explosion_turret, (c1->rect.x - ((c1->rect.w)) / 2), (c1->rect.y - ((c1->rect.h)) / 2), NULL, NULL, NULL);
+					delete enemies[i];
+					enemies[i] = nullptr;
+					break;
+				}
+			}
+			if (enemies[i]->type == ENEMY_TYPES::BOSS) {
+				if (enemies[i]->getHitPoints() == 0) {
+					scoreEnemy(enemies[i], c2);
+					App->audio->PlayWAV(explosion1);
+					App->background3->boss_dead = true;
 					App->particles->AddParticle(App->particles->explosion_turret, (c1->rect.x - ((c1->rect.w)) / 2), (c1->rect.y - ((c1->rect.h)) / 2), NULL, NULL, NULL);
 					delete enemies[i];
 					enemies[i] = nullptr;

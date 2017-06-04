@@ -211,6 +211,8 @@ void Character_Marion::Move()
 			else
 				animation = &blit_idle;
 	}
+	if (collider != nullptr)
+		collider->SetPos(position.x, position.y);
 }
 
 void Character_Marion::Laser() {

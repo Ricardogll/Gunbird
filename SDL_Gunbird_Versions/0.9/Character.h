@@ -13,7 +13,7 @@ struct Collider;
 #define SPEED_VALNUS 2
 #define SPEED_YUAN_NANG 2
 #define SPEED_TETSU 2
-#define SPEED_KYOKO 3
+#define SPEED_KYOKO 2
 
 class Character
 {
