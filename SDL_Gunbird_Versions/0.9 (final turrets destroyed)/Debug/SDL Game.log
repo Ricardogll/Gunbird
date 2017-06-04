@@ -1,0 +1,16 @@
+﻿  ModuleBackgroundCastle.cpp
+c:\users\david\desktop\0.9\path.h(6): warning C4099: 'Animation': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+  c:\users\david\desktop\0.9\animation.h(47): note: vea la declaración de 'Animation'
+c:\users\david\desktop\0.9\enemy.h(8): warning C4099: 'Path': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+  c:\users\david\desktop\0.9\path.h(17): note: vea la declaración de 'Path'
+c:\users\david\desktop\0.9\modulebackgroundcastle.cpp(410): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+c:\users\david\desktop\0.9\modulebackgroundcastle.cpp(413): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+c:\users\david\desktop\0.9\modulebackgroundcastle.cpp(418): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+c:\users\david\desktop\0.9\modulebackgroundcastle.cpp(421): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+c:\users\david\desktop\0.9\modulebackgroundcastle.cpp(425): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+c:\users\david\desktop\0.9\modulebackgroundcastle.cpp(428): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+c:\users\david\desktop\0.9\modulebackgroundcastle.cpp(451): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+c:\users\david\desktop\0.9\modulebackgroundcastle.cpp(452): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+c:\users\david\desktop\0.9\modulebackgroundcastle.cpp(453): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+  SDL Game.vcxproj -> C:\Users\David\Desktop\0.9\Debug\Gunbird.exe
+  SDL Game.vcxproj -> C:\Users\David\Desktop\0.9\Debug\Gunbird.pdb (Full PDB)
