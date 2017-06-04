@@ -34,7 +34,8 @@ If you want more information about the game, check the following link: https://g
 
 ## Gameplay
 
-(video)
+<iframe width="560" height="315" src="https://www.youtube.com/embed/p02AMfDflSA" frameborder="0" allowfullscreen></iframe>
+
 
 ## Game Controls
      * SPACE ➲ Insert Coins
