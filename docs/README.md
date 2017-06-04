@@ -40,9 +40,8 @@ If you want more information about the game, check the following link: https://g
 ## Game Controls
      * SPACE ➲ Insert Coins
      
-
-### Player 1
-     * START ➲ 1
+### Player 1 (Keyboard)
+     * 1 ➲ Start
      * W ➲ Move player up
      * S ➲ Move player down
      * A ➲ Move player left
@@ -51,19 +50,31 @@ If you want more information about the game, check the following link: https://g
      * W + A ➲ ↖
      * S + D ➲ ↘
      * S + A ➲ ↙
-     * LASER ➲ Left Control
+     * LEFT CTRL ➲ Laser
      
-### Player 2
-     * START ➲ Backspace
+### Player 1 (Gamepad)
+     * START BUTTON ➲ Start
+     * GAMEPAD_UP ➲ Move player up
+     * GAMEPAD_DOWN ➲ Move player down
+     * GAMEPAD_LEFT ➲ Move player left
+     * GAMEPAD_RIGHT ➲ Move player right
+     * GAMEPAD_UP + GAMEPAD_RIGHT ➲ Move player ↗
+     * GAMEPAD_UP + GAMEPAD_LEFT ➲ Move player ↖
+     * GAMEPAD_DOWN + GAMEPAD_RIGHT ➲ Move player ↘
+     * GAMEPAD_DOWN + GAMEPAD_LEFT ➲ Move player ↙
+     * A BUTTON ➲ Laser
+     
+### Player 2 (Keyboard)
+     * BACKSPACE ➲ Start
      * ↑ ➲ Move player up
      * ↓ ➲ Move player down
      * ← ➲ Move player left
      * → ➲ Move player right
-     * ↑ + → ➲ ↗
-     * ↑ + ← ➲ ↖
-     * ↓ + → ➲ ↘
-     * ↓ + ← ➲ ↙
-     * LASER ➲ Right Control
+     * ↑ + → ➲ Move player ↗
+     * ↑ + ← ➲ Move player ↖
+     * ↓ + → ➲ Move player ↘
+     * ↓ + ← ➲ Move player ↙
+     * RIGHT CTRL ➲ Laser
      
 ## Project page
 **Github project page**: [Project Page](https://github.com/lFreecss/Gunbird)
