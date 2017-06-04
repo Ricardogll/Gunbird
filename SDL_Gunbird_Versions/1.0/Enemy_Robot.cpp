@@ -94,7 +94,10 @@ void Enemy_Robot::Move()
 	if (time >= 700)
 	{
 		animation = &stand;
-
+		if (hit_animation == true) {
+			animation = &robot_white;
+			hit_animation = false;
+		}
 	}
 	time++;
 }

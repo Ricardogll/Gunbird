@@ -405,9 +405,10 @@ update_status ModuleUI::Update()
 		}
 
 		if (App->player->characters[0]->live == -1) {
-			if (App->input->keyboard[SDL_SCANCODE_1] == KEY_STATE::KEY_DOWN || App->input->gamepad.START == CONTROLLER_STATE::BUTTON_DOWN && App->player->coins > 0) {
+			if ((App->input->keyboard[SDL_SCANCODE_1] == KEY_STATE::KEY_DOWN || App->input->gamepad.START == CONTROLLER_STATE::BUTTON_DOWN) && App->player->coins > 0) {
 				activatePlayer1_ui = true;
-				App->player->coins--;
+				if (App->player->coins > 0)
+					App->player->coins--;
 				if (App->player->characters[1] != nullptr)
 					activatePlayer2_ui = true;
 
@@ -434,9 +435,10 @@ update_status ModuleUI::Update()
 
 		if (App->player->characters[1] != nullptr) {
 			if (App->player->characters[1]->live == -1) {
-				if ((App->input->keyboard[SDL_SCANCODE_1] == KEY_STATE::KEY_DOWN || App->input->keyboard[SDL_SCANCODE_BACKSPACE] == KEY_STATE::KEY_DOWN || App->input->gamepad.START == CONTROLLER_STATE::BUTTON_DOWN) && App->player->coins > 0) {
+				if (((App->input->keyboard[SDL_SCANCODE_1] == KEY_STATE::KEY_DOWN || App->input->keyboard[SDL_SCANCODE_BACKSPACE] == KEY_STATE::KEY_DOWN || App->input->gamepad.START == CONTROLLER_STATE::BUTTON_DOWN)) && App->player->coins > 0) {
 					activatePlayer1_ui = true;
-					App->player->coins--;
+					if (App->player->coins > 0)
+						App->player->coins--;
 					if (App->player->characters[1] != nullptr)
 						activatePlayer2_ui = true;
 
