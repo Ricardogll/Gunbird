@@ -17,6 +17,12 @@ _**Code**: Adrià Gironès_
 _**QA**: Victor Tirado_
 * **Github**: [VictorTirado](https://github.com/VictorTirado)
 
+## Installation
+
+Unzip the release folder and execute the .exe file (Contain a Changelist README from the 1.0 version)
+
+(Link)
+
 ## Description
 
 Gunbird is a shoot'em up game released in Japanese arcades in 1994 by Psikyo. Later, it was included in the videogame consoles Sega Saturn, Play Station and the PC platform Steam. It was included in the Gunbird Special Edition which collects first and second Gunbird editions. Out of Japan, the game was re-named to Mobile Light Force.
@@ -29,11 +35,45 @@ If you want more information about the game, check the following link: https://g
 
 (video)
 
-## Installation
+## Game Controls
+     * SPACE ➲ Insert Coins
+     
 
-Unzip the release folder and execute the .exe file
+### Player 1
+     * START ➲ 1
+     * W ➲ Move player up
+     * S ➲ Move player down
+     * A ➲ Move player left
+     * D ➲ Move player right
+     * W + D ➲ ↗
+     * W + A ➲ ↖
+     * S + D ➲ ↘
+     * S + A ➲ ↙
+     * LASER ➲ Left Control
+### Player 2
+     * START ➲ Backspace
+     * ↑ ➲ Move player up
+     * ↓ ➲ Move player down
+     * ← ➲ Move player left
+     * → ➲ Move player right
+     * ↑ + → ➲ ↗
+     * ↑ + ← ➲ ↖
+     * ↓ + → ➲ ↘
+     * ↓ + ← ➲ ↙
+     * LASER ➲ Right Control
+     
+## Project page
+**Github project page**: https://github.com/lFreecss/Gunbird
 
-(Link)
+(You can check all of the Changelist in our project page)
+
+## Project wiki
+**Github wiki page**: https://github.com/lFreecss/Gunbird/wiki
+
+##Project Twitter
+**Twitter account page**: https://twitter.com/RatkidStudio
+
+CITM Terrassa 2016-2017
 
 
 
