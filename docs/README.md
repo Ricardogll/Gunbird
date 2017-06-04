@@ -63,15 +63,15 @@ If you want more information about the game, check the following link: https://g
      * LASER ➲ Right Control
      
 ## Project page
-**Github project page**: https://github.com/lFreecss/Gunbird
+**Github project page**: [Project Page](https://github.com/lFreecss/Gunbird)
 
 (You can check all of the Changelist in our project page)
 
 ## Project wiki
-**Github wiki page**: https://github.com/lFreecss/Gunbird/wiki
+**Github wiki page**: [Project Wiki](https://github.com/lFreecss/Gunbird/wiki)
 
 ## Project Twitter
-**Twitter account page**: https://twitter.com/RatkidStudio
+**Twitter account page**: [Twitter](https://twitter.com/RatkidStudio)
 
 CITM Terrassa 2016-2017
 
